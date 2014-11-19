@@ -1,0 +1,10 @@
+C:\Users\jrodriguezc\Desktop\UPC_2014_02\TP2\APP_NET\APP\Pacifico.SINCO\Pacifico.SINCO.WEB\bin\Pacifico.SINCO.WEB.dll.config
+C:\Users\jrodriguezc\Desktop\UPC_2014_02\TP2\APP_NET\APP\Pacifico.SINCO\Pacifico.SINCO.WEB\bin\Pacifico.SINCO.WEB.dll
+C:\Users\jrodriguezc\Desktop\UPC_2014_02\TP2\APP_NET\APP\Pacifico.SINCO\Pacifico.SINCO.WEB\bin\Pacifico.SINCO.WEB.pdb
+C:\Users\jrodriguezc\Desktop\UPC_2014_02\TP2\APP_NET\APP\Pacifico.SINCO\Pacifico.SINCO.WEB\obj\Debug\Pacifico.SINCO.WEB.csprojResolveAssemblyReference.cache
+C:\Users\jrodriguezc\Desktop\UPC_2014_02\TP2\APP_NET\APP\Pacifico.SINCO\Pacifico.SINCO.WEB\obj\Debug\Pacifico.SINCO.WEB.dll
+C:\Users\jrodriguezc\Desktop\UPC_2014_02\TP2\APP_NET\APP\Pacifico.SINCO\Pacifico.SINCO.WEB\obj\Debug\Pacifico.SINCO.WEB.pdb
+C:\Users\jrodriguezc\Desktop\UPC_2014_02\TP2\APP_NET\APP\Pacifico.SINCO\Pacifico.SINCO.WEB\bin\Pacifico.SINCO.EN.dll
+C:\Users\jrodriguezc\Desktop\UPC_2014_02\TP2\APP_NET\APP\Pacifico.SINCO\Pacifico.SINCO.WEB\bin\Pacifico.SINCO.UTL.dll
+C:\Users\jrodriguezc\Desktop\UPC_2014_02\TP2\APP_NET\APP\Pacifico.SINCO\Pacifico.SINCO.WEB\bin\Pacifico.SINCO.EN.pdb
+C:\Users\jrodriguezc\Desktop\UPC_2014_02\TP2\APP_NET\APP\Pacifico.SINCO\Pacifico.SINCO.WEB\bin\Pacifico.SINCO.UTL.pdb

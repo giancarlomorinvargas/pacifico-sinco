@@ -1,0 +1,147 @@
+/************************************************************
+* Botones
+************************************************************/
+.css_btn_general {
+    background-color: #FE9900;
+    /*background-image: url(../images/fondos/fnd_btn_general.gif);*/
+    height: 23px;
+    cursor: pointer;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: bold !important;
+    color: #FFF;
+    border: solid;
+    border-color: #FE9900;
+    border-collapse: collapse;
+    padding-left: 9px;
+    padding-right: 9px;
+    margin-left: 3px;
+    margin-right: 3px;
+    border-style: solid;
+    border-width: 1px;
+}
+
+
+.css_btn_login {
+    border: 1;
+    background-color: #f9f9f9 !important;
+    cursor: pointer !important;
+    font-weight: bold !important;
+    padding: 2px 12px 2px 12px;
+    text-align: center !important;
+    width: auto !important;
+    overflow: visible;
+    color: #464646;
+    background-image: url(../images/fondos/fnd_btn_login.gif);
+    border-color: #c3c3c3) !important;
+	border-style: solid;
+    border-width: 1px;
+    background-position: bottom;
+    background-repeat: repeat-x;
+}
+
+
+/************************************************************
+* Inputs
+************************************************************/
+input[type='text'], input[type='file'], input[type='password']
+{
+    border: 1px solid #a6a6a7;
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 10pt !important;
+	font-size: 12px;
+    color: #464646;
+	padding: 3px;
+}
+
+textarea{
+	font-family: Arial, Helvetica, sans-serif !important;
+}
+
+.css_input_error[type='text'], .css_input_error[type='textarea'], .css_input_error[type='password']
+{
+    background-color: #fbefef;
+    border-collapse: collapse;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #FA5858;
+    color: #666;
+    font-size: 8pt;
+    padding: 2px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.css_input_inactivo[type='text'], .css_input_inactivo[type='textarea'], .css_input_inactivo[type='password']
+{
+    border: 1px solid darkgray;
+    font-size: 9pt;
+    color: gray;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #F5F4F4;
+}
+
+
+/************************************************************
+* Select
+************************************************************/
+select {
+    border: 1px solid #a6a6a7;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #464646;
+    font-size: 12px;
+}
+
+.css_select_error{
+    -moz-border-radius: 2px 2px 2px 2px;
+    background-color: #FBEFEF;
+    border-width: 1px;
+    border-collapse: collapse;
+    border-style: solid;
+    border-color: #FA5858;
+    font-size: 8pt;
+    color: #333;
+    padding: 1px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+}
+
+
+
+/************************************************************
+* Calendario
+************************************************************/
+.css_calendario
+{
+    border-width: 1px;
+    border-style: solid;
+    border-color: darkgray; 
+    font-family: Arial, Helvetica, sans-serif;
+    color: #585858;
+    height:20px;
+    font-size: 8pt;
+    background-image: url('../images/calendario.gif');
+    background-repeat: no-repeat;
+    background-position: right;
+    background-color: #F5F4F4;
+}
+
+.css_calendario_error
+{
+    border-width: 9px;
+    border-style: solid;
+    border-color: #FA5858 !important; 
+    font-family: Arial, Helvetica, sans-serif;
+    color: #585858;
+    height:20px;
+    font-size: 8pt;
+    background-image: url('../images/calendario.gif');
+    background-repeat: no-repeat;
+    background-position: right;
+    background-color: #FBEFEF;
+}
+
+.css_frm_inactivo{
+	background-color: #EEE !important;
+	color: gray !important;	
+}
