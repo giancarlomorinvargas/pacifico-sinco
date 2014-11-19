@@ -1,0 +1,502 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{65D9A365-C776-488E-9236-145488BEAD33}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Pacifico.SINCO.WEB</RootNamespace>
+    <AssemblyName>Pacifico.SINCO.WEB</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Default.aspx" />
+    <Content Include="Error.aspx" />
+    <Content Include="MasterPage.Master" />
+    <Content Include="MasterPageModal.Master" />
+    <None Include="Service References\wsPresupuesto\service.wsdl" />
+    <None Include="Service References\wsPresupuesto\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\wsPresupuesto\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\wsSiniestro\service.wsdl" />
+    <None Include="Service References\wsSiniestro\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\wsSiniestro\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\wsUtil\configuration91.svcinfo" />
+    <None Include="Service References\wsUtil\configuration.svcinfo" />
+    <None Include="Service References\wsUtil\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Login.aspx" />
+    <Content Include="Modulos\Comun\mdl_BSQ_Informe_Vehicular.aspx" />
+    <Content Include="Modulos\Comun\mdl_BSQ_Poliza.aspx" />
+    <Content Include="Modulos\Comun\mdl_BSQ_Procurador.aspx" />
+    <Content Include="Modulos\Comun\mdl_BSQ_Repuesto.aspx" />
+    <Content Include="Modulos\Presupuesto\frm_AGR_Presupuesto.aspx" />
+    <Content Include="Modulos\Presupuesto\frm_BSQ_Presupuesto.aspx" />
+    <Content Include="Modulos\Presupuesto\frm_CNS_Presupuesto.aspx" />
+    <Content Include="Modulos\Presupuesto\frm_MOD_Presupuesto.aspx" />
+    <Content Include="Modulos\Principal.aspx" />
+    <Content Include="Modulos\Siniestro\frm_AGR_Siniestro.aspx" />
+    <Content Include="Modulos\Siniestro\frm_BSQ_Siniestro.aspx" />
+    <Content Include="Modulos\Siniestro\frm_CNS_Siniestro.aspx" />
+    <Content Include="Modulos\Siniestro\frm_MOD_Siniestro.aspx" />
+    <None Include="Service References\wsSiniestro\configuration91.svcinfo" />
+    <None Include="Service References\wsSiniestro\configuration.svcinfo" />
+    <None Include="Service References\wsSiniestro\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\wsPresupuesto\configuration91.svcinfo" />
+    <None Include="Service References\wsPresupuesto\configuration.svcinfo" />
+    <None Include="Service References\wsPresupuesto\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Util\css\css_formulario.css" />
+    <Content Include="Util\css\css_fuente.css" />
+    <Content Include="Util\css\css_global.css" />
+    <Content Include="Util\css\css_tema.css" />
+    <Content Include="Util\css\css_tema_A.css" />
+    <Content Include="Util\css\jquery\jquery-ui-1.8.15.custom.css" />
+    <Content Include="Util\css\jquery\jquery.jdMenu.css" />
+    <Content Include="Util\images\btn-cerrar-popup.gif" />
+    <Content Include="Util\images\btn-editar.png" />
+    <Content Include="Util\images\btn-eliminar.gif" />
+    <Content Include="Util\images\calendario.gif" />
+    <Content Include="Util\images\fondos\fnd_btn_general.gif" />
+    <Content Include="Util\images\fondos\fnd_btn_login.gif" />
+    <Content Include="Util\images\fondos\fnd_pagina.jpg" />
+    <Content Include="Util\images\iconos\ico_btn_buscar.jpg" />
+    <Content Include="Util\images\iconos\ico_btn_cancelar.jpg" />
+    <Content Include="Util\images\iconos\ico_btn_editar.jpg" />
+    <Content Include="Util\images\iconos\ico_btn_grabar.jpg" />
+    <Content Include="Util\images\iconos\ico_btn_inicio.jpg" />
+    <Content Include="Util\images\iconos\ico_btn_nuevo.jpg" />
+    <Content Include="Util\images\iconos\ico_cerrar_sesion.jpg" />
+    <Content Include="Util\images\iconos\ico_mdl_abogados.jpg" />
+    <Content Include="Util\images\iconos\ico_mdl_agenda.jpg" />
+    <Content Include="Util\images\iconos\ico_mdl_clientes.jpg" />
+    <Content Include="Util\images\iconos\ico_mdl_colaboradores.jpg" />
+    <Content Include="Util\images\iconos\ico_mdl_configuracion.jpg" />
+    <Content Include="Util\images\iconos\ico_mdl_dominio.jpg" />
+    <Content Include="Util\images\iconos\ico_mdl_empresas.jpg" />
+    <Content Include="Util\images\iconos\ico_mdl_estadistica.jpg" />
+    <Content Include="Util\images\iconos\ico_mdl_expedientes.jpg" />
+    <Content Include="Util\images\iconos\ico_mdl_expHistorico.jpg" />
+    <Content Include="Util\images\iconos\ico_mdl_facturacion.jpg" />
+    <Content Include="Util\images\iconos\ico_mdl_informes.jpg" />
+    <Content Include="Util\images\iconos\ico_mdl_juzgados.jpg" />
+    <Content Include="Util\images\iconos\ico_mdl_organismos.jpg" />
+    <Content Include="Util\images\iconos\ico_mdl_poderes.jpg" />
+    <Content Include="Util\images\iconos\ico_mdl_procurador.jpg" />
+    <Content Include="Util\images\iconos\ico_mdl_roles.jpg" />
+    <Content Include="Util\images\iconos\ico_mdl_usuarios.jpg" />
+    <Content Include="Util\images\iconos\ico_menu_usuario.jpg" />
+    <Content Include="Util\images\img_login.jpg" />
+    <Content Include="Util\images\img_logo.jpg" />
+    <Content Include="Util\images\indiceDown.gif" />
+    <Content Include="Util\images\indiceUp.gif" />
+    <Content Include="Util\images\jquery\fnd_tituloModal.png" />
+    <Content Include="Util\images\jquery\ui-bg_flat_55_999999_40x100.png" />
+    <Content Include="Util\images\jquery\ui-bg_flat_75_aaaaaa_40x100.png" />
+    <Content Include="Util\images\jquery\ui-bg_glass_45_0078ae_1x400.png" />
+    <Content Include="Util\images\jquery\ui-bg_glass_55_f8da4e_1x400.png" />
+    <Content Include="Util\images\jquery\ui-bg_glass_75_79c9ec_1x400.png" />
+    <Content Include="Util\images\jquery\ui-bg_gloss-wave_45_e14f1c_500x100.png" />
+    <Content Include="Util\images\jquery\ui-bg_gloss-wave_50_6eac2c_500x100.png" />
+    <Content Include="Util\images\jquery\ui-bg_gloss-wave_75_2191c0_500x100.png" />
+    <Content Include="Util\images\jquery\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="Util\images\jquery\ui-icons_0078ae_256x240.png" />
+    <Content Include="Util\images\jquery\ui-icons_056b93_256x240.png" />
+    <Content Include="Util\images\jquery\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="Util\images\jquery\ui-icons_e0fdff_256x240.png" />
+    <Content Include="Util\images\jquery\ui-icons_f5e175_256x240.png" />
+    <Content Include="Util\images\jquery\ui-icons_f7a50d_256x240.png" />
+    <Content Include="Util\images\jquery\ui-icons_fcd113_256x240.png" />
+    <Content Include="Util\images\menu\fnd_menuIcono.gif" />
+    <Content Include="Util\images\menu\ico_menu.gif" />
+    <Content Include="Util\images\menu\img_separator.gif" />
+    <Content Include="Util\images\ok.gif" />
+    <Content Include="Util\images\PV16x16.ico" />
+    <Content Include="Util\images\question.gif" />
+    <Content Include="Util\images\tema\fnd_cabecera.jpg" />
+    <Content Include="Util\images\tema\fnd_cabecera_left.jpg" />
+    <Content Include="Util\images\tema\fnd_cabecera_right.jpg" />
+    <Content Include="Util\images\tema\fnd_cuerpo_center.jpg" />
+    <Content Include="Util\images\tema\fnd_cuerpo_left.jpg" />
+    <Content Include="Util\images\tema\fnd_cuerpo_right.jpg" />
+    <Content Include="Util\images\tema\fnd_linea_A.jpg" />
+    <Content Include="Util\images\tema\fnd_linea_B.jpg" />
+    <Content Include="Util\images\tema\fnd_linea_C.jpg" />
+    <Content Include="Util\images\tema\fnd_linea_D.jpg" />
+    <Content Include="Util\images\tema\fnd_linea_E.jpg" />
+    <Content Include="Util\images\tema\fnd_linea_F.jpg" />
+    <Content Include="Util\images\tema\fnd_linea_G.jpg" />
+    <Content Include="Util\images\tema\fnd_linea_H.jpg" />
+    <Content Include="Util\images\tema\fnd_linea_I.jpg" />
+    <Content Include="Util\images\tema\fnd_linea_J.jpg" />
+    <Content Include="Util\images\tema\fnd_linea_K.jpg" />
+    <Content Include="Util\images\tema\fnd_linea_L.jpg" />
+    <Content Include="Util\images\tema\fnd_linea_M.jpg" />
+    <Content Include="Util\images\tema\fnd_linea_N.jpg" />
+    <Content Include="Util\images\tema\fnd_linea_O.jpg" />
+    <Content Include="Util\images\tema\fnd_linea_P.jpg" />
+    <Content Include="Util\images\tema\fnd_linea_Q.jpg" />
+    <Content Include="Util\images\tema\fnd_linea_R.jpg" />
+    <Content Include="Util\images\tema\fnd_linea_S.jpg" />
+    <Content Include="Util\images\tema\fnd_linea_T.jpg" />
+    <Content Include="Util\images\tema\fnd_menu_separador.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_bottom_center.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_bottom_left.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_bottom_right.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_middle_left.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_middle_right.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_center_A.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_center_B.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_center_C.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_center_D.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_center_E.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_center_F.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_center_G.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_center_H.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_center_I.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_center_J.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_center_K.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_center_L.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_center_M.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_center_N.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_center_O.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_center_P.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_center_Q.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_center_R.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_center_S.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_center_T.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_left_A.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_left_B.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_left_C.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_left_D.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_left_E.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_left_F.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_left_G.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_left_H.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_left_I.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_left_J.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_left_K.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_left_L.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_left_M.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_left_N.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_left_O.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_left_P.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_left_Q.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_left_R.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_left_S.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_left_T.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_right_A.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_right_B.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_right_C.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_right_D.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_right_E.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_right_F.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_right_G.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_right_H.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_right_I.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_right_J.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_right_K.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_right_L.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_right_M.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_right_N.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_right_O.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_right_P.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_right_Q.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_right_R.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_right_S.jpg" />
+    <Content Include="Util\images\tema\fnd_panel_top_right_T.jpg" />
+    <Content Include="Util\images\warning.gif" />
+    <Content Include="Util\js\jquery\jquery-1.6.2.min.js" />
+    <Content Include="Util\js\jquery\jquery-ui-1.8.13.custom.min.js" />
+    <Content Include="Util\js\jquery\jquery.bgiframe.js" />
+    <Content Include="Util\js\jquery\jquery.dimensions.js" />
+    <Content Include="Util\js\jquery\jquery.jdMenu.js" />
+    <Content Include="Util\js\jquery\jquery.js" />
+    <Content Include="Util\js\jquery\jquery.positionBy.js" />
+    <Content Include="Util\js\js_util.date.js" />
+    <Content Include="Util\js\js_util.funcion.js" />
+    <Content Include="Util\js\js_util.modal.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPage.Master.cs">
+      <DependentUpon>MasterPage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPage.Master.designer.cs">
+      <DependentUpon>MasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPageModal.Master.cs">
+      <DependentUpon>MasterPageModal.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPageModal.Master.designer.cs">
+      <DependentUpon>MasterPageModal.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\Comun\mdl_BSQ_Informe_Vehicular.aspx.cs">
+      <DependentUpon>mdl_BSQ_Informe_Vehicular.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modulos\Comun\mdl_BSQ_Informe_Vehicular.aspx.designer.cs">
+      <DependentUpon>mdl_BSQ_Informe_Vehicular.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\Comun\mdl_BSQ_Poliza.aspx.cs">
+      <DependentUpon>mdl_BSQ_Poliza.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modulos\Comun\mdl_BSQ_Poliza.aspx.designer.cs">
+      <DependentUpon>mdl_BSQ_Poliza.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\Comun\mdl_BSQ_Procurador.aspx.cs">
+      <DependentUpon>mdl_BSQ_Procurador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modulos\Comun\mdl_BSQ_Procurador.aspx.designer.cs">
+      <DependentUpon>mdl_BSQ_Procurador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\Comun\mdl_BSQ_Repuesto.aspx.cs">
+      <DependentUpon>mdl_BSQ_Repuesto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modulos\Comun\mdl_BSQ_Repuesto.aspx.designer.cs">
+      <DependentUpon>mdl_BSQ_Repuesto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\Presupuesto\frm_AGR_Presupuesto.aspx.cs">
+      <DependentUpon>frm_AGR_Presupuesto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modulos\Presupuesto\frm_AGR_Presupuesto.aspx.designer.cs">
+      <DependentUpon>frm_AGR_Presupuesto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\Presupuesto\frm_BSQ_Presupuesto.aspx.cs">
+      <DependentUpon>frm_BSQ_Presupuesto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modulos\Presupuesto\frm_BSQ_Presupuesto.aspx.designer.cs">
+      <DependentUpon>frm_BSQ_Presupuesto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\Presupuesto\frm_CNS_Presupuesto.aspx.cs">
+      <DependentUpon>frm_CNS_Presupuesto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modulos\Presupuesto\frm_CNS_Presupuesto.aspx.designer.cs">
+      <DependentUpon>frm_CNS_Presupuesto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\Presupuesto\frm_MOD_Presupuesto.aspx.cs">
+      <DependentUpon>frm_MOD_Presupuesto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modulos\Presupuesto\frm_MOD_Presupuesto.aspx.designer.cs">
+      <DependentUpon>frm_MOD_Presupuesto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\Principal.aspx.cs">
+      <DependentUpon>Principal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modulos\Principal.aspx.designer.cs">
+      <DependentUpon>Principal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\Siniestro\frm_AGR_Siniestro.aspx.cs">
+      <DependentUpon>frm_AGR_Siniestro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modulos\Siniestro\frm_AGR_Siniestro.aspx.designer.cs">
+      <DependentUpon>frm_AGR_Siniestro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\Siniestro\frm_BSQ_Siniestro.aspx.cs">
+      <DependentUpon>frm_BSQ_Siniestro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modulos\Siniestro\frm_BSQ_Siniestro.aspx.designer.cs">
+      <DependentUpon>frm_BSQ_Siniestro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\Siniestro\frm_CNS_Siniestro.aspx.cs">
+      <DependentUpon>frm_CNS_Siniestro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modulos\Siniestro\frm_CNS_Siniestro.aspx.designer.cs">
+      <DependentUpon>frm_CNS_Siniestro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\Siniestro\frm_MOD_Siniestro.aspx.cs">
+      <DependentUpon>frm_MOD_Siniestro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modulos\Siniestro\frm_MOD_Siniestro.aspx.designer.cs">
+      <DependentUpon>frm_MOD_Siniestro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\wsPresupuesto\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\wsSiniestro\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\wsUtil\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\wsUtil\service.wsdl" />
+    <None Include="Service References\wsUtil\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\wsUtil\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Util\images\fondos\Thumbs.db" />
+    <Content Include="Util\images\iconos\Thumbs.db" />
+    <Content Include="Util\images\jquery\Thumbs.db" />
+    <Content Include="Util\images\menu\Thumbs.db" />
+    <Content Include="Util\images\tema\Thumbs.db" />
+    <Content Include="Util\images\Thumbs.db" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Pacifico.SINCO.EN\Pacifico.SINCO.EN.csproj">
+      <Project>{9c094b5e-cd29-4ec9-aeb5-0ce96a23c930}</Project>
+      <Name>Pacifico.SINCO.EN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Pacifico.SINCO.UTL\Pacifico.SINCO.UTL.csproj">
+      <Project>{c9709638-6a58-4fe6-8a28-4ad7d7984631}</Project>
+      <Name>Pacifico.SINCO.UTL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\wsPresupuesto\" />
+    <WCFMetadataStorage Include="Service References\wsSiniestro\" />
+    <WCFMetadataStorage Include="Service References\wsUtil\" />
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>1567</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:1567/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
