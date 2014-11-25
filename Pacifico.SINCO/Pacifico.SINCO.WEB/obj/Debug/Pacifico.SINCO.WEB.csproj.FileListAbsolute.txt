@@ -26,3 +26,12 @@ D:\UPC\TP2\fuentes\ver\Pacifico.SINCO\Pacifico.SINCO.WEB\bin\Pacifico.SINCO.UTL.
 D:\UPC\TP2\fuentes\ver\Pacifico.SINCO\Pacifico.SINCO.WEB\obj\Debug\Pacifico.SINCO.WEB.csprojResolveAssemblyReference.cache
 D:\UPC\TP2\fuentes\ver\Pacifico.SINCO\Pacifico.SINCO.WEB\obj\Debug\Pacifico.SINCO.WEB.dll
 D:\UPC\TP2\fuentes\ver\Pacifico.SINCO\Pacifico.SINCO.WEB\obj\Debug\Pacifico.SINCO.WEB.pdb
+D:\UPC\TP2\fuentes\Pacifico.SINCO\Pacifico.SINCO.WEB\bin\Pacifico.SINCO.WEB.dll
+D:\UPC\TP2\fuentes\Pacifico.SINCO\Pacifico.SINCO.WEB\bin\Pacifico.SINCO.WEB.pdb
+D:\UPC\TP2\fuentes\Pacifico.SINCO\Pacifico.SINCO.WEB\bin\Pacifico.SINCO.EN.dll
+D:\UPC\TP2\fuentes\Pacifico.SINCO\Pacifico.SINCO.WEB\bin\Pacifico.SINCO.UTL.dll
+D:\UPC\TP2\fuentes\Pacifico.SINCO\Pacifico.SINCO.WEB\bin\Pacifico.SINCO.EN.pdb
+D:\UPC\TP2\fuentes\Pacifico.SINCO\Pacifico.SINCO.WEB\bin\Pacifico.SINCO.UTL.pdb
+D:\UPC\TP2\fuentes\Pacifico.SINCO\Pacifico.SINCO.WEB\obj\Debug\Pacifico.SINCO.WEB.csprojResolveAssemblyReference.cache
+D:\UPC\TP2\fuentes\Pacifico.SINCO\Pacifico.SINCO.WEB\obj\Debug\Pacifico.SINCO.WEB.dll
+D:\UPC\TP2\fuentes\Pacifico.SINCO\Pacifico.SINCO.WEB\obj\Debug\Pacifico.SINCO.WEB.pdb

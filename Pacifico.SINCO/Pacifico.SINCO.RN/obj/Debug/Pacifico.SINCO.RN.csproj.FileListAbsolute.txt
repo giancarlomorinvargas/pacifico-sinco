@@ -20,3 +20,17 @@ C:\Users\JuanPablo\Desktop\APP_NET\APP\Pacifico.SINCO\Pacifico.SINCO.RN\bin\Debu
 C:\Users\JuanPablo\Desktop\APP_NET\APP\Pacifico.SINCO\Pacifico.SINCO.RN\obj\Debug\Pacifico.SINCO.RN.csprojResolveAssemblyReference.cache
 C:\Users\JuanPablo\Desktop\APP_NET\APP\Pacifico.SINCO\Pacifico.SINCO.RN\obj\Debug\Pacifico.SINCO.RN.dll
 C:\Users\JuanPablo\Desktop\APP_NET\APP\Pacifico.SINCO\Pacifico.SINCO.RN\obj\Debug\Pacifico.SINCO.RN.pdb
+D:\UPC\TP2\fuentes\Pacifico.SINCO\Pacifico.SINCO.RN\bin\Debug\Pacifico.SINCO.RN.dll
+D:\UPC\TP2\fuentes\Pacifico.SINCO\Pacifico.SINCO.RN\bin\Debug\Pacifico.SINCO.RN.pdb
+D:\UPC\TP2\fuentes\Pacifico.SINCO\Pacifico.SINCO.RN\bin\Debug\EntityFramework.dll
+D:\UPC\TP2\fuentes\Pacifico.SINCO\Pacifico.SINCO.RN\bin\Debug\Pacifico.SINCO.AD.dll
+D:\UPC\TP2\fuentes\Pacifico.SINCO\Pacifico.SINCO.RN\bin\Debug\Pacifico.SINCO.EN.dll
+D:\UPC\TP2\fuentes\Pacifico.SINCO\Pacifico.SINCO.RN\bin\Debug\Pacifico.SINCO.UTL.dll
+D:\UPC\TP2\fuentes\Pacifico.SINCO\Pacifico.SINCO.RN\bin\Debug\Pacifico.SINCO.AD.pdb
+D:\UPC\TP2\fuentes\Pacifico.SINCO\Pacifico.SINCO.RN\bin\Debug\Pacifico.SINCO.EN.pdb
+D:\UPC\TP2\fuentes\Pacifico.SINCO\Pacifico.SINCO.RN\bin\Debug\Pacifico.SINCO.UTL.pdb
+D:\UPC\TP2\fuentes\Pacifico.SINCO\Pacifico.SINCO.RN\bin\Debug\EntityFramework.xml
+D:\UPC\TP2\fuentes\Pacifico.SINCO\Pacifico.SINCO.RN\bin\Debug\es\EntityFramework.resources.dll
+D:\UPC\TP2\fuentes\Pacifico.SINCO\Pacifico.SINCO.RN\obj\Debug\Pacifico.SINCO.RN.csprojResolveAssemblyReference.cache
+D:\UPC\TP2\fuentes\Pacifico.SINCO\Pacifico.SINCO.RN\obj\Debug\Pacifico.SINCO.RN.dll
+D:\UPC\TP2\fuentes\Pacifico.SINCO\Pacifico.SINCO.RN\obj\Debug\Pacifico.SINCO.RN.pdb

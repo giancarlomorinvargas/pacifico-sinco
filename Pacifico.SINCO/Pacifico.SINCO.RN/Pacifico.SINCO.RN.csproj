@@ -30,9 +30,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,6 +45,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseDAO.cs" />
+    <Compile Include="DetallePresupuestoDAO.cs" />
+    <Compile Include="IBaseDAO.cs" />
+    <Compile Include="IDetallePresupuestoDAO.cs" />
+    <Compile Include="IInformeAccidenteDAO.cs" />
+    <Compile Include="IListaPrecioDAO.cs" />
+    <Compile Include="InformeAccidenteDAO.cs" />
+    <Compile Include="IPresupuestoDAO.cs" />
+    <Compile Include="ListaPrecioDAO.cs" />
+    <Compile Include="PresupuestoDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="rnAsegurado.cs" />
     <Compile Include="rnBase.cs" />

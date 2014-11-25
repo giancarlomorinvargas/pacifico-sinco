@@ -12,6 +12,7 @@ namespace Pacifico.SINCO.UTL
         public const string sNombreWS_Util = "wsUtil";
         public const string sNombreWS_Siniestro = "wsSiniestro";
         public const string sNombreWS_Presupuesto = "wsPresupuesto";
+        public const string sNombreWS_ListaPrecio = "wsListaPrecio";
 
     }
 }
