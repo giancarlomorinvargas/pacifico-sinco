@@ -25,6 +25,7 @@
     <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="190ae83f-e875-4101-9569-c68bc4b4e238" SourceId="1" SourceUrl="http://localhost:8733/SINCO/Pacifico.SINCO.WS/wsSiniestro/mex" />
     <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="37b406fa-0634-4f29-b605-476a8c3f23e8" SourceId="1" SourceUrl="http://localhost:8733/SINCO/Pacifico.SINCO.WS/wsSiniestro/mex" />
     <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="e432df3a-1478-4ef7-851b-287f197176b0" SourceId="1" SourceUrl="http://localhost:8733/SINCO/Pacifico.SINCO.WS/wsSiniestro/mex" />
+    <MetadataFile FileName="Pacifico.SINCO.EN.xsd" MetadataType="Schema" ID="0854246c-aae1-4147-a2ad-38a2895a5de4" SourceId="1" SourceUrl="http://localhost:8733/SINCO/Pacifico.SINCO.WS/wsSiniestro/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

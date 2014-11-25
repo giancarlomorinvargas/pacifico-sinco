@@ -149,7 +149,7 @@
 												</td>
 												<td>
 													<input name="" type="text" value="15/10/2014" size="10" class="css_frm_inactivo" />
-													<img src="<%=sUrl %>Util/images/calendario.gif">
+													<img src="<%=sUrl %>Util/images/calendario.gif"/>
 												</td>
 											</tr>
 										</table>
@@ -167,39 +167,39 @@
 										<table width="700px" border="0" cellpadding="3" cellspacing="0" class="css_grilla">
 											<tr>
 												<th style="width: 30px;">_</th>
-												<th style="width: 100px;">Código<th>
-												<th style="width: 450px;">Descripción<th>
-												<th style="width: 120px;">Precio Unidad (S/.)<th>														
+												<th style="width: 100px;">Código</th>
+												<th style="width: 450px;">Descripción</th>
+												<th style="width: 120px;">Precio Unidad (S/.)</th>														
 											</tr>	
 											<tr class="even">
 												<td><input type="checkbox"/></td>
-												<td style="text-align:center;">PT_001487<td>
-												<td style="text-align:left;">Faros delanteros Kia Sportage 2013<td>
-												<td style="text-align:center;"> 1 500.00 <td>														
+												<td style="text-align:center;">PT_001487</td>
+												<td style="text-align:left;">Faros delanteros Kia Sportage 2013</td>
+												<td style="text-align:center;"> 1 500.00 </td>														
 											</tr>
 											<tr class="even">
 												<td><input type="checkbox"/></td>
-												<td style="text-align:center;">PT_009872<td>
-												<td style="text-align:left;">Parachoque delantero Kia Sportage 2013<td>
-												<td style="text-align:center;"> 2 350.00 <td>														
+												<td style="text-align:center;">PT_009872</td>
+												<td style="text-align:left;">Parachoque delantero Kia Sportage 2013</td>
+												<td style="text-align:center;"> 2 350.00 </td>														
 											</tr>
 										</table>
 												
 										<table width="700px" border="0" cellpadding="3" cellspacing="0">
 											<tr>
-												<td style="width: 480px; height:22px;">&nbsp;<td>																						
-												<td style="text-align:right;width: 100px;"><strong>SUBTOTAL</strong><td>
-												<th style="width: 120px; font-weight:normal;border-bottom:1px solid #D4D0C8;">3 850.00<th>														
+												<td style="width: 480px; height:22px;">&nbsp;</td>																						
+												<td style="text-align:right;width: 100px;"><strong>SUBTOTAL</strong></td>
+												<th style="width: 120px; font-weight:normal;border-bottom:1px solid #D4D0C8;">3 850.00</th>														
 											</tr>
 											<tr>
-												<td style="height:22px;">&nbsp;<td>																						
-												<td style="text-align:right;"><strong>IGV</strong><td>
-												<th style="font-weight:normal;">&nbsp;&nbsp;&nbsp;693.00<th>														
+												<td style="height:22px;">&nbsp;</td>																						
+												<td style="text-align:right;"><strong>IGV</strong></td>
+												<th style="font-weight:normal;">&nbsp;&nbsp;&nbsp;693.00</th>														
 											</tr>
 											<tr>
-												<td style="height:22px;">&nbsp;<td>																						
-												<td style="text-align:right;"><strong>TOTAL</strong><td>
-												<th style="background-color:#F8F8F8; border-top:2px solid #FD9A00;"> 4 543.00<th>														
+												<td style="height:22px;">&nbsp;</td>																						
+												<td style="text-align:right;"><strong>TOTAL</strong></td>
+												<th style="background-color:#F8F8F8; border-top:2px solid #FD9A00;"> 4 543.00</th>														
 											</tr>
 										</table>
 												

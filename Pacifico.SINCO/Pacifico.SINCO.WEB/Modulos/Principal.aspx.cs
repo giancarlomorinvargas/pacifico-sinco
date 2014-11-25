@@ -16,17 +16,17 @@ namespace Pacifico.SINCO.WEB.Modulos
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            //WS-PRESUPUESTO
-            IwsPresupuestoClient owsPresupuestoClient = new IwsPresupuestoClient();
-            lblwsPresupuesto.InnerText = owsPresupuestoClient.wsObtenerNombreWS();
+            ////WS-PRESUPUESTO
+            //IwsPresupuestoClient owsPresupuestoClient = new IwsPresupuestoClient();
+            //lblwsPresupuesto.InnerText = owsPresupuestoClient.wsObtenerNombreWS();
 
-            //WS-SINIESTRO
-            IwsSiniestroClient owsSiniestroClient = new IwsSiniestroClient();
-            lblwsSiniestro.InnerText = owsSiniestroClient.wsObtenerNombreWS();
+            ////WS-SINIESTRO
+            //IwsSiniestroClient owsSiniestroClient = new IwsSiniestroClient();
+            //lblwsSiniestro.InnerText = owsSiniestroClient.wsObtenerNombreWS();
 
-            //WSUTIL
-            IwsUtilClient owsUtil = new IwsUtilClient();            
-            lblwsUtil.InnerText = owsUtil.wsObtenerNombreWS();
+            ////WSUTIL
+            //IwsUtilClient owsUtil = new IwsUtilClient();            
+            //lblwsUtil.InnerText = owsUtil.wsObtenerNombreWS();
 
         }
     }

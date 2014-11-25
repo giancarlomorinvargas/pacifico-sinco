@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using System.Runtime.Serialization;
 using System.ServiceModel;
+using Pacifico.SINCO.EN;
 
 namespace Pacifico.SINCO.WS.Interfaces
 {
@@ -16,7 +17,12 @@ namespace Pacifico.SINCO.WS.Interfaces
 
         [OperationContract]
         string wsObtenerNombreWS();
+        
+        [OperationContract]
+        List<enPoliza> ListarPoliza(enPoliza pEnPoliza);
 
+        [OperationContract]
+        List<enProcurador> ListarProcurador(enProcurador pEnProcurador);
     }
 
 }
