@@ -63,11 +63,15 @@
     <Content Include="Error.aspx" />
     <Content Include="MasterPage.Master" />
     <Content Include="MasterPageModal.Master" />
+    <Content Include="Properties\DataSources\Pacifico.SINCO.EN.enSiniestro.datasource" />
     <None Include="Service References\wsPresupuesto\service.wsdl" />
     <None Include="Service References\wsPresupuesto\service.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\wsPresupuesto\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\wsSiniestro\Pacifico.SINCO.EN.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\wsSiniestro\service.wsdl" />

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Pacifico.SINCO.EN;
+using Pacifico.SINCO.WEB.wsSiniestro;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -20,6 +22,27 @@ namespace Pacifico.SINCO.WEB.Modulos.Siniestro
         
         protected void Page_Load(object sender, EventArgs e)
         {
+            
+            try
+            {
+
+                //WS-SINIESTRO
+                IwsSiniestroClient owsSiniestroClient = new IwsSiniestroClient();
+                
+                //Parametros
+                enSiniestro oEnSiniestro = new enSiniestro();
+
+                //Obtiene Listado de Siniestros
+                List<enSiniestro> loEnSiniestro = owsSiniestroClient.ListarSiniestro(oEnSiniestro).Cast<enSiniestro>().ToList();
+
+                rptListadoSiniestros.DataSource = loEnSiniestro;
+                rptListadoSiniestros.DataBind();
+
+
+            }
+            catch(Exception ex) {
+                throw ex;
+            }
 
         }
     }

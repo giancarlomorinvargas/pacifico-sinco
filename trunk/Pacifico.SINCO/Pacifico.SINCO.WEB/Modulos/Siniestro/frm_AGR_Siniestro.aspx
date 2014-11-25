@@ -15,10 +15,6 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cphCuerpo" runat="Server">
 
-    <!-- INICIO CUERPO-->
-	<table width="100%" border="0" cellpadding="0" cellspacing="0" class="css_tema_cuerpo">
-		<tr>					
-			<td>
 						
 				<!-- INCIO TITULO-->
 				<table width="100%" border="0" cellpadding="0" cellspacing="0" class="css_tb_titulo">
@@ -186,15 +182,6 @@
 					<tr class="pie"><td class="left"></td><td class="center"></td><td class="right"></td></tr>
 				</table>	
 				<!-- FIN PANEL-->
-						
-			</td>
-		</tr>
-	</table>			
-			
-	<table width="100%" border="0" cellpadding="0" cellspacing="0" class="css_tema_cuerpoPie">
-		<tr class="pie"><td class="left"></td><td></td><td class="right"></td></tr>
-	</table>			
-			<!-- FIN CUERPO-->
     
 </asp:Content>
 
