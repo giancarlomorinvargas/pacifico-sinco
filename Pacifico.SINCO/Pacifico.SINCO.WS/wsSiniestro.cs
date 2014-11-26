@@ -23,7 +23,7 @@ namespace Pacifico.SINCO.WS
         {
             return string.Format(Constantes.sNombreWS_Siniestro);
         }
-
+        
         /// <summary>
         /// ListarSiniestro
         /// </summary>
@@ -45,7 +45,32 @@ namespace Pacifico.SINCO.WS
             return loEnSiniestro;
         }
 
+        /// <summary>
+        /// ListarSiniestro
+        /// </summary>
+        /// <param name="pEnSiniestro"></param>
+        /// <returns></returns>
+        public enSiniestro ObtenerSiniestro(enSiniestro pEnSiniestro)
+        {
+            enSiniestro oEnSiniestro = null;
+            try
+            {
+                rnSiniestro oRnSiniestro = new rnSiniestro();
+                oEnSiniestro = oRnSiniestro.ObtenerSiniestro(pEnSiniestro);
+            }
+            catch (Exception ex)
+            {
+                oEnSiniestro = null;
+                throw ex;
+            }
+            return oEnSiniestro;
+        }
 
+        /// <summary>
+        /// IngresarSiniestro
+        /// </summary>
+        /// <param name="pEnSiniestro"></param>
+        /// <returns></returns>
         public bool IngresarSiniestro(enSiniestro pEnSiniestro)
         {
             bool bExito = false;
@@ -53,6 +78,27 @@ namespace Pacifico.SINCO.WS
             {
                 rnSiniestro oRnSiniestro = new rnSiniestro();
                 bExito = oRnSiniestro.IngresarSiniestro(pEnSiniestro);
+            }
+            catch (Exception ex)
+            {
+                bExito = false;
+                throw ex;
+            }
+            return bExito;
+        }
+
+        /// <summary>
+        /// ActualizaSiniestro
+        /// </summary>
+        /// <param name="pEnSiniestro"></param>
+        /// <returns></returns>
+        public bool ActualizaSiniestro(enSiniestro pEnSiniestro)
+        {
+            bool bExito = false;
+            try
+            {
+                rnSiniestro oRnSiniestro = new rnSiniestro();
+                bExito = oRnSiniestro.ActualizaSiniestro(pEnSiniestro);
             }
             catch (Exception ex)
             {

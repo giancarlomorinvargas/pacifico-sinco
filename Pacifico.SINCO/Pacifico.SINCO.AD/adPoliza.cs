@@ -31,7 +31,11 @@ namespace Pacifico.SINCO.AD
                 List<enPoliza> loEnPoliza = null;
                 enPoliza oEnPoliza = null;
 
-                using (SqlCommand cmd = new SqlCommand("SELECT MP_Poliza_Id, NumPoliza, FechaInicio, FechaFin, MontoCobertura, Tipo, UsuarioRegistro, FechaRegistro, UsuarioModifico, FechaModifico, a.MP_Asegurado_ID, MP_Vehiculo_ID, a.ApellidoPaterno + ' ' + a.ApellidoMaterno + ', '+ a.Nombre as NombreAsegurado FROM MP_Poliza p, MP_Asegurado a WHERE p.MP_Asegurado_ID = a.MP_Asegurado_Id", conexion))
+                using (SqlCommand cmd = new SqlCommand("SELECT MP_Poliza_Id, NumPoliza, FechaInicio, FechaFin, MontoCobertura, Tipo, UsuarioRegistro, FechaRegistro, UsuarioModifico, FechaModifico, a.MP_Asegurado_ID, v.MP_Vehiculo_ID"+
+                                                        ", a.ApellidoPaterno + ' ' + a.ApellidoMaterno + ', '+ a.Nombre as NombreAsegurado "+
+                                                        ", v.Placa, ma.Descripcion as vMarca, mo.Descripcion as vModelo "+
+                                                        " FROM MP_Poliza p, MP_Asegurado a, MP_Vehiculo v, MP_Marca ma, MP_Modelo mo "+
+                                                        " WHERE p.MP_Asegurado_ID = a.MP_Asegurado_Id AND p.MP_Vehiculo_ID = v.MP_Vehiculo_Id AND v.MP_Marca_Id = ma.MP_Marca_Id and v.MP_Modelo_Id = mo.MP_Modelo_Id", conexion))
                 {
                     //cmd.CommandType = CommandType.;
                     using (SqlDataReader drd = cmd.ExecuteReader(CommandBehavior.SingleResult))
@@ -59,6 +63,11 @@ namespace Pacifico.SINCO.AD
                                 oEnPoliza.MP_Vehiculo_ID = !drd.IsDBNull(11) ? drd.GetInt32(11) : 0;
 
                                 oEnPoliza.NombreAsegurado = !drd.IsDBNull(12) ? drd.GetString(12) : "";
+
+                                oEnPoliza.Placa = !drd.IsDBNull(12) ? drd.GetString(13) : "";
+                                oEnPoliza.vMarca = !drd.IsDBNull(12) ? drd.GetString(14) : "";
+                                oEnPoliza.vModelo = !drd.IsDBNull(12) ? drd.GetString(15) : "";
+                                  
                                 
                                 loEnPoliza.Add(oEnPoliza);
                             }

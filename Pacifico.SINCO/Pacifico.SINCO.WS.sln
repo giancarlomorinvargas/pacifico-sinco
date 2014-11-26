@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
-MinimumVisualStudioVersion = 10.0.40219.1
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pacifico.SINCO.AD", "Pacifico.SINCO.AD\Pacifico.SINCO.AD.csproj", "{34CEA3CC-0980-4338-958D-252C37EE3ED3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pacifico.SINCO.EN", "Pacifico.SINCO.EN\Pacifico.SINCO.EN.csproj", "{9C094B5E-CD29-4EC9-AEB5-0CE96A23C930}"

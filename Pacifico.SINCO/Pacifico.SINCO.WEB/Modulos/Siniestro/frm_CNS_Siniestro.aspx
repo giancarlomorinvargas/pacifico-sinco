@@ -41,7 +41,9 @@
 			<td class="left"></td>				
 			<td class="center">							
 								
-				<div class="css_tb_cuerpoPanel">
+				
+
+                <div class="css_tb_cuerpoPanel">
 					<table width="100%" border="0" cellpadding="10" cellspacing="0" class="css_tb_formPanel"><tr><td>									
 																							
 						<fieldset>
@@ -53,7 +55,7 @@
 										Número de Siniestro
 									</td>
 									<td>
-										<input name="" value="S0000324" type="text" class="css_frm_inactivo" />
+										<input id="txtNumSiniestro" type="text" class="" style="background-color: #EEE;" runat="server" readonly="readonly" />
 									</td>
 								</tr>	
 								<tr>												
@@ -61,9 +63,11 @@
 										Tipo de Siniestro
 									</td>
 									<td>
-										<select  class="css_frm_inactivo">
-											<option value="0"> Accidente Vehicular </option>
-										</select>
+										<select id="cmbTipoSiniestro"  runat="server" style="background-color: #EEE;" readonly="readonly">
+									        <option value=""> [SELECCIONE] </option>
+                                            <option value="1"> Tipo 1 </option>
+                                            <option value="2"> Tipo 2 </option>
+								        </select>
 									</td>												
 								</tr>	
 								<tr>												
@@ -71,7 +75,7 @@
 										Descripción
 									</td>
 									<td>
-										<textarea class="css_frm_inactivo" cols="100" rows="5" >El accidente sucedió en la altura del kilomentro 34 de la panamericana Sur. Fue contra una camionetaNissan debido a una inperfección en la via.</textarea>
+										<textarea id="txaDescripcion" cols="100" rows="5" runat="server" style="background-color: #EEE;" readonly="readonly" ></textarea>
 									</td>												
 								</tr>	
 								<tr>												
@@ -79,7 +83,8 @@
 										Fecha de Siniestro
 									</td>
 									<td>
-										<input name="" type="text" size="8" value="15/09/2014" class="css_frm_inactivo" />															
+										<input id="txtFechaSiniestro" type="text" class="" size="8" runat="server" style="background-color: #EEE;" readonly="readonly" />
+										<img src="<%=sUrl %>Util/images/calendario.gif">
 									</td>												
 								</tr>
 								<tr>
@@ -87,7 +92,7 @@
 										Lugar
 									</td>
 									<td>
-										<input name="" type="text" class="css_frm_inactivo" size="50" value="LIMA - Panamericana SUR Km34" />
+										<input id="txtLugar" type="text" class="" size="50" runat="server" style="background-color: #EEE;" readonly="readonly" />
 									</td>
 								</tr>
 							</table>
@@ -103,7 +108,7 @@
 										Número de Póliza
 									</td>
 									<td>
-										<input name="" type="text" value="PS-32000025" class="css_input_inactivo"/>															
+										<input id="txtNumPoliza" type="text" class="css_input_inactivo" runat="server" readonly="readonly"/>										
 									</td>
 								</tr>	
 								<tr>
@@ -111,7 +116,7 @@
 										Asegurado
 									</td>
 									<td>
-										<input name="" type="text" size="50" value="Fernando Gonzales Romero" class="css_input_inactivo" />
+										<input id="txtAsegurado" type="text" size="50" class="css_input_inactivo" runat="server" readonly="readonly" />
 									</td>
 								</tr>
 								<tr>												
@@ -119,8 +124,8 @@
 										Vigencia
 									</td>
 									<td>
-										<input name="" type="text" size="8" value="10/10/2013" class="css_input_inactivo"/> al 
-										<input name="" type="text" size="8" value="10/10/2015" class="css_input_inactivo"/>
+										<input id="txtInicio" type="text" size="8" class="css_input_inactivo" runat="server" readonly="readonly"/> al 
+										<input id="txtFin" type="text" size="8" class="css_input_inactivo" runat="server" readonly="readonly"/>
 									</td>												
 								</tr>																											
 							</table>
@@ -136,7 +141,7 @@
 										Código de Procurador
 									</td>
 									<td>
-										<input name="" type="text" class="css_input_inactivo" value="PC032" size="5"/>																
+										<input id="txtCodProcurador" type="text" class="css_input_inactivo" size="5" runat="server" readonly="readonly"/>										
 									</td>
 								</tr>	
 								<tr>
@@ -144,7 +149,7 @@
 										Procurador
 									</td>
 									<td>
-										<input name="" type="text" size="50" value="Samuel Torrealva Villanueva" class="css_input_inactivo" />
+										<input id="txtNombreProcurador" type="text" size="50" class="css_input_inactivo" runat="server" readonly="readonly" />
 									</td>
 								</tr>																																						
 							</table>
@@ -156,6 +161,8 @@
 										
 													
 				</div>
+
+
 									
 			</td>
 			<td class="right"></td>												

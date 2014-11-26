@@ -23,7 +23,16 @@ namespace Pacifico.SINCO.EN
 
         public string NumPoliza { set; get; }
         public string NombreAsegurado { set; get; }
-        public string vEstado { set; get; }        
+        public string vEstado { set; get; }
+
+        public string vFechaSiniestro { set; get; }
+        public string vFechaAtencion { set; get; }
+
+
+        public string vFechaInicio { set; get; }
+        public string vFechaFin { set; get; }
+        public string NumProcurador { set; get; }
+        public string NombreProcurador { set; get; }
 
     }
 }

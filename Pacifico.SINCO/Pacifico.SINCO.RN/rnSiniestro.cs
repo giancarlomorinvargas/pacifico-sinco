@@ -39,6 +39,32 @@ namespace Pacifico.SINCO.RN
         }
 
         /// <summary>
+        /// ObtenerSiniestro
+        /// </summary>
+        /// <param name="pEnSiniestro"></param>
+        /// <returns></returns>
+        public enSiniestro ObtenerSiniestro(enSiniestro pEnSiniestro)
+        {
+            enSiniestro oEnSiniestro = null;
+            using (SqlConnection con = new SqlConnection(sConexion))
+            {
+                try
+                {
+                    con.Open();
+                    adSiniestro oAdSiniestro = new adSiniestro(con);
+                    oEnSiniestro = oAdSiniestro.ObtenerSiniestro(pEnSiniestro);
+                }
+                catch (SqlException ex)
+                {
+                    oEnSiniestro = null;
+                    throw ex;
+                }
+            }
+            return oEnSiniestro;
+
+        }
+        
+        /// <summary>
         /// IngresarSiniestro
         /// </summary>
         /// <param name="pEnSiniestro"></param>
@@ -53,6 +79,32 @@ namespace Pacifico.SINCO.RN
                     con.Open();
                     adSiniestro oAdSiniestro = new adSiniestro(con);
                     bExito = oAdSiniestro.IngresarSiniestro(pEnSiniestro);
+                }
+                catch (SqlException ex)
+                {
+                    bExito = false;
+                    throw ex;
+                }
+            }
+            return bExito;
+
+        }
+
+        /// <summary>
+        /// ActualizaSiniestro
+        /// </summary>
+        /// <param name="pEnSiniestro"></param>
+        /// <returns></returns>
+        public bool ActualizaSiniestro(enSiniestro pEnSiniestro)
+        {
+            bool bExito = false;
+            using (SqlConnection con = new SqlConnection(sConexion))
+            {
+                try
+                {
+                    con.Open();
+                    adSiniestro oAdSiniestro = new adSiniestro(con);
+                    bExito = oAdSiniestro.ActualizaSiniestro(pEnSiniestro);
                 }
                 catch (SqlException ex)
                 {

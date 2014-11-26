@@ -12,8 +12,17 @@
           <xs:element minOccurs="0" name="MP_Poliza_Id" type="xs:int" />
           <xs:element minOccurs="0" name="MS_Procurador_Id" type="xs:int" />
           <xs:element minOccurs="0" name="MS_Siniestro_Id" type="xs:int" />
+          <xs:element minOccurs="0" name="NombreAsegurado" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NombreProcurador" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NumPoliza" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NumProcurador" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="NumSiniestro" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Tipo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="vEstado" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="vFechaAtencion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="vFechaFin" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="vFechaInicio" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="vFechaSiniestro" nillable="true" type="xs:string" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>

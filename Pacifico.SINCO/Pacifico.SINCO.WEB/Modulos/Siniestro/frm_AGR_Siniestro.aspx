@@ -9,13 +9,20 @@
         function fn_abreBsqProcurador() {
             fn_util_AbreModal("Búsqueda de Procuradores", "../Comun/mdl_BSQ_Procurador.aspx", 900, 500, null);
         }
+        function fn_GrabarSiniestro() {
+            $("#btnGrabar").click();
+        }
     </script>
 
 </asp:Content>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cphCuerpo" runat="Server">
 
-						
+    <asp:Button ID="btnGrabar" runat="server" Text="" OnClick="btnGrabar_Click" ClientIDMode="Static" Style="display: none;" />
+    <asp:HiddenField ID="hddCodSiniestro" runat="server" ClientIDMode="Static" EnableViewState="false" />
+    <asp:HiddenField ID="hddCodPoliza" runat="server" ClientIDMode="Static" EnableViewState="false" Value="7" />
+    <asp:HiddenField ID="hddCodProcurador" runat="server" ClientIDMode="Static" EnableViewState="false" Value="1" />
+        						
 				<!-- INCIO TITULO-->
 				<table width="100%" border="0" cellpadding="0" cellspacing="0" class="css_tb_titulo">
 					<tr>
@@ -27,7 +34,7 @@
 								<tr>
 									<td>&nbsp;</td>
 									<td class="boton">
-										<a href="javascript:window.location='frm_BSQ_Siniestro.aspx';">
+										<a href="javascript:fn_GrabarSiniestro();">
 											<img src="<%=sUrl %>Util/images/iconos/ico_btn_grabar.jpg" border="0" /><br />
 											Grabar
 										</a>
@@ -69,7 +76,7 @@
 													Número de Siniestro
 												</td>
 												<td>
-													<input name="" type="text" class="" style="background-color: #EEE;" />
+													<input id="txtNumSiniestro" type="text" class="" style="background-color: #EEE;" runat="server" />
 												</td>
 											</tr>	
 											<tr>												
@@ -77,9 +84,11 @@
 													Tipo de Siniestro
 												</td>
 												<td>
-													<select>
-														<option value="0"> [SELECCIONE] </option>
-													</select>
+													<select id="cmbTipoSiniestro"  runat="server">
+									                    <option value=""> [SELECCIONE] </option>
+                                                        <option value="1"> Tipo 1 </option>
+                                                        <option value="2"> Tipo 2 </option>
+								                    </select>
 												</td>												
 											</tr>	
 											<tr>												
@@ -87,7 +96,7 @@
 													Descripción
 												</td>
 												<td>
-													<textarea cols="100" rows="5" ></textarea>
+													<textarea id="txaDescripcion" cols="100" rows="5" runat="server" ></textarea>
 												</td>												
 											</tr>	
 											<tr>												
@@ -95,7 +104,7 @@
 													Fecha de Siniestro
 												</td>
 												<td>
-													<input name="" type="text" class="" size="8" />
+													<input id="txtFechaSiniestro" type="text" class="" size="8" runat="server" />
 													<img src="<%=sUrl %>Util/images/calendario.gif">
 												</td>												
 											</tr>
@@ -104,7 +113,7 @@
 													Lugar
 												</td>
 												<td>
-													<input name="" type="text" class="" size="50" />
+													<input id="txtLugar" type="text" class="" size="50" runat="server" />
 												</td>
 											</tr>
 										</table>
@@ -120,7 +129,7 @@
 													Número de Póliza
 												</td>
 												<td>
-													<input name="" type="text" class="css_input_inactivo"/>
+													<input id="txtNumPoliza" type="text" class="css_input_inactivo"/>
 													<input type="button" value="Consultar Póliza" class="css_btn_general" onclick="javascript: fn_abreBsqPoliza();" />
 												</td>
 											</tr>	
@@ -129,7 +138,7 @@
 													Asegurado
 												</td>
 												<td>
-													<input name="" type="text" size="50" class="css_input_inactivo" />
+													<input id="txtAsegurado" type="text" size="50" class="css_input_inactivo" />
 												</td>
 											</tr>
 											<tr>												
@@ -137,8 +146,8 @@
 													Vigencia
 												</td>
 												<td>
-													<input name="" type="text" size="8" class="css_input_inactivo"/> al 
-													<input name="" type="text" size="8" class="css_input_inactivo"/>
+													<input id="txtInicio" type="text" size="8" class="css_input_inactivo"/> al 
+													<input id="txtFin" type="text" size="8" class="css_input_inactivo"/>
 												</td>												
 											</tr>																											
 										</table>
@@ -154,7 +163,7 @@
 													Código de Procurador
 												</td>
 												<td>
-													<input name="" type="text" class="css_input_inactivo" size="5"/>
+													<input id="txtCodProcurador" type="text" class="css_input_inactivo" size="5"/>
 													<input type="button" value="Consultar Procurador" class="css_btn_general" onclick="javascript: fn_abreBsqProcurador();" />
 												</td>
 											</tr>	
@@ -163,7 +172,7 @@
 													Procurador
 												</td>
 												<td>
-													<input name="" type="text" size="50" class="css_input_inactivo" />
+													<input id="txtNombreProcurador" type="text" size="50" class="css_input_inactivo" />
 												</td>
 											</tr>																																						
 										</table>
@@ -171,10 +180,9 @@
 									</fieldset>
 										
 								</td></tr></table>
-										
-										
-													
+																							
 							</div>
+
 									
 						</td>
 						<td class="right"></td>												
