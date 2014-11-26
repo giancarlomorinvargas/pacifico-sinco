@@ -64,6 +64,8 @@
     <Content Include="MasterPage.Master" />
     <Content Include="MasterPageModal.Master" />
     <Content Include="Properties\DataSources\Pacifico.SINCO.EN.enSiniestro.datasource" />
+    <Content Include="Properties\DataSources\Pacifico.SINCO.EN.enPoliza.datasource" />
+    <Content Include="Properties\DataSources\Pacifico.SINCO.EN.enProcurador.datasource" />
     <None Include="Service References\wsPresupuesto\service.wsdl" />
     <None Include="Service References\wsPresupuesto\service.xsd">
       <SubType>Designer</SubType>
@@ -83,6 +85,9 @@
     </None>
     <None Include="Service References\wsUtil\configuration91.svcinfo" />
     <None Include="Service References\wsUtil\configuration.svcinfo" />
+    <None Include="Service References\wsUtil\Pacifico.SINCO.EN.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\wsUtil\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>

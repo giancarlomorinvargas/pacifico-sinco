@@ -18,15 +18,15 @@ namespace Pacifico.SINCO.WS.Interfaces
         string wsObtenerNombreWS();
 
         [OperationContract]
-        MSPresupuesto ObtenerPresupuesto(int Id);
+        string ObtenerPresupuesto(int Id);
         [OperationContract]
-        List<MSPresupuesto> ListarPresupuesto();
+        string ListarPresupuesto();
         [OperationContract]
-        List<MSPresupuesto> BuscarPresupuesto(string NumPresupuesto, string NumInforme, string NumPoliza);
+        string BuscarPresupuesto(string NumPresupuesto, string NumInforme, string NumPoliza);
         [OperationContract]
-        string AgregarPresupuesto(MSPresupuesto FichaCarga);
+        string AgregarPresupuesto(MSPresupuesto Presupuesto);
         [OperationContract]
-        string ModificarPresupuesto(MSPresupuesto FichaCarga, List<MSDetallePresupuesto> DestalleFichaCarga);
+        string ModificarPresupuesto(MSPresupuesto Presupuesto, List<MSDetallePresupuesto> DestallePresupuesto);
 
     }
 }

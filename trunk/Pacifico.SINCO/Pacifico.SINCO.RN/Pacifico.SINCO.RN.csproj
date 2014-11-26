@@ -72,10 +72,6 @@
       <Project>{9c094b5e-cd29-4ec9-aeb5-0ce96a23c930}</Project>
       <Name>Pacifico.SINCO.EN</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Pacifico.SINCO.UTL\Pacifico.SINCO.UTL.csproj">
-      <Project>{c9709638-6a58-4fe6-8a28-4ad7d7984631}</Project>
-      <Name>Pacifico.SINCO.UTL</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

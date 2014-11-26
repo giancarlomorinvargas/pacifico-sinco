@@ -9,6 +9,7 @@ using Pacifico.SINCO.WS.Interfaces;
 using Pacifico.SINCO.EN;
 using Pacifico.SINCO.RN;
 using System.ServiceModel;
+using System.Web.Script.Serialization;
 
 namespace Pacifico.SINCO.WS
 {
@@ -54,14 +55,15 @@ namespace Pacifico.SINCO.WS
          }
          
 
-         public MSPresupuesto ObtenerPresupuesto(int Id)
+         public string ObtenerPresupuesto(int Id)
         {
-            MSPresupuesto FichaCarga = _PresupuestoRepositorio.Get(Id);
-            if (FichaCarga == null)
+            MSPresupuesto model = _PresupuestoRepositorio.Get(Id);
+            if (model == null)
             {
                 throw new FaultException(MENSAJE_NO_DISPONIBLE);
             }
-            return FichaCarga;
+            //return model;
+            return new JavaScriptSerializer().Serialize(model);
         }
 
          public string AgregarPresupuesto(MSPresupuesto model)
@@ -144,7 +146,7 @@ namespace Pacifico.SINCO.WS
         }
 
 
-         public List<MSPresupuesto> BuscarPresupuesto(string NumPresupuesto, string NumInforme, string NumPoliza)
+         public string BuscarPresupuesto(string NumPresupuesto, string NumInforme, string NumPoliza)
          {
              string NumPresupuestoParam = NumPresupuesto.ToUpper();
              string NumInformeParam = NumInforme.ToUpper();
@@ -162,12 +164,15 @@ namespace Pacifico.SINCO.WS
              {
                  listaPresupuesto.Add(Presupuesto);
              }
-             return listaPresupuesto;
+             //return listaPresupuesto;
+             return new JavaScriptSerializer().Serialize(listaPresupuesto);
          }
 
-         public List<MSPresupuesto> ListarPresupuesto()
+         public string ListarPresupuesto()
         {
-            return _PresupuestoRepositorio.GetAll().ToList();
+            List<MSPresupuesto> listaPresupuesto;
+            listaPresupuesto = _PresupuestoRepositorio.GetAll().ToList();
+            return new JavaScriptSerializer().Serialize(listaPresupuesto);
         }
 
 

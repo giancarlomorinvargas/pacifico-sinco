@@ -20,6 +20,18 @@ namespace Pacifico.SINCO.WEB.wsUtil {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwsUtil/wsObtenerNombreWS", ReplyAction="http://tempuri.org/IwsUtil/wsObtenerNombreWSResponse")]
         System.Threading.Tasks.Task<string> wsObtenerNombreWSAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwsUtil/ListarPoliza", ReplyAction="http://tempuri.org/IwsUtil/ListarPolizaResponse")]
+        Pacifico.SINCO.EN.enPoliza[] ListarPoliza(Pacifico.SINCO.EN.enPoliza pEnPoliza);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwsUtil/ListarPoliza", ReplyAction="http://tempuri.org/IwsUtil/ListarPolizaResponse")]
+        System.Threading.Tasks.Task<Pacifico.SINCO.EN.enPoliza[]> ListarPolizaAsync(Pacifico.SINCO.EN.enPoliza pEnPoliza);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwsUtil/ListarProcurador", ReplyAction="http://tempuri.org/IwsUtil/ListarProcuradorResponse")]
+        Pacifico.SINCO.EN.enProcurador[] ListarProcurador(Pacifico.SINCO.EN.enProcurador pEnProcurador);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwsUtil/ListarProcurador", ReplyAction="http://tempuri.org/IwsUtil/ListarProcuradorResponse")]
+        System.Threading.Tasks.Task<Pacifico.SINCO.EN.enProcurador[]> ListarProcuradorAsync(Pacifico.SINCO.EN.enProcurador pEnProcurador);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -55,6 +67,22 @@ namespace Pacifico.SINCO.WEB.wsUtil {
         
         public System.Threading.Tasks.Task<string> wsObtenerNombreWSAsync() {
             return base.Channel.wsObtenerNombreWSAsync();
+        }
+        
+        public Pacifico.SINCO.EN.enPoliza[] ListarPoliza(Pacifico.SINCO.EN.enPoliza pEnPoliza) {
+            return base.Channel.ListarPoliza(pEnPoliza);
+        }
+        
+        public System.Threading.Tasks.Task<Pacifico.SINCO.EN.enPoliza[]> ListarPolizaAsync(Pacifico.SINCO.EN.enPoliza pEnPoliza) {
+            return base.Channel.ListarPolizaAsync(pEnPoliza);
+        }
+        
+        public Pacifico.SINCO.EN.enProcurador[] ListarProcurador(Pacifico.SINCO.EN.enProcurador pEnProcurador) {
+            return base.Channel.ListarProcurador(pEnProcurador);
+        }
+        
+        public System.Threading.Tasks.Task<Pacifico.SINCO.EN.enProcurador[]> ListarProcuradorAsync(Pacifico.SINCO.EN.enProcurador pEnProcurador) {
+            return base.Channel.ListarProcuradorAsync(pEnProcurador);
         }
     }
 }

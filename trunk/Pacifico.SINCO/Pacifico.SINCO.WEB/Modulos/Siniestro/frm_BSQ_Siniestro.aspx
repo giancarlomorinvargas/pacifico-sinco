@@ -2,6 +2,23 @@
 
 <asp:Content ID="Content2" runat="server" ContentPlaceHolderID="cphHead">
 
+    <script type='text/javascript'>
+        function fn_buscarSiniestro() {
+            $("#btnBuscar").click();
+        }
+
+        function fn_checkLista(objCheck) {            
+            $('input[id*="chkIdSiniestro"]').prop('checked', false);
+            objCheck.checked = true;
+            $("#hddCodSiniestro").val(objCheck.value);            
+        }
+
+        function fn_redirect(pUrl) {            
+            window.location=pUrl+"?pIdSiniestro="+$("#hddCodSiniestro").val();
+        }
+
+    </script>
+
 </asp:Content>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cphCuerpo" runat="Server">
@@ -24,19 +41,19 @@
 							</a>
 						</td>											
 						<td class="boton">
-							<a href="javascript:window.location='frm_MOD_Siniestro.aspx';">
+							<a href="javascript:fn_redirect('frm_MOD_Siniestro.aspx');">
 								<img src="<%=sUrl %>Util/images/iconos/ico_btn_editar.jpg" border="0" /><br />
 								Modificar
 							</a>
 						</td>
 						<td class="boton">
-							<a href="javascript:window.location='frm_CNS_Siniestro.aspx';">
+							<a href="javascript:fn_redirect('frm_CNS_Siniestro.aspx');">
 								<img src="<%=sUrl %>Util/images/iconos/ico_mdl_informes.jpg" border="0" /><br />
 								Consultar
 							</a>
 						</td>											
 						<td class="boton">
-							<a href="javascript:window.location='frm_BSQ_Siniestro.aspx';">
+							<a href="javascript:fn_buscarSiniestro();">
 								<img src="<%=sUrl %>Util/images/iconos/ico_btn_buscar.jpg" border="0" /><br />
 								Buscar
 							</a>
@@ -57,7 +74,10 @@
 		</tr>
 	</table>
 	<!-- FIN TITULO-->
-						
+				
+
+   <asp:Button ID="btnBuscar" runat="server" Text="" OnClick="btnBuscar_Click" ClientIDMode="Static" Style="display: none;" />	
+   <asp:HiddenField ID="hddCodSiniestro" runat="server" ClientIDMode="Static" EnableViewState="false" />	
 						
 	<!-- INCIO PANEL-->
 	<table width="100%" border="0" cellpadding="0" cellspacing="0" class="css_tema_panel">
@@ -75,15 +95,17 @@
 								Número de Póliza
 							</td>
 							<td>
-								<input name="" type="text" class="" />
+								<input id="txtNumPoliza" type="text" class="" runat="server"/>
 							</td>
 							<td>&nbsp;</td>
 							<td class="label">
 								Tipo de Siniestro
 							</td>
 							<td>
-								<select>
-									<option value="0"> [SELECCIONE] </option>
+								<select id="cmbTipoSiniestro"  runat="server">
+									<option value=""> [SELECCIONE] </option>
+                                    <option value="1"> Tipo 1 </option>
+                                    <option value="2"> Tipo 2 </option>
 								</select>
 							</td>
 							<td>&nbsp;</td>
@@ -91,7 +113,7 @@
 								Fecha de Siniestro
 							</td>
 							<td>
-								<input name="" type="text" class="" size="8" />
+								<input id="txtFechaSiniestro" type="text" class="" size="8"  runat="server"/>
 								<img src="<%=sUrl %>Util/images/calendario.gif">
 							</td>
 						</tr>											
@@ -127,7 +149,7 @@
             <ItemTemplate>
                <tbody>
                    <tr <%#Int32.Parse(Eval("Estado").ToString())%2==0?"class=\"even\"":"" %> >
-			            <td><input type="checkbox"/></td>
+			            <td><input id="chkIdSiniestro" type="checkbox" value="<%#Eval("MS_Siniestro_Id") %>" onclick="javascript:fn_checkLista(this)"/></td>
 			            <td style="text-align:center;"><%#Eval("NumSiniestro") %><td>
 			            <td style="text-align:center;"><%#Eval("NumPoliza") %><td>
 			            <td><%#Eval("NombreAsegurado") %><td>

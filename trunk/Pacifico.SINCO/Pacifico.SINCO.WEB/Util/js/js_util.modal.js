@@ -26,6 +26,16 @@ function fn_util_AbreModal(pTitulo, pURL, pAncho, pAlto, pFuncion) {
 	
 };
 
+function fn_util_CierraModal() {
+    $("#ifrModal").attr('src', '');
+    $("#dv_ModalFrame").dialog("close");
+    $("#dv_ModalFrame").remove();
+    //$("#dv_ModalFrame").dialog("destroy");
+    //$(".ui-dialog-content").dialog().dialog("close");
+    //$("#dv_ModalFrame").dialog("destroy");
+}
+
+
 
 //**********************************************************************
 // Nombre: fn_mdl_alert

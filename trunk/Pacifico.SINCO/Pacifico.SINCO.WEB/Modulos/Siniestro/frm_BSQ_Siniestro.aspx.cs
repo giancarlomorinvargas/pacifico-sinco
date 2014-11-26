@@ -45,5 +45,38 @@ namespace Pacifico.SINCO.WEB.Modulos.Siniestro
             }
 
         }
+
+        /// <summary>
+        /// btnBuscar_Click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //WS-SINIESTRO
+                IwsSiniestroClient owsSiniestroClient = new IwsSiniestroClient();
+
+                //Parametros
+                enSiniestro oEnSiniestro = new enSiniestro();
+                oEnSiniestro.NumPoliza = txtNumPoliza.Value;
+                oEnSiniestro.Tipo = cmbTipoSiniestro.Value.ToString();
+                oEnSiniestro.vFechaRegistro = txtFechaSiniestro.Value;
+
+                //Obtiene Listado de Siniestros
+                List<enSiniestro> loEnSiniestro = owsSiniestroClient.ListarSiniestro(oEnSiniestro).Cast<enSiniestro>().ToList();
+
+                rptListadoSiniestros.DataSource = loEnSiniestro;
+                rptListadoSiniestros.DataBind();
+         
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        
+
     }
 }

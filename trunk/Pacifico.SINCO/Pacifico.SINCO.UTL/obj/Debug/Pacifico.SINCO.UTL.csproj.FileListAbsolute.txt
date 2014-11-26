@@ -8,7 +8,3 @@ C:\Users\JuanPablo\Desktop\APP_NET\APP\Pacifico.SINCO\Pacifico.SINCO.UTL\bin\Deb
 C:\Users\JuanPablo\Desktop\APP_NET\APP\Pacifico.SINCO\Pacifico.SINCO.UTL\obj\Debug\Pacifico.SINCO.UTL.csprojResolveAssemblyReference.cache
 C:\Users\JuanPablo\Desktop\APP_NET\APP\Pacifico.SINCO\Pacifico.SINCO.UTL\obj\Debug\Pacifico.SINCO.UTL.dll
 C:\Users\JuanPablo\Desktop\APP_NET\APP\Pacifico.SINCO\Pacifico.SINCO.UTL\obj\Debug\Pacifico.SINCO.UTL.pdb
-D:\UPC\TP2\fuentes\Pacifico.SINCO\Pacifico.SINCO.UTL\bin\Debug\Pacifico.SINCO.UTL.dll
-D:\UPC\TP2\fuentes\Pacifico.SINCO\Pacifico.SINCO.UTL\bin\Debug\Pacifico.SINCO.UTL.pdb
-D:\UPC\TP2\fuentes\Pacifico.SINCO\Pacifico.SINCO.UTL\obj\Debug\Pacifico.SINCO.UTL.dll
-D:\UPC\TP2\fuentes\Pacifico.SINCO\Pacifico.SINCO.UTL\obj\Debug\Pacifico.SINCO.UTL.pdb

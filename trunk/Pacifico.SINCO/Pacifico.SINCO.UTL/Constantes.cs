@@ -14,5 +14,12 @@ namespace Pacifico.SINCO.UTL
         public const string sNombreWS_Presupuesto = "wsPresupuesto";
         public const string sNombreWS_ListaPrecio = "wsListaPrecio";
 
+        public const string sUsuario_Login = "ADMIN";
+
+        //SINIESTROS
+        public const int sEstado_Pendiente = 1;
+        public const int sEstado_EnProceso = 2;
+        public const int sEstado_Terminado = 3;
+
     }
 }

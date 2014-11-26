@@ -2,6 +2,33 @@
 
 <asp:Content ID="Content2" runat="server" ContentPlaceHolderID="cphHead">
 
+    <script type='text/javascript'>
+        function fn_buscarPoliza() {
+            $("#btnBuscar").click();
+        }
+
+        function fn_checkLista(objCheck, vNumPoliza, vAsegurado, vFechaIni, vFechaFin) {
+            $('input[id*="chkIdPoliza"]').prop('checked', false);
+            objCheck.checked = true;
+
+            $("#hddCodPoliza").val(objCheck.value);
+            $("#hddNumPoliza").val(vNumPoliza); 
+            $("#hddAsegurado").val(vAsegurado);  
+            $("#hddFechaIni").val(vFechaIni);  
+            $("#hddFechaFin").val(vFechaFin); 
+        }
+
+        function fn_seleccionar() {            
+            parent.document.getElementById("hddCodPoliza").value = $("#hddCodPoliza").val();
+            parent.document.getElementById("txtNumPoliza").value = $("#hddNumPoliza").val();
+            parent.document.getElementById("txtAsegurado").value = $("#hddAsegurado").val();
+            parent.document.getElementById("txtInicio").value = $("#hddFechaIni").val();
+            parent.document.getElementById("txtFin").value = $("#hddFechaFin").val();
+            parent.fn_util_CierraModal();
+        }
+
+    </script>
+
 </asp:Content>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cphCuerpo" runat="Server">
@@ -17,13 +44,13 @@
 					<tr>
 						<td>&nbsp;</td>		
 						<td class="boton">
-							<a href="#">
+							<a href="javascript:fn_seleccionar();">
 								<img src="<%=sUrl %>Util/images/iconos/ico_mdl_dominio.jpg" border="0" /><br />
 								Aceptar
 							</a>
 						</td>						
 						<td class="boton">
-							<a href="#">
+							<a href="javascript:fn_buscarPoliza();">
 								<img src="<%=sUrl %>Util/images/iconos/ico_btn_buscar.jpg" border="0" /><br />
 								Buscar
 							</a>
@@ -45,6 +72,12 @@
 	</table>
 	<!-- FIN TITULO-->
 	
+    <asp:Button ID="btnBuscar" runat="server" Text="" OnClick="btnBuscar_Click" ClientIDMode="Static" Style="display: none;" />	
+    <asp:HiddenField ID="hddCodPoliza" runat="server" ClientIDMode="Static" EnableViewState="false" />	
+    <asp:HiddenField ID="hddNumPoliza" runat="server" ClientIDMode="Static" EnableViewState="false" />	
+    <asp:HiddenField ID="hddAsegurado" runat="server" ClientIDMode="Static" EnableViewState="false" />	
+    <asp:HiddenField ID="hddFechaIni" runat="server" ClientIDMode="Static" EnableViewState="false" />	
+    <asp:HiddenField ID="hddFechaFin" runat="server" ClientIDMode="Static" EnableViewState="false" />	
 	
 	<!-- INCIO PANEL-->
 	<table width="100%" border="0" cellpadding="0" cellspacing="0" class="css_tema_panel">
@@ -56,13 +89,15 @@
 				<div class="css_lbl_tituloModal">Criterios de búsqueda</div>
 				<div class="css_tb_cuerpoPanel">
 				
+
+                    
+
+
+
 					<table width="100%" border="0" cellpadding="5" cellspacing="0" class="css_tb_formPanel">
 						<tr>
-							<td class="label">
-								Número de Póliza
-							</td>
-							<td>
-								<input name="" type="text" class="" />
+							<td class="label">Número de Póliza</td>
+							<td><input name="" type="text" class="" />
 							</td>
 							<td class="label">
 								Número de Placa Vehículo
@@ -93,34 +128,39 @@
 
 	<br/><br/>
 	
-	<table width="100%" border="0" cellpadding="3" cellspacing="0" class="css_grilla">
-		<tr>
-			<th>_</th>
-			<th>Número de Póliza</th>			
-			<th>Asegurado</th>
-			<th>Marca vehículo</th>
-			<th>Modelo vehículo </th>
-			<th>Placa vehículo</th>
-			<th>Estado Poliza</th>
-		</tr>	
-		<tr class="even">
-			<td><input type="checkbox"/></td>
-			<td style="text-align:center;">PS-32000025</td>			
-			<td>Fernando Gonzales Romero</td>
-			<td style="text-align:center;">Nissan</td>
-			<td style="text-align:center;">Sentra 2.0</td>
-			<td style="text-align:center;">CGP-963</td>
-			<td style="text-align:center;color:green;">ACTIVO</td>
-		</tr>
-		<tr>
-			<td><input type="checkbox"/></td>
-			<td style="text-align:center;">PS-32000036</td>			
-			<td>Fernando Gonzales Romero</td>
-			<td style="text-align:center;">KIA</td>
-			<td style="text-align:center;">Sportage 4WD</td>
-			<td style="text-align:center;">IJR-471</td>
-			<td style="text-align:center;color:red;">INACTIVO</td>
-		</tr>
-	</table>
-				
+
+    <asp:Repeater ID="rptListadoPolizas" runat="server" EnableViewState="false">
+        <HeaderTemplate>
+            <table width="100%" border="0" cellpadding="3" cellspacing="0" class="css_grilla">
+		    <thead>
+                <tr>
+			        <th>_</th>
+			        <th>Número de Póliza</th>			
+			        <th>Asegurado</th>
+			        <th>Marca vehículo</th>
+			        <th>Modelo vehículo </th>
+			        <th>Placa vehículo</th>
+			        <th>Estado Poliza</th>
+		        </tr>
+            </thead>
+        </HeaderTemplate>
+        <ItemTemplate>
+            <tbody>
+                <tr class="even">
+			        <td> <input id="chkIdPoliza" type="checkbox" value="<%#Eval("MP_Poliza_Id") %>" onclick="javascript: fn_checkLista(this, '<%#Eval("NumPoliza") %>', '<%#Eval("NombreAsegurado") %>', '<%#Eval("FechaInicio") %>','<%#Eval("FechaFin") %>')"/> </td>
+			        <td style="text-align:center;"><%#Eval("NumPoliza") %></td>			
+			        <td><%#Eval("NombreAsegurado") %></td>
+			        <td style="text-align:center;"><%#Eval("vMarca") %></td>
+			        <td style="text-align:center;"><%#Eval("vModelo") %></td>
+			        <td style="text-align:center;"><%#Eval("Placa") %></td>
+			        <td style="text-align:center;color:green;">ACTIVA</td>
+		        </tr>                                                
+            </ItemTemplate>
+        <FooterTemplate>
+        </tbody>
+        </table>
+        </FooterTemplate>
+    </asp:Repeater>
+
+
 </asp:Content>

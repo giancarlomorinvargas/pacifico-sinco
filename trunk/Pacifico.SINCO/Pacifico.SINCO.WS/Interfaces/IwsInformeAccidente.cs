@@ -11,22 +11,16 @@ using Pacifico.SINCO.EN;
 namespace Pacifico.SINCO.WS.Interfaces
 {
     [ServiceContract]
-    public interface IwsSiniestro
+    public interface IwsInformeAccidente
     {
 
         [OperationContract]
         string wsObtenerNombreWS();
 
         [OperationContract]
-        List<enSiniestro> ListarSiniestro(enSiniestro pEnSiniestro);
-
+        string Obtener(int Id);
         [OperationContract]
-        enSiniestro ObtenerSiniestro(enSiniestro pEnSiniestro);
+        string Listar();
 
-        [OperationContract]
-        bool IngresarSiniestro(enSiniestro pEnSiniestro);
-
-        [OperationContract]
-        bool ActualizaSiniestro(enSiniestro pEnSiniestro);
     }
 }
