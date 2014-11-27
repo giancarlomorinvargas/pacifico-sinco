@@ -1,0 +1,84 @@
+﻿<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
+<!DOCTYPE html>
+<html lang="es">
+    <head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta charset="utf-8" />
+        <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" /></title>
+        <link href="<%: Url.Content("~/favicon.ico") %>" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width" />
+        <%: Styles.Render("~/Content/css") %>
+        <%: Scripts.Render("~/bundles/modernizr") %>
+            
+        <asp:ContentPlaceHolder ID="HeadContent" runat="server" />
+    
+    <link href="../../Content/themes/base/jquery-ui.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="../../Scripts/jquery-1.7.1.js"></script>
+    <script type="text/javascript" src="../../Scripts/jquery.validate.js"></script>
+    <script type="text/javascript" src="../../Scripts/jquery.validate.unobtrusive.js"></script>
+    <script type="text/javascript" src="../../Scripts/jquery-ui-1.8.20.js"></script>
+        
+    <style>
+        .validation-summary-errors {
+            color:red;
+        }
+        .editor-label {
+            display: inline-block;
+            width: 110px;
+        }
+        .operation-success {
+            color:green;
+        }
+        input:read-only, textarea:read-only {
+            color: rgb(84, 84, 84);
+            background-color: rgb(235, 235, 228);
+        }
+        input:disabled, textarea:disabled{
+            color: rgb(84, 84, 84);
+            background-color: rgb(235, 235, 228);
+        }
+    </style>
+
+    </head>
+    <body>
+        <header>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p class="site-title"><%: Html.ActionLink("su logotipo aquí", "Index", "Home") %></p>
+                </div>
+                <div class="float-right">
+                    <section id="login">
+                        <%: Html.Partial("_LoginPartial") %>
+                    </section>
+                    <nav>
+                        <ul id="menu">
+                            <li><%: Html.ActionLink("Inicio", "Index", "Home") %></li>
+                            <li><%: Html.ActionLink("Acerca de", "About", "Home") %></li>
+                            <li><%: Html.ActionLink("Contacto", "Contact", "Home") %></li>
+                            <!--Pagina Servicio Carga-->                            
+                            <li><%: Html.ActionLink("Actualizar Ficha Carga", "Index", "FichaCarga")%></li>
+                            <li><%: Html.ActionLink("Validar Ficha Carga", "ListaValidarFichaCarga", "FichaCarga")%></li>
+                            <li><%: Html.ActionLink("Actualizar Ficha Movimiento", "ListaFichaMovimiento", "FichaCarga")%></li>
+                            <li><%: Html.ActionLink("Actualizar Presupuesto", "ListaPresupuesto", "Siniestro")%></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <div id="body">
+            <asp:ContentPlaceHolder ID="FeaturedContent" runat="server" />
+            <section class="content-wrapper main-content clear-fix">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+            </section>
+        </div>
+        <footer>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p>&copy; <%: DateTime.Now.Year %> - Mi aplicación ASP.NET MVC</p>
+                </div>
+            </div>
+        </footer>
+
+        <asp:ContentPlaceHolder ID="ScriptsSection" runat="server" />
+    </body>
+</html>
