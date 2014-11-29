@@ -30,7 +30,7 @@ namespace Pacifico.SINCO.AD
                 List<enProcurador> lEnProcurador = null;
                 enProcurador oEnProcurador = null;
 
-                using (SqlCommand cmd = new SqlCommand("SELECT MS_Procurador_Id, NumProcurador, Nombre, ApellidoPaterno, ApellidoMaterno, Telefono, Disponible FROM MS_Procurador", conexion))
+                using (SqlCommand cmd = new SqlCommand("SELECT MS_Procurador_Id, NumProcurador, Nombre, ApellidoPaterno, ApellidoMaterno, Telefono, Disponible FROM MS_Procurador WHERE NumProcurador like '%" + pEnProcurador.NumProcurador + "%' AND (ApellidoPaterno like '%" + pEnProcurador.ApellidoPaterno + "%' OR Nombre like '%" + pEnProcurador.Nombre + "%' OR ApellidoMaterno like '%" + pEnProcurador.ApellidoMaterno + "%') ", conexion))
                 {
                     //cmd.CommandType = CommandType.;
                     using (SqlDataReader drd = cmd.ExecuteReader(CommandBehavior.SingleResult))

@@ -32,7 +32,7 @@ namespace Pacifico.SINCO.AD
                                     "p.MP_Poliza_Id, MS_Procurador_Id, "+ 
                                     "CASE s.Tipo WHEN '1' THEN 'ACCIDENTE VEHICULAR' ELSE 'ACCIDENTE VEHICULAR' END as Tipo, "+ 
                                     "p.NumPoliza, a.ApellidoPaterno + ' ' + a.ApellidoMaterno + ', ' + a.Nombre as NombreAsegurado, "+
-                                    "CASE s.Estado WHEN '1' THEN 'PENDIENTE' WHEN '2' THEN 'EN PROCESO' WHEN '3' THEN 'TERMINADO' ELSE 'PENDIENTE' END as vEstado "+
+                                    "(SELECT e.Nombre FROM Estado e WHERE e.Estado_Id = s.Estado ) as vEstado " +
                                 "FROM MS_Siniestro s, MP_Poliza p, MP_Asegurado a "+ 
                                 "WHERE s.MP_Poliza_Id = p.MP_Poliza_Id "+ 
                                         "AND p.MP_Asegurado_ID = a.MP_Asegurado_Id "+

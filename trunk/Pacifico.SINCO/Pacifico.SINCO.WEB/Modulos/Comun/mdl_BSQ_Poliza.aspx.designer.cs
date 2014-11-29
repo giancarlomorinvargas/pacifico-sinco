@@ -67,6 +67,33 @@ namespace Pacifico.SINCO.WEB.Modulos.Comun {
         protected global::System.Web.UI.WebControls.HiddenField hddFechaFin;
         
         /// <summary>
+        /// Control txtNumeroPoliza.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtNumeroPoliza;
+        
+        /// <summary>
+        /// Control txtNumeroPlaca.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtNumeroPlaca;
+        
+        /// <summary>
+        /// Control txtDniAsegurado.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtDniAsegurado;
+        
+        /// <summary>
         /// Control rptListadoPolizas.
         /// </summary>
         /// <remarks>

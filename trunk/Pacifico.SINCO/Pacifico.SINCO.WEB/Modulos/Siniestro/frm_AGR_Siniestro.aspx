@@ -3,6 +3,11 @@
 <asp:Content ID="Content2" runat="server" ContentPlaceHolderID="cphHead">
 
     <script type='text/javascript'>
+        $(document).ready(function () {
+            //Seta Calendarios
+            fn_util_SeteaCalendario($('input[id*=txtFecha]')[0]);
+        });
+
         function fn_abreBsqPoliza() {
             fn_util_AbreModal("Búsqueda de Póliza", "../Comun/mdl_BSQ_Poliza.aspx", 900, 500, null);
         }
@@ -104,8 +109,7 @@
 													Fecha de Siniestro
 												</td>
 												<td>
-													<input id="txtFechaSiniestro" type="text" class="" size="8" runat="server" />
-													<img src="<%=sUrl %>Util/images/calendario.gif">
+													<input id="txtFechaSiniestro" type="text" class="" size="8" runat="server" onKeyUp="return fn_util_FormatDate(this);" onBlur="return fn_util_UpdateDate(this);" />
 												</td>												
 											</tr>
 											<tr>

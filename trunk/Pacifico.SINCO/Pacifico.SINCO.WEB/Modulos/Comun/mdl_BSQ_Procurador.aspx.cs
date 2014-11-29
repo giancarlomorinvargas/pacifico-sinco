@@ -29,7 +29,7 @@ namespace Pacifico.SINCO.WEB.Modulos.Comun
 
                 //Parametros
                 enProcurador oEnProcurador = new enProcurador();
-
+                
                 //Obtiene Listado
                 List<enProcurador> olEnPoliza = owsUtilClient.ListarProcurador(oEnProcurador).Cast<enProcurador>().ToList();
 
@@ -60,6 +60,10 @@ namespace Pacifico.SINCO.WEB.Modulos.Comun
 
                 //Parametros
                 enProcurador oEnProcurador = new enProcurador();
+                oEnProcurador.NumProcurador = txtCodigoProcurador.Value;
+                oEnProcurador.ApellidoPaterno = txtNombreProcurador.Value;
+                oEnProcurador.Nombre = txtNombreProcurador.Value;
+                oEnProcurador.ApellidoMaterno = txtNombreProcurador.Value;
 
                 //Obtiene Listado
                 List<enProcurador> olEnPoliza = owsUtilClient.ListarProcurador(oEnProcurador).Cast<enProcurador>().ToList();

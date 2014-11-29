@@ -23,6 +23,7 @@ namespace Pacifico.SINCO.EN
         public string vFechaFin { set; get; }
 
         public String NombreAsegurado { set; get; }
+        public string DniAsegurado { set; get; }
         public string Placa { set; get; }
         public string vMarca { set; get; }
         public string vModelo { set; get; }

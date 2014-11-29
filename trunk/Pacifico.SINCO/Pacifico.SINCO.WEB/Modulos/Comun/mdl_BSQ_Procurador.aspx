@@ -40,19 +40,19 @@
 					<tr>
 						<td>&nbsp;</td>	
 						<td class="boton">
-							<a href="javascript:fn_seleccionar();">
+							<a href="javascript: fn_seleccionar();">
 								<img src="<%=sUrl %>Util/images/iconos/ico_mdl_dominio.jpg" border="0" /><br />
 								Aceptar
 							</a>
 						</td>						
 						<td class="boton">
-							<a href="javascript:fn_buscarProcurador();">
+							<a href="javascript: fn_buscarProcurador();">
 								<img src="<%=sUrl %>Util/images/iconos/ico_btn_buscar.jpg" border="0" /><br />
 								Buscar
 							</a>
 						</td>
 						<td class="boton">
-							<a href="#">
+							<a href="javascript: parent.fn_util_CierraModal();">
 								<img src="<%=sUrl %>Util/images/iconos/ico_btn_cancelar.jpg" border="0" /><br />
 								Cerrar
 							</a>
@@ -91,13 +91,13 @@
 								Código de Procurador
 							</td>
 							<td>
-								<input name="" type="text" class="" />
+								<input id="txtCodigoProcurador" type="text" class="" runat="server" />
 							</td>
 							<td class="label">
 								Nombre de Procurador
 							</td>
 							<td>
-								<input name="" type="text" class="" />
+								<input id="txtNombreProcurador" type="text" class="" runat="server" />
 							</td>
 						</tr>																	
 					</table>

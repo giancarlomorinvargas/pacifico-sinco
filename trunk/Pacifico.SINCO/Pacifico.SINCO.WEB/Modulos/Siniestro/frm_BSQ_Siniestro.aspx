@@ -3,6 +3,11 @@
 <asp:Content ID="Content2" runat="server" ContentPlaceHolderID="cphHead">
 
     <script type='text/javascript'>
+        $(document).ready(function () {
+            //Seta Calendarios
+            fn_util_SeteaCalendario($('input[id*=txtFecha]')[0]);
+        });
+
         function fn_buscarSiniestro() {
             $("#btnBuscar").click();
         }
@@ -13,8 +18,13 @@
             $("#hddCodSiniestro").val(objCheck.value);            
         }
 
-        function fn_redirect(pUrl) {            
-            window.location=pUrl+"?pIdSiniestro="+$("#hddCodSiniestro").val();
+        function fn_redirect(pUrl) {
+            var hddCodSiniestro = $("#hddCodSiniestro").val();
+            if (hddCodSiniestro != "") {
+                window.location = pUrl + "?pIdSiniestro=" + hddCodSiniestro;
+            } else {
+                alert("Debe seleccionar un registro.");
+            }
         }
 
     </script>
@@ -113,8 +123,7 @@
 								Fecha de Siniestro
 							</td>
 							<td>
-								<input id="txtFechaSiniestro" type="text" class="" size="8"  runat="server"/>
-								<img src="<%=sUrl %>Util/images/calendario.gif">
+								<input id="txtFechaSiniestro" type="text" class="" size="8"  runat="server" onKeyUp="return fn_util_FormatDate(this);" onBlur="return fn_util_UpdateDate(this);" />								
 							</td>
 						</tr>											
 					</table>
