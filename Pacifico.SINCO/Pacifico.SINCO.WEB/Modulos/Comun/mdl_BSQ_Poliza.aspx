@@ -56,7 +56,7 @@
 							</a>
 						</td>
 						<td class="boton">
-							<a href="#">
+							<a href="javascript:parent.fn_util_CierraModal();">
 								<img src="<%=sUrl %>Util/images/iconos/ico_btn_cancelar.jpg" border="0" /><br />
 								Cerrar
 							</a>
@@ -97,13 +97,13 @@
 					<table width="100%" border="0" cellpadding="5" cellspacing="0" class="css_tb_formPanel">
 						<tr>
 							<td class="label">Número de Póliza</td>
-							<td><input name="" type="text" class="" />
+							<td><input id="txtNumeroPoliza" type="text" class="" runat="server" />
 							</td>
 							<td class="label">
 								Número de Placa Vehículo
 							</td>
 							<td>
-								<input name="" type="text" class="" />
+								<input id="txtNumeroPlaca" type="text" class="" runat="server" />
 							</td>
 						</tr>											
 						<tr>
@@ -111,7 +111,7 @@
 								DNI Asegurado
 							</td>
 							<td>
-								<input name="" type="text" class="" size="9" />
+								<input id="txtDniAsegurado" type="text" class="" size="9" runat="server" />
 							</td>
 						</tr>	
 					</table>

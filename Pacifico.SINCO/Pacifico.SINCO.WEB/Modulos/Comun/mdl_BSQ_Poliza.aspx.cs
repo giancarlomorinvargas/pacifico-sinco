@@ -67,6 +67,9 @@ namespace Pacifico.SINCO.WEB.Modulos.Comun
 
                 //Parametros
                 enPoliza oEnPoliza = new enPoliza();
+                oEnPoliza.DniAsegurado = txtDniAsegurado.Value;
+                oEnPoliza.NumPoliza = txtNumeroPoliza.Value;
+                oEnPoliza.Placa = txtNumeroPlaca.Value;
 
                 //Obtiene Listado
                 List<enPoliza> olEnPoliza = owsUtilClient.ListarPoliza(oEnPoliza).Cast<enPoliza>().ToList();

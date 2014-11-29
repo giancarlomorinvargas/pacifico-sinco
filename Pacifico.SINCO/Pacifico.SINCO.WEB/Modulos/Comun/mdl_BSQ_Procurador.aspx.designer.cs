@@ -49,6 +49,24 @@ namespace Pacifico.SINCO.WEB.Modulos.Comun {
         protected global::System.Web.UI.WebControls.HiddenField hddNombreProcurador;
         
         /// <summary>
+        /// Control txtCodigoProcurador.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtCodigoProcurador;
+        
+        /// <summary>
+        /// Control txtNombreProcurador.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtNombreProcurador;
+        
+        /// <summary>
         /// Control rptListadoProcurador.
         /// </summary>
         /// <remarks>
