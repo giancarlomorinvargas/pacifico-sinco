@@ -22,7 +22,7 @@ namespace Pacifico.SINCO.WS.Interfaces
         [OperationContract]
         string ListarPresupuesto();
         [OperationContract]
-        string BuscarPresupuesto(string NumPresupuesto, string NumInforme, string NumPoliza);
+        string BuscarPresupuesto(string NumPresupuesto, string NumInforme, string NumPoliza, string FechaPresupuesto);
         [OperationContract]
         string AgregarPresupuesto(MSPresupuesto Presupuesto);
         [OperationContract]

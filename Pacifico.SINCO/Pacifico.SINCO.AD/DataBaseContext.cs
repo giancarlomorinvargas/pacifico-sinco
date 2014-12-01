@@ -44,6 +44,7 @@ namespace Pacifico.SINCO.AD
 
         public DbSet<MSPresupuesto> MSPresupuesto { get; set; }
         public DbSet<MSDetallePresupuesto> MSDetallePresupuesto { get; set; }
+        public DbSet<Estado> Estado { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -52,6 +53,18 @@ namespace Pacifico.SINCO.AD
             /**
              * Definimos relaciones complejas
              **/
+
+
+            modelBuilder.Entity<MSPresupuesto>()
+            .HasRequired(c => c.EstadoEntity)
+            .WithMany()
+            .HasForeignKey(c => c.Estado);
+
+            modelBuilder.Entity<MSInformeAccidente>()
+            .HasRequired(c => c.EstadoEntity)
+            .WithMany()
+            .HasForeignKey(c => c.Estado);
+
             /*modelBuilder.Entity<MGFichaCarga>()
             .HasRequired(c => c.Remitente)
             .WithMany(p => p.FichasCargaRemitente)

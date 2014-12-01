@@ -19,6 +19,7 @@ namespace Pacifico.SINCO.EN
         public float IGV { get; set; }
         public float Total { get; set; }
         public int Estado { get; set; }
+        public virtual Estado EstadoEntity { get; set; }
 
         public string UsuarioRegistro { get; set; }
         public DateTime FechaRegistro { get; set; }

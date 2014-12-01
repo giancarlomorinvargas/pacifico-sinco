@@ -11,9 +11,11 @@
         	
 	<script type='text/javascript' src="<%=sUrl %>Util/js/jquery/jquery-1.6.2.min.js"> </script>
 	<script type='text/javascript' src="<%=sUrl %>Util/js/jquery/jquery-ui-1.8.13.custom.min.js"> </script>
+	<!-- <script type='text/javascript' src="<%=sUrl %>Util/js/jquery/jquery.validate-1.11.0.min.js"> </script>	-->
 	<script type='text/javascript' src="<%=sUrl %>Util/js/js_util.modal.js"> </script>
 	<script type='text/javascript' src="<%=sUrl %>Util/js/js_util.funcion.js"> </script>	
 	<script type='text/javascript' src="<%=sUrl %>Util/js/js_util.date.js"> </script>		
+    	
 
     <link type="text/css" rel="stylesheet" href="<%=sUrl %>Util/css/jquery/jquery-ui-1.8.15.custom.css" />					
 	<link type="text/css" rel="stylesheet" href="<%=sUrl %>Util/css/css_global.css" />
@@ -32,6 +34,15 @@
 
     </script>
 		
+    <style>
+        .validation-summary-errors {
+            color:red;
+        }
+        .operation-success {
+            color:green;
+        }
+    </style>
+
     <asp:ContentPlaceHolder ID="cphHead" runat="server">
     </asp:ContentPlaceHolder>
     

@@ -1,4 +1,5 @@
 ﻿using Pacifico.SINCO.EN;
+using Pacifico.SINCO.UTL;
 using Pacifico.SINCO.WEB.wsSiniestro;
 using System;
 using System.Collections.Generic;
@@ -27,6 +28,12 @@ namespace Pacifico.SINCO.WEB.Modulos.Siniestro
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
+            List<String> tipoSiniestro = Utilitario.getTipoSiniestro();
+
+            foreach (string tipo in tipoSiniestro)
+            {
+                cmbTipoSiniestro.Items.Add(tipo);
+            }
             try
             {
                 //IsPostBack
@@ -67,7 +74,8 @@ namespace Pacifico.SINCO.WEB.Modulos.Siniestro
             }
             catch (Exception ex)
             {
-                throw ex;
+                //throw ex;
+                lblMensajeError.InnerText = ex.Message;
             }
         }
 

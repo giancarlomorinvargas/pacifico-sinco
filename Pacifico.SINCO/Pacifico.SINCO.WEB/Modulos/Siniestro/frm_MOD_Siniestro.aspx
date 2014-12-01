@@ -89,11 +89,7 @@
 										Tipo de Siniestro
 									</td>
 									<td>
-										<select id="cmbTipoSiniestro" runat="server">
-									        <option value=""> [SELECCIONE] </option>
-                                            <option value="1"> Tipo 1 </option>
-                                            <option value="2"> Tipo 2 </option>
-								        </select>
+										<select id="cmbTipoSiniestro" runat="server"/>
 									</td>												
 								</tr>	
 								<tr>												
@@ -182,7 +178,9 @@
 												
 						</fieldset>
 										
-					</td></tr></table>
+					</td></tr>
+                    <tr><td><label id="lblMensaje" class="operation-success" runat="server" ></label><label id="lblMensajeError" class="validation-summary-errors" runat="server" ></label></td></tr>
+					</table>
 										
 										
 													

@@ -25,8 +25,8 @@
 
     <asp:Button ID="btnGrabar" runat="server" Text="" OnClick="btnGrabar_Click" ClientIDMode="Static" Style="display: none;" />
     <asp:HiddenField ID="hddCodSiniestro" runat="server" ClientIDMode="Static" EnableViewState="false" />
-    <asp:HiddenField ID="hddCodPoliza" runat="server" ClientIDMode="Static" EnableViewState="false" Value="7" />
-    <asp:HiddenField ID="hddCodProcurador" runat="server" ClientIDMode="Static" EnableViewState="false" Value="1" />
+    <asp:HiddenField ID="hddCodPoliza" runat="server" ClientIDMode="Static" EnableViewState="false" />
+    <asp:HiddenField ID="hddCodProcurador" runat="server" ClientIDMode="Static" EnableViewState="false" />
         						
 				<!-- INCIO TITULO-->
 				<table width="100%" border="0" cellpadding="0" cellspacing="0" class="css_tb_titulo">
@@ -89,11 +89,7 @@
 													Tipo de Siniestro
 												</td>
 												<td>
-													<select id="cmbTipoSiniestro"  runat="server">
-									                    <option value=""> [SELECCIONE] </option>
-                                                        <option value="1"> Tipo 1 </option>
-                                                        <option value="2"> Tipo 2 </option>
-								                    </select>
+													<select id="cmbTipoSiniestro"  runat="server"/>
 												</td>												
 											</tr>	
 											<tr>												
@@ -183,7 +179,9 @@
 												
 									</fieldset>
 										
-								</td></tr></table>
+								</td></tr>
+                                <tr><td><label id="lblMensaje" class="operation-success" runat="server" ></label><label id="lblMensajeError" class="validation-summary-errors" runat="server" ></label></td></tr>
+								</table>
 																							
 							</div>
 
