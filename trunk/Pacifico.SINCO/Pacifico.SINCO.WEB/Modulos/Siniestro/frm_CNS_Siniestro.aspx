@@ -6,7 +6,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cphCuerpo" runat="Server">
 	
-	<!-- INCIO TITULO-->
+    <!-- INCIO TITULO-->
 	<table width="100%" border="0" cellpadding="0" cellspacing="0" class="css_tb_titulo">
 		<tr>
 			<td rowspan="2" class="icono"><img src="<%=sUrl %>Util/images/iconos/ico_mdl_expedientes.jpg" /></td>
@@ -63,11 +63,7 @@
 										Tipo de Siniestro
 									</td>
 									<td>
-										<select id="cmbTipoSiniestro"  runat="server" style="background-color: #EEE;" readonly="readonly">
-									        <option value=""> [SELECCIONE] </option>
-                                            <option value="1"> Tipo 1 </option>
-                                            <option value="2"> Tipo 2 </option>
-								        </select>
+										<select id="cmbTipoSiniestro"  runat="server" style="background-color: #EEE;" readonly="readonly" />
 									</td>												
 								</tr>	
 								<tr>												
@@ -156,7 +152,9 @@
 												
 						</fieldset>
 										
-					</td></tr></table>
+					</td></tr>
+                    <tr><td><label id="lblMensaje" class="operation-success" runat="server" ></label><label id="lblMensajeError" class="validation-summary-errors" runat="server" ></label></td></tr>
+					</table>
 										
 										
 													

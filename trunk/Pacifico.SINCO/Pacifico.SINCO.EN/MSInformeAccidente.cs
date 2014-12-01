@@ -18,6 +18,7 @@ namespace Pacifico.SINCO.EN
         public string Distrito { get; set; }
         public string Direccion { get; set; }
         public int Estado { get; set; }
+        public virtual Estado EstadoEntity { get; set; }
 
         public string UsuarioRegistro { get; set; }
         public DateTime FechaRegistro { get; set; }

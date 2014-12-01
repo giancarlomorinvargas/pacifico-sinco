@@ -13,13 +13,24 @@ namespace Pacifico.SINCO.UTL
         public const string sNombreWS_Siniestro = "wsSiniestro";
         public const string sNombreWS_Presupuesto = "wsPresupuesto";
         public const string sNombreWS_ListaPrecio = "wsListaPrecio";
+        public const string sNombreWS_InformeAccidente = "wsInformeAccidente";
 
         public const string sUsuario_Login = "ADMIN";
 
         //SINIESTROS
-        public const int sEstado_Pendiente = 1;
-        public const int sEstado_EnProceso = 2;
-        public const int sEstado_Terminado = 3;
+        public const string sNum_Siniestro = "SI";
+        public const int sEstado_Registrado = 21;
+        public const int sEstado_Pendiente = 22;
+        public const int sEstado_EnProceso = 23;
+        public const int sEstado_Terminado = 24;
 
+        //INFORME
+        public const int iEstado_Registrado = 31;
+
+        //PRESUPUESTOS
+        public const string pNum_Presupuesto = "PR";
+        public const int pEstado_Registrado = 41;
+        public const int pEstado_Aprobado = 42;
+        public const int pEstado_Rechazado = 43;
     }
 }

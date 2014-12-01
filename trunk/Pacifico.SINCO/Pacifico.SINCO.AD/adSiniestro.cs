@@ -29,8 +29,8 @@ namespace Pacifico.SINCO.AD
                 string sQuery = "SELECT "+
                                     "MS_Siniestro_Id, NumSiniestro, FechaSiniestro, FechaAtencion, Lugar, Descripcion, Estado ,"+
                                     "s.UsuarioRegistro, s.FechaRegistro, s.UsuarioModifico, s.FechaModifico, "+
-                                    "p.MP_Poliza_Id, MS_Procurador_Id, "+ 
-                                    "CASE s.Tipo WHEN '1' THEN 'ACCIDENTE VEHICULAR' ELSE 'ACCIDENTE VEHICULAR' END as Tipo, "+ 
+                                    "p.MP_Poliza_Id, MS_Procurador_Id, s.Tipo, " + 
+                                    //"CASE s.Tipo WHEN '1' THEN 'ACCIDENTE VEHICULAR' ELSE 'ACCIDENTE VEHICULAR' END as Tipo, "+ 
                                     "p.NumPoliza, a.ApellidoPaterno + ' ' + a.ApellidoMaterno + ', ' + a.Nombre as NombreAsegurado, "+
                                     "(SELECT e.Nombre FROM Estado e WHERE e.Estado_Id = s.Estado ) as vEstado " +
                                 "FROM MS_Siniestro s, MP_Poliza p, MP_Asegurado a "+ 
@@ -110,7 +110,8 @@ namespace Pacifico.SINCO.AD
                                     "p.MP_Poliza_Id, s.MS_Procurador_Id, " +
                                     "s.Tipo, " +
                                     "p.NumPoliza, a.ApellidoPaterno + ' ' + a.ApellidoMaterno + ', ' + a.Nombre as NombreAsegurado, " +
-                                    "CASE s.Estado WHEN '1' THEN 'PENDIENTE' WHEN '2' THEN 'EN PROCESO' WHEN '3' THEN 'TERMINADO' ELSE 'PENDIENTE' END as vEstado " +
+                                    //"CASE s.Estado WHEN '1' THEN 'PENDIENTE' WHEN '2' THEN 'EN PROCESO' WHEN '3' THEN 'TERMINADO' ELSE 'PENDIENTE' END as vEstado " +
+                                    "(SELECT e.Nombre FROM Estado e WHERE e.Estado_Id = s.Estado ) as vEstado" +
                                     ", CONVERT(varchar(10),p.FechaInicio,103) as vFechaInicio, CONVERT(varchar(10),p.FechaFin,103) as vFechaFin "+
 	                                ", pr.NumProcurador ,pr.ApellidoPaterno + ' ' + pr.ApellidoMaterno + ', ' + pr.Nombre as NombreProcurador "+
                                 "FROM MS_Siniestro s, MP_Poliza p, MP_Asegurado a, MS_Procurador pr " +

@@ -2,6 +2,33 @@
 
 <asp:Content ID="Content2" runat="server" ContentPlaceHolderID="cphHead">
 
+    <script type='text/javascript'>
+        function fn_buscarInforme() {
+            $("#btnBuscar").click();
+        }
+        /*
+        function fn_checkLista(objCheck, vNumPoliza, vAsegurado, vFechaIni, vFechaFin) {
+            $('input[id*="chkIdPoliza"]').prop('checked', false);
+            objCheck.checked = true;
+
+            $("#hddCodPoliza").val(objCheck.value);
+            $("#hddNumPoliza").val(vNumPoliza);
+            $("#hddAsegurado").val(vAsegurado);
+            $("#hddFechaIni").val(vFechaIni);
+            $("#hddFechaFin").val(vFechaFin);
+        }
+
+        function fn_seleccionar() {
+            parent.document.getElementById("hddCodPoliza").value = $("#hddCodPoliza").val();
+            parent.document.getElementById("txtNumPoliza").value = $("#hddNumPoliza").val();
+            parent.document.getElementById("txtAsegurado").value = $("#hddAsegurado").val();
+            parent.document.getElementById("txtInicio").value = $("#hddFechaIni").val();
+            parent.document.getElementById("txtFin").value = $("#hddFechaFin").val();
+            parent.fn_util_CierraModal();
+        }
+        */
+    </script>
+
 </asp:Content>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cphCuerpo" runat="Server">
@@ -43,10 +70,10 @@
 			<td class="subModulo">Búsqueda de Repuestos</td>
 		</tr>
 	</table>
-	<!-- FIN TITULO-->
-	
+	<!-- FIN TITULO-->	
 	
 	<!-- INCIO PANEL-->
+    <!--
 	<table width="100%" border="0" cellpadding="0" cellspacing="0" class="css_tema_panel">
 		<tr class="cabecera"><td class="left"></td><td class="center"></td><td class="right"></td></tr>
 		<tr class="body">	
@@ -62,13 +89,13 @@
 								Código
 							</td>
 							<td>
-								<input name="" type="text" class="" />
+								<input id="txtCodigo" type="text" class="" runat="server"/>
 							</td>
 							<td class="label">
 								Descripción
 							</td>
 							<td>
-								<input name="" type="text" class="" />
+								<input id="txtDescripcion" type="text" class="" runat="server"/>
 							</td>														
 						</tr>	
 					</table>
@@ -79,31 +106,54 @@
 			<td class="right"></td>												
 		</tr>
 		<tr class="pie"><td class="left"></td><td class="center"></td><td class="right"></td></tr>
-	</table>	
+	</table>	-->
 	<!-- FIN PANEL-->
 	
 
 	<br/><br/>
-	
-	<table width="100%" border="0" cellpadding="3" cellspacing="0" class="css_grilla">
-		<tr>
-			<th>_</th>
-			<th>Código</th>			
-			<th>Descripción </th>			
-			<th>Precio (S./)</th>
-		</tr>	
-		<tr class="even">
-			<td><input type="checkbox"/></td>
-			<td style="text-align:center;">PT_001487</td>			
-			<td style="text-align:center;">Faros delanteros Kia Sportage 2013</td>				
-			<td style="text-align:center;"> 1 500.00 </td>
-		</tr>
-		<tr>
-			<td><input type="checkbox"/></td>
-			<td style="text-align:center;">PT_009872</td>			
-			<td style="text-align:center;">Parachoque delantero Kia Sportage 2013</td>				
-			<td style="text-align:center;"> 2 350.00 </td>
-		</tr>
-	</table>
+    
+    <asp:Repeater ID="rptListadoPrecios" runat="server" EnableViewState="false">
+         <HeaderTemplate>
+             <table width="100%" border="0" cellpadding="3" cellspacing="0" class="css_grilla">
+		        <thead>
+                     <tr>
+			            <th>_</th>
+			            <th>Código</th>	
+                         <th />		
+			            <th>Número Siniestro</th>
+                         <th />
+			            <th>Descripción</th>
+                         <th />
+			            <th>Precio (S./)</th>	
+                         <th />		
+		            </tr>	
+                </thead>
+            </HeaderTemplate>
+            <ItemTemplate>
+               <tbody>
+                   <tr>
+			            <td>
+                            <a href="#" 
+                                style="width:40px;"
+                                onclick="parent.cargarListaPrecio({listaPrecioId:'<%# Eval("MS_Lista_Precio_Id") %>',
+                                descripcion:'<%# Eval("Servicio.Descripcion") %>',
+                                precio:'<%# Eval("Precio") %>'})">Seleccionar</a>
+			            </td>                            
+			            <td style="text-align:center;"><%#Eval("MS_Lista_Precio_Id") %><td>
+			            <td style="text-align:center;"><%#Eval("Marca.Descripcion") %><td>
+			            <td style="text-align:center;"><%#Eval("Marca.Descripcion") %><td>
+			            <td style="text-align:center;"><%#Eval("Servicio.Descripcion") %><td>
+			            <td style="text-align:center;"><%#Eval("Precio") %><td>
+		            </tr>                                       
+               </ItemTemplate>
+            <FooterTemplate>
+            </tbody>
+         </table>
+         </FooterTemplate>
+      </asp:Repeater>
+    
+        <p>
+            <label id="lblMensaje" class="operation-success" runat="server" ></label><label id="lblMensajeError" class="validation-summary-errors" runat="server" ></label>
+        </p>
 
 </asp:Content>

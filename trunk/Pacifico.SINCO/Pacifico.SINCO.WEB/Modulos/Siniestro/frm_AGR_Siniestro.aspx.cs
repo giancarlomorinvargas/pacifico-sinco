@@ -28,7 +28,16 @@ namespace Pacifico.SINCO.WEB.Modulos.Siniestro
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
-            txtNumSiniestro.Value = "SI-000000";
+            txtNumSiniestro.Value = Utilitario.getNumDocument(Constantes.sNum_Siniestro);
+
+            List<String> tipoSiniestro = Utilitario.getTipoSiniestro();
+
+            foreach (string tipo in tipoSiniestro)
+            {
+                cmbTipoSiniestro.Items.Add(tipo);
+            }
+
+            txtFechaSiniestro.Value = DateTime.Now.ToString("d");
         }
 
 
@@ -65,12 +74,14 @@ namespace Pacifico.SINCO.WEB.Modulos.Siniestro
                 if (exito)
                 {
                     Response.Redirect("~/Modulos/Siniestro/frm_BSQ_Siniestro.aspx");
+                    lblMensaje.InnerText = "Se modifico el Siniestro satisfactoriamente";
                 }
 
             }
             catch (Exception ex)
             {
-                throw ex;
+                //throw ex;
+                lblMensajeError.InnerText = ex.Message;
             }
         }
     }

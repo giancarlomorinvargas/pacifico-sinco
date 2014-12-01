@@ -113,9 +113,7 @@
 							</td>
 							<td>
 								<select id="cmbTipoSiniestro"  runat="server">
-									<option value=""> [SELECCIONE] </option>
-                                    <option value="1"> Tipo 1 </option>
-                                    <option value="2"> Tipo 2 </option>
+									<option value="">[SELECCIONE]</option>
 								</select>
 							</td>
 							<td>&nbsp;</td>
@@ -125,7 +123,8 @@
 							<td>
 								<input id="txtFechaSiniestro" type="text" class="" size="8"  runat="server" onKeyUp="return fn_util_FormatDate(this);" onBlur="return fn_util_UpdateDate(this);" />								
 							</td>
-						</tr>											
+						</tr>
+                        
 					</table>
 									
 				</div>
@@ -172,7 +171,9 @@
          </table>
          </FooterTemplate>
       </asp:Repeater>
-    
+    <p>
+        <label id="lblMensaje" class="operation-success" runat="server" ></label><label id="lblMensajeError" class="validation-summary-errors" runat="server" ></label>
+    </p>
     
 </asp:Content>
 

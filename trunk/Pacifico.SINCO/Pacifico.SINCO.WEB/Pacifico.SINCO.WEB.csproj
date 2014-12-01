@@ -66,6 +66,23 @@
     <Content Include="Properties\DataSources\Pacifico.SINCO.EN.enSiniestro.datasource" />
     <Content Include="Properties\DataSources\Pacifico.SINCO.EN.enPoliza.datasource" />
     <Content Include="Properties\DataSources\Pacifico.SINCO.EN.enProcurador.datasource" />
+    <None Include="Service References\wsInformeAccidente\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\wsInformeAccidente\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Service References\wsInformeAccidente\wsInformeAccidente.wsdl" />
+    <None Include="Service References\wsListaPrecio\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\wsListaPrecio\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Service References\wsListaPrecio\wsListaPrecio.wsdl" />
+    <None Include="Service References\wsPresupuesto\Pacifico.SINCO.EN.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\wsPresupuesto\service.wsdl" />
     <None Include="Service References\wsPresupuesto\service.xsd">
       <SubType>Designer</SubType>
@@ -118,6 +135,18 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="Service References\wsInformeAccidente\configuration91.svcinfo" />
+    <Content Include="Service References\wsInformeAccidente\configuration.svcinfo" />
+    <Content Include="Service References\wsInformeAccidente\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Service References\wsListaPrecio\configuration91.svcinfo" />
+    <Content Include="Service References\wsListaPrecio\configuration.svcinfo" />
+    <Content Include="Service References\wsListaPrecio\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
     <Content Include="Util\css\css_formulario.css" />
     <Content Include="Util\css\css_fuente.css" />
     <Content Include="Util\css\css_global.css" />
@@ -420,6 +449,16 @@
       <DependentUpon>frm_MOD_Siniestro.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\wsInformeAccidente\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\wsListaPrecio\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\wsPresupuesto\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -450,6 +489,7 @@
     <Content Include="Util\images\menu\Thumbs.db" />
     <Content Include="Util\images\tema\Thumbs.db" />
     <Content Include="Util\images\Thumbs.db" />
+    <Content Include="Util\js\jquery\jquery.validate-1.11.0.min.js" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -471,6 +511,8 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Service References\wsInformeAccidente\" />
+    <WCFMetadataStorage Include="Service References\wsListaPrecio\" />
     <WCFMetadataStorage Include="Service References\wsPresupuesto\" />
     <WCFMetadataStorage Include="Service References\wsSiniestro\" />
     <WCFMetadataStorage Include="Service References\wsUtil\" />

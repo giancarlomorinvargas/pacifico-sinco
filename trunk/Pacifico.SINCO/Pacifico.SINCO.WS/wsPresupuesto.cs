@@ -27,9 +27,9 @@ namespace Pacifico.SINCO.WS
         }
         
 
-        public static int ESTADO_REGISTRADO = 41;
-        public static int ESTADO_APROBADO = 42;
-        public static int ESTADO_RECHAZADO = 43;
+        public static int ESTADO_REGISTRADO = Constantes.pEstado_Registrado;
+        public static int ESTADO_APROBADO = Constantes.pEstado_Aprobado;
+        public static int ESTADO_RECHAZADO = Constantes.pEstado_Rechazado;
 
 
 
@@ -71,7 +71,7 @@ namespace Pacifico.SINCO.WS
             try
             {
                 model.Estado = ESTADO_REGISTRADO;
-                model.FechaPresupuesto = DateTime.Now;
+                //model.FechaPresupuesto = DateTime.Now;
 
                 model.UsuarioRegistro = usuario;
                 model.FechaRegistro = DateTime.Now;
@@ -146,7 +146,7 @@ namespace Pacifico.SINCO.WS
         }
 
 
-         public string BuscarPresupuesto(string NumPresupuesto, string NumInforme, string NumPoliza)
+         public string BuscarPresupuesto(string NumPresupuesto, string NumInforme, string NumPoliza, string FechaPresupuesto)
          {
              string NumPresupuestoParam = NumPresupuesto.ToUpper();
              string NumInformeParam = NumInforme.ToUpper();
@@ -158,6 +158,7 @@ namespace Pacifico.SINCO.WS
                          b => ((b.NumPresupuesto.ToUpper().Contains(NumPresupuesto))
                              && (b.InformeAccidente.NumInforme.ToUpper().Contains(NumInforme))
                              && (b.InformeAccidente.Siniestro.Poliza.NumPoliza.ToUpper().Contains(NumPoliza))
+                             && (b.FechaPresupuesto.ToString("d").Contains(FechaPresupuesto))
                              )
                         ).ToList()
                      )
