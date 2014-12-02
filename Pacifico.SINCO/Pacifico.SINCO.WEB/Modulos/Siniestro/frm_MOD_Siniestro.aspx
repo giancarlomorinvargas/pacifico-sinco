@@ -15,7 +15,65 @@
             fn_util_AbreModal("Búsqueda de Procuradores", "../Comun/mdl_BSQ_Procurador.aspx", 900, 500, null);
         }
         function fn_GrabarSiniestro() {
-            $("#btnGrabar").click();
+            var sError = "";
+
+            //Valida cada campo
+            sHddCodPoliza = $("#hddCodPoliza").val();
+            sHddCodProcurador = $("#hddCodProcurador").val();
+
+            sTxtNumSiniestro = $("#txtNumSiniestro").val();
+            sCmbTipoSiniestro = $("#cmbTipoSiniestro").val();
+            sTxaDescripcion = $("#txaDescripcion").val();
+            sTxtFechaSiniestro = $("#txtFechaSiniestro").val();
+            sTxtLugar = $("#txtLugar").val();
+
+            //alert(sHddCodPoliza+"-"+sHddCodProcurador+"-"+sHddCodProcurador+"-"+sTxtNumSiniestro+"-"+sCmbTipoSiniestro+"-"+sTxaDescripcion+"-"+sTxaDescripcion+"-"+sTxtFechaSiniestro+"-"+sTxtLugar);
+
+            //Número Siniestro
+            if (fn_util_trim(sTxtNumSiniestro) == "" || fn_util_trim(sTxtNumSiniestro) == "0") {
+                sError = sError + "   - Debe ingresar un Número de Póliza. <br/>";
+            }
+            //Tipo Siniestro
+            if (fn_util_trim(sCmbTipoSiniestro) == "" || fn_util_trim(sCmbTipoSiniestro) == "0") {
+                sError = sError + "   - Debe seleccionar el Tipo de Siniestro. <br/>";
+            }
+            //Descripción
+            if (fn_util_trim(sTxaDescripcion) == "") {
+                sError = sError + "   - Debe ingresar una Descripción. <br/>";
+            }
+            //Fecha de Siniestro
+            if (fn_util_trim(sTxtFechaSiniestro) == "") {
+                sError = sError + "   - Debe ingresar una Fecha de Siniestro. <br/>";
+            }
+            //Lugar
+            if (fn_util_trim(sTxtLugar) == "") {
+                sError = sError + "   - Debe ingresar el Lugar. <br/>";
+            }
+
+
+            //Codigo de Póliza
+            if (fn_util_trim(sHddCodPoliza) == "" || fn_util_trim(sHddCodPoliza) == "0") {
+                sError = sError + "   - Debe seleccionar una Póliza. <br/>";
+            }
+            //Codigo de Procurador
+            if (fn_util_trim(sHddCodProcurador) == "" || fn_util_trim(sHddCodProcurador) == "0") {
+                sError = sError + "   - Debe seleccionar un Procurador. <br/>";
+            }
+
+
+            //Valida Final
+            if (sError == "") {
+                fn_mdl_confirma("¿Está seguro que desea modificar el Siniestro?",
+                                function () {
+                                    $("#btnGrabar").click();
+                                },
+                                null,
+                                null,
+                                "CONFIRMACIÓN"
+                                );
+            } else {
+                fn_mdl_alert(sError, null, "VALIDACIONES");
+            }
         }
     </script>
 
@@ -81,7 +139,7 @@
 										Número de Siniestro
 									</td>
 									<td>
-										<input id="txtNumSiniestro" type="text" class="" style="background-color: #EEE;" runat="server" readonly="readonly" />
+										<input id="txtNumSiniestro" type="text" class="" style="background-color: #EEE;" runat="server" readonly="readonly" ClientIDMode="Static" />
 									</td>
 								</tr>	
 								<tr>												
@@ -89,7 +147,7 @@
 										Tipo de Siniestro
 									</td>
 									<td>
-										<select id="cmbTipoSiniestro" runat="server"/>
+										<select id="cmbTipoSiniestro" runat="server" ClientIDMode="Static"/>
 									</td>												
 								</tr>	
 								<tr>												
@@ -97,7 +155,7 @@
 										Descripción
 									</td>
 									<td>
-										<textarea id="txaDescripcion" cols="100" rows="5" runat="server" ></textarea>
+										<textarea id="txaDescripcion" cols="100" rows="5" runat="server" ClientIDMode="Static" ></textarea>
 									</td>												
 								</tr>	
 								<tr>												
@@ -105,7 +163,7 @@
 										Fecha de Siniestro
 									</td>
 									<td>
-										<input id="txtFechaSiniestro" type="text" class="" size="8" runat="server" onKeyUp="return fn_util_FormatDate(this);" onBlur="return fn_util_UpdateDate(this);" />										
+										<input id="txtFechaSiniestro" type="text" class="" size="8" runat="server" onKeyUp="return fn_util_FormatDate(this);" onBlur="return fn_util_UpdateDate(this);" ClientIDMode="Static" />										
 									</td>												
 								</tr>
 								<tr>
@@ -113,7 +171,7 @@
 										Lugar
 									</td>
 									<td>
-										<input id="txtLugar" type="text" class="" size="50" runat="server" />
+										<input id="txtLugar" type="text" class="" size="50" runat="server" ClientIDMode="Static" />
 									</td>
 								</tr>
 							</table>

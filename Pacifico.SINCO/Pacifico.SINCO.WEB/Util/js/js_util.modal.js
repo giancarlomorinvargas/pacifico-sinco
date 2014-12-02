@@ -21,7 +21,7 @@ function fn_util_AbreModal(pTitulo, pURL, pAncho, pAlto, pFuncion) {
                 $(this).remove();
             }
         }
-		,width: (pAncho+30)
+		, width: (pAncho + 30)
     });
 	
 };
@@ -50,11 +50,13 @@ function fn_mdl_alert(pHTML, pFuncion, pTitulo) {
         , title: pTitulo
         , resizable: false
 	    , beforeclose: function (event, ui) {
-	        $(this).remove(); pFuncion();
+	        $(this).remove();
+	        if (pFuncion != null) pFuncion();
 	    },
         buttons: {
             "Aceptar": function () {
-                $(this).remove(); pFuncion();
+                $(this).remove();
+                if (pFuncion != null) pFuncion(); 
             }
         }
     });
@@ -67,7 +69,7 @@ function fn_mdl_alert(pHTML, pFuncion, pTitulo) {
 //**********************************************************************
 function fn_mdl_confirma(Message, Action, UrlImagen, Action1, Title) {
     if (Title == null) { Title = 'VALIDACIONES PRINCIPALES'; }
-    if (UrlImagen == null) { UrlImagen = 'util/images/question.gif'; }
+    if (UrlImagen == null) { UrlImagen = '../../Util/images/question.gif'; }
     $("body").append("<div id='divMessageConfirm' title='" + Title + "'></div>");
     $("#divMessageConfirm").html('<br /><table><tr><td style="width:35px"><img src="' + UrlImagen + '" alt=""></td><td aling="left" class="css_lbl_texto">' + Message + '</td></tr></table>');   
     $("#divMessageConfirm").dialog({

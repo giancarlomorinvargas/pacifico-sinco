@@ -8,14 +8,13 @@
 	<link rel="SHORTCUT ICON" href="Util/images/PV16x16.ico" />
 </head>
 <body class="css_body_sistema">
-        	
-	<script type='text/javascript' src="<%=sUrl %>Util/js/jquery/jquery-1.6.2.min.js"> </script>
-	<script type='text/javascript' src="<%=sUrl %>Util/js/jquery/jquery-ui-1.8.13.custom.min.js"> </script>
-	<!-- <script type='text/javascript' src="<%=sUrl %>Util/js/jquery/jquery.validate-1.11.0.min.js"> </script>	-->
+
+    <script type='text/javascript' src="<%=sUrl %>Util/js/jquery/jquery-1.10.2.js"></script>
+    <script type='text/javascript' src="<%=sUrl %>Util/js/jquery/jquery-ui-1.10.4.custom.min.js"></script>
+    	
 	<script type='text/javascript' src="<%=sUrl %>Util/js/js_util.modal.js"> </script>
 	<script type='text/javascript' src="<%=sUrl %>Util/js/js_util.funcion.js"> </script>	
 	<script type='text/javascript' src="<%=sUrl %>Util/js/js_util.date.js"> </script>		
-    	
 
     <link type="text/css" rel="stylesheet" href="<%=sUrl %>Util/css/jquery/jquery-ui-1.8.15.custom.css" />					
 	<link type="text/css" rel="stylesheet" href="<%=sUrl %>Util/css/css_global.css" />
@@ -23,10 +22,8 @@
 	<link type="text/css" rel="stylesheet" href="<%=sUrl %>Util/css/css_fuente.css" />
 	<link type="text/css" rel="stylesheet" href="<%=sUrl %>Util/css/css_tema.css" />
 	<link type="text/css" rel="stylesheet" href="<%=sUrl %>Util/css/css_tema_A.css" />	
-	
-	<script type="text/javascript" src="<%=sUrl %>Util/js/jquery/jquery.dimensions.js"></script>
-	<script type="text/javascript" src="<%=sUrl %>Util/js/jquery/jquery.positionBy.js"></script>
-	<script type="text/javascript" src="<%=sUrl %>Util/js/jquery/jquery.bgiframe.js"></script>
+		
+	<script type="text/javascript" src="<%=sUrl %>Util/js/jquery/jquery.positionBy.js"></script>	
 	<script type="text/javascript" src="<%=sUrl %>Util/js/jquery/jquery.jdMenu.js"></script>
 	<link type="text/css" rel="stylesheet" href="<%=sUrl %>Util/css/jquery/jquery.jdMenu.css" />
 		

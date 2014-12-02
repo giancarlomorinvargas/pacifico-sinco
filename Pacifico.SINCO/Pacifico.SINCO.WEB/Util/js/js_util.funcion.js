@@ -4,7 +4,7 @@
 function fn_util_SeteaCalendario(pControlTxt) {
     if ((pControlTxt != null) && ($(pControlTxt).attr("type") == 'text')) {
         pControlTxt.className = '';
-        $(pControlTxt).datepicker({ selectOtherMonths: true, changeYear: true, changeMonth: true });
+        $(pControlTxt).datepicker({ selectOtherMonths: true, changeYear: true, changeMonth: true, dateFormat: 'dd/mm/yy' });
         $(pControlTxt).addClass('css_calendario');
     }
 };
