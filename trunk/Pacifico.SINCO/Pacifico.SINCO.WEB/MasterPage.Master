@@ -100,15 +100,16 @@
 							        <li class="separator"></li>
 							        <li class="accessible"><a href="#" class="accessible">Gestión de Siniestros</a>
 								        <ul>
-									        <li><img src="<%=sUrl %>Util/images/menu/ico_menu.gif" class="jd_menu_icono"/><a href="<%=sUrl %>Modulos/Siniestro/frm_BSQ_Siniestro.aspx">Mantenimiento Siniestros</a></li>														        		
+									        <li><img src="<%=sUrl %>Util/images/menu/ico_menu.gif" class="jd_menu_icono"/><a href="<%=sUrl %>Modulos/Siniestro/frm_BSQ_Siniestro.aspx">Mantenimiento de Siniestros</a></li>
+                                            <li><img src="<%=sUrl %>Util/images/menu/ico_menu.gif" class="jd_menu_icono"/><a href="<%=sUrl %>Modulos/Presupuesto/frm_BSQ_Presupuesto.aspx">Generación de Presupuestos</a></li>
 								        </ul>
 							        </li>
-                                     <li class="separator"></li>
+                                     <!--li class="separator"></!--li>
 							        <li><a href="#" class="accessible">Presupuestos</a>
 								        <ul>
 									        <li><img src="<%=sUrl %>Util/images/menu/ico_menu.gif" class="jd_menu_icono"/><a href="<%=sUrl %>Modulos/Presupuesto/frm_BSQ_Presupuesto.aspx">Generación de Presupuestos</a></li>														        				
 								        </ul>
-							        </li>	
+							        </li-->	
 							        <li class="separator"></li>
 							        <li><a href="#" class="accessible">Conciliaciones</a>
 								        <ul>
