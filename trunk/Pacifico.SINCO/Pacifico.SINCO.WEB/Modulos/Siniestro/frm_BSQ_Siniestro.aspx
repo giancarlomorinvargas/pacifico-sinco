@@ -113,7 +113,7 @@
 							</td>
 							<td>
 								<select id="cmbTipoSiniestro"  runat="server">
-									<option value="">[SELECCIONE]</option>
+									<option value=""> [SELECCIONE] </option>
 								</select>
 							</td>
 							<td>&nbsp;</td>

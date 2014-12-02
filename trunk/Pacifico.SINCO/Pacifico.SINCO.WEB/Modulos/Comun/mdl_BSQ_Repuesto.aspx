@@ -43,7 +43,7 @@
 				<table width="100%" border="0" cellpadding="0" cellspacing="0" class="css_tb_tituloBotones">
 					<tr>
 						<td>&nbsp;</td>		
-						<td class="boton">
+						<!--<td class="boton">
 							<a href="#">
 								<img src="<%=sUrl %>Util/images/iconos/ico_mdl_dominio.jpg" border="0" /><br />
 								Aceptar
@@ -54,9 +54,9 @@
 								<img src="<%=sUrl %>Util/images/iconos/ico_btn_buscar.jpg" border="0" /><br />
 								Buscar
 							</a>
-						</td>
+						</td>-->
 						<td class="boton">
-							<a href="#">
+							<a href="javascript:parent.fn_util_CierraModal();">
 								<img src="<%=sUrl %>Util/images/iconos/ico_btn_cancelar.jpg" border="0" /><br />
 								Cerrar
 							</a>
@@ -119,8 +119,10 @@
                      <tr>
 			            <th>_</th>
 			            <th>Código</th>	
-                         <th />		
-			            <th>Número Siniestro</th>
+                         <th />
+			            <th>Marca</th>
+                         <th />
+			            <th>Modelo</th>
                          <th />
 			            <th>Descripción</th>
                          <th />
@@ -141,7 +143,7 @@
 			            </td>                            
 			            <td style="text-align:center;"><%#Eval("MS_Lista_Precio_Id") %><td>
 			            <td style="text-align:center;"><%#Eval("Marca.Descripcion") %><td>
-			            <td style="text-align:center;"><%#Eval("Marca.Descripcion") %><td>
+			            <td style="text-align:center;"><%#Eval("Modelo.Descripcion") %><td>
 			            <td style="text-align:center;"><%#Eval("Servicio.Descripcion") %><td>
 			            <td style="text-align:center;"><%#Eval("Precio") %><td>
 		            </tr>                                       

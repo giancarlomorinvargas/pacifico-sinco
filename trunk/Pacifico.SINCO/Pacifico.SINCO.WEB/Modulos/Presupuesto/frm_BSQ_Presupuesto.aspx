@@ -23,7 +23,7 @@
             if (hddCodPresupuesto != "") {
                 window.location = pUrl + "?pIdPresupuesto=" + hddCodPresupuesto;
             } else {
-                alert("Debe seleccionar un registro.");
+                fn_mdl_alert("Debe seleccionar un registro", null, "VALIDACIONES");
             }
         }
 
@@ -126,8 +126,7 @@
 								Fecha
 							</td>
 							<td>
-								<input id="txtFechaPresupuesto" type="text" class="" size="8"  runat="server" onKeyUp="return fn_util_FormatDate(this);" onBlur="return fn_util_UpdateDate(this);" />								
-								<img src="<%=sUrl %>Util/images/calendario.gif">
+								<input id="txtFechaPresupuesto" type="text" class="" size="8"  runat="server" onKeyUp="return fn_util_FormatDate(this);" onBlur="return fn_util_UpdateDate(this);" />
 							</td>
 						</tr>												
 					</table>

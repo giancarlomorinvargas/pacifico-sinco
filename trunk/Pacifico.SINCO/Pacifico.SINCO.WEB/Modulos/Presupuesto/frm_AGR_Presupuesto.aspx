@@ -4,7 +4,6 @@
     	
 	<script type='text/javascript'>
 
-	    var prefixServer = 'cphCuerpo_';
 	    $(document).ready(function () {
 	        //Seta Calendarios
 	        fn_util_SeteaCalendario($('input[id*=txtFecha]')[0]);
@@ -35,12 +34,11 @@
 	    }
 
 	    function fn_abreBsqRepuestos() {
-	        $("#lblDetalleError").empty();
 	        var marcaId = $("#hdnMarcaId").val();
 	        var modeloId = $("#hdnModeloId").val();
 
 	        if (!marcaId || !modeloId) {
-	            $("#lblDetalleError").append("Se requiere consultar Informe Accidente Vehicular");
+	            fn_mdl_alert("Se requiere consultar Informe Accidente Vehicular", null, "VALIDACIONES");
 	        } else {
 	            fn_util_AbreModal("Búsqueda de Repuestos", "../Comun/mdl_BSQ_Repuesto.aspx?marcaId=" + marcaId + "&modeloId=" + modeloId, 900, 500, null);
 	        }
@@ -87,9 +85,9 @@
 	        SubTotal = (Total / 1.18).toFixed(2);
 	        Igv = (Total - SubTotal).toFixed(2);
 
-	        $("#" + prefixServer + "txtSubTotal").val(SubTotal);
-	        $("#" + prefixServer + "txtIGV").val(Igv);
-	        $("#" + prefixServer + "txtTotal").val(Total);
+	        $("#txtSubTotal").val(SubTotal);
+	        $("#txtIGV").val(Igv);
+	        $("#txtTotal").val(Total);
 	    }
 
 	    function cargarDetallePresupuesto() {
@@ -114,12 +112,10 @@
 	                    var val_range_min = $(this).data("val-range-min");
 
 	                    if (isValid && val && val_dec && (!/^-?(?:\d+|\d{1,3}(?:,\d{3})+)(?:\.\d+)?$/.test(v) || v <= val_range_min)) {
-	                        $(this).addClass("input-validation-error");
-	                        $("#lblDetalleError").append(val_range);
+	                        fn_mdl_alert(val_range, null, "VALIDACIONES");
 	                        isValid = false;
 	                    } else if (isValid && val && !val_dec && (!/^\d+$/.test(v) || v <= val_range_min)) {
-	                        $(this).addClass("input-validation-error");
-	                        $("#lblDetalleError").append(val_range);
+	                        fn_mdl_alert(val_range, null, "VALIDACIONES");
 	                        isValid = false;
 	                    } else if (isValid) {
 
@@ -127,7 +123,6 @@
 	                            detalle[k] = v;
 	                        }
 	                    }
-	                    console.log('k', k, 'v', v, 'valid', isValid, 'detalle', detalle);
 	                });
 
 	                if (isValid) {
@@ -147,7 +142,60 @@
 	    }
 
 	    function fn_GrabarPresupuesto() {
-	        $("#btnGrabar").click();
+	        var sError = "";
+
+	        //Valida cada campo
+	        sHddCodInforme = $("#hdnInformeAccidenteId").val();
+
+	        sTxtNumPresupuesto = $("#txtNumPresupuesto").val();
+	        sTxtFechaPresupuesto = $("#txtFechaPresupuesto").val();
+	        stxtSubTotal = $("#txtSubTotal").val();
+	        sTxtIGV = $("#txtIGV").val();
+	        sTxtTotal = $("#txtTotal").val();
+
+
+	        //Codigo Informe Vehicular
+	        if (fn_util_trim(sHddCodInforme) == "" || fn_util_trim(sHddCodInforme) == "0") {
+	            sError = sError + "   - Debe seleccionar un Informe Accidente Vehicular. <br/>";
+	        }
+
+	        //Número Siniestro
+	        if (fn_util_trim(sTxtNumPresupuesto) == "" || fn_util_trim(sTxtNumPresupuesto) == "0") {
+	            sError = sError + "   - Debe ingresar un Número de Presupuesto. <br/>";
+	        }
+	        //Fecha de Presupuesto
+	        if (fn_util_trim(sTxtFechaPresupuesto) == "") {
+	            sError = sError + "   - Debe ingresar una Fecha de Presupuesto. <br/>";
+	        }
+	        //Sub Total
+	        if (fn_util_trim(stxtSubTotal) == "" || fn_util_trim(stxtSubTotal) == "0") {
+	            sError = sError + "   - Debe ser mayor a 0, el Sub Total. <br/>";
+	        }
+	        //IGV
+	        if (fn_util_trim(sTxtIGV) == "" || fn_util_trim(sTxtIGV) == "0") {
+	            sError = sError + "   - Debe ser mayor a 0, el Igv. <br/>";
+	        }
+	        //Total
+	        if (fn_util_trim(sTxtTotal) == "" || fn_util_trim(sTxtTotal) == "0") {
+	            sError = sError + "   - Debe ser mayor a 0, el Total. <br/>";
+	        }
+
+
+
+	        //Valida Final
+	        if (sError == "") {
+	            fn_mdl_confirma("¿Está seguro que desea agregar el Presupuesto?",
+                                function () {
+                                    $("#btnGrabar").click();
+                                },
+                                null,
+                                null,
+                                "CONFIRMACIÓN"
+                                );
+	        } else {
+	            fn_mdl_alert(sError, null, "VALIDACIONES");
+	        }
+
 	    }
 	</script>
 
@@ -279,7 +327,7 @@
 										Número de Presupuesto
 									</td>
 									<td>
-										<input id="txtNumPresupuesto" type="text" class="css_frm_inactivo" runat="server" />
+										<input id="txtNumPresupuesto" type="text" class="css_frm_inactivo" ClientIDMode="Static" runat="server" readonly="readonly"/>
 									</td>
 								</tr>	
 								<tr>
@@ -287,7 +335,7 @@
 										Fecha
 									</td>
 									<td>
-										<input id="txtFechaPresupuesto" type="text" class="" size="8" runat="server" onKeyUp="return fn_util_FormatDate(this);" onBlur="return fn_util_UpdateDate(this);" />
+										<input id="txtFechaPresupuesto" type="text" class="" size="8" ClientIDMode="Static" runat="server" onKeyUp="return fn_util_FormatDate(this);" onBlur="return fn_util_UpdateDate(this);" />
 									</td>
 								</tr>
 							</table>
@@ -346,21 +394,21 @@
 									<td style="width: 480px; height:22px;">&nbsp;</td>																						
 									<td style="text-align:right;width: 100px;"><strong>SUBTOTAL</strong></td>
 									<th style="width: 120px; font-weight:normal;border-bottom:1px solid #D4D0C8;">
-                                        <input id="txtSubTotal" type="text" class="css_frm_inactivo" runat="server" />
+                                        <input id="txtSubTotal" type="text" class="css_frm_inactivo" ClientIDMode="Static" runat="server" readonly="readonly"/>
 									</th>														
 								</tr>
 								<tr>
 									<td style="height:22px;">&nbsp;</td>																						
 									<td style="text-align:right;"><strong>IGV</strong></td>
 									<th style="font-weight:normal;">
-                                        <input id="txtIGV" type="text" class="css_frm_inactivo" runat="server" />
+                                        <input id="txtIGV" type="text" class="css_frm_inactivo" ClientIDMode="Static" runat="server" readonly="readonly"/>
 									</th>														
 								</tr>
 								<tr>
 									<td style="height:22px;">&nbsp;</td>																						
 									<td style="text-align:right;"><strong>TOTAL</strong></td>
 									<th style="background-color:#F8F8F8; border-top:2px solid #FD9A00;">
-                                        <input id="txtTotal" type="text" class="css_frm_inactivo" runat="server" />
+                                        <input id="txtTotal" type="text" class="css_frm_inactivo" ClientIDMode="Static" runat="server" readonly="readonly"/>
 									</th>														
 								</tr>
 							</table>

@@ -6,7 +6,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cphCuerpo" runat="Server">
 	
-    <!-- INCIO TITULO-->
+	<!-- INCIO TITULO-->
 	<table width="100%" border="0" cellpadding="0" cellspacing="0" class="css_tb_titulo">
 		<tr>
 			<td rowspan="2" class="icono"><img src="<%=sUrl %>Util/images/iconos/ico_mdl_expedientes.jpg" /></td>
@@ -79,8 +79,7 @@
 										Fecha de Siniestro
 									</td>
 									<td>
-										<input id="txtFechaSiniestro" type="text" class="" size="8" runat="server" style="background-color: #EEE;" readonly="readonly" />
-										<img src="<%=sUrl %>Util/images/calendario.gif">
+										<input id="txtFechaSiniestro" type="text" class="" size="8" runat="server" style="background-color: #EEE;" readonly="readonly" />										
 									</td>												
 								</tr>
 								<tr>

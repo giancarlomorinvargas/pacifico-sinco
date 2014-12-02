@@ -80,7 +80,7 @@ $(function() {
 		if ( ul.is(':visible') ) {
 			return;
 		}
-		ul.bgiframe();
+		//ul.bgiframe();
 		var li = ul.parent();
 		ul	.trigger('jdMenuShow')
 			.positionBy({ 	target: 	li[0], 
