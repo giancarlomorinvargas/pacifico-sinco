@@ -24,29 +24,34 @@ namespace Pacifico.SINCO.WEB.Modulos.Siniestro
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            List<String> tipoSiniestro = Utilitario.getTipoSiniestro();
-
-            foreach (string tipo in tipoSiniestro)
-            {
-                cmbTipoSiniestro.Items.Add(tipo);
-            }
-
             try
             {
+                lblMensajeError.InnerText = "";        
+                //IsPostBack
+                if (!this.IsPostBack)
+                {
+                    List<String> tipoSiniestro = Utilitario.getTipoSiniestro();
 
-                //WS-SINIESTRO
-                IwsSiniestroClient owsSiniestroClient = new IwsSiniestroClient();
-                
-                //Parametros
-                enSiniestro oEnSiniestro = new enSiniestro();
+                    cmbTipoSiniestro.Items.Clear();
+                    cmbTipoSiniestro.Items.Add(new ListItem { Value = "", Text = "[SELECCIONE]" });
+                    foreach (string tipo in tipoSiniestro)
+                    {
+                        cmbTipoSiniestro.Items.Add(tipo);
+                    }
 
-                //Obtiene Listado de Siniestros
-                List<enSiniestro> loEnSiniestro = owsSiniestroClient.ListarSiniestro(oEnSiniestro).Cast<enSiniestro>().ToList();
+                    //WS-SINIESTRO
+                    IwsSiniestroClient owsSiniestroClient = new IwsSiniestroClient();
 
-                rptListadoSiniestros.DataSource = loEnSiniestro;
-                rptListadoSiniestros.DataBind();
+                    //Parametros
+                    enSiniestro oEnSiniestro = new enSiniestro();
 
+                    //Obtiene Listado de Siniestros
+                    List<enSiniestro> loEnSiniestro = owsSiniestroClient.ListarSiniestro(oEnSiniestro).Cast<enSiniestro>().ToList();
 
+                    rptListadoSiniestros.DataSource = loEnSiniestro;
+                    rptListadoSiniestros.DataBind();
+
+                }
             }
             catch(Exception ex) {
                 //throw ex;
@@ -64,6 +69,7 @@ namespace Pacifico.SINCO.WEB.Modulos.Siniestro
         {
             try
             {
+                lblMensajeError.InnerText = "";
                 //WS-SINIESTRO
                 IwsSiniestroClient owsSiniestroClient = new IwsSiniestroClient();
 

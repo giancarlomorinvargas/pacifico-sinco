@@ -27,6 +27,7 @@ namespace Pacifico.SINCO.EN
         public string Placa { set; get; }
         public string vMarca { set; get; }
         public string vModelo { set; get; }
+        public bool Vigente { set; get; }
 
     }
 }

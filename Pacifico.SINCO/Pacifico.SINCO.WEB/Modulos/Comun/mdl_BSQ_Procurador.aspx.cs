@@ -23,24 +23,33 @@ namespace Pacifico.SINCO.WEB.Modulos.Comun
         {
             try
             {
+                lblMensajeError.InnerText = "";    
+                //IsPostBack
+                if (!this.IsPostBack)
+                {
+                    List<enProcurador> olEnPolizaResult = new List<enProcurador>();
+                    //WS
+                    IwsUtilClient owsUtilClient = new IwsUtilClient();
 
-                //WS
-                IwsUtilClient owsUtilClient = new IwsUtilClient();
+                    //Parametros
+                    enProcurador oEnProcurador = new enProcurador();
 
-                //Parametros
-                enProcurador oEnProcurador = new enProcurador();
-                
-                //Obtiene Listado
-                List<enProcurador> olEnPoliza = owsUtilClient.ListarProcurador(oEnProcurador).Cast<enProcurador>().ToList();
+                    //Obtiene Listado
+                    List<enProcurador> olEnPoliza = owsUtilClient.ListarProcurador(oEnProcurador).Cast<enProcurador>().ToList();
+                    /*
+                    foreach (enProcurador procurador in olEnPoliza.Where(b => b.Disponible))
+                    {
+                        olEnPolizaResult.Add(procurador);
+                    }*/
 
-                rptListadoProcurador.DataSource = olEnPoliza;
-                rptListadoProcurador.DataBind();
-
-
+                    rptListadoProcurador.DataSource = olEnPoliza;
+                    rptListadoProcurador.DataBind();
+                }
             }
             catch (Exception ex)
             {
-                throw ex;
+                //throw ex;
+                lblMensajeError.InnerText = ex.Message;
             }
 
         }
@@ -55,9 +64,11 @@ namespace Pacifico.SINCO.WEB.Modulos.Comun
         {
             try
             {
+                lblMensajeError.InnerText = "";
                 //WS
                 IwsUtilClient owsUtilClient = new IwsUtilClient();
 
+                List<enProcurador> olEnPolizaResult = new List<enProcurador>();
                 //Parametros
                 enProcurador oEnProcurador = new enProcurador();
                 oEnProcurador.NumProcurador = txtCodigoProcurador.Value;
@@ -67,6 +78,11 @@ namespace Pacifico.SINCO.WEB.Modulos.Comun
 
                 //Obtiene Listado
                 List<enProcurador> olEnPoliza = owsUtilClient.ListarProcurador(oEnProcurador).Cast<enProcurador>().ToList();
+                /*
+                foreach (enProcurador procurador in olEnPoliza.Where(b => b.Disponible))
+                {
+                    olEnPolizaResult.Add(procurador);
+                }*/
 
                 rptListadoProcurador.DataSource = olEnPoliza;
                 rptListadoProcurador.DataBind();
@@ -74,7 +90,8 @@ namespace Pacifico.SINCO.WEB.Modulos.Comun
             }
             catch (Exception ex)
             {
-                throw ex;
+                //throw ex;
+                lblMensajeError.InnerText = ex.Message;
             }
         }
 

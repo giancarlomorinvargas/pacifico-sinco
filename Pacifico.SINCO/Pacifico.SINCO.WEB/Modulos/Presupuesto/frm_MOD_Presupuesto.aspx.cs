@@ -25,17 +25,19 @@ namespace Pacifico.SINCO.WEB.Modulos.Presupuesto
         {
 
 
-            List<String> tipoSiniestro = Utilitario.getTipoSiniestro();
-
-            foreach (string tipo in tipoSiniestro)
-            {
-                cmbTipoSiniestro.Items.Add(tipo);
-            }
 
             try
             {
+                lblMensajeError.InnerText = "";
                 if (!this.IsPostBack)
                 {
+
+                    List<String> tipoSiniestro = Utilitario.getTipoSiniestro();
+
+                    foreach (string tipo in tipoSiniestro)
+                    {
+                        cmbTipoSiniestro.Items.Add(tipo);
+                    }
 
                     //Valores
                     int id = int.Parse(Request.QueryString["pIdPresupuesto"]);
@@ -94,6 +96,7 @@ namespace Pacifico.SINCO.WEB.Modulos.Presupuesto
         {
             try
             {
+                lblMensajeError.InnerText = "";
                 //WS-SINIESTRO
                 IwsPresupuestoClient service = new IwsPresupuestoClient();
 

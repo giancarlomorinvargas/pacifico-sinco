@@ -25,18 +25,21 @@ namespace Pacifico.SINCO.WEB.Modulos.Presupuesto
 
             try
             {
+                lblMensajeError.InnerText = "";        
+                //IsPostBack
+                if (!this.IsPostBack)
+                {
+                    //WS-SINIESTRO
+                    IwsPresupuestoClient owsPresupuestoClient = new IwsPresupuestoClient();
 
-                //WS-SINIESTRO
-                IwsPresupuestoClient owsPresupuestoClient = new IwsPresupuestoClient();
+                    //Obtiene Listado de Siniestros
+                    string listadoJson = owsPresupuestoClient.ListarPresupuesto();
 
-                //Obtiene Listado de Siniestros
-                string listadoJson = owsPresupuestoClient.ListarPresupuesto();
+                    List<MSPresupuesto> listado = new JavaScriptSerializer().Deserialize<List<MSPresupuesto>>(listadoJson);
 
-                List<MSPresupuesto> listado = new JavaScriptSerializer().Deserialize<List<MSPresupuesto>>(listadoJson);
-
-                rptListadoPresupuestos.DataSource = listado;
-                rptListadoPresupuestos.DataBind();
-
+                    rptListadoPresupuestos.DataSource = listado;
+                    rptListadoPresupuestos.DataBind();
+                }
 
             }
             catch (Exception ex)
@@ -56,6 +59,7 @@ namespace Pacifico.SINCO.WEB.Modulos.Presupuesto
         {
             try
             {
+                lblMensajeError.InnerText = "";        
                 //WS-SINIESTRO
                 IwsPresupuestoClient owsPresupuestoClient = new IwsPresupuestoClient();
 

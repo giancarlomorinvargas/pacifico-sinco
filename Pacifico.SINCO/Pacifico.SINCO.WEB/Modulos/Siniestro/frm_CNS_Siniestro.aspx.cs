@@ -28,17 +28,19 @@ namespace Pacifico.SINCO.WEB.Modulos.Siniestro
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
-            List<String> tipoSiniestro = Utilitario.getTipoSiniestro();
-
-            foreach (string tipo in tipoSiniestro)
-            {
-                cmbTipoSiniestro.Items.Add(tipo);
-            }
             try
             {
+                lblMensajeError.InnerText = "";
                 //IsPostBack
                 if (!this.IsPostBack)
                 {
+                    List<String> tipoSiniestro = Utilitario.getTipoSiniestro();
+
+                    foreach (string tipo in tipoSiniestro)
+                    {
+                        cmbTipoSiniestro.Items.Add(tipo);
+                    }
+
                     //Valores
                     string vIdSiniestro = Request.QueryString["pIdSiniestro"];
 

@@ -7,20 +7,33 @@
             $("#btnBuscar").click();
         }
 
-        function fn_checkLista(objCheck, pNumProcurador, pNombreProcurador) {
+        function fn_checkLista(objCheck, pNumProcurador, pNombreProcurador, pDisponibilidad) {
             $('input[id*="chkIdProcurador"]').prop('checked', false);
             objCheck.checked = true;
 
             $("#hddCodProcurador").val(objCheck.value);
             $("#hddNumProcurador").val(pNumProcurador);
             $("#hddNombreProcurador").val(pNombreProcurador);
+            $("#hddDisponible").val(pDisponibilidad);
         }
          
         function fn_seleccionar() {
-            parent.document.getElementById("hddCodProcurador").value = $("#hddCodProcurador").val();
-            parent.document.getElementById("txtCodProcurador").value = $("#hddNumProcurador").val();
-            parent.document.getElementById("txtNombreProcurador").value = $("#hddNombreProcurador").val();
-            parent.fn_util_CierraModal();
+            
+            var hddCodProcurador = $("#hddCodProcurador").val();
+            if (hddCodProcurador != "") {        
+                var hddDisponible = $("#hddDisponible").val();
+                console.log("hddDisponible",hddDisponible)
+                if(hddDisponible == "true" || hddDisponible == "True"){
+                    parent.document.getElementById("hddCodProcurador").value = $("#hddCodProcurador").val();
+                    parent.document.getElementById("txtCodProcurador").value = $("#hddNumProcurador").val();
+                    parent.document.getElementById("txtNombreProcurador").value = $("#hddNombreProcurador").val();
+                    parent.fn_util_CierraModal();                  
+                }else{
+                    fn_mdl_alert("Procurador no se encuentra vigente", null, "VALIDACIONES");  
+                }
+            }else{
+                fn_mdl_alert("Debe seleccionar un registro", null, "VALIDACIONES");
+            }
         }
 
     </script>
@@ -73,6 +86,7 @@
     <asp:HiddenField ID="hddCodProcurador" runat="server" ClientIDMode="Static" EnableViewState="false" />	
     <asp:HiddenField ID="hddNumProcurador" runat="server" ClientIDMode="Static" EnableViewState="false" />	
     <asp:HiddenField ID="hddNombreProcurador" runat="server" ClientIDMode="Static" EnableViewState="false" />	
+    <asp:HiddenField ID="hddDisponible" runat="server" ClientIDMode="Static" EnableViewState="false" />
 				
 	
 	<!-- INCIO PANEL-->
@@ -130,11 +144,11 @@
         <ItemTemplate>
             <tbody>
                 <tr class="even">
-			        <td> <input id="chkIdProcurador" type="checkbox" value="<%#Eval("MS_Procurador_Id") %>" onclick="javascript: fn_checkLista(this,'<%#Eval("NumProcurador") %>','<%#Eval("ApellidoPaterno") %> <%#Eval("ApellidoMaterno") %>, <%#Eval("Nombre") %>')"/> </td>
+			        <td> <input id="chkIdProcurador" type="checkbox" value="<%#Eval("MS_Procurador_Id") %>" onclick="javascript: fn_checkLista(this,'<%#Eval("NumProcurador") %>','<%#Eval("ApellidoPaterno") %> <%#Eval("ApellidoMaterno") %>, <%#Eval("Nombre") %>','<%#Eval("Disponible")%>')"/> </td>
 			        <td style="text-align:center;"><%#Eval("NumProcurador") %></td>
 			        <td style="text-align:center;"><%#Eval("ApellidoPaterno") %> <%#Eval("ApellidoMaterno") %>, <%#Eval("Nombre") %> </td>
 			        <td><%#Eval("Telefono") %></td>
-			        <td style="text-align:center;color:red;"> <%#Eval("Disponible") %> </td>						
+			        <td style="text-align:center;color:<%# bool.Parse(Eval("Disponible").ToString()) ? "green" : "red" %>;"> <%# bool.Parse(Eval("Disponible").ToString()) ? "Disponible" : "No Disponible" %> </td>						
 		        </tr>                                            
             </ItemTemplate>
         <FooterTemplate>
@@ -142,5 +156,8 @@
         </table>
         </FooterTemplate>
     </asp:Repeater>
+    <p>
+        <label id="lblMensaje" class="operation-success" runat="server" ></label><label id="lblMensajeError" class="validation-summary-errors" runat="server" ></label>
+    </p>
     
 </asp:Content>

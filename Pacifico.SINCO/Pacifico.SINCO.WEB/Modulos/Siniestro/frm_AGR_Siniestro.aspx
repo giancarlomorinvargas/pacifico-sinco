@@ -226,7 +226,7 @@
 													Código de Procurador
 												</td>
 												<td>
-													<input id="txtCodProcurador" type="text" class="css_input_inactivo" size="5"/>
+													<input id="txtCodProcurador" type="text" class="css_input_inactivo" />
 													<input type="button" value="Consultar Procurador" class="css_btn_general" onclick="javascript: fn_abreBsqProcurador();" />
 												</td>
 											</tr>	

@@ -30,24 +30,35 @@ namespace Pacifico.SINCO.WEB.Modulos.Comun
 
             try
             {
+                lblMensajeError.InnerText = "";
+                //IsPostBack
+                if (!this.IsPostBack)
+                {
+                    //DateTime Now = DateTime.Now;
+                    List<enPoliza> olEnPolizaResult = new List<enPoliza>();
+                    //WS-SINIESTRO
+                    IwsUtilClient owsUtilClient = new IwsUtilClient();
 
-                //WS-SINIESTRO
-                IwsUtilClient owsUtilClient = new IwsUtilClient();
+                    //Parametros
+                    enPoliza oEnPoliza = new enPoliza();
 
-                //Parametros
-                enPoliza oEnPoliza = new enPoliza();
+                    //Obtiene Listado de Siniestros
+                    List<enPoliza> olEnPoliza = owsUtilClient.ListarPoliza(oEnPoliza).Cast<enPoliza>().ToList();
+                    /*
+                    foreach (enPoliza poliza in olEnPoliza.Where(
+                        b => (b.FechaInicio<=Now  && Now <= b.FechaFin)))
+                    {
+                        olEnPolizaResult.Add(poliza);
+                    }*/
 
-                //Obtiene Listado de Siniestros
-                List<enPoliza> olEnPoliza = owsUtilClient.ListarPoliza(oEnPoliza).Cast<enPoliza>().ToList();
-
-                rptListadoPolizas.DataSource = olEnPoliza;
-                rptListadoPolizas.DataBind();
-
-
+                    rptListadoPolizas.DataSource = olEnPoliza;
+                    rptListadoPolizas.DataBind();
+                }
             }
             catch (Exception ex)
             {
-                throw ex;
+                //throw ex;
+                lblMensajeError.InnerText = ex.Message;
             }
 
         }
@@ -62,6 +73,11 @@ namespace Pacifico.SINCO.WEB.Modulos.Comun
         {
             try
             {
+                lblMensajeError.InnerText = "";
+
+                //DateTime Now = DateTime.Now;
+                List<enPoliza> olEnPolizaResult = new List<enPoliza>();
+
                 //WS
                 IwsUtilClient owsUtilClient = new IwsUtilClient();
 
@@ -73,6 +89,12 @@ namespace Pacifico.SINCO.WEB.Modulos.Comun
 
                 //Obtiene Listado
                 List<enPoliza> olEnPoliza = owsUtilClient.ListarPoliza(oEnPoliza).Cast<enPoliza>().ToList();
+                /*
+                foreach (enPoliza poliza in olEnPoliza.Where(
+                    b => (b.FechaInicio <= Now && Now <= b.FechaFin)))
+                {
+                    olEnPolizaResult.Add(poliza);
+                }*/
 
                 rptListadoPolizas.DataSource = olEnPoliza;
                 rptListadoPolizas.DataBind();
@@ -80,7 +102,8 @@ namespace Pacifico.SINCO.WEB.Modulos.Comun
             }
             catch (Exception ex)
             {
-                throw ex;
+                //throw ex;
+                lblMensajeError.InnerText = ex.Message;
             }
         }
 

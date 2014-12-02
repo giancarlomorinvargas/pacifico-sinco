@@ -23,16 +23,21 @@ namespace Pacifico.SINCO.WEB.Modulos.Presupuesto
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            txtNumPresupuesto.Value = Utilitario.getNumDocument(Constantes.pNum_Presupuesto);
-
-            List<String> tipoSiniestro = Utilitario.getTipoSiniestro();
-
-            foreach (string tipo in tipoSiniestro)
+            lblMensajeError.InnerText = "";
+                //IsPostBack
+            if (!this.IsPostBack)
             {
-                cmbTipoSiniestro.Items.Add(tipo);
-            }
+                txtNumPresupuesto.Value = Utilitario.getNumDocument(Constantes.pNum_Presupuesto);
 
-            txtFechaPresupuesto.Value = DateTime.Now.ToString("d");
+                List<String> tipoSiniestro = Utilitario.getTipoSiniestro();
+
+                foreach (string tipo in tipoSiniestro)
+                {
+                    cmbTipoSiniestro.Items.Add(tipo);
+                }
+
+                txtFechaPresupuesto.Value = DateTime.Now.ToString("d");
+            }
         }
 
 
@@ -45,6 +50,7 @@ namespace Pacifico.SINCO.WEB.Modulos.Presupuesto
         {
             try
             {
+                lblMensajeError.InnerText = "";
                 //WS-SINIESTRO
                 IwsPresupuestoClient service = new IwsPresupuestoClient();
 

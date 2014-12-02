@@ -7,7 +7,7 @@
             $("#btnBuscar").click();
         }
 
-        function fn_checkLista(objCheck, vNumPoliza, vAsegurado, vFechaIni, vFechaFin) {
+        function fn_checkLista(objCheck, vNumPoliza, vAsegurado, vFechaIni, vFechaFin, vVigente) {
             $('input[id*="chkIdPoliza"]').prop('checked', false);
             objCheck.checked = true;
 
@@ -16,15 +16,31 @@
             $("#hddAsegurado").val(vAsegurado);  
             $("#hddFechaIni").val(vFechaIni);  
             $("#hddFechaFin").val(vFechaFin); 
+            $("#hddVigente").val(vVigente);
         }
 
-        function fn_seleccionar() {            
-            parent.document.getElementById("hddCodPoliza").value = $("#hddCodPoliza").val();
-            parent.document.getElementById("txtNumPoliza").value = $("#hddNumPoliza").val();
-            parent.document.getElementById("txtAsegurado").value = $("#hddAsegurado").val();
-            parent.document.getElementById("txtInicio").value = $("#hddFechaIni").val();
-            parent.document.getElementById("txtFin").value = $("#hddFechaFin").val();
-            parent.fn_util_CierraModal();
+        function fn_seleccionar() {
+
+            
+            var hddCodPoliza = $("#hddCodPoliza").val();
+            if (hddCodPoliza != "") {        
+                var hddVigente = $("#hddVigente").val();
+                console.log("hddVigente",hddVigente)
+                if(hddVigente == "true" || hddVigente == "True"){
+                    parent.document.getElementById("hddCodPoliza").value = $("#hddCodPoliza").val();
+                    parent.document.getElementById("txtNumPoliza").value = $("#hddNumPoliza").val();
+                    parent.document.getElementById("txtAsegurado").value = $("#hddAsegurado").val();
+                    parent.document.getElementById("txtInicio").value = $("#hddFechaIni").val();
+                    parent.document.getElementById("txtFin").value = $("#hddFechaFin").val();
+                    parent.fn_util_CierraModal();        
+                }else{
+                    fn_mdl_alert("Póliza no se encuentra vigente", null, "VALIDACIONES");  
+                }
+            }else{
+                fn_mdl_alert("Debe seleccionar un registro", null, "VALIDACIONES");
+            }
+
+
         }
 
     </script>
@@ -78,6 +94,7 @@
     <asp:HiddenField ID="hddAsegurado" runat="server" ClientIDMode="Static" EnableViewState="false" />	
     <asp:HiddenField ID="hddFechaIni" runat="server" ClientIDMode="Static" EnableViewState="false" />	
     <asp:HiddenField ID="hddFechaFin" runat="server" ClientIDMode="Static" EnableViewState="false" />	
+    <asp:HiddenField ID="hddVigente" runat="server" ClientIDMode="Static" EnableViewState="false" />	
 	
 	<!-- INCIO PANEL-->
 	<table width="100%" border="0" cellpadding="0" cellspacing="0" class="css_tema_panel">
@@ -147,13 +164,13 @@
         <ItemTemplate>
             <tbody>
                 <tr class="even">
-			        <td> <input id="chkIdPoliza" type="checkbox" value="<%#Eval("MP_Poliza_Id") %>" onclick="javascript: fn_checkLista(this, '<%#Eval("NumPoliza") %>', '<%#Eval("NombreAsegurado") %>', '<%#Eval("FechaInicio") %>','<%#Eval("FechaFin") %>')"/> </td>
+			        <td> <input id="chkIdPoliza" type="checkbox" value="<%#Eval("MP_Poliza_Id") %>" onclick="javascript: fn_checkLista(this, '<%#Eval("NumPoliza") %>', '<%#Eval("NombreAsegurado") %>', '<%#Eval("FechaInicio") %>','<%#Eval("FechaFin") %>', '<%#Eval("Vigente")%>')"/> </td>
 			        <td style="text-align:center;"><%#Eval("NumPoliza") %></td>			
 			        <td><%#Eval("NombreAsegurado") %></td>
 			        <td style="text-align:center;"><%#Eval("vMarca") %></td>
 			        <td style="text-align:center;"><%#Eval("vModelo") %></td>
 			        <td style="text-align:center;"><%#Eval("Placa") %></td>
-			        <td style="text-align:center;color:green;">ACTIVA</td>
+			        <td style="text-align:center;color:<%# bool.Parse(Eval("Vigente").ToString()) ? "green" : "red" %>;";"><%#bool.Parse(Eval("Vigente").ToString()) ? "Vigente" : "No Vigente" %></td>
 		        </tr>                                                
             </ItemTemplate>
         <FooterTemplate>
@@ -161,6 +178,9 @@
         </table>
         </FooterTemplate>
     </asp:Repeater>
-
+    
+    <p>
+        <label id="lblMensaje" class="operation-success" runat="server" ></label><label id="lblMensajeError" class="validation-summary-errors" runat="server" ></label>
+    </p>
 
 </asp:Content>

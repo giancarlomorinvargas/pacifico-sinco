@@ -136,7 +136,7 @@
 										Código de Procurador
 									</td>
 									<td>
-										<input id="txtCodProcurador" type="text" class="css_input_inactivo" size="5" runat="server" readonly="readonly"/>										
+										<input id="txtCodProcurador" type="text" class="css_input_inactivo" runat="server" readonly="readonly"/>										
 									</td>
 								</tr>	
 								<tr>

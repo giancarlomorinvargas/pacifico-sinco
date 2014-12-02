@@ -33,7 +33,8 @@ namespace Pacifico.SINCO.WS
 
 
 
-        private static string MENSAJE_ERROR_GENERAL = "No se pudo actualizar el presupuesto";
+        private static string MENSAJE_ERROR_GENERAL = "Error en el sistema";
+        private static string MENSAJE_BUSQUEDA_NO_ENCONTRADA = "No existe información que coincida con lo ingresado";
         private static string MENSAJE_NO_DISPONIBLE = "El presupuesto no se encuentra disponible";
 
         private static string MENSAJE_REGISTRADO = "La presupuesto se registró con éxito: {0}";
@@ -165,7 +166,10 @@ namespace Pacifico.SINCO.WS
              {
                  listaPresupuesto.Add(Presupuesto);
              }
-             //return listaPresupuesto;
+
+             if (listaPresupuesto.Count() == 0) {
+                 throw new FaultException(MENSAJE_BUSQUEDA_NO_ENCONTRADA);
+             }
              return new JavaScriptSerializer().Serialize(listaPresupuesto);
          }
 
@@ -173,6 +177,11 @@ namespace Pacifico.SINCO.WS
         {
             List<MSPresupuesto> listaPresupuesto;
             listaPresupuesto = _PresupuestoRepositorio.GetAll().ToList();
+
+            if (listaPresupuesto == null || listaPresupuesto.Count() == 0)
+            {
+                throw new FaultException(MENSAJE_BUSQUEDA_NO_ENCONTRADA);
+            }
             return new JavaScriptSerializer().Serialize(listaPresupuesto);
         }
 

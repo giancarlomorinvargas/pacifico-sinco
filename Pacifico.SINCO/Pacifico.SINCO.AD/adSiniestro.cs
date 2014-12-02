@@ -243,7 +243,7 @@ namespace Pacifico.SINCO.AD
                     cmd.Parameters.Add("@Tipo", SqlDbType.VarChar, 50).Value = pEnSiniestro.Tipo;
                     cmd.Parameters.Add("@FechaSiniestro", SqlDbType.DateTime).Value = pEnSiniestro.FechaSiniestro;                    
                     cmd.Parameters.Add("@Lugar", SqlDbType.VarChar, 250).Value = pEnSiniestro.Lugar;
-                    cmd.Parameters.Add("@Descripcion", SqlDbType.VarChar, 250).Value = pEnSiniestro.Lugar;
+                    cmd.Parameters.Add("@Descripcion", SqlDbType.VarChar, 250).Value = pEnSiniestro.Descripcion;
                     cmd.Parameters.Add("@Estado", SqlDbType.VarChar, 50).Value = pEnSiniestro.Estado;                    
                     cmd.Parameters.Add("@UsuarioModifico", SqlDbType.VarChar, 50).Value = pEnSiniestro.UsuarioModifico;
                     cmd.Parameters.Add("@MP_Poliza_Id", SqlDbType.Int).Value = pEnSiniestro.MP_Poliza_Id;
