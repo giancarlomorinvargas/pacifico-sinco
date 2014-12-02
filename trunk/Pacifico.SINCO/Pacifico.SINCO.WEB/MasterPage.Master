@@ -38,6 +38,9 @@
         .operation-success {
             color:green;
         }
+        .ui-dialog-titlebar-close {
+          visibility: hidden;
+        }
     </style>
 
     <asp:ContentPlaceHolder ID="cphHead" runat="server">

@@ -27,7 +27,7 @@ namespace Pacifico.SINCO.AD
         {
             try
             {
-
+                DateTime Now = DateTime.Now;
                 string sQuery = "SELECT MP_Poliza_Id, NumPoliza, FechaInicio, FechaFin, MontoCobertura, Tipo, UsuarioRegistro, FechaRegistro, UsuarioModifico, FechaModifico, a.MP_Asegurado_ID, v.MP_Vehiculo_ID"+
                                 ", a.ApellidoPaterno + ' ' + a.ApellidoMaterno + ', '+ a.Nombre as NombreAsegurado "+
                                 ", v.Placa, ma.Descripcion as vMarca, mo.Descripcion as vModelo "+
@@ -73,6 +73,8 @@ namespace Pacifico.SINCO.AD
                                 oEnPoliza.vModelo = !drd.IsDBNull(15) ? drd.GetString(15) : "";
 
                                 oEnPoliza.DniAsegurado = !drd.IsDBNull(16) ? drd.GetString(16) : "";
+
+                                oEnPoliza.Vigente = oEnPoliza.FechaInicio <= Now && Now <= oEnPoliza.FechaFin;
 
                                 loEnPoliza.Add(oEnPoliza);
                             }

@@ -220,7 +220,7 @@
 										Código de Procurador
 									</td>
 									<td>
-										<input id="txtCodProcurador" type="text" class="css_input_inactivo" size="5" runat="server" readonly="readonly"/>
+										<input id="txtCodProcurador" type="text" class="css_input_inactivo" ClientIDMode="Static" runat="server" readonly="readonly"/>
 										<input type="button" value="Consultar Procurador" class="css_btn_general" onclick="javascript: fn_abreBsqProcurador();" />
 									</td>
 								</tr>	
@@ -229,7 +229,7 @@
 										Procurador
 									</td>
 									<td>
-										<input id="txtNombreProcurador" type="text" size="50" class="css_input_inactivo" runat="server" readonly="readonly" />
+										<input id="txtNombreProcurador" type="text" size="50" class="css_input_inactivo" ClientIDMode="Static" runat="server" readonly="readonly" />
 									</td>
 								</tr>																																						
 							</table>

@@ -29,17 +29,19 @@ namespace Pacifico.SINCO.WEB.Modulos.Siniestro
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            List<String> tipoSiniestro = Utilitario.getTipoSiniestro();
-
-            foreach (string tipo in tipoSiniestro)
-            {
-                cmbTipoSiniestro.Items.Add(tipo);
-            }
 
             try
             {
+                lblMensajeError.InnerText = "";
                 if (!this.IsPostBack)
                 {
+                    List<String> tipoSiniestro = Utilitario.getTipoSiniestro();
+
+                    foreach (string tipo in tipoSiniestro)
+                    {
+                        cmbTipoSiniestro.Items.Add(tipo);
+                    }
+
                     //Valores
                     string vIdSiniestro = Request.QueryString["pIdSiniestro"];
 
@@ -74,7 +76,8 @@ namespace Pacifico.SINCO.WEB.Modulos.Siniestro
 
             }
             catch (Exception ex) {
-                throw ex;
+                //throw ex; 
+                lblMensajeError.InnerText = ex.Message;
             }
         }
 
@@ -88,6 +91,7 @@ namespace Pacifico.SINCO.WEB.Modulos.Siniestro
         {
             try
             {
+                lblMensajeError.InnerText = "";
                 //WS-SINIESTRO
                 IwsSiniestroClient owsSiniestroClient = new IwsSiniestroClient();
 
@@ -113,7 +117,7 @@ namespace Pacifico.SINCO.WEB.Modulos.Siniestro
                 if (exito)
                 {
                     Response.Redirect("~/Modulos/Siniestro/frm_BSQ_Siniestro.aspx");
-                    lblMensaje.InnerText = "Se modifico el Siniestro satisfactoriamente";
+                    lblMensaje.InnerText = "Siniestro Registrado Satisfactoriamente";
                 }
                 
 

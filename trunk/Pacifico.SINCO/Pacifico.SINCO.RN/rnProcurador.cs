@@ -37,5 +37,25 @@ namespace Pacifico.SINCO.RN
             return loEnProcurador;
         }
 
+
+        public bool ActualizarDisponibilidadProcurador(enProcurador pEnProcurador)
+        {
+            bool bExito = false;
+            using (SqlConnection con = new SqlConnection(sConexion))
+            {
+                try
+                {
+                    con.Open();
+                    adProcurador oAdProcurador = new adProcurador(con);
+                    bExito = oAdProcurador.ActualizarDisponibilidadProcurador(pEnProcurador);
+                }
+                catch (SqlException ex)
+                {
+                    bExito = false;
+                    throw ex;
+                }
+            }
+            return bExito;
+        }
     }
 }

@@ -12,10 +12,11 @@
             $("#btnBuscar").click();
         }
 
-        function fn_checkLista(objCheck) {            
+        function fn_checkLista(objCheck, estado) {            
             $('input[id*="chkIdSiniestro"]').prop('checked', false);
             objCheck.checked = true;
-            $("#hddCodSiniestro").val(objCheck.value);            
+            $("#hddCodSiniestro").val(objCheck.value);
+            $("#hddEstadoSiniestro").val(estado);
         }
 
         function fn_redirect(pUrl) {
@@ -23,10 +24,24 @@
             if (hddCodSiniestro != "") {
                 window.location = pUrl + "?pIdSiniestro=" + hddCodSiniestro;
             } else {
-                alert("Debe seleccionar un registro.");
+                fn_mdl_alert("Debe seleccionar un registro", null, "VALIDACIONES");
             }
         }
 
+        function fn_redirectModificar(pUrl) {
+            var hddCodSiniestro = $("#hddCodSiniestro").val();
+            if (hddCodSiniestro != "") {
+                var hddEstadoSiniestro = $("#hddEstadoSiniestro").val();
+
+                if (hddEstadoSiniestro == "<%=Pacifico.SINCO.UTL.Constantes.sEstado_Pendiente%>") {
+                    window.location = pUrl + "?pIdSiniestro=" + hddCodSiniestro;
+                } else {
+                    fn_mdl_alert("Siniestro no puede ser modificado", null, "VALIDACIONES");
+                }
+            } else {
+                fn_mdl_alert("Debe seleccionar un registro", null, "VALIDACIONES");
+            }
+        }
     </script>
 
 </asp:Content>
@@ -51,7 +66,7 @@
 							</a>
 						</td>											
 						<td class="boton">
-							<a href="javascript:fn_redirect('frm_MOD_Siniestro.aspx');">
+							<a href="javascript:fn_redirectModificar('frm_MOD_Siniestro.aspx');">
 								<img src="<%=sUrl %>Util/images/iconos/ico_btn_editar.jpg" border="0" /><br />
 								Modificar
 							</a>
@@ -88,6 +103,7 @@
 
    <asp:Button ID="btnBuscar" runat="server" Text="" OnClick="btnBuscar_Click" ClientIDMode="Static" Style="display: none;" />	
    <asp:HiddenField ID="hddCodSiniestro" runat="server" ClientIDMode="Static" EnableViewState="false" />	
+   <asp:HiddenField ID="hddEstadoSiniestro" runat="server" ClientIDMode="Static" EnableViewState="false" />	
 						
 	<!-- INCIO PANEL-->
 	<table width="100%" border="0" cellpadding="0" cellspacing="0" class="css_tema_panel">
@@ -112,9 +128,7 @@
 								Tipo de Siniestro
 							</td>
 							<td>
-								<select id="cmbTipoSiniestro"  runat="server">
-									<option value=""> [SELECCIONE] </option>
-								</select>
+								<select id="cmbTipoSiniestro"  runat="server"/>
 							</td>
 							<td>&nbsp;</td>
 							<td class="label" style="width:120px;">
@@ -157,13 +171,13 @@
             <ItemTemplate>
                <tbody>
                    <tr <%#Int32.Parse(Eval("Estado").ToString())%2==0?"class=\"even\"":"" %> >
-			            <td><input id="chkIdSiniestro" type="checkbox" value="<%#Eval("MS_Siniestro_Id") %>" onclick="javascript:fn_checkLista(this)"/></td>
-			            <td style="text-align:center;"><%#Eval("NumSiniestro") %><td>
+                        <td><input id="chkIdSiniestro" type="checkbox" value="<%#Eval("MS_Siniestro_Id") %>" onclick="javascript:fn_checkLista(this, '<%#Eval("Estado")%>')"/></td>
+                        <td style="text-align:center;"><%#Eval("NumSiniestro") %><td>
 			            <td style="text-align:center;"><%#Eval("NumPoliza") %><td>
 			            <td><%#Eval("NombreAsegurado") %><td>
 			            <td style="text-align:center;"><%#Eval("FechaSiniestro") %><td>
 			            <td><%#Eval("Tipo") %><td>
-			            <td style="text-align:center;color:red;"><%#Eval("vEstado") %><td>
+			            <td style="text-align:center;color:<%#Int32.Parse(Eval("Estado").ToString())==Pacifico.SINCO.UTL.Constantes.sEstado_Pendiente ? "green": "red"%>;"><%#Eval("vEstado") %><td>
 		            </tr>                                       
                </ItemTemplate>
             <FooterTemplate>

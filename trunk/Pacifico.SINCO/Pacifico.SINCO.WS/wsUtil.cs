@@ -61,6 +61,21 @@ namespace Pacifico.SINCO.WS
             return loEnProcurador;
         }
 
+        public bool ActualizaDisponibilidadProcurador(enProcurador pEnProcurador)
+        {
+            bool bExito = false;
+            try
+            {
+                rnProcurador oRnProcurador = new rnProcurador();
+                bExito = oRnProcurador.ActualizarDisponibilidadProcurador(pEnProcurador);
+            }
+            catch (Exception ex)
+            {
+                bExito = false;
+                throw ex;
+            }
+            return bExito;
+        }
 
     }
 }

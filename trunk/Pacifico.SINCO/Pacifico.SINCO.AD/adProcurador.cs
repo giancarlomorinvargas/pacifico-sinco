@@ -68,5 +68,38 @@ namespace Pacifico.SINCO.AD
         }
 
 
+        /// <summary>
+        /// IngresarSiniestro
+        /// </summary>
+        /// <param name="pEnSiniestro"></param>
+        /// <returns></returns>
+        public bool ActualizarDisponibilidadProcurador(enProcurador pEnProcurador)
+        {
+            try
+            {
+
+                string strQuery = @"UPDATE MS_Procurador
+                                    SET
+                                        Disponible = @Disponible
+                                    WHERE
+                                        MS_Procurador_Id = @MS_Procurador_Id";
+
+                using (SqlCommand cmd = new SqlCommand(strQuery, conexion))
+                {
+                    // define parameters and their values
+                    cmd.Parameters.Add("@Disponible", SqlDbType.VarChar, 16).Value = pEnProcurador.Disponible;
+                    cmd.Parameters.Add("@MS_Procurador_Id", SqlDbType.Int).Value = pEnProcurador.MS_Procurador_Id;
+
+                    cmd.ExecuteNonQuery();
+                }
+
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+        
     }
 }
