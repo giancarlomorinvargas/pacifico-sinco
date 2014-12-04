@@ -6,27 +6,50 @@
         function fn_buscarInforme() {
             $("#btnBuscar").click();
         }
-        /*
-        function fn_checkLista(objCheck, vNumPoliza, vAsegurado, vFechaIni, vFechaFin) {
-            $('input[id*="chkIdPoliza"]').prop('checked', false);
+        var informeSeleccionado;
+
+        function fn_checkLista(objCheck, json) {
+            $('input[id*="chkIdInforme"]').prop('checked', false);
             objCheck.checked = true;
 
-            $("#hddCodPoliza").val(objCheck.value);
-            $("#hddNumPoliza").val(vNumPoliza);
-            $("#hddAsegurado").val(vAsegurado);
-            $("#hddFechaIni").val(vFechaIni);
-            $("#hddFechaFin").val(vFechaFin);
+            informeSeleccionado = json;
+            /*
+            $("#hdnInformeAccidenteId").val(json.informeAccidenteId);
+
+            $("#hdnNumInforme").val(json.numInforme);
+            $("#hdnNumSiniestro").val(json.numSiniestro);
+
+            $("#hdnTipoSiniestro").val(json.tipo);
+            $("#hdnFecSiniestro").val(json.fechaSiniestro);
+
+            $("#hdnLugar").val(json.lugar);
+            $("#hdnNumPoliza").val(json.numPoliza);
+
+            $("#hdnAsegurado").val(json.asegurado);
+
+            $("#hdnMarcaId").val(json.marcaId);
+            $("#hdnModeloId").val(json.modeloId);*/
         }
 
         function fn_seleccionar() {
-            parent.document.getElementById("hddCodPoliza").value = $("#hddCodPoliza").val();
+            /*parent.document.getElementById("hddCodPoliza").value = $("#hddCodPoliza").val();
             parent.document.getElementById("txtNumPoliza").value = $("#hddNumPoliza").val();
             parent.document.getElementById("txtAsegurado").value = $("#hddAsegurado").val();
             parent.document.getElementById("txtInicio").value = $("#hddFechaIni").val();
             parent.document.getElementById("txtFin").value = $("#hddFechaFin").val();
-            parent.fn_util_CierraModal();
+            parent.fn_util_CierraModal();*/
+            if (informeSeleccionado && informeSeleccionado != null) {
+                console.log("informeSeleccionado",informeSeleccionado)
+                if(informeSeleccionado.estado == "<%=Pacifico.SINCO.UTL.Constantes.iEstado_Firmado%>"){
+                    parent.cargarInforme(informeSeleccionado);
+                }else{
+                    fn_mdl_alert("Informe de Accidente Vehicular no se encuentra Firmada", null, "VALIDACIONES");
+                }
+            }else{
+                fn_mdl_alert("Debe seleccionar un registro", null, "VALIDACIONES");
+            }
         }
-        */
+        
     </script>
 
 </asp:Content>
@@ -42,13 +65,13 @@
 				
 				<table width="100%" border="0" cellpadding="0" cellspacing="0" class="css_tb_tituloBotones">
 					<tr>
-						<td>&nbsp;</td><!--	
+						<td>&nbsp;</td>
 						<td class="boton">
-							<a href="#">
+							<a href="javascript:fn_seleccionar();">
 								<img src="<%=sUrl %>Util/images/iconos/ico_mdl_dominio.jpg" border="0" /><br />
 								Aceptar
 							</a>
-						</td>-->
+						</td>
 						<td class="boton">
 							<a href="javascript:fn_buscarInforme();">
 								<img src="<%=sUrl %>Util/images/iconos/ico_btn_buscar.jpg" border="0" /><br />
@@ -136,7 +159,7 @@
                <tbody>
                    <tr <%#Int32.Parse(Eval("Estado").ToString())%2==0?"class=\"even\"":"" %> >
 			            <td>
-                            <a href="#" 
+                            <!--<a href="#" 
                                 style="width:40px;display: <%#Int32.Parse(Eval("Estado").ToString())==Pacifico.SINCO.UTL.Constantes.iEstado_Registrado?"inline":"none" %>"
                                 onclick="parent.cargarInforme({informeAccidenteId:'<%# Eval("MS_Informe_Accidente_Id") %>',
                                 numInforme:'<%# Eval("NumInforme") %>',
@@ -147,14 +170,26 @@
                                 numPoliza:'<%# Eval("Siniestro.Poliza.NumPoliza") %>',
                                 marcaId:'<%# Eval("Siniestro.Poliza.Vehiculo.MP_Marca_Id") %>',
                                 modeloId:'<%# Eval("Siniestro.Poliza.Vehiculo.MP_Modelo_Id") %>',
-                                asegurado:'<%# Eval("Siniestro.Poliza.Asegurado.Nombre") + " " + Eval("Siniestro.Poliza.Asegurado.ApellidoPaterno") + " " + Eval("Siniestro.Poliza.Asegurado.ApellidoMaterno")%>'})">Seleccionar</a>
+                                asegurado:'<%# Eval("Siniestro.Poliza.Asegurado.Nombre") + " " + Eval("Siniestro.Poliza.Asegurado.ApellidoPaterno") + " " + Eval("Siniestro.Poliza.Asegurado.ApellidoMaterno")%>'})">Seleccionar</a>-->
+                            
+                            <input id="chkIdInforme" type="checkbox" value="<%#Eval("MS_Informe_Accidente_Id")%>"
+                                onclick="fn_checkLista(this,{informeAccidenteId:'<%# Eval("MS_Informe_Accidente_Id") %>',
+                                numInforme:'<%# Eval("NumInforme") %>', estado:'<%# Eval("Estado")%>',
+                                numSiniestro:'<%# Eval("Siniestro.NumSiniestro") %>',
+                                tipo:'<%# Eval("Siniestro.Tipo") %>',
+                                fechaSiniestro:'<%# ((DateTime)Eval("Siniestro.FechaSiniestro")).ToString("d")%>',
+                                lugar:'<%# Eval("Siniestro.Lugar")%>',
+                                numPoliza:'<%# Eval("Siniestro.Poliza.NumPoliza") %>',
+                                marcaId:'<%# Eval("Siniestro.Poliza.Vehiculo.MP_Marca_Id") %>',
+                                modeloId:'<%# Eval("Siniestro.Poliza.Vehiculo.MP_Modelo_Id") %>',
+                                asegurado:'<%# Eval("Siniestro.Poliza.Asegurado.Nombre") + " " + Eval("Siniestro.Poliza.Asegurado.ApellidoPaterno") + " " + Eval("Siniestro.Poliza.Asegurado.ApellidoMaterno")%>'})"/>                            
 			            </td>
                             
 			            <td style="text-align:center;"><%#Eval("NumInforme") %><td>
 			            <td style="text-align:center;"><%#Eval("Siniestro.NumSiniestro") %><td>
 			            <td><%# Eval("Siniestro.Poliza.Asegurado.Nombre") + " " + Eval("Siniestro.Poliza.Asegurado.ApellidoPaterno") + " " + Eval("Siniestro.Poliza.Asegurado.ApellidoMaterno")%><td>
 			            <td style="text-align:center;"><%#Eval("Siniestro.Lugar") %><td>
-			            <td style="text-align:center;color:red;"><%#Eval("EstadoEntity.Nombre") %><td>
+			            <td style="text-align:center;color:<%# Int32.Parse(Eval("Estado").ToString())  == Pacifico.SINCO.UTL.Constantes.iEstado_Firmado ? "green" : "red" %>;";"><%#Eval("EstadoEntity.Nombre") %><td>
 		            </tr>                                       
                </ItemTemplate>
             <FooterTemplate>

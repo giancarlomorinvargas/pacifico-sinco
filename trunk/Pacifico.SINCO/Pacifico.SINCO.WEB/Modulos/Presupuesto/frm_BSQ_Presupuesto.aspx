@@ -12,16 +12,23 @@
             $("#btnBuscar").click();
         }
 
-        function fn_checkLista(objCheck) {
+        function fn_checkLista(objCheck, estado) {
             $('input[id*="chkIdPresupuesto"]').prop('checked', false);
             objCheck.checked = true;
             $("#hddCodPresupuesto").val(objCheck.value);
+            $("#hddEstadoPresupuesto").val(estado);
         }
 
         function fn_redirect(pUrl) {
             var hddCodPresupuesto = $("#hddCodPresupuesto").val();
             if (hddCodPresupuesto != "") {
-                window.location = pUrl + "?pIdPresupuesto=" + hddCodPresupuesto;
+                var hddEstadoPresupuesto = $("#hddEstadoPresupuesto").val();
+
+                if (hddEstadoPresupuesto == "<%=Pacifico.SINCO.UTL.Constantes.pEstado_Registrado%>") {
+                    window.location = pUrl + "?pIdPresupuesto=" + hddCodPresupuesto;
+                } else {
+                    fn_mdl_alert("Presupuesto no puede ser modificado", null, "VALIDACIONES");
+                }
             } else {
                 fn_mdl_alert("Debe seleccionar un registro", null, "VALIDACIONES");
             }
@@ -87,6 +94,7 @@
 
    <asp:Button ID="btnBuscar" runat="server" Text="" OnClick="btnBuscar_Click" ClientIDMode="Static" Style="display: none;" />	
    <asp:HiddenField ID="hddCodPresupuesto" runat="server" ClientIDMode="Static" EnableViewState="false" />	
+   <asp:HiddenField ID="hddEstadoPresupuesto" runat="server" ClientIDMode="Static" EnableViewState="false" />	
 						
 	<!-- INCIO PANEL-->
 	<table width="100%" border="0" cellpadding="0" cellspacing="0" class="css_tema_panel">
@@ -167,13 +175,13 @@
             <ItemTemplate>
                <tbody>
                    <tr <%#Int32.Parse(Eval("Estado").ToString())%2==0?"class=\"even\"":"" %> >
-			            <td><input id="chkIdPresupuesto" type="checkbox" value="<%#Eval("MS_Presupuesto_Id") %>" onclick="javascript: fn_checkLista(this)"/></td>
+			            <td><input id="chkIdPresupuesto" type="checkbox" value="<%#Eval("MS_Presupuesto_Id") %>" onclick="javascript: fn_checkLista(this,'<%#Eval("Estado")%>')"/></td>
 			            <td style="text-align:center;"><%#Eval("NumPresupuesto") %><td>
 			            <td style="text-align:center;"><%#Eval("InformeAccidente.NumInforme") %><td>
 			            <td><%#Eval("InformeAccidente.Siniestro.Poliza.NumPoliza") %><td>
 			            <td style="text-align:center;"><%#Eval("InformeAccidente.Siniestro.Poliza.Asegurado.Nombre") %> <%#Eval("InformeAccidente.Siniestro.Poliza.Asegurado.ApellidoPaterno") %> <%#Eval("InformeAccidente.Siniestro.Poliza.Asegurado.ApellidoMaterno") %><td>
 			            <td><%#Eval("FechaPresupuesto") %><td>
-			            <td style="text-align:center;color:red;"><%#Eval("EstadoEntity.Nombre") %><td>
+			            <td style="text-align:center;color:<%#Int32.Parse(Eval("Estado").ToString())==Pacifico.SINCO.UTL.Constantes.pEstado_Registrado ? "green": "red"%>;"><%#Eval("EstadoEntity.Nombre") %><td>
 		            </tr>                                       
                </ItemTemplate>
             <FooterTemplate>

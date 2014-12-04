@@ -82,7 +82,7 @@ namespace Pacifico.SINCO.WEB.Modulos.Presupuesto {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect cmbTipoSiniestro;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText cmbTipoSiniestro;
         
         /// <summary>
         /// txtFecSiniestro control.

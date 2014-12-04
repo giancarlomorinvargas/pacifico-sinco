@@ -34,10 +34,10 @@ namespace Pacifico.SINCO.WEB.wsPresupuesto {
         System.Threading.Tasks.Task<string> ListarPresupuestoAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwsPresupuesto/BuscarPresupuesto", ReplyAction="http://tempuri.org/IwsPresupuesto/BuscarPresupuestoResponse")]
-        string BuscarPresupuesto(string NumPresupuesto, string NumInforme, string NumPoliza);
+        string BuscarPresupuesto(string NumPresupuesto, string NumInforme, string NumPoliza, string FechaPresupuesto);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwsPresupuesto/BuscarPresupuesto", ReplyAction="http://tempuri.org/IwsPresupuesto/BuscarPresupuestoResponse")]
-        System.Threading.Tasks.Task<string> BuscarPresupuestoAsync(string NumPresupuesto, string NumInforme, string NumPoliza);
+        System.Threading.Tasks.Task<string> BuscarPresupuestoAsync(string NumPresupuesto, string NumInforme, string NumPoliza, string FechaPresupuesto);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwsPresupuesto/AgregarPresupuesto", ReplyAction="http://tempuri.org/IwsPresupuesto/AgregarPresupuestoResponse")]
         string AgregarPresupuesto(Pacifico.SINCO.EN.MSPresupuesto Presupuesto);
@@ -103,12 +103,12 @@ namespace Pacifico.SINCO.WEB.wsPresupuesto {
             return base.Channel.ListarPresupuestoAsync();
         }
         
-        public string BuscarPresupuesto(string NumPresupuesto, string NumInforme, string NumPoliza) {
-            return base.Channel.BuscarPresupuesto(NumPresupuesto, NumInforme, NumPoliza);
+        public string BuscarPresupuesto(string NumPresupuesto, string NumInforme, string NumPoliza, string FechaPresupuesto) {
+            return base.Channel.BuscarPresupuesto(NumPresupuesto, NumInforme, NumPoliza, FechaPresupuesto);
         }
         
-        public System.Threading.Tasks.Task<string> BuscarPresupuestoAsync(string NumPresupuesto, string NumInforme, string NumPoliza) {
-            return base.Channel.BuscarPresupuestoAsync(NumPresupuesto, NumInforme, NumPoliza);
+        public System.Threading.Tasks.Task<string> BuscarPresupuestoAsync(string NumPresupuesto, string NumInforme, string NumPoliza, string FechaPresupuesto) {
+            return base.Channel.BuscarPresupuestoAsync(NumPresupuesto, NumInforme, NumPoliza, FechaPresupuesto);
         }
         
         public string AgregarPresupuesto(Pacifico.SINCO.EN.MSPresupuesto Presupuesto) {
