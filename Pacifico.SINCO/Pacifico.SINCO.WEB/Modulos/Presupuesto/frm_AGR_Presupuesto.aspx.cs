@@ -28,13 +28,13 @@ namespace Pacifico.SINCO.WEB.Modulos.Presupuesto
             if (!this.IsPostBack)
             {
                 txtNumPresupuesto.Value = Utilitario.getNumDocument(Constantes.pNum_Presupuesto);
-
+                /*
                 List<String> tipoSiniestro = Utilitario.getTipoSiniestro();
 
                 foreach (string tipo in tipoSiniestro)
                 {
                     cmbTipoSiniestro.Items.Add(tipo);
-                }
+                }*/
 
                 txtFechaPresupuesto.Value = DateTime.Now.ToString("d");
             }

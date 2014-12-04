@@ -31,15 +31,16 @@ namespace Pacifico.SINCO.WEB.Modulos.Comun
                 
                 //Obtiene Listado de Siniestros
                 string listadoJson = owsInformeAccidenteClient.Listar();
-                List<MSInformeAccidente> listadoResult = new List<MSInformeAccidente>();
+                //List<MSInformeAccidente> listadoResult = new List<MSInformeAccidente>();
                 List<MSInformeAccidente> listado = new JavaScriptSerializer().Deserialize<List<MSInformeAccidente>>(listadoJson);
-
+                /*
                 foreach (MSInformeAccidente item in listado.Where(b => b.Estado == Constantes.iEstado_Registrado )) {
                     listadoResult.Add(item);
                 }
 
 
-                rptListadoInformes.DataSource = listadoResult;
+                rptListadoInformes.DataSource = listadoResult;*/
+                rptListadoInformes.DataSource = listado;
                 rptListadoInformes.DataBind();
 
             }
@@ -70,9 +71,7 @@ namespace Pacifico.SINCO.WEB.Modulos.Comun
                 List<MSInformeAccidente> listadoResult = new List<MSInformeAccidente>();
                 List<MSInformeAccidente> listado = new JavaScriptSerializer().Deserialize<List<MSInformeAccidente>>(listadoJson);
 
-                foreach (MSInformeAccidente item in listado.
-                    Where(b => (b.Estado == Constantes.iEstado_Registrado 
-                        && b.NumInforme.ToUpper().Contains(NumInforme) )))
+                foreach (MSInformeAccidente item in listado)
                 {
                     string asegurado = item.Siniestro.Poliza.Asegurado.Nombre + " " + item.Siniestro.Poliza.Asegurado.ApellidoPaterno + " " + item.Siniestro.Poliza.Asegurado.ApellidoMaterno;
                     if (asegurado.ToUpper().Contains(Asegurado)) {

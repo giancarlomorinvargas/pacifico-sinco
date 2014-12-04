@@ -4,7 +4,6 @@
 
 	<script type='text/javascript'>
 
-	    var prefixServer = 'cphCuerpo_';
 	    $(document).ready(function () {
 	        console.log('onload');
 	        //Seta Calendarios
@@ -15,39 +14,55 @@
 
 	    function interpretarDetallePresupuesto() {
 	        var listDetalle = [];
-	        var listDetalleSerializado = $("#" + prefixServer + "txtDetalle").val();
+	        var listDetalleSerializado = $("#txtDetalle").val();
+	        console.log("listDetalleSerializado", listDetalleSerializado);
 
 	        if (listDetalleSerializado && listDetalleSerializado != '') {
 	            listDetalle = JSON.parse(listDetalleSerializado);
+	            console.log("listDetalle", listDetalle);
 
 	            listDetalle = listDetalle["DetallePresupuesto"] ? listDetalle["DetallePresupuesto"] : listDetalle;
 
-	            console.log("detallePresupuesto", listDetalle);
-
-	            for (var index in listDetalle) {
+	            console.log("DetallePresupuesto", listDetalle);
+	            for (var index = 0; index < listDetalle.length; ++index) {
 	                var itemDetalle = listDetalle[index];
 
-	                console.log('item', itemDetalle);
+	                console.log('index',index,'item', itemDetalle);
 	                var json = {
 	                    detallePresupuestoId: itemDetalle.MS_Detalle_Presupuesto_Id,
 	                    presupuestoId: itemDetalle.MS_Presupuesto_Id,
 	                    listaPrecioId: itemDetalle.MS_Lista_Precio_Id,
-	                    //descripcion: itemDetalle.ListaPrecio.Servicio ? itemDetalle.ListaPrecio.Servicio.Descripcion : itemDetalle.Descripcion,
+	                    descripcion: itemDetalle.ListaPrecio.Servicio ? itemDetalle.ListaPrecio.Servicio.Descripcion : itemDetalle.Descripcion,
 	                    precio: itemDetalle.ListaPrecio ? itemDetalle.ListaPrecio.Precio : itemDetalle.Precio,
 	                    observacion: itemDetalle.Observacion
 	                };
-
-	                if (itemDetalle.ListaPrecio.Servicio) {
-	                    json.descripcion = itemDetalle.ListaPrecio.Servicio.Descripcion;
-	                } else {
-	                    json.descripcion = itemDetalle.Descripcion;
-	                }
 
 	                cargarListaPrecio(json);
 	            }
 
 	        }
 
+	    }
+
+	    var objItemSeleccionado;
+	    function fn_checkListaItemDetalle(objCheck, item) {
+	        $('input[id*="chkEliminar"]').prop('checked', false);
+	        console.log('obj', objCheck);
+	        objCheck.checked = true;
+	        //objCheck.prop('checked', false);
+	        objItemSeleccionado = item;
+	    }
+
+	    function fn_seleccionarItemDetalle() {
+	        console.log('objItemSeleccionado', objItemSeleccionado);
+	        if (objItemSeleccionado && objItemSeleccionado != null) {
+	            objItemSeleccionado.remove();
+	            objItemSeleccionado = undefined;
+	            calcularTotalesDetalle();
+
+	        } else {
+	            fn_mdl_alert("Debe seleccionar un registro", null, "VALIDACIONES");
+	        }
 	    }
 
 	    function fn_abreBsqInformeVehicular() {
@@ -61,7 +76,7 @@
 	        $("#txtNumInforme").val(json.numInforme);
 	        $("#txtNumSiniestro").val(json.numSiniestro);
 
-	        $("#cmbTipoSiniestro").find("option[value='" + json.tipo + "']").attr({ selected: true });
+	        $("#cmbTipoSiniestro").val(json.tipo);
 	        $("#txtFecSiniestro").val(json.fechaSiniestro);
 
 	        $("#txtLugar").val(json.lugar);
@@ -76,49 +91,76 @@
 	    }
 
 	    function fn_abreBsqRepuestos() {
-	        $("#lblDetalleError").empty();
 	        var marcaId = $("#hdnMarcaId").val();
 	        var modeloId = $("#hdnModeloId").val();
 
 	        if (!marcaId || !modeloId) {
-	            $("#lblDetalleError").append("Se requiere consultar Informe Accidente Vehicular");
+	            fn_mdl_alert("Se requiere consultar Informe Accidente Vehicular", null, "VALIDACIONES");
 	        } else {
 	            fn_util_AbreModal("Búsqueda de Repuestos", "../Comun/mdl_BSQ_Repuesto.aspx?marcaId=" + marcaId + "&modeloId=" + modeloId, 900, 500, null);
 	        }
 	    }
 
-	    function cargarListaPrecio(json) {
-	        console.log('cargando...', json);
+	    function validarListaPrecio(name, value) {
+	        var isValid = true;
 
-	        var table = $("#tblDetalle");
+	        $("#tblDetalle tbody tr").map(function (index, elem) {
+	            if (isValid) {
 
-	        var detalle = $("#rowDetalle").find("tbody tr").clone();
+	                $('.inputValue', this).each(function () {
+	                    var k = $(this).data("name");
+	                    var v = $(this).val() || $(this).text();
 
-	        detalle.find("#lblListaPrecioId").append(json.listaPrecioId);
-	        detalle.find("#lblDescripcion").append(json.descripcion);
-	        detalle.find("#lblPrecio").append(json.precio);
+	                    if (isValid && k == name && v == value) {
+	                        isValid = false;
+	                    }
 
-	        if (json.presupuestoId && json.presupuestoId != '') {
-	            detalle.find("#hdnPresupuestoId").val(json.presupuestoId);
-	        }
+	                });
 
-	        if (json.detallePresupuestoId && json.detallePresupuestoId != '') {
-	            detalle.find("#hdnDetallePresupuestoId").val(json.detallePresupuestoId);
-	        }
-
-	        if (json.observacion && json.observacion != '') {
-	            detalle.find("#txtObservacion").val(json.observacion);
-	        }
-
-	        table.find("tbody").append(detalle);
-
-	        detalle.find("#lnkEliminar").click(function () {
-	            detalle.remove();
-	            calcularTotalesDetalle();
+	            }
 	        });
 
-	        calcularTotalesDetalle();
+	        return isValid;
+	    }
 
+	    function cargarListaPrecio(json) {
+            
+	        var valid = validarListaPrecio('MS_Lista_Precio_Id', json.listaPrecioId);
+	        if (!valid) {
+	            fn_mdl_alert("El servicio ya se encuetra agregado", null, "VALIDACIONES");
+	        } else {
+	            console.log('cargando...', json);
+
+	            var table = $("#tblDetalle");
+
+	            var detalle = $("#rowDetalle").find("tbody tr").clone();
+
+	            detalle.find("#lblListaPrecioId").append(json.listaPrecioId);
+	            detalle.find("#lblDescripcion").append(json.descripcion);
+	            detalle.find("#lblPrecio").append(json.precio);
+
+	            if (json.presupuestoId && json.presupuestoId != '') {
+	                detalle.find("#hdnPresupuestoId").val(json.presupuestoId);
+	            }
+
+	            if (json.detallePresupuestoId && json.detallePresupuestoId != '') {
+	                detalle.find("#hdnDetallePresupuestoId").val(json.detallePresupuestoId);
+	            }
+                /*
+	            if (json.observacion && json.observacion != '') {
+	                detalle.find("#txtObservacion").val(json.observacion);
+	            }*/
+
+	            table.find("tbody").append(detalle);
+
+	            detalle.find("#chkEliminar").click(function () {
+	                fn_checkListaItemDetalle($(this).get(0), detalle);/*
+	                detalle.remove();
+	                calcularTotalesDetalle();*/
+	            });
+
+	            calcularTotalesDetalle();
+	        }
 	        fn_util_CierraModal();
 
 	    }
@@ -140,9 +182,9 @@
 	        SubTotal = (Total / 1.18).toFixed(2);
 	        Igv = (Total - SubTotal).toFixed(2);
 
-	        $("#" + prefixServer + "txtSubTotal").val(SubTotal);
-	        $("#" + prefixServer + "txtIGV").val(Igv);
-	        $("#" + prefixServer + "txtTotal").val(Total);
+	        $("#txtSubTotal").val(SubTotal);
+	        $("#txtIGV").val(Igv);
+	        $("#txtTotal").val(Total);
 	    }
 
 	    function cargarDetallePresupuesto() {
@@ -180,7 +222,6 @@
 	                            detalle[k] = v;
 	                        }
 	                    }
-	                    console.log('k', k, 'v', v, 'valid', isValid, 'detalle', detalle);
 	                });
 
 	                if (isValid) {
@@ -193,14 +234,70 @@
 	        if (isValid) {
 	            detallePresupuesto["DetallePresupuesto"] = listDetalle;
 	            console.log("detallePresupuesto", detallePresupuesto);
-	            $("#cphCuerpo_txtDetalle").val(JSON.stringify(detallePresupuesto));
-	            console.log('detalle json', $("#cphCuerpo_txtDetalle").val());
+	            $("#txtDetalle").val(JSON.stringify(detallePresupuesto));
+	            console.log('detalle json', $("#txtDetalle").val());
 	        }
 	        return isValid;
 	    }
         
 	    function fn_GrabarPresupuesto() {
-	        $("#btnGrabar").click();
+	        var sError = "";
+
+	        //Valida cada campo
+	        sHddCodInforme = $("#hdnInformeAccidenteId").val();
+	        console.log('sHddCodInforme', sHddCodInforme);
+
+	        sTxtNumPresupuesto = $("#txtNumPresupuesto").val();
+	        sTxtFechaPresupuesto = $("#txtFechaPresupuesto").val();
+	        stxtSubTotal = $("#txtSubTotal").val();
+	        sTxtIGV = $("#txtIGV").val();
+	        sTxtTotal = $("#txtTotal").val();
+
+	        console.log('sTxtNumPresupuesto', sTxtNumPresupuesto, 'sTxtFechaPresupuesto',
+                sTxtFechaPresupuesto, 'stxtSubTotal', stxtSubTotal, 'sTxtIGV', sTxtIGV, 'sTxtTotal', sTxtTotal);
+
+
+	        //Codigo Informe Vehicular
+	        if (fn_util_trim(sHddCodInforme) == "" || fn_util_trim(sHddCodInforme) == "0") {
+	            sError = sError + "   - Debe seleccionar un Informe Accidente Vehicular. <br/>";
+	        }
+
+	        //Número Siniestro
+	        if (fn_util_trim(sTxtNumPresupuesto) == "" || fn_util_trim(sTxtNumPresupuesto) == "0") {
+	            sError = sError + "   - Debe ingresar un Número de Presupuesto. <br/>";
+	        }
+	        //Fecha de Presupuesto
+	        if (fn_util_trim(sTxtFechaPresupuesto) == "") {
+	            sError = sError + "   - Debe ingresar una Fecha de Presupuesto. <br/>";
+	        }
+	        //Sub Total
+	        if (fn_util_trim(stxtSubTotal) == "" || fn_util_trim(stxtSubTotal) == "0") {
+	            sError = sError + "   - Debe ser mayor a 0, el Sub Total. <br/>";
+	        }
+	        //IGV
+	        if (fn_util_trim(sTxtIGV) == "" || fn_util_trim(sTxtIGV) == "0") {
+	            sError = sError + "   - Debe ser mayor a 0, el Igv. <br/>";
+	        }
+	        //Total
+	        if (fn_util_trim(sTxtTotal) == "" || fn_util_trim(sTxtTotal) == "0") {
+	            sError = sError + "   - Debe ser mayor a 0, el Total. <br/>";
+	        }
+
+
+
+	        //Valida Final
+	        if (sError == "") {
+	            fn_mdl_confirma("¿Está seguro que desea agregar el Presupuesto?",
+                                function () {
+                                    $("#btnGrabar").click();
+                                },
+                                null,
+                                null,
+                                "CONFIRMACIÓN"
+                                );
+	        } else {
+	            fn_mdl_alert(sError, null, "VALIDACIONES");
+	        }
 	    }
 	</script>
 
@@ -269,7 +366,7 @@
 												</td>
 									            <td>
 										            <input id="txtNumInforme" type="text" class="css_frm_inactivo" runat="server" readonly/>
-										            <input type="button" value="Consultar" class="css_btn_general" onclick="javascript: fn_abreBsqInformeVehicular();" />
+										            <!--<input type="button" value="Consultar" class="css_btn_general" onclick="javascript: fn_abreBsqInformeVehicular();" />-->
 									            </td>
 								            </tr>	
 								            <tr>
@@ -285,7 +382,7 @@
 										            Tipo de Siniestro
 									            </td>
 									            <td>
-										            <select id="cmbTipoSiniestro" class="css_frm_inactivo" runat="server" readonly/>
+										            <input id="cmbTipoSiniestro" type="text" class="css_frm_inactivo" runat="server" readonly/>
 									            </td>												
 								            </tr>
 								            <tr>
@@ -337,7 +434,7 @@
 													Número de Presupuesto
 												</td>
 												<td>
-										            <input id="txtNumPresupuesto" type="text" class="css_frm_inactivo" runat="server" />
+										            <input id="txtNumPresupuesto" type="text" class="css_frm_inactivo" ClientIDMode="Static" runat="server" readonly/>
 												</td>
 											</tr>	
 											<tr>
@@ -345,7 +442,7 @@
 													Fecha
 												</td>
 												<td>
-										            <input id="txtFechaPresupuesto" type="text" class="" size="8" runat="server" onKeyUp="return fn_util_FormatDate(this);" onBlur="return fn_util_UpdateDate(this);" />
+										            <input id="txtFechaPresupuesto" type="text" class="" size="8" ClientIDMode="Static" runat="server" onKeyUp="return fn_util_FormatDate(this);" onBlur="return fn_util_UpdateDate(this);" />
 												</td>
 											</tr>
 										</table>
@@ -356,8 +453,8 @@
 										<legend>DETALLE DEL PRESUPUESTO</legend>
 												
 										<div style="padding:3px 3px 3px 550px;">
-											<input type="button" value="Agregar" class="css_btn_general" onclick="javascript: fn_abreBsqRepuestos();" />
-											<input type="button" value="Eliminar" class="css_btn_general" />
+											<input type="button" value="Adicionar" class="css_btn_general" onclick="javascript: fn_abreBsqRepuestos();" />
+											<input type="button" value="Eliminar" class="css_btn_general" onclick="javascript: fn_seleccionarItemDetalle();"/>
 										</div>
 												
                                         
@@ -365,7 +462,8 @@
                                             <table>
                                                 <tr>
                                                     <td>
-                                                        <a id="lnkEliminar" href="#" >Eliminar</a>           
+                                                        <!--<a id="lnkEliminar" href="#" >Eliminar</a>-->
+                                                        <input id="chkEliminar" type="checkbox"/>          
                                                     </td>
                                                     <td style="text-align:center;">
                                                         <label id="lblListaPrecioId" class="inputValue" data-name="MS_Lista_Precio_Id" ></label>
@@ -376,14 +474,14 @@
                                                     <td style="text-align:right;">
                                                         <label id="lblPrecio" class="inputValue" data-name="Importe" ></label>
                                                     </td>
-                                                    <td>
+                                                    <!--<td>
                                                         <input id="txtObservacion" class="inputValue" data-name="Observacion" />
-                                                    </td>
+                                                    </td>-->
                                                 </tr>
                                             </table>
                                         </div>
                                         
-							            <input id="txtDetalle" type="hidden" runat="server"/>                                    
+							            <input id="txtDetalle" type="hidden" ClientIDMode="Static"  runat="server"/>                                    
 							            <table id="tblDetalle" width="700px" border="0" cellpadding="3" cellspacing="0" class="css_grilla">
                                             <thead>
 								                <tr>
@@ -391,7 +489,7 @@
 									                <th style="width: 100px;">Código</th>
 									                <th style="width: 450px;">Descripción</th>
 									                <th style="width: 120px;">Precio Unidad (S/.)</th>		
-									                <th style="width: 120px;">Observacion</th>													
+									                <!--<th style="width: 120px;">Observacion</th>-->													
 								                </tr>	
                                             </thead>
                                             <tbody></tbody>
@@ -404,21 +502,21 @@
 									            <td style="width: 480px; height:22px;">&nbsp;</td>																						
 									            <td style="text-align:right;width: 100px;"><strong>SUBTOTAL</strong></td>
 									            <th style="width: 120px; font-weight:normal;border-bottom:1px solid #D4D0C8;">
-                                                    <input id="txtSubTotal" type="text" class="css_frm_inactivo" runat="server" />
+                                                    <input id="txtSubTotal" type="text" class="css_frm_inactivo" ClientIDMode="Static" runat="server" readonly/>
 									            </th>														
 								            </tr>
 								            <tr>
 									            <td style="height:22px;">&nbsp;</td>																						
 									            <td style="text-align:right;"><strong>IGV</strong></td>
 									            <th style="font-weight:normal;">
-                                                    <input id="txtIGV" type="text" class="css_frm_inactivo" runat="server" />
+                                                    <input id="txtIGV" type="text" class="css_frm_inactivo" ClientIDMode="Static" runat="server" readonly/>
 									            </th>														
 								            </tr>
 								            <tr>
 									            <td style="height:22px;">&nbsp;</td>																						
 									            <td style="text-align:right;"><strong>TOTAL</strong></td>
 									            <th style="background-color:#F8F8F8; border-top:2px solid #FD9A00;">
-                                                    <input id="txtTotal" type="text" class="css_frm_inactivo" runat="server" />
+                                                    <input id="txtTotal" type="text" class="css_frm_inactivo" ClientIDMode="Static" runat="server" readonly/>
 									            </th>														
 								            </tr>
 							            </table>

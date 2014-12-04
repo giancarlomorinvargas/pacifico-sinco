@@ -8,10 +8,31 @@
 	        //Seta Calendarios
 	        fn_util_SeteaCalendario($('input[id*=txtFecha]')[0]);
 	    });
+	    var objItemSeleccionado;
+	    function fn_checkListaItemDetalle(objCheck, item) {
+	        $('input[id*="chkEliminar"]').prop('checked', false);
+	        console.log('obj', objCheck);
+	        objCheck.checked = true;
+	        //objCheck.prop('checked', false);
+	        objItemSeleccionado = item;
+	    }
+
+	    function fn_seleccionarItemDetalle() {
+	        console.log('objItemSeleccionado', objItemSeleccionado);
+	        if (objItemSeleccionado && objItemSeleccionado != null) {
+	            objItemSeleccionado.remove();
+	            objItemSeleccionado = undefined;
+	            calcularTotalesDetalle();
+
+	        } else {
+	            fn_mdl_alert("Debe seleccionar un registro", null, "VALIDACIONES");
+	        }
+	    }
+
 	    function fn_abreBsqInformeVehicular() {
 	        fn_util_AbreModal("Consulta de Informe Vehicular", "../Comun/mdl_BSQ_Informe_Vehicular.aspx", 900, 500, null);
 	    }
-
+        
 	    function cargarInforme(json) {
 	        console.log('cargando...', json);
 	        $("#hdnInformeAccidenteId").val(json.informeAccidenteId);
@@ -19,7 +40,7 @@
 	        $("#txtNumInforme").val(json.numInforme);
 	        $("#txtNumSiniestro").val(json.numSiniestro);
 
-	        $("#cmbTipoSiniestro").find("option[value='" + json.tipo + "']").attr({selected:true});
+	        $("#cmbTipoSiniestro").val(json.tipo);
 	        $("#txtFecSiniestro").val(json.fechaSiniestro);
 
 	        $("#txtLugar").val(json.lugar);
@@ -29,7 +50,6 @@
 
 	        $("#hdnMarcaId").val(json.marcaId);
 	        $("#hdnModeloId").val(json.modeloId);
-
 	        fn_util_CierraModal();
 	    }
 
@@ -44,25 +64,56 @@
 	        }
 	    }
 
-	    function cargarListaPrecio(json) {
-	        console.log('cargando...', json);
+	    function validarListaPrecio(name, value) {
+	        var isValid = true;
 
-	        var table = $("#tblDetalle");
+	        $("#tblDetalle tbody tr").map(function (index, elem) {
+	            if (isValid) {
 
-	        var detalle = $("#rowDetalle").find("tbody tr").clone();
+	                $('.inputValue', this).each(function () {
+	                    var k = $(this).data("name");
+	                    var v = $(this).val() || $(this).text();
 
-	        detalle.find("#lblListaPrecioId").append(json.listaPrecioId);
-	        detalle.find("#lblDescripcion").append(json.descripcion);
-	        detalle.find("#lblPrecio").append(json.precio);
+	                    if (isValid && k == name && v == value) {
+	                        isValid = false;
+	                    }
 
-	        table.find("tbody").append(detalle);
+	                });
 
-	        detalle.find("#lnkEliminar").click(function () {
-	            detalle.remove();
-	            calcularTotalesDetalle();
+	            }
 	        });
 
-	        calcularTotalesDetalle();
+	        return isValid;
+	    }
+
+	    function cargarListaPrecio(json) {
+
+	        var valid = validarListaPrecio('MS_Lista_Precio_Id', json.listaPrecioId);
+	        if (!valid) {
+	            fn_mdl_alert("El servicio ya se encuetra agregado", null, "VALIDACIONES");
+	        } else {
+
+	            console.log('cargando...', json);
+
+	            var table = $("#tblDetalle");
+
+	            var detalle = $("#rowDetalle").find("tbody tr").clone();
+
+	            detalle.find("#lblListaPrecioId").append(json.listaPrecioId);
+	            detalle.find("#lblDescripcion").append(json.descripcion);
+	            detalle.find("#lblPrecio").append(json.precio);
+
+	            table.find("tbody").append(detalle);
+
+	            detalle.find("#chkEliminar").click(function () {
+	                fn_checkListaItemDetalle($(this).get(0), detalle);/*
+	                detalle.remove();
+	                calcularTotalesDetalle();*/
+	            });
+
+	            calcularTotalesDetalle();
+
+	        }
 
 	        fn_util_CierraModal();
 
@@ -146,6 +197,8 @@
 
 	        //Valida cada campo
 	        sHddCodInforme = $("#hdnInformeAccidenteId").val();
+	        console.log('sHddCodInforme', sHddCodInforme);
+
 
 	        sTxtNumPresupuesto = $("#txtNumPresupuesto").val();
 	        sTxtFechaPresupuesto = $("#txtFechaPresupuesto").val();
@@ -153,6 +206,8 @@
 	        sTxtIGV = $("#txtIGV").val();
 	        sTxtTotal = $("#txtTotal").val();
 
+	        console.log('sTxtNumPresupuesto', sTxtNumPresupuesto, 'sTxtFechaPresupuesto',
+                sTxtFechaPresupuesto, 'stxtSubTotal', stxtSubTotal, 'sTxtIGV', sTxtIGV, 'sTxtTotal', sTxtTotal);
 
 	        //Codigo Informe Vehicular
 	        if (fn_util_trim(sHddCodInforme) == "" || fn_util_trim(sHddCodInforme) == "0") {
@@ -276,7 +331,7 @@
 										Tipo de Siniestro
 									</td>
 									<td>
-										<select id="cmbTipoSiniestro" class="css_frm_inactivo" runat="server" readonly/>
+										<input id="cmbTipoSiniestro" type="text" class="css_frm_inactivo" readonly/>
 									</td>												
 								</tr>
 								<tr>
@@ -346,8 +401,8 @@
 							<legend>DETALLE DEL PRESUPUESTO</legend>
 												
 							<div style="padding:3px 3px 3px 550px;">
-								<input type="button" value="Agregar" class="css_btn_general" onclick="javascript: fn_abreBsqRepuestos();" />
-								<input type="button" value="Eliminar" class="css_btn_general" />
+								<input type="button" value="Adicionar" class="css_btn_general" onclick="javascript: fn_abreBsqRepuestos();" />
+								<input type="button" value="Eliminar" class="css_btn_general" onclick="javascript: fn_seleccionarItemDetalle();"/>
 							</div>
 
                             
@@ -355,7 +410,8 @@
                                 <table>
                                     <tr>
                                         <td>
-                                            <a id="lnkEliminar" href="#" >Eliminar</a>           
+                                            <!--<a id="lnkEliminar" href="#" >Eliminar</a>-->
+                                            <input id="chkEliminar" type="checkbox"/>
                                         </td>
                                         <td style="text-align:center;">
                                             <label id="lblListaPrecioId" class="inputValue" data-name="MS_Lista_Precio_Id" ></label>
@@ -366,9 +422,9 @@
                                         <td style="text-align:right;">
                                             <label id="lblPrecio" class="inputValue" data-name="Importe" ></label>
                                         </td>
-                                        <td>
+                                        <!--td>
                                             <input id="txtObservacion" class="inputValue" data-name="Observacion" />
-                                        </td>
+                                        </td-->
                                     </tr>
                                 </table>
                             </div>
@@ -381,7 +437,7 @@
 									    <th style="width: 100px;">Código</th>
 									    <th style="width: 450px;">Descripción</th>
 									    <th style="width: 120px;">Precio Unidad (S/.)</th>		
-									    <th style="width: 120px;">Observacion</th>													
+									    <!--<th style="width: 120px;">Observacion</th>	-->												
 								    </tr>	
                                 </thead>
                                 <tbody></tbody>

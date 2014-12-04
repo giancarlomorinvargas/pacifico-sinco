@@ -156,15 +156,18 @@ namespace Pacifico.SINCO.WS
              List<MSPresupuesto> listaPresupuesto = new List<MSPresupuesto>();
 
              foreach (MSPresupuesto Presupuesto in _PresupuestoRepositorio.GetAll().Where(
-                         b => ((b.NumPresupuesto.ToUpper().Contains(NumPresupuesto))
-                             && (b.InformeAccidente.NumInforme.ToUpper().Contains(NumInforme))
-                             && (b.InformeAccidente.Siniestro.Poliza.NumPoliza.ToUpper().Contains(NumPoliza))
-                             && (b.FechaPresupuesto.ToString("d").Contains(FechaPresupuesto))
+                         b => ((b.NumPresupuesto.ToUpper().Contains(NumPresupuestoParam))
+                             && (b.InformeAccidente.NumInforme.ToUpper().Contains(NumInformeParam))
+                             && (b.InformeAccidente.Siniestro.Poliza.NumPoliza.ToUpper().Contains(NumPolizaParam))
+                             
                              )
                         ).ToList()
                      )
              {
-                 listaPresupuesto.Add(Presupuesto);
+                 string fecPresupuesto = Presupuesto.FechaPresupuesto.ToString("d");
+                 if (fecPresupuesto.Contains(FechaPresupuesto)) {
+                     listaPresupuesto.Add(Presupuesto);
+                 }
              }
 
              if (listaPresupuesto.Count() == 0) {

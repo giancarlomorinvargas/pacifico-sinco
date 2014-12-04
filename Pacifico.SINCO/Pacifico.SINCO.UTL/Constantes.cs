@@ -26,6 +26,7 @@ namespace Pacifico.SINCO.UTL
 
         //INFORME
         public const int iEstado_Registrado = 31;
+        public const int iEstado_Firmado = 32;
 
         //PRESUPUESTOS
         public const string pNum_Presupuesto = "PR";

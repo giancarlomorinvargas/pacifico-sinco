@@ -31,14 +31,14 @@ namespace Pacifico.SINCO.WEB.Modulos.Presupuesto
                 lblMensajeError.InnerText = "";
                 if (!this.IsPostBack)
                 {
-
+                    /*
                     List<String> tipoSiniestro = Utilitario.getTipoSiniestro();
 
                     foreach (string tipo in tipoSiniestro)
                     {
                         cmbTipoSiniestro.Items.Add(tipo);
                     }
-
+                    */
                     //Valores
                     int id = int.Parse(Request.QueryString["pIdPresupuesto"]);
 
@@ -71,7 +71,6 @@ namespace Pacifico.SINCO.WEB.Modulos.Presupuesto
 
                     hdnMarcaId.Value = model.InformeAccidente.Siniestro.Poliza.Vehiculo.MP_Marca_Id.ToString();
                     hdnModeloId.Value = model.InformeAccidente.Siniestro.Poliza.Vehiculo.MP_Modelo_Id.ToString();
-
 
 
                     string DetalleFichaCargaSerializado = new JavaScriptSerializer().Serialize(model.DetallePresupuesto);

@@ -66,11 +66,11 @@ namespace Pacifico.SINCO.WEB.Modulos.Presupuesto
                 //Parametros
                 string NumPresupuesto = txtNumPresupuesto.Value;
                 string NumInforme = txtNumInforme.Value;
-                string NumPoliza = txtFechaPresupuesto.Value;
+                string NumPoliza = txtNumPoliza.Value;
                 string FechaPresupuesto = txtFechaPresupuesto.Value;
 
                 //Obtiene Listado de Siniestros
-                string listadoJson = owsPresupuestoClient.BuscarPresupuesto(NumPresupuesto, NumInforme, NumPoliza);
+                string listadoJson = owsPresupuestoClient.BuscarPresupuesto(NumPresupuesto, NumInforme, NumPoliza, FechaPresupuesto);
 
                 List<MSPresupuesto> listado = new JavaScriptSerializer().Deserialize<List<MSPresupuesto>>(listadoJson);
 

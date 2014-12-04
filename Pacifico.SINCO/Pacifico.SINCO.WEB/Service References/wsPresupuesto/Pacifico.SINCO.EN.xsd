@@ -4,6 +4,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="DetallePresupuesto" nillable="true" type="tns:ArrayOfMSDetallePresupuesto" />
       <xs:element minOccurs="0" name="Estado" type="xs:int" />
+      <xs:element minOccurs="0" name="EstadoEntity" nillable="true" type="tns:Estado" />
       <xs:element minOccurs="0" name="FechaModifico" type="xs:dateTime" />
       <xs:element minOccurs="0" name="FechaPresupuesto" type="xs:dateTime" />
       <xs:element minOccurs="0" name="FechaRegistro" type="xs:dateTime" />
@@ -72,11 +73,20 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="MSServicio" nillable="true" type="tns:MSServicio" />
+  <xs:complexType name="Estado">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Estado_Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Estado" nillable="true" type="tns:Estado" />
   <xs:complexType name="MSInformeAccidente">
     <xs:sequence>
       <xs:element minOccurs="0" name="Direccion" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Distrito" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Estado" type="xs:int" />
+      <xs:element minOccurs="0" name="EstadoEntity" nillable="true" type="tns:Estado" />
       <xs:element minOccurs="0" name="FechaInforme" type="xs:dateTime" />
       <xs:element minOccurs="0" name="FechaModifico" type="xs:dateTime" />
       <xs:element minOccurs="0" name="FechaRegistro" type="xs:dateTime" />
