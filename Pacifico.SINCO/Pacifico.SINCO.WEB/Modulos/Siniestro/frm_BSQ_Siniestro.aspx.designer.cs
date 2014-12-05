@@ -40,6 +40,24 @@ namespace Pacifico.SINCO.WEB.Modulos.Siniestro {
         protected global::System.Web.UI.WebControls.HiddenField hddEstadoSiniestro;
         
         /// <summary>
+        /// hddMensaje control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hddMensaje;
+        
+        /// <summary>
+        /// hddMensajeError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hddMensajeError;
+        
+        /// <summary>
         /// txtNumPoliza control.
         /// </summary>
         /// <remarks>

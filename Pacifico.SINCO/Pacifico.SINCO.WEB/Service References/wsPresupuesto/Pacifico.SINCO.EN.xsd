@@ -40,7 +40,7 @@
   <xs:element name="MSDetallePresupuesto" nillable="true" type="tns:MSDetallePresupuesto" />
   <xs:complexType name="MSListaPrecio">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Fecha" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Fecha" nillable="true" type="xs:dateTime" />
       <xs:element minOccurs="0" name="MP_Marca_Id" type="xs:int" />
       <xs:element minOccurs="0" name="MP_Modelo_Id" type="xs:int" />
       <xs:element minOccurs="0" name="MS_Lista_Precio_Id" type="xs:int" />

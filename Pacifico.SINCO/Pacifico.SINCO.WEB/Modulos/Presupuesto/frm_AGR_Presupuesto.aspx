@@ -239,7 +239,7 @@
 
 	        //Valida Final
 	        if (sError == "") {
-	            fn_mdl_confirma("¿Está seguro que desea agregar el Presupuesto?",
+	            fn_mdl_confirma("¿Está seguro que desea guardar los cambios del Presupuesto?",
                                 function () {
                                     $("#btnGrabar").click();
                                 },

@@ -66,7 +66,7 @@
 
             //Valida Final
             if (sError == "") {
-                fn_mdl_confirma("¿Está seguro que desea agregar el Siniestro?",
+                fn_mdl_confirma("¿Está seguro que desea guardar los cambios del Siniestro?",
                                 function () {
                                     $("#btnGrabar").click();
                                 },

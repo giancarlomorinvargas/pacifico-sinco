@@ -31,6 +31,33 @@ namespace Pacifico.SINCO.WEB.Modulos.Presupuesto {
         protected global::System.Web.UI.WebControls.HiddenField hddCodPresupuesto;
         
         /// <summary>
+        /// hddEstadoPresupuesto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hddEstadoPresupuesto;
+        
+        /// <summary>
+        /// hddMensaje control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hddMensaje;
+        
+        /// <summary>
+        /// hddMensajeError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hddMensajeError;
+        
+        /// <summary>
         /// txtNumPresupuesto control.
         /// </summary>
         /// <remarks>

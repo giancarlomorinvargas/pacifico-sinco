@@ -10,6 +10,7 @@ using System.Web.UI.WebControls;
 
 namespace Pacifico.SINCO.WEB.Modulos.Presupuesto
 {
+
     public partial class frm_BSQ_Presupuesto : System.Web.UI.Page
     {
 
@@ -25,7 +26,20 @@ namespace Pacifico.SINCO.WEB.Modulos.Presupuesto
 
             try
             {
-                lblMensajeError.InnerText = "";        
+                //Controla Mostrar Mensaje
+                string strMensaje = (string)HttpContext.Current.Session["PRESUPUESTO_MENSAJE"];
+                if (strMensaje == null) strMensaje = "";
+                HttpContext.Current.Session.Remove("PRESUPUESTO_MENSAJE");
+                hddMensaje.Value = strMensaje;
+
+
+                //Controla Mostrar MensajeError
+                string strMensajeError = (string)HttpContext.Current.Session["PRESUPUESTO_MENSAJE_ERROR"];
+                if (strMensaje == null) strMensaje = "";
+                HttpContext.Current.Session.Remove("PRESUPUESTO_MENSAJE_ERROR");
+                hddMensajeError.Value = strMensajeError;
+
+                //lblMensajeError.InnerText = "";        
                 //IsPostBack
                 if (!this.IsPostBack)
                 {
@@ -45,7 +59,7 @@ namespace Pacifico.SINCO.WEB.Modulos.Presupuesto
             catch (Exception ex)
             {
                 //throw ex;
-                lblMensajeError.InnerText = ex.Message;
+                hddMensajeError.Value = ex.Message;
             }
         }
 
@@ -81,7 +95,7 @@ namespace Pacifico.SINCO.WEB.Modulos.Presupuesto
             catch (Exception ex)
             {
                 //throw ex;
-                lblMensajeError.InnerText = ex.Message;
+                hddMensajeError.Value = ex.Message;
             }
         }
         

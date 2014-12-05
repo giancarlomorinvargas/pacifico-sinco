@@ -104,13 +104,13 @@
                                             <li><img src="<%=sUrl %>Util/images/menu/ico_menu.gif" class="jd_menu_icono"/><a href="<%=sUrl %>Modulos/Presupuesto/frm_BSQ_Presupuesto.aspx">Generación de Presupuestos</a></li>
 								        </ul>-->
 							        </li>
-                                    <li class="separator"></li>
+                                    <li class="separator"></li> 
 							        <li><a href="<%=sUrl %>Modulos/Presupuesto/frm_BSQ_Presupuesto.aspx">Generación de Presupuestos</a>
 								        <!--<ul>
 									        <li><img src="<%=sUrl %>Util/images/menu/ico_menu.gif" class="jd_menu_icono"/><a href="<%=sUrl %>Modulos/Presupuesto/frm_BSQ_Presupuesto.aspx">Generación de Presupuestos</a></li>														        				
 								        </ul>-->
 							        </li>	
-							        <li class="separator"></li>
+							        <!--<li class="separator"></li>
 							        <li><a href="#" class="accessible">Conciliaciones</a>
 								        <ul>
 									        <li><img src="<%=sUrl %>Util/images/menu/ico_menu.gif" class="jd_menu_icono"/><a href="#" target="_blank">Búsqueda</a></li>					
@@ -131,7 +131,7 @@
 									        <li><img src="<%=sUrl %>Util/images/menu/ico_menu.gif" class="jd_menu_icono"/><a href="#" target="_blank">Roles</a></li>
 									        <li><img src="<%=sUrl %>Util/images/menu/ico_menu.gif" class="jd_menu_icono"/><a href="#" target="_blank">Configuración</a></li>		
 								        </ul>
-							        </li>
+							        </li>-->
 							        <li class="separator"></li>
 						        </ul>
 												
