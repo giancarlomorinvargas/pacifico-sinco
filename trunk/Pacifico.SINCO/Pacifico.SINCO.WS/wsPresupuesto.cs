@@ -37,8 +37,8 @@ namespace Pacifico.SINCO.WS
         private static string MENSAJE_BUSQUEDA_NO_ENCONTRADA = "No existe información que coincida con lo ingresado";
         private static string MENSAJE_NO_DISPONIBLE = "El presupuesto no se encuentra disponible";
 
-        private static string MENSAJE_REGISTRADO = "La presupuesto se registró con éxito: {0}";
-        private static string MENSAJE_ACTUALIZADO = "La presupuesto se actualizó con éxito: {0}";
+        private static string MENSAJE_REGISTRADO = "Presupuesto Registrado Satisfactoriamente";
+        private static string MENSAJE_ACTUALIZADO = "Presupuesto Registrado Satisfactoriamente";
 
         
         String usuario = "rcastillejo";

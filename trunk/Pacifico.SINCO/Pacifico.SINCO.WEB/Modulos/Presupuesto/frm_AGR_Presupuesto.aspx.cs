@@ -73,14 +73,16 @@ namespace Pacifico.SINCO.WEB.Modulos.Presupuesto
 
                 string mensaje = service.AgregarPresupuesto(model);
 
-                lblMensaje.InnerText = mensaje;
-                Response.Redirect("~/Modulos/Presupuesto/frm_BSQ_Presupuesto.aspx");
+                //lblMensaje.InnerText = mensaje;
+                HttpContext.Current.Session["PRESUPUESTO_MENSAJE"] = mensaje;
+                Response.Redirect("~/Modulos/Presupuesto/frm_BSQ_Presupuesto.aspx", false);
 
             }
             catch (Exception ex)
             {
                 //throw ex;
-                lblMensajeError.InnerText = ex.Message;
+                //lblMensajeError.InnerText = ex.Message;
+                HttpContext.Current.Session["PRESUPUESTO_MENSAJE_ERROR"] = ex.Message;
             }
         }
     }

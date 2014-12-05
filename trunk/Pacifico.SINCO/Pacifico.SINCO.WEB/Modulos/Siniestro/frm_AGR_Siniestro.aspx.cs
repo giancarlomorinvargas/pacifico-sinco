@@ -79,15 +79,15 @@ namespace Pacifico.SINCO.WEB.Modulos.Siniestro
 
                 if (exito)
                 {
-                    Response.Redirect("~/Modulos/Siniestro/frm_BSQ_Siniestro.aspx");
-                    lblMensaje.InnerText = "Siniestro Registrado Satisfactoriamente";
+                    HttpContext.Current.Session["SINIESTRO_MENSAJE"] = "Siniestro Registrado Satisfactoriamente";
+                    Response.Redirect("~/Modulos/Siniestro/frm_BSQ_Siniestro.aspx", false);
                 }
 
             }
             catch (Exception ex)
             {
                 //throw ex;
-                lblMensajeError.InnerText = ex.Message;
+                HttpContext.Current.Session["SINIESTRO_MENSAJE_ERROR"] = ex.Message;
             }
         }
     }

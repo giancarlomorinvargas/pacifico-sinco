@@ -72,14 +72,14 @@
     <None Include="Service References\wsInformeAccidente\item1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Service References\wsInformeAccidente\wsInformeAccidente.wsdl" />
+    <None Include="Service References\wsInformeAccidente\wsInformeAccidente.wsdl" />
     <None Include="Service References\wsListaPrecio\item.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\wsListaPrecio\item1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Service References\wsListaPrecio\wsListaPrecio.wsdl" />
+    <None Include="Service References\wsListaPrecio\wsListaPrecio.wsdl" />
     <None Include="Service References\wsPresupuesto\Pacifico.SINCO.EN.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -135,18 +135,18 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <Content Include="Service References\wsInformeAccidente\configuration91.svcinfo" />
-    <Content Include="Service References\wsInformeAccidente\configuration.svcinfo" />
-    <Content Include="Service References\wsInformeAccidente\Reference.svcmap">
+    <None Include="Service References\wsInformeAccidente\configuration91.svcinfo" />
+    <None Include="Service References\wsInformeAccidente\configuration.svcinfo" />
+    <None Include="Service References\wsInformeAccidente\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </Content>
-    <Content Include="Service References\wsListaPrecio\configuration91.svcinfo" />
-    <Content Include="Service References\wsListaPrecio\configuration.svcinfo" />
-    <Content Include="Service References\wsListaPrecio\Reference.svcmap">
+    </None>
+    <None Include="Service References\wsListaPrecio\configuration91.svcinfo" />
+    <None Include="Service References\wsListaPrecio\configuration.svcinfo" />
+    <None Include="Service References\wsListaPrecio\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </Content>
+    </None>
     <Content Include="Util\css\css_formulario.css" />
     <Content Include="Util\css\css_fuente.css" />
     <Content Include="Util\css\css_global.css" />

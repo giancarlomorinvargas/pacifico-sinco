@@ -6,6 +6,17 @@
         $(document).ready(function () {
             //Seta Calendarios
             fn_util_SeteaCalendario($('input[id*=txtFecha]')[0]);
+
+            //Valida Mostrar Mensaje
+            var strMensaje = $("#hddMensaje").val();
+            if (fn_util_trim(strMensaje) != "") {
+                fn_mdl_mensajeIco(strMensaje,'/Util/images/ok.gif');
+            }
+            var strMensajeError = $("#hddMensajeError").val();
+            if (fn_util_trim(strMensajeError) != "") {
+                fn_mdl_mensajeIco(strMensajeError,'/Util/images/warning.gif');
+            }
+
         });
 
         function fn_buscarPresupuesto() {
@@ -95,6 +106,9 @@
    <asp:Button ID="btnBuscar" runat="server" Text="" OnClick="btnBuscar_Click" ClientIDMode="Static" Style="display: none;" />	
    <asp:HiddenField ID="hddCodPresupuesto" runat="server" ClientIDMode="Static" EnableViewState="false" />	
    <asp:HiddenField ID="hddEstadoPresupuesto" runat="server" ClientIDMode="Static" EnableViewState="false" />	
+
+   <asp:HiddenField ID="hddMensaje" runat="server" ClientIDMode="Static" EnableViewState="false" />	
+   <asp:HiddenField ID="hddMensajeError" runat="server" ClientIDMode="Static" EnableViewState="false" />	
 						
 	<!-- INCIO PANEL-->
 	<table width="100%" border="0" cellpadding="0" cellspacing="0" class="css_tema_panel">
