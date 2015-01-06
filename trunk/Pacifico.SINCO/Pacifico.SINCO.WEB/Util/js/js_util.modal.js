@@ -81,11 +81,11 @@ function fn_mdl_confirma(Message, Action, UrlImagen, Action1, Title) {
 	            Action1();
 	        }	       
 	    }, buttons: {
-	        "Si": function () {
+	        "Aceptar": function () {
 	            $(this).remove();
 	            Action();	           
 	        },
-	        "No": function () {
+	        "Cancelar": function () {
 	            $(this).remove();
 	            if (Action1 != null) {
 	                Action1();

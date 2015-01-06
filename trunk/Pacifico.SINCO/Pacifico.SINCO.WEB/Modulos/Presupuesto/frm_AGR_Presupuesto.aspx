@@ -315,7 +315,7 @@
 									</td>
 									<td>
 										<input id="txtNumInforme" type="text" class="css_frm_inactivo" readonly />
-										<input type="button" value="Consultar" class="css_btn_general" onclick="javascript: fn_abreBsqInformeVehicular();" />
+										<input type="button" value="Consultar Informe Accidente Vehicular" class="css_btn_general" onclick="javascript: fn_abreBsqInformeVehicular();" />
 									</td>
 								</tr>	
 								<tr>

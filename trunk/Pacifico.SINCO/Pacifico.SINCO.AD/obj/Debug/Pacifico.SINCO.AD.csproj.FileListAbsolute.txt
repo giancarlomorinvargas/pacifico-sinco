@@ -16,3 +16,13 @@ C:\Users\JuanPablo\Desktop\APP_NET\APP\Pacifico.SINCO\Pacifico.SINCO.AD\bin\Debu
 C:\Users\JuanPablo\Desktop\APP_NET\APP\Pacifico.SINCO\Pacifico.SINCO.AD\bin\Debug\Pacifico.SINCO.EN.pdb
 C:\Users\JuanPablo\Desktop\APP_NET\APP\Pacifico.SINCO\Pacifico.SINCO.AD\bin\Debug\Pacifico.SINCO.UTL.pdb
 C:\Users\JuanPablo\Desktop\APP_NET\APP\Pacifico.SINCO\Pacifico.SINCO.AD\obj\Debug\Pacifico.SINCO.AD.pdb
+D:\UPC\TP2\fuentes\Pacifico.SINCO\Pacifico.SINCO.AD\bin\Debug\Pacifico.SINCO.AD.dll
+D:\UPC\TP2\fuentes\Pacifico.SINCO\Pacifico.SINCO.AD\bin\Debug\Pacifico.SINCO.AD.pdb
+D:\UPC\TP2\fuentes\Pacifico.SINCO\Pacifico.SINCO.AD\bin\Debug\EntityFramework.dll
+D:\UPC\TP2\fuentes\Pacifico.SINCO\Pacifico.SINCO.AD\bin\Debug\Pacifico.SINCO.EN.dll
+D:\UPC\TP2\fuentes\Pacifico.SINCO\Pacifico.SINCO.AD\bin\Debug\Pacifico.SINCO.EN.pdb
+D:\UPC\TP2\fuentes\Pacifico.SINCO\Pacifico.SINCO.AD\bin\Debug\EntityFramework.xml
+D:\UPC\TP2\fuentes\Pacifico.SINCO\Pacifico.SINCO.AD\bin\Debug\es\EntityFramework.resources.dll
+D:\UPC\TP2\fuentes\Pacifico.SINCO\Pacifico.SINCO.AD\obj\Debug\Pacifico.SINCO.AD.csprojResolveAssemblyReference.cache
+D:\UPC\TP2\fuentes\Pacifico.SINCO\Pacifico.SINCO.AD\obj\Debug\Pacifico.SINCO.AD.dll
+D:\UPC\TP2\fuentes\Pacifico.SINCO\Pacifico.SINCO.AD\obj\Debug\Pacifico.SINCO.AD.pdb
