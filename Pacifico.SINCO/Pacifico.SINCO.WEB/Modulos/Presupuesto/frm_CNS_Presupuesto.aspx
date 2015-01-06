@@ -324,7 +324,7 @@
 									<td class="boton">
 										<a href="javascript:window.location='frm_BSQ_Presupuesto.aspx';">
 											<img src="<%=sUrl %>Util/images/iconos/ico_btn_cancelar.jpg" border="0" /><br />
-											Cancelar
+											Cerrar
 										</a>
 									</td>											
 								</tr>
