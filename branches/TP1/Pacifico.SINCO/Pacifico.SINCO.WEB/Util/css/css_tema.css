@@ -1,0 +1,107 @@
+/************************************************************
+* Cabecera
+************************************************************/
+.css_cabecera_table{
+	background: url("../images/tema/fnd_cabecera.jpg") !important;	
+	background-color:#FFFFFF;
+	height: 45px;
+	color: #FFFFFF;
+	
+}
+
+.css_cabecera_table td.left{
+	width: 15px;
+	text-align: left;
+	background: url("../images/tema/fnd_cabecera_left.jpg") no-repeat left top !important;
+}
+
+.css_cabecera_table td.cuerpo{
+	text-align: center;
+}
+
+.css_cabecera_table td.right{
+	width: 15px;
+	text-align: right;
+	background: url("../images/tema/fnd_cabecera_right.jpg") no-repeat left top !important;	
+}
+
+
+/************************************************************
+* Menu
+************************************************************/
+.css_tema_menuBorde{
+	height: 22px;
+	border: 1px solid #CCCCCC;
+	background-color: #F0F0F0;
+}
+
+.css_tema_menuSeparador{
+	background: url("../images/tema/fnd_menu_separador.jpg");
+	background-repeat:no-repeat;		
+	width: 2px;
+}
+
+
+/************************************************************
+* Cuerpo
+************************************************************/
+.css_tema_cuerpo{
+	border-left: 1px solid #CCCCCC;
+	border-right: 1px solid #CCCCCC;	
+	background-color: #FFFFFF;
+	padding: 10px;
+}
+
+.css_tema_cuerpoPie{
+	background: url("../images/tema/fnd_cuerpo_center.jpg") repeat-x center bottom !important;	
+}
+.css_tema_cuerpoPie tr.pie{
+	height: 15px;
+	width: 100%;
+}
+.css_tema_cuerpoPie td.left{	
+	width: 15px;
+	background: url("../images/tema/fnd_cuerpo_left.jpg") no-repeat left bottom !important;	
+}
+
+.css_tema_cuerpoPie td.right{
+	width: 15px;
+	background: url("../images/tema/fnd_cuerpo_right.jpg") no-repeat right bottom !important;	
+}
+
+
+
+
+/************************************************************
+* Panel
+************************************************************/
+.css_tema_panel{
+	background-color: #F8F8F8;
+}
+
+.css_tema_panel tr.body{
+}
+.css_tema_panel tr.body td.center{
+	padding: 3px 5px 3px 5px;
+}
+.css_tema_panel tr.body td.left{
+	background: url("../images/tema/fnd_panel_middle_left.jpg") repeat-y left top !important;	
+}
+.css_tema_panel tr.body td.right{
+	background: url("../images/tema/fnd_panel_middle_right.jpg") repeat-y right top !important;	
+}
+
+.css_tema_panel tr.pie{
+	height: 5px;
+}
+.css_tema_panel tr.pie td.left{
+	width: 3px;
+	background: url("../images/tema/fnd_panel_bottom_left.jpg") no-repeat left bottom !important;		
+}
+.css_tema_panel tr.pie td.center{
+	background: url("../images/tema/fnd_panel_bottom_center.jpg") repeat-x center top !important;		
+}
+.css_tema_panel tr.pie td.right{
+	width: 3px;
+	background: url("../images/tema/fnd_panel_bottom_right.jpg") no-repeat right bottom !important;	
+}
