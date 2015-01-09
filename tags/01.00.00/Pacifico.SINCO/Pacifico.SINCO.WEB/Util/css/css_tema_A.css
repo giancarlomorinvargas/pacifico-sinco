@@ -1,0 +1,55 @@
+/************************************************************
+* Linea
+************************************************************/
+.css_tema_lineaCabecera{
+	height: 9px;	
+	background: url("../images/tema/fnd_linea_A.jpg");
+	background-repeat:repeat-x;		
+}
+
+
+/************************************************************
+* Panel
+************************************************************/
+.css_tema_panel tr.cabecera{
+	height: 5px;
+}
+.css_tema_panel tr.cabecera td.left{
+	width: 3px;
+	background: url("../images/tema/fnd_panel_top_left_A.jpg") no-repeat left top !important;	
+}
+.css_tema_panel tr.cabecera td.center{
+	background: url("../images/tema/fnd_panel_top_center_A.jpg") repeat-x center top !important;		
+}
+.css_tema_panel tr.cabecera td.right{
+	width: 3px;
+	background: url("../images/tema/fnd_panel_top_right_A.jpg") no-repeat right top !important;	
+}
+
+
+/************************************************************
+* GRILLA
+************************************************************/
+.css_grilla{
+	border: 1px solid #D4D0C8;	
+}
+
+.css_grilla th{
+	border-top: 2px solid #FD9A00;
+	height: 25px;
+	background-color: #F8F8F8;
+	border-bottom: 1px solid #D4D0C8;	
+	text-decoration: uppercase;
+}
+
+.css_grilla td{	
+	height: 25px;	
+	border-bottom: 1px solid #EEE;	
+}
+
+.css_grilla tr .even{	
+	height: 25px;
+	background-color: #FCFCFC;
+	border-bottom: 1px solid #D4D0C8;	
+}
+

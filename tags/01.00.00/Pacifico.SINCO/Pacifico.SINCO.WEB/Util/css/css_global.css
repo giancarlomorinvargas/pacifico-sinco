@@ -1,0 +1,141 @@
+/************************************************************
+* BODY
+************************************************************/
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+	font-size: 12px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.css_body_login{
+    /*background: url(../images/fondos/fnd_pagina.jpg) #fff repeat-x center top !important; OVERFLOW: auto;*/
+}
+
+.css_body_sistema{
+    /*background: url(../images/fondos/fnd_pagina.jpg) #fff repeat-x center top !important; OVERFLOW: auto;*/
+}
+
+.css_body_contenedor{
+	padding: 5px 5px 5px 5px; 
+}
+
+.css_body_contenedorLogin{
+	padding: 5px 5px 5px 5px; 
+	margin-top:50px;
+}
+
+
+/************************************************************
+* Global
+************************************************************/
+.css_contenedor {
+	position: relative; 
+	padding: 10px; 
+    position: relative;
+    margin: 0px auto;
+}
+
+.css_bordeTabla {
+    border: 1px dotted #D7D7D7;
+	padding:10px;
+}
+
+
+
+/************************************************************
+* Titulo Modal
+************************************************************/
+.css_tb_titulo{
+	height:50px;
+	margin-bottom:10px;
+}
+
+.css_tb_titulo td.icono{
+	width:50px;
+	text-align:center;
+}
+
+.css_tb_titulo td.modulo{
+	font-size:12px;
+	color:#333333;
+	text-align:left;
+	font-weight:bold;
+	width:350px;
+	vertical-align:bottom;
+}
+
+.css_tb_titulo td.subModulo{	
+	font-size:18px;
+	color:#333333;
+	text-align:left;
+	font-weight:bold;	
+	vertical-align:top;	
+}
+
+
+/************************************************************
+* Botones
+************************************************************/
+.css_tb_titulo td.botones{
+	text-align:right;
+}
+
+.css_tb_tituloBotones{	
+}
+.css_tb_tituloBotones td.boton{
+	width: 60px;
+	text-align: center;
+	color:#003399;
+}
+.css_tb_tituloBotones td.boton a{
+	color:#003399;
+	text-decoration:none;
+}
+.css_tb_tituloBotones td.boton a:hover{
+	color:#003399;
+	text-decoration:none;
+	background-color:#FFFFCC;
+}
+
+
+
+fieldset {
+    border: 1px solid #E1E1E1;       
+    /*padding: 15px;*/
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    border-style: solid !important;
+}
+fieldset legend {    
+    color: #555;
+    padding: 5px 10px ;
+    font-size: 12px;    
+}
+
+
+/************************************************************
+* Cuerpo Modal
+************************************************************/
+.css_tb_cuerpoPanel{
+	width:100%;
+	border: 1px solid #D4D0C8;
+	background-color:#FFFFFF;
+}
+
+.css_tb_formPanel{
+	width:100%;
+	background-color:#FFFFFF;
+	padding:5px;
+}
+
+.css_tb_formPanel td.label{
+	font-weight:bold;
+	text-align:right;
+	padding:5px;
+	width: 100px;	
+}
