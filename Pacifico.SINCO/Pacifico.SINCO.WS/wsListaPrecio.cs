@@ -16,56 +16,60 @@ namespace Pacifico.SINCO.WS
     public class wsListaPrecio : IwsListaPrecio
     {
 
-        /// <summary>
-        /// wsObtenerNombreWS
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
+        private rnListaPrecio reglaNegocioListaPrecio;
+
+        public wsListaPrecio()
+         {
+             reglaNegocioListaPrecio = new rnListaPrecio();
+         }
+        
+        /* <summary>
+        wsObtenerNombreWS
+        </summary>
+        <param name="value"></param>
+        <returns></returns>*/
         public string wsObtenerNombreWS()
         {
             return string.Format(Constantes.sNombreWS_ListaPrecio);
         }
         
-        
-
-        private static string MENSAJE_NO_DISPONIBLE = "La Lista de precios no se encuentra disponible";
-
-
-        IListaPrecioDAO _ListaPrecioRepositorio;
-
-        public wsListaPrecio()
-         {
-             _ListaPrecioRepositorio = new ListaPrecioDAO();
-         }
-
-
         public string Obtener(int Id)
          {
-             MSListaPrecio model = _ListaPrecioRepositorio.Get(Id);
-             if (model == null)
+             try
              {
-                 throw new FaultException(MENSAJE_NO_DISPONIBLE);
+                 MSListaPrecio model = reglaNegocioListaPrecio.Obtener(Id);
+                 return new JavaScriptSerializer().Serialize(model);
              }
-             return new JavaScriptSerializer().Serialize(model);
-             //return model;
+             catch (Exception e)
+             {
+                 throw new FaultException(e.Message);
+             }
          }
 
         public string Listar()
          {
-             List<MSListaPrecio> result = _ListaPrecioRepositorio.GetAll().ToList();
-             return new JavaScriptSerializer().Serialize(result);
+             try
+             {
+                 List<MSListaPrecio> model = reglaNegocioListaPrecio.Listar();
+                 return new JavaScriptSerializer().Serialize(model);
+             }
+             catch (Exception e)
+             {
+                 throw new FaultException(e.Message);
+             }
          }
 
         public string Buscar(int MarcaId, int ModeloId)
          {
-             List<MSListaPrecio> listado = new List<MSListaPrecio>();
-
-             foreach (MSListaPrecio Model in _ListaPrecioRepositorio.GetAll().Where(
-                 b => b.MP_Marca_Id == MarcaId && b.MP_Modelo_Id == ModeloId).ToList())
+             try
              {
-                 listado.Add(Model);
+                 List<MSListaPrecio> model = reglaNegocioListaPrecio.Buscar(MarcaId, ModeloId);
+                 return new JavaScriptSerializer().Serialize(model);
              }
-             return new JavaScriptSerializer().Serialize(listado);
+             catch (Exception e)
+             {
+                 throw new FaultException(e.Message);
+             }
          }
     }
 }

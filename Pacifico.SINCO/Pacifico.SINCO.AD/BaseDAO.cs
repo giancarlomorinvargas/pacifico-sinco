@@ -8,7 +8,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Web;
 
-namespace Pacifico.SINCO.RN
+namespace Pacifico.SINCO.AD
 {
     public class BaseDAO<TEntidad>:IBaseDAO<TEntidad> where TEntidad:class
     {

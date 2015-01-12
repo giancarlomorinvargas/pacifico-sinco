@@ -60,7 +60,7 @@ namespace Pacifico.SINCO.WEB.Modulos.Siniestro
 
                     txtNumSiniestro.Value = beanEnSiniestro.NumSiniestro;
                     cmbTipoSiniestro.Value = beanEnSiniestro.Tipo;
-                    txaDescripcion.Value = beanEnSiniestro.Descripcion;
+                    txtDescripcion.Value = beanEnSiniestro.Descripcion;
                     txtFechaSiniestro.Value = beanEnSiniestro.vFechaSiniestro;
                     txtLugar.Value = beanEnSiniestro.Lugar;
 

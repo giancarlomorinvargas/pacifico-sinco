@@ -6,10 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
-namespace Pacifico.SINCO.RN
+namespace Pacifico.SINCO.AD
 {
-    public interface IListaPrecioDAO : IBaseDAO<MSListaPrecio>
+    public interface IDetallePresupuestoDAO : IBaseDAO<MSDetallePresupuesto>
     {
     }
 }

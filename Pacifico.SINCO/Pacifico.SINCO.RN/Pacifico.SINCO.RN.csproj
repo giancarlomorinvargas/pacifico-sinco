@@ -45,16 +45,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseDAO.cs" />
-    <Compile Include="DetallePresupuestoDAO.cs" />
-    <Compile Include="IBaseDAO.cs" />
-    <Compile Include="IDetallePresupuestoDAO.cs" />
-    <Compile Include="IInformeAccidenteDAO.cs" />
-    <Compile Include="IListaPrecioDAO.cs" />
-    <Compile Include="InformeAccidenteDAO.cs" />
-    <Compile Include="IPresupuestoDAO.cs" />
-    <Compile Include="ListaPrecioDAO.cs" />
-    <Compile Include="PresupuestoDAO.cs" />
+    <Compile Include="rnInformeAccidente.cs" />
+    <Compile Include="rnListaPrecio.cs" />
+    <Compile Include="rnPresupuesto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="rnAsegurado.cs" />
     <Compile Include="rnBase.cs" />
@@ -71,6 +64,10 @@
     <ProjectReference Include="..\Pacifico.SINCO.EN\Pacifico.SINCO.EN.csproj">
       <Project>{9c094b5e-cd29-4ec9-aeb5-0ce96a23c930}</Project>
       <Name>Pacifico.SINCO.EN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Pacifico.SINCO.UTL\Pacifico.SINCO.UTL.csproj">
+      <Project>{c9709638-6a58-4fe6-8a28-4ad7d7984631}</Project>
+      <Name>Pacifico.SINCO.UTL</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

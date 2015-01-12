@@ -13,21 +13,21 @@ namespace Pacifico.SINCO.WS
 {
     public class wsUtil : IwsUtil
     {
-        /// <summary>
-        /// wsObtenerNombreWS
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
+        /*<summary>
+        wsObtenerNombreWS
+        </summary>
+        <param name="value"></param>
+        <returns></returns>*/
         public string wsObtenerNombreWS()
         {
             return string.Format(Constantes.sNombreWS_Util);
         }
 
-        /// <summary>
-        /// ListarPoliza
-        /// </summary>
-        /// <param name="pEnPoliza"></param>
-        /// <returns></returns>
+        /*<summary>
+        ListarPoliza
+        </summary>
+        <param name="pEnPoliza"></param>
+        <returns></returns>*/
         public List<enPoliza> ListarPoliza(enPoliza pEnPoliza)
         {
             List<enPoliza> loEnPoliza = null;
