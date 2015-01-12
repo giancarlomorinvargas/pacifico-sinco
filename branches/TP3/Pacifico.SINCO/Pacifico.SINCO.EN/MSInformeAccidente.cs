@@ -30,6 +30,8 @@ namespace Pacifico.SINCO.EN
         public virtual MSSiniestro Siniestro { get; set; }
 
 
+        public int? MS_Tecnico_Taller_Id { get; set; }
+        //public virtual MSTecnicoTaller TecnicoTaller { get; set; }
         
     }
 }
