@@ -16,46 +16,48 @@ namespace Pacifico.SINCO.WS
     public class wsInformeAccidente : IwsInformeAccidente
     {
 
-        /// <summary>
-        /// wsObtenerNombreWS
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
+        /* <summary>
+         wsObtenerNombreWS
+         </summary>
+         <param name="value"></param>
+         <returns></returns>*/
         public string wsObtenerNombreWS()
         {
             return string.Format(Constantes.sNombreWS_ListaPrecio);
         }
         
-        
-        private static string MENSAJE_NO_DISPONIBLE = "El Informe accidente vehicular no se encuentra disponible";
-
-
-        IInformeAccidenteDAO _InformeAccidenteRepositorio;
+        private rnInformeAccidente reglaNegocioInformeAccidente;
 
         public wsInformeAccidente()
          {
-             _InformeAccidenteRepositorio = new InformeAccidenteDAO();
+             reglaNegocioInformeAccidente = new rnInformeAccidente();
          }
 
 
         public string Obtener(int Id)
          {
-             MSInformeAccidente model = _InformeAccidenteRepositorio.Get(Id);
-             if (model == null)
+             try
              {
-                 throw new FaultException(MENSAJE_NO_DISPONIBLE);
+                 MSInformeAccidente model = reglaNegocioInformeAccidente.Obtener(Id);
+                 return new JavaScriptSerializer().Serialize(model);
              }
-
-
-             //return model;
-             return new JavaScriptSerializer().Serialize(model);
+             catch (Exception e)
+             {
+                 throw new FaultException(e.Message);
+             }
          }
 
         public string Listar()
-         {
-             List<MSInformeAccidente> listado;
-             listado = _InformeAccidenteRepositorio.GetAll().ToList();
-             return new JavaScriptSerializer().Serialize(listado);
+        {
+            try
+            {
+                List<MSInformeAccidente> listado = reglaNegocioInformeAccidente.Listar();
+                return new JavaScriptSerializer().Serialize(listado);
+             }
+             catch (Exception e)
+             {
+                 throw new FaultException(e.Message);
+             }
          }
 
         /*public List<MSInformeAccidente> Buscar(int MarcaId, int ModeloId)

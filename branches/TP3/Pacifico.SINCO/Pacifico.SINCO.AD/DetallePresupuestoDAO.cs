@@ -5,9 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Pacifico.SINCO.RN
+namespace Pacifico.SINCO.AD
 {
-    public class InformeAccidenteDAO : BaseDAO<MSInformeAccidente>, IInformeAccidenteDAO
+    public class DetallePresupuestoDAO : BaseDAO<MSDetallePresupuesto>, IDetallePresupuestoDAO
     {
     }
 }

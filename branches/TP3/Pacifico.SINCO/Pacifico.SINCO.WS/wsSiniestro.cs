@@ -23,21 +23,21 @@ namespace Pacifico.SINCO.WS
         private static string MENSAJE_ACTUALIZADO = "La presupuesto se actualizó con éxito: {0}";
 
 
-        /// <summary>
-        /// wsObtenerNombreWS
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
+        /*<summary>
+        wsObtenerNombreWS
+        </summary>
+        <param name="value"></param>
+        <returns></returns>*/
         public string wsObtenerNombreWS()
         {
             return string.Format(Constantes.sNombreWS_Siniestro);
         }
         
-        /// <summary>
-        /// ListarSiniestro
-        /// </summary>
-        /// <param name="pEnSiniestro"></param>
-        /// <returns></returns>
+        /*<summary>
+        ListarSiniestro
+        </summary>
+        <param name="pEnSiniestro"></param>
+        <returns></returns>*/
         public List<enSiniestro> ListarSiniestro(enSiniestro pEnSiniestro)
         {
             List<enSiniestro> loEnSiniestro = null;
@@ -58,11 +58,11 @@ namespace Pacifico.SINCO.WS
             return loEnSiniestro;
         }
 
-        /// <summary>
-        /// ListarSiniestro
-        /// </summary>
-        /// <param name="pEnSiniestro"></param>
-        /// <returns></returns>
+        /*<summary>
+        ListarSiniestro
+        </summary>
+        <param name="pEnSiniestro"></param>
+        <returns></returns>*/
         public enSiniestro ObtenerSiniestro(enSiniestro pEnSiniestro)
         {
             enSiniestro oEnSiniestro = null;
@@ -83,11 +83,11 @@ namespace Pacifico.SINCO.WS
             return oEnSiniestro;
         }
 
-        /// <summary>
-        /// IngresarSiniestro
-        /// </summary>
-        /// <param name="pEnSiniestro"></param>
-        /// <returns></returns>
+        /*<summary>
+        IngresarSiniestro
+        </summary>
+        <param name="pEnSiniestro"></param>
+        <returns></returns>*/
         public bool IngresarSiniestro(enSiniestro pEnSiniestro)
         {
             bool bExito = false;
@@ -115,11 +115,11 @@ namespace Pacifico.SINCO.WS
             return bExito;
         }
 
-        /// <summary>
-        /// ActualizaSiniestro
-        /// </summary>
-        /// <param name="pEnSiniestro"></param>
-        /// <returns></returns>
+        /*<summary>
+        ActualizaSiniestro
+        </summary>
+        <param name="pEnSiniestro"></param>
+        <returns></returns>*/
         public bool ActualizaSiniestro(enSiniestro pEnSiniestro)
         {
             bool bExito = false;

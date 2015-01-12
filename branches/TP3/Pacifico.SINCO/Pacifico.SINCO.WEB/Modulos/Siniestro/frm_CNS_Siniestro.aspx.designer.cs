@@ -31,13 +31,13 @@ namespace Pacifico.SINCO.WEB.Modulos.Siniestro {
         protected global::System.Web.UI.HtmlControls.HtmlSelect cmbTipoSiniestro;
         
         /// <summary>
-        /// txaDescripcion control.
+        /// txtDescripcion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea txaDescripcion;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtDescripcion;
         
         /// <summary>
         /// txtFechaSiniestro control.

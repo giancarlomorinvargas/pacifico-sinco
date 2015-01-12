@@ -63,7 +63,7 @@
 										Tipo de Siniestro
 									</td>
 									<td>
-										<select id="cmbTipoSiniestro"  runat="server" style="background-color: #EEE;" readonly="readonly" />
+										<select id="cmbTipoSiniestro"  runat="server" style="background-color: #EEE;" readonly="readonly" disabled="disabled"/>
 									</td>												
 								</tr>	
 								<tr>												
@@ -71,7 +71,7 @@
 										Descripción
 									</td>
 									<td>
-										<textarea id="txaDescripcion" cols="100" rows="5" runat="server" style="background-color: #EEE;" readonly="readonly" ></textarea>
+										<textarea id="txtDescripcion" cols="100" rows="5" runat="server" style="background-color: #EEE;" readonly="readonly" ></textarea>
 									</td>												
 								</tr>	
 								<tr>												

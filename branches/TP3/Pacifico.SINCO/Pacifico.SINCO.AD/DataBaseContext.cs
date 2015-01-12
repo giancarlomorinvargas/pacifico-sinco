@@ -16,24 +16,7 @@ namespace Pacifico.SINCO.AD
         }
         
         //Aquí se definen todas los DBSets de las Entidades que serán transformadas en tablas
-        /*
-        public DbSet<MGAgencia> MGAgencias { get; set; }
-        public DbSet<MGGuiaRemision> MGGuiaRemision { get; set; }
-        public DbSet<MGProgramacionRuta> MGProgramacionRuta { get; set; }
-        public DbSet<MGCliente> MGCliente { get; set; }
-        public DbSet<MGVehiculo> MGVehiculo { get; set; }
-        public DbSet<MGRuta> MGRuta { get; set; }
         
-        public DbSet<MGProducto> MGProducto { get; set; }
-        public DbSet<MGFichaCarga> MGFichaCarga { get; set; }
-        public DbSet<MGDetalleFCarga> MGDetalleFCarga { get; set; }
-
-        public DbSet<MGComprobantePago> MGComprobantePago { get; set; }
-
-        public DbSet<MGTipoMovimiento> MGTipoMovimiento { get; set; }
-        public DbSet<MGFichaMovimiento> MGFichaMovimiento { get; set; }
-        */
-
         public DbSet<MPMarca> MPMarca { get; set; }
         public DbSet<MPModelo> MPModelo { get; set; }
         public DbSet<MSServicio> MSServicio { get; set; }

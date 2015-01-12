@@ -7,9 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace Pacifico.SINCO.RN
+namespace Pacifico.SINCO.AD
 {
-    public interface IInformeAccidenteDAO : IBaseDAO<MSInformeAccidente>
+    public interface IPresupuestoDAO : IBaseDAO<MSPresupuesto>
     {
     }
 }
