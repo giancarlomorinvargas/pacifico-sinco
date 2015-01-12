@@ -25,6 +25,7 @@ namespace Pacifico.SINCO.UTL
         public const int sEstado_Terminado = 24;
 
         //INFORME
+        public const string sNum_Informe = "IV";
         public const int iEstado_Registrado = 31;
         public const int iEstado_Firmado = 32;
 
