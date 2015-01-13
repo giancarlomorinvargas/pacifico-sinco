@@ -25,6 +25,7 @@
     <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="d0ce17a2-8d17-4016-bef7-2dac60885e31" SourceId="1" SourceUrl="http://localhost:8733/SINCO/Pacifico.SINCO.WS/wsInformceAccidente/?xsd=xsd1" />
     <MetadataFile FileName="wsInformeAccidente.wsdl" MetadataType="Wsdl" ID="4daadba0-53b4-4f54-a679-1e8be5e9c89c" SourceId="1" SourceUrl="http://localhost:8733/SINCO/Pacifico.SINCO.WS/wsInformceAccidente/?wsdl" />
     <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="5238651b-91b7-4738-802e-351707467fbb" SourceId="1" SourceUrl="http://localhost:8733/SINCO/Pacifico.SINCO.WS/wsInformceAccidente/?xsd=xsd0" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="843086fa-b36f-415d-997b-a6777c7c98ea" SourceId="1" SourceUrl="http://localhost:8733/SINCO/Pacifico.SINCO.WS/wsInformceAccidente/?xsd=xsd2" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

@@ -27,15 +27,18 @@ namespace Pacifico.SINCO.AD
             {
 
                 string sQuery = "SELECT "+
-                                    "MS_Siniestro_Id, NumSiniestro, FechaSiniestro, FechaAtencion, Lugar, Descripcion, Estado ,"+
+                                    "MS_Siniestro_Id, s.NumSiniestro, s.FechaSiniestro, FechaAtencion, Lugar, Descripcion, Estado ,"+
                                     "s.UsuarioRegistro, s.FechaRegistro, s.UsuarioModifico, s.FechaModifico, "+
-                                    "p.MP_Poliza_Id, MS_Procurador_Id, s.Tipo, " + 
+                                    "p.MP_Poliza_Id, s.MS_Procurador_Id, s.Tipo, " + 
                                     //"CASE s.Tipo WHEN '1' THEN 'ACCIDENTE VEHICULAR' ELSE 'ACCIDENTE VEHICULAR' END as Tipo, "+ 
-                                    "p.NumPoliza, a.ApellidoPaterno + ' ' + a.ApellidoMaterno + ', ' + a.Nombre as NombreAsegurado, "+
-                                    "(SELECT e.Nombre FROM Estado e WHERE e.Estado_Id = s.Estado ) as vEstado " +
-                                "FROM MS_Siniestro s, MP_Poliza p, MP_Asegurado a "+ 
-                                "WHERE s.MP_Poliza_Id = p.MP_Poliza_Id "+ 
-                                        "AND p.MP_Asegurado_ID = a.MP_Asegurado_Id "+
+                                    "p.NumPoliza, a.ApellidoPaterno + ' ' + a.ApellidoMaterno + ', ' + a.Nombre as NombreAsegurado, " +
+                                    "(SELECT e.Nombre FROM Estado e WHERE e.Estado_Id = s.Estado ) as vEstado, " +
+                                    "pr.NumProcurador as NumProcurador, " +
+                                    "pr.ApellidoPaterno + ' ' + pr.ApellidoMaterno + ', ' + pr.Nombre as NombreProcurador " +
+                                "FROM MS_Siniestro s, MP_Poliza p, MP_Asegurado a, MS_Procurador pr " + 
+                                "WHERE s.MP_Poliza_Id = p.MP_Poliza_Id "+
+                                        "AND p.MP_Asegurado_ID = a.MP_Asegurado_Id " +
+                                        "AND s.MS_Procurador_ID = pr.MS_Procurador_ID " +
                                         "AND p.NumPoliza like '%"+pEnSiniestro.NumPoliza+"%' "+
                                         "AND s.Tipo like '%" + pEnSiniestro.Tipo + "%' " +
                                         "AND CONVERT(varchar(10),s.FechaSiniestro,103) like '%" + pEnSiniestro.vFechaRegistro + "%' "+
@@ -76,6 +79,8 @@ namespace Pacifico.SINCO.AD
                                 oEnSiniestro.NumPoliza = !drd.IsDBNull(14) ? drd.GetString(14) : "";
                                 oEnSiniestro.NombreAsegurado = !drd.IsDBNull(15) ? drd.GetString(15) : "";
                                 oEnSiniestro.vEstado = !drd.IsDBNull(16) ? drd.GetString(16) : "";
+                                oEnSiniestro.NumProcurador = !drd.IsDBNull(17) ? drd.GetString(17) : "";
+                                oEnSiniestro.NombreProcurador = !drd.IsDBNull(18) ? drd.GetString(18) : "";
 
                                 loEnSiniestro.Add(oEnSiniestro);
                             }
@@ -260,6 +265,42 @@ namespace Pacifico.SINCO.AD
                 throw ex;
             }
         }
-        
+
+
+        /// <summary>
+        /// ActualizaSiniestro
+        /// </summary>
+        /// <param name="pEnSiniestro"></param>
+        /// <returns></returns>
+        public bool ActualizaEstado(enSiniestro pEnSiniestro)
+        {
+            try
+            {
+
+                string strQuery = @"UPDATE MS_Siniestro
+                                    SET
+                                        Estado = @Estado,
+                                        UsuarioModifico = @UsuarioModifico,
+                                        FechaModifico = GETDATE()
+                                    WHERE
+                                        MS_Siniestro_Id = @MS_Siniestro_Id";
+
+                using (SqlCommand cmd = new SqlCommand(strQuery, conexion))
+                {
+                    // define parameters and their values
+                    cmd.Parameters.Add("@Estado", SqlDbType.VarChar, 50).Value = pEnSiniestro.Estado;
+                    cmd.Parameters.Add("@UsuarioModifico", SqlDbType.VarChar, 50).Value = pEnSiniestro.UsuarioModifico;
+                    cmd.Parameters.Add("@MS_Siniestro_Id", SqlDbType.Int).Value = pEnSiniestro.MS_Siniestro_Id;
+
+                    cmd.ExecuteNonQuery();
+                }
+
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

@@ -63,6 +63,11 @@
     <Content Include="Error.aspx" />
     <Content Include="MasterPage.Master" />
     <Content Include="MasterPageModal.Master" />
+    <Content Include="Modulos\Comun\mdl_BSQ_Siniestro.aspx" />
+    <Content Include="Modulos\Informe\frm_AGR_Informe.aspx" />
+    <Content Include="Modulos\Informe\frm_BSQ_Informe.aspx" />
+    <Content Include="Modulos\Informe\frm_CNS_Informe.aspx" />
+    <Content Include="Modulos\Informe\frm_MOD_Informe.aspx" />
     <Content Include="Properties\DataSources\Pacifico.SINCO.EN.enSiniestro.datasource" />
     <Content Include="Properties\DataSources\Pacifico.SINCO.EN.enPoliza.datasource" />
     <Content Include="Properties\DataSources\Pacifico.SINCO.EN.enProcurador.datasource" />
@@ -70,6 +75,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\wsInformeAccidente\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\wsInformeAccidente\item2.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\wsInformeAccidente\wsInformeAccidente.wsdl" />
@@ -357,6 +365,13 @@
     <Compile Include="MasterPageModal.Master.designer.cs">
       <DependentUpon>MasterPageModal.Master</DependentUpon>
     </Compile>
+    <Compile Include="Modulos\Comun\mdl_BSQ_Siniestro.aspx.cs">
+      <DependentUpon>mdl_BSQ_Siniestro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modulos\Comun\mdl_BSQ_Siniestro.aspx.designer.cs">
+      <DependentUpon>mdl_BSQ_Siniestro.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Modulos\Comun\mdl_BSQ_Informe_Vehicular.aspx.cs">
       <DependentUpon>mdl_BSQ_Informe_Vehicular.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -384,6 +399,34 @@
     </Compile>
     <Compile Include="Modulos\Comun\mdl_BSQ_Repuesto.aspx.designer.cs">
       <DependentUpon>mdl_BSQ_Repuesto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\Informe\frm_AGR_Informe.aspx.cs">
+      <DependentUpon>frm_AGR_Informe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modulos\Informe\frm_AGR_Informe.aspx.designer.cs">
+      <DependentUpon>frm_AGR_Informe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\Informe\frm_BSQ_Informe.aspx.cs">
+      <DependentUpon>frm_BSQ_Informe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modulos\Informe\frm_BSQ_Informe.aspx.designer.cs">
+      <DependentUpon>frm_BSQ_Informe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\Informe\frm_CNS_Informe.aspx.cs">
+      <DependentUpon>frm_CNS_Informe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modulos\Informe\frm_CNS_Informe.aspx.designer.cs">
+      <DependentUpon>frm_CNS_Informe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\Informe\frm_MOD_Informe.aspx.cs">
+      <DependentUpon>frm_MOD_Informe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modulos\Informe\frm_MOD_Informe.aspx.designer.cs">
+      <DependentUpon>frm_MOD_Informe.aspx</DependentUpon>
     </Compile>
     <Compile Include="Modulos\Presupuesto\frm_AGR_Presupuesto.aspx.cs">
       <DependentUpon>frm_AGR_Presupuesto.aspx</DependentUpon>

@@ -21,6 +21,12 @@ namespace Pacifico.SINCO.WS.Interfaces
         string Obtener(int Id);
         [OperationContract]
         string Listar();
+        [OperationContract]
+        string Buscar(string NumPoliza, string TipoSiniestro, string FechaSiniestro);
+        [OperationContract]
+        string Agregar(MSInformeAccidente model);
+        [OperationContract]
+        string Modificar(MSInformeAccidente model);
 
     }
 }

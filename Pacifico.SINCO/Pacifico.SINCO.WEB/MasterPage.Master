@@ -105,6 +105,12 @@
 								        </ul>-->
 							        </li>
                                     <li class="separator"></li> 
+							        <li><a href="<%=sUrl %>Modulos/Informe/frm_BSQ_Informe.aspx">Gestión de Informes Vehiculares</a>
+								        <!--<ul>
+									        <li><img src="<%=sUrl %>Util/images/menu/ico_menu.gif" class="jd_menu_icono"/><a href="<%=sUrl %>Modulos/Presupuesto/frm_BSQ_Presupuesto.aspx">Generación de Presupuestos</a></li>														        				
+								        </ul>-->
+							        </li>	
+                                    <li class="separator"></li> 
 							        <li><a href="<%=sUrl %>Modulos/Presupuesto/frm_BSQ_Presupuesto.aspx">Generación de Presupuestos</a>
 								        <!--<ul>
 									        <li><img src="<%=sUrl %>Util/images/menu/ico_menu.gif" class="jd_menu_icono"/><a href="<%=sUrl %>Modulos/Presupuesto/frm_BSQ_Presupuesto.aspx">Generación de Presupuestos</a></li>														        				
