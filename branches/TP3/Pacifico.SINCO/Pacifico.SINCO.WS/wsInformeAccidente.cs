@@ -25,12 +25,12 @@ namespace Pacifico.SINCO.WS
         {
             return string.Format(Constantes.sNombreWS_ListaPrecio);
         }
-        
+
         private rnInformeAccidente reglaNegocioInformeAccidente;
 
         public wsInformeAccidente()
          {
-             reglaNegocioInformeAccidente = new rnInformeAccidente();
+             reglaNegocioInformeAccidente = new rnInformeAccidente(); 
          }
 
 
@@ -60,16 +60,76 @@ namespace Pacifico.SINCO.WS
              }
          }
 
-        /*public List<MSInformeAccidente> Buscar(int MarcaId, int ModeloId)
+        public string Buscar(string NumPoliza, string TipoSiniestro, string FechaSiniestro)
          {
-             List<MSInformeAccidente> listado = new List<MSInformeAccidente>();
-
-             foreach (MSInformeAccidente Model in _InformeAccidenteRepositorio.GetAll().Where(
-                 b => b.MP_Marca_Id == MarcaId && b.MP_Modelo_Id == ModeloId).ToList())
-             {
-                 listado.Add(Model);
+            try
+            {
+                List<MSInformeAccidente> listado = reglaNegocioInformeAccidente.Buscar(NumPoliza, TipoSiniestro, FechaSiniestro);
+                return new JavaScriptSerializer().Serialize(listado);
              }
-             return listado;
-         }*/
+             catch (Exception e)
+             {
+                 throw new FaultException(e.Message);
+             }
+         }
+
+        public string Agregar(MSInformeAccidente model)
+        {
+            try
+            {
+
+                enSiniestro siniestro = new rnSiniestro().ObtenerSiniestro(new enSiniestro()
+                {
+                    MS_Siniestro_Id = model.MS_Siniestro_Id
+                });
+
+                if (siniestro.Estado == Constantes.sEstado_Pendiente)
+                {
+                    siniestro.Estado = Constantes.sEstado_EnProceso;
+                    new rnSiniestro().ActualizaEstado(siniestro);
+                }
+
+                return reglaNegocioInformeAccidente.Agregar(model);
+            }
+            catch (Exception e)
+            {
+                throw new FaultException(e.Message);
+            }
+        }
+
+        public string Modificar(MSInformeAccidente model)
+        {
+            try
+            {
+                MSInformeAccidente informeActual = new rnInformeAccidente().Obtener(model.MS_Informe_Accidente_Id);
+                enSiniestro siniestroActual = new rnSiniestro().ObtenerSiniestro(new enSiniestro()
+                {
+                    MS_Siniestro_Id = informeActual.MS_Siniestro_Id
+                });
+
+                if (siniestroActual.Estado == Constantes.sEstado_EnProceso)
+                {
+                    siniestroActual.Estado = Constantes.sEstado_Pendiente;
+                    new rnSiniestro().ActualizaEstado(siniestroActual);
+                }
+
+                enSiniestro siniestro = new rnSiniestro().ObtenerSiniestro(new enSiniestro()
+                {
+                    MS_Siniestro_Id = model.MS_Siniestro_Id
+                });
+
+                if (siniestro.Estado == Constantes.sEstado_Pendiente)
+                {
+                    siniestro.Estado = Constantes.sEstado_EnProceso;
+                    new rnSiniestro().ActualizaEstado(siniestro);
+                }
+
+                return new rnInformeAccidente().Modificar(model);
+            }
+            catch (Exception e)
+            {
+                throw new FaultException(e.Message);
+            }
+        }
     }
 }

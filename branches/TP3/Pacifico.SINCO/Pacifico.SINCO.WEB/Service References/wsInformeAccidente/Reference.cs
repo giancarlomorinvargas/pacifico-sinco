@@ -32,6 +32,24 @@ namespace Pacifico.SINCO.WEB.wsInformeAccidente {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwsInformeAccidente/Listar", ReplyAction="http://tempuri.org/IwsInformeAccidente/ListarResponse")]
         System.Threading.Tasks.Task<string> ListarAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwsInformeAccidente/Buscar", ReplyAction="http://tempuri.org/IwsInformeAccidente/BuscarResponse")]
+        string Buscar(string NumPoliza, string TipoSiniestro, string FechaSiniestro);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwsInformeAccidente/Buscar", ReplyAction="http://tempuri.org/IwsInformeAccidente/BuscarResponse")]
+        System.Threading.Tasks.Task<string> BuscarAsync(string NumPoliza, string TipoSiniestro, string FechaSiniestro);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwsInformeAccidente/Agregar", ReplyAction="http://tempuri.org/IwsInformeAccidente/AgregarResponse")]
+        string Agregar(Pacifico.SINCO.EN.MSInformeAccidente model);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwsInformeAccidente/Agregar", ReplyAction="http://tempuri.org/IwsInformeAccidente/AgregarResponse")]
+        System.Threading.Tasks.Task<string> AgregarAsync(Pacifico.SINCO.EN.MSInformeAccidente model);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwsInformeAccidente/Modificar", ReplyAction="http://tempuri.org/IwsInformeAccidente/ModificarResponse")]
+        string Modificar(Pacifico.SINCO.EN.MSInformeAccidente model);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwsInformeAccidente/Modificar", ReplyAction="http://tempuri.org/IwsInformeAccidente/ModificarResponse")]
+        System.Threading.Tasks.Task<string> ModificarAsync(Pacifico.SINCO.EN.MSInformeAccidente model);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -83,6 +101,30 @@ namespace Pacifico.SINCO.WEB.wsInformeAccidente {
         
         public System.Threading.Tasks.Task<string> ListarAsync() {
             return base.Channel.ListarAsync();
+        }
+        
+        public string Buscar(string NumPoliza, string TipoSiniestro, string FechaSiniestro) {
+            return base.Channel.Buscar(NumPoliza, TipoSiniestro, FechaSiniestro);
+        }
+        
+        public System.Threading.Tasks.Task<string> BuscarAsync(string NumPoliza, string TipoSiniestro, string FechaSiniestro) {
+            return base.Channel.BuscarAsync(NumPoliza, TipoSiniestro, FechaSiniestro);
+        }
+        
+        public string Agregar(Pacifico.SINCO.EN.MSInformeAccidente model) {
+            return base.Channel.Agregar(model);
+        }
+        
+        public System.Threading.Tasks.Task<string> AgregarAsync(Pacifico.SINCO.EN.MSInformeAccidente model) {
+            return base.Channel.AgregarAsync(model);
+        }
+        
+        public string Modificar(Pacifico.SINCO.EN.MSInformeAccidente model) {
+            return base.Channel.Modificar(model);
+        }
+        
+        public System.Threading.Tasks.Task<string> ModificarAsync(Pacifico.SINCO.EN.MSInformeAccidente model) {
+            return base.Channel.ModificarAsync(model);
         }
     }
 }

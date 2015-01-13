@@ -29,6 +29,8 @@ namespace Pacifico.SINCO.AD
         public DbSet<MSDetallePresupuesto> MSDetallePresupuesto { get; set; }
         public DbSet<Estado> Estado { get; set; }
 
+        public DbSet<MSProcurador> MSProcurador { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             Database.SetInitializer<DataBaseContext>(null);

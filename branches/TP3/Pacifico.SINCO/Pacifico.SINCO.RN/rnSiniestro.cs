@@ -116,5 +116,32 @@ namespace Pacifico.SINCO.RN
 
         }
 
+
+        /// <summary>
+        /// ActualizaSiniestro
+        /// </summary>
+        /// <param name="pEnSiniestro"></param>
+        /// <returns></returns>
+        public bool ActualizaEstado(enSiniestro pEnSiniestro)
+        {
+            bool bExito = false;
+            using (SqlConnection con = new SqlConnection(sConexion))
+            {
+                try
+                {
+                    con.Open();
+                    adSiniestro oAdSiniestro = new adSiniestro(con);
+                    bExito = oAdSiniestro.ActualizaEstado(pEnSiniestro);
+                }
+                catch (SqlException ex)
+                {
+                    bExito = false;
+                    throw ex;
+                }
+            }
+            return bExito;
+
+        }
+
     }
 }

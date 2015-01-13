@@ -24,5 +24,16 @@ namespace Pacifico.SINCO.UTL
             return tipos;
         }
 
+
+        public static List<String> getDistritos()
+        {
+            List<String> tipos = new List<string>();
+            tipos.Add("La Molina");
+            tipos.Add("Lince");
+            tipos.Add("San Isidro");
+            tipos.Add("San Borja");
+            tipos.Add("Surco");
+            return tipos;
+        }
     }
 }
