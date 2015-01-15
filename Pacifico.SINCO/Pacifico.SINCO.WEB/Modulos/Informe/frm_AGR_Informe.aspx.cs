@@ -51,8 +51,8 @@ namespace Pacifico.SINCO.WEB.Modulos.Informe
             {
                 lblMensajeError.InnerText = "";
                 //WS-SINIESTRO
-                InformeAccidenteWSClient service = new InformeAccidenteWSClient();
-
+                //InformeAccidenteWSClient service = new InformeAccidenteWSClient();
+                InformeFacade informeFacade = new InformeFacade();
                 //Validación
 
                 //Parametros
@@ -64,7 +64,8 @@ namespace Pacifico.SINCO.WEB.Modulos.Informe
 
                 model.MS_Siniestro_Id = int.Parse(hdnSiniestroId.Value);
 
-                string mensaje = service.Agregar(model);
+                //string mensaje = service.Agregar(model);
+                string mensaje = informeFacade.Registrar(model);
 
                 HttpContext.Current.Session["INFORME_MENSAJE"] = mensaje;
                 Response.Redirect("~/Modulos/Informe/frm_BSQ_Informe.aspx", false);

@@ -1,0 +1,9 @@
+D:\rcastillejo\Documentos\tp3\repo\Pacifico.SINCO\Pacifico.SINCO.WEB\bin\Pacifico.SINCO.WEB.dll
+D:\rcastillejo\Documentos\tp3\repo\Pacifico.SINCO\Pacifico.SINCO.WEB\bin\Pacifico.SINCO.WEB.pdb
+D:\rcastillejo\Documentos\tp3\repo\Pacifico.SINCO\Pacifico.SINCO.WEB\bin\Pacifico.SINCO.EN.dll
+D:\rcastillejo\Documentos\tp3\repo\Pacifico.SINCO\Pacifico.SINCO.WEB\bin\Pacifico.SINCO.UTL.dll
+D:\rcastillejo\Documentos\tp3\repo\Pacifico.SINCO\Pacifico.SINCO.WEB\bin\Pacifico.SINCO.EN.pdb
+D:\rcastillejo\Documentos\tp3\repo\Pacifico.SINCO\Pacifico.SINCO.WEB\bin\Pacifico.SINCO.UTL.pdb
+D:\rcastillejo\Documentos\tp3\repo\Pacifico.SINCO\Pacifico.SINCO.WEB\obj\Debug\Pacifico.SINCO.WEB.csprojResolveAssemblyReference.cache
+D:\rcastillejo\Documentos\tp3\repo\Pacifico.SINCO\Pacifico.SINCO.WEB\obj\Debug\Pacifico.SINCO.WEB.dll
+D:\rcastillejo\Documentos\tp3\repo\Pacifico.SINCO\Pacifico.SINCO.WEB\obj\Debug\Pacifico.SINCO.WEB.pdb

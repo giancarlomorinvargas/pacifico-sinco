@@ -428,6 +428,7 @@
     <Compile Include="Modulos\Informe\frm_MOD_Informe.aspx.designer.cs">
       <DependentUpon>frm_MOD_Informe.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Modulos\Informe\InformeFacade.cs" />
     <Compile Include="Modulos\Presupuesto\frm_AGR_Presupuesto.aspx.cs">
       <DependentUpon>frm_AGR_Presupuesto.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

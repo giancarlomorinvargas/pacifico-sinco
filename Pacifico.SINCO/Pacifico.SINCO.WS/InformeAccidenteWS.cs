@@ -78,7 +78,7 @@ namespace Pacifico.SINCO.WS
             try
             {
 
-                enSiniestro siniestro = new rnSiniestro().ObtenerSiniestro(new enSiniestro()
+                /*enSiniestro siniestro = new rnSiniestro().ObtenerSiniestro(new enSiniestro()
                 {
                     MS_Siniestro_Id = model.MS_Siniestro_Id
                 });
@@ -87,7 +87,7 @@ namespace Pacifico.SINCO.WS
                 {
                     siniestro.Estado = Constantes.sEstado_EnProceso;
                     new rnSiniestro().ActualizaEstado(siniestro);
-                }
+                }*/
 
                 return reglaNegocioInformeAccidente.Agregar(model);
             }
@@ -101,7 +101,7 @@ namespace Pacifico.SINCO.WS
         {
             try
             {
-                InformeAccidente informeActual = new InformeAccidenteRN().Obtener(model.MS_Informe_Accidente_Id);
+                /*InformeAccidente informeActual = new InformeAccidenteRN().Obtener(model.MS_Informe_Accidente_Id);
                 enSiniestro siniestroActual = new rnSiniestro().ObtenerSiniestro(new enSiniestro()
                 {
                     MS_Siniestro_Id = informeActual.MS_Siniestro_Id
@@ -122,7 +122,7 @@ namespace Pacifico.SINCO.WS
                 {
                     siniestro.Estado = Constantes.sEstado_EnProceso;
                     new rnSiniestro().ActualizaEstado(siniestro);
-                }
+                }*/
 
                 return new InformeAccidenteRN().Modificar(model);
             }
