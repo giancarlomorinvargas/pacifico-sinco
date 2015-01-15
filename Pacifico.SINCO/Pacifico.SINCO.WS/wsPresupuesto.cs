@@ -26,7 +26,7 @@ namespace Pacifico.SINCO.WS
          }
 
         /* <summary>
-         wsObtenerNombreWS
+         ObtenerNombreWS
          </summary>
          <param name="value"></param>
          <returns></returns> */

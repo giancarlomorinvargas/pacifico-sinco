@@ -78,7 +78,7 @@ namespace Pacifico.SINCO.RN
          public string ModificarPresupuesto(MSPresupuesto model, List<MSDetallePresupuesto> DetallePresupuesto)
         {
             ICollection<MSDetallePresupuesto> detalleRespaldo = model.DetallePresupuesto;
-            MSInformeAccidente InformeAccidenteRespaldo = model.InformeAccidente;
+            InformeAccidente InformeAccidenteRespaldo = model.InformeAccidente;
             try
             {
 

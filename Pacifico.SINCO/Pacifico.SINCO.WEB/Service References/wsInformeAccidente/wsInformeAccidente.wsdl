@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="wsInformeAccidente" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="InformeAccidenteWS" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:8733/SINCO/Pacifico.SINCO.WS/wsInformceAccidente/?xsd=xsd0" namespace="http://tempuri.org/" />
@@ -7,72 +7,72 @@
       <xsd:import schemaLocation="http://localhost:8733/SINCO/Pacifico.SINCO.WS/wsInformceAccidente/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Pacifico.SINCO.EN" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="IwsInformeAccidente_wsObtenerNombreWS_InputMessage">
-    <wsdl:part name="parameters" element="tns:wsObtenerNombreWS" />
+  <wsdl:message name="IInformeAccidenteWS_ObtenerNombreWS_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerNombreWS" />
   </wsdl:message>
-  <wsdl:message name="IwsInformeAccidente_wsObtenerNombreWS_OutputMessage">
-    <wsdl:part name="parameters" element="tns:wsObtenerNombreWSResponse" />
+  <wsdl:message name="IInformeAccidenteWS_ObtenerNombreWS_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerNombreWSResponse" />
   </wsdl:message>
-  <wsdl:message name="IwsInformeAccidente_Obtener_InputMessage">
+  <wsdl:message name="IInformeAccidenteWS_Obtener_InputMessage">
     <wsdl:part name="parameters" element="tns:Obtener" />
   </wsdl:message>
-  <wsdl:message name="IwsInformeAccidente_Obtener_OutputMessage">
+  <wsdl:message name="IInformeAccidenteWS_Obtener_OutputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerResponse" />
   </wsdl:message>
-  <wsdl:message name="IwsInformeAccidente_Listar_InputMessage">
+  <wsdl:message name="IInformeAccidenteWS_Listar_InputMessage">
     <wsdl:part name="parameters" element="tns:Listar" />
   </wsdl:message>
-  <wsdl:message name="IwsInformeAccidente_Listar_OutputMessage">
+  <wsdl:message name="IInformeAccidenteWS_Listar_OutputMessage">
     <wsdl:part name="parameters" element="tns:ListarResponse" />
   </wsdl:message>
-  <wsdl:message name="IwsInformeAccidente_Buscar_InputMessage">
+  <wsdl:message name="IInformeAccidenteWS_Buscar_InputMessage">
     <wsdl:part name="parameters" element="tns:Buscar" />
   </wsdl:message>
-  <wsdl:message name="IwsInformeAccidente_Buscar_OutputMessage">
+  <wsdl:message name="IInformeAccidenteWS_Buscar_OutputMessage">
     <wsdl:part name="parameters" element="tns:BuscarResponse" />
   </wsdl:message>
-  <wsdl:message name="IwsInformeAccidente_Agregar_InputMessage">
+  <wsdl:message name="IInformeAccidenteWS_Agregar_InputMessage">
     <wsdl:part name="parameters" element="tns:Agregar" />
   </wsdl:message>
-  <wsdl:message name="IwsInformeAccidente_Agregar_OutputMessage">
+  <wsdl:message name="IInformeAccidenteWS_Agregar_OutputMessage">
     <wsdl:part name="parameters" element="tns:AgregarResponse" />
   </wsdl:message>
-  <wsdl:message name="IwsInformeAccidente_Modificar_InputMessage">
+  <wsdl:message name="IInformeAccidenteWS_Modificar_InputMessage">
     <wsdl:part name="parameters" element="tns:Modificar" />
   </wsdl:message>
-  <wsdl:message name="IwsInformeAccidente_Modificar_OutputMessage">
+  <wsdl:message name="IInformeAccidenteWS_Modificar_OutputMessage">
     <wsdl:part name="parameters" element="tns:ModificarResponse" />
   </wsdl:message>
-  <wsdl:portType name="IwsInformeAccidente">
-    <wsdl:operation name="wsObtenerNombreWS">
-      <wsdl:input wsaw:Action="http://tempuri.org/IwsInformeAccidente/wsObtenerNombreWS" message="tns:IwsInformeAccidente_wsObtenerNombreWS_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IwsInformeAccidente/wsObtenerNombreWSResponse" message="tns:IwsInformeAccidente_wsObtenerNombreWS_OutputMessage" />
+  <wsdl:portType name="IInformeAccidenteWS">
+    <wsdl:operation name="ObtenerNombreWS">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInformeAccidenteWS/ObtenerNombreWS" message="tns:IInformeAccidenteWS_ObtenerNombreWS_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInformeAccidenteWS/ObtenerNombreWSResponse" message="tns:IInformeAccidenteWS_ObtenerNombreWS_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Obtener">
-      <wsdl:input wsaw:Action="http://tempuri.org/IwsInformeAccidente/Obtener" message="tns:IwsInformeAccidente_Obtener_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IwsInformeAccidente/ObtenerResponse" message="tns:IwsInformeAccidente_Obtener_OutputMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IInformeAccidenteWS/Obtener" message="tns:IInformeAccidenteWS_Obtener_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInformeAccidenteWS/ObtenerResponse" message="tns:IInformeAccidenteWS_Obtener_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Listar">
-      <wsdl:input wsaw:Action="http://tempuri.org/IwsInformeAccidente/Listar" message="tns:IwsInformeAccidente_Listar_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IwsInformeAccidente/ListarResponse" message="tns:IwsInformeAccidente_Listar_OutputMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IInformeAccidenteWS/Listar" message="tns:IInformeAccidenteWS_Listar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInformeAccidenteWS/ListarResponse" message="tns:IInformeAccidenteWS_Listar_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Buscar">
-      <wsdl:input wsaw:Action="http://tempuri.org/IwsInformeAccidente/Buscar" message="tns:IwsInformeAccidente_Buscar_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IwsInformeAccidente/BuscarResponse" message="tns:IwsInformeAccidente_Buscar_OutputMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IInformeAccidenteWS/Buscar" message="tns:IInformeAccidenteWS_Buscar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInformeAccidenteWS/BuscarResponse" message="tns:IInformeAccidenteWS_Buscar_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Agregar">
-      <wsdl:input wsaw:Action="http://tempuri.org/IwsInformeAccidente/Agregar" message="tns:IwsInformeAccidente_Agregar_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IwsInformeAccidente/AgregarResponse" message="tns:IwsInformeAccidente_Agregar_OutputMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IInformeAccidenteWS/Agregar" message="tns:IInformeAccidenteWS_Agregar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInformeAccidenteWS/AgregarResponse" message="tns:IInformeAccidenteWS_Agregar_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Modificar">
-      <wsdl:input wsaw:Action="http://tempuri.org/IwsInformeAccidente/Modificar" message="tns:IwsInformeAccidente_Modificar_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IwsInformeAccidente/ModificarResponse" message="tns:IwsInformeAccidente_Modificar_OutputMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IInformeAccidenteWS/Modificar" message="tns:IInformeAccidenteWS_Modificar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInformeAccidenteWS/ModificarResponse" message="tns:IInformeAccidenteWS_Modificar_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:binding name="BasicHttpBinding_IwsInformeAccidente" type="tns:IwsInformeAccidente">
+  <wsdl:binding name="BasicHttpBinding_IInformeAccidenteWS" type="tns:IInformeAccidenteWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="wsObtenerNombreWS">
-      <soap:operation soapAction="http://tempuri.org/IwsInformeAccidente/wsObtenerNombreWS" style="document" />
+    <wsdl:operation name="ObtenerNombreWS">
+      <soap:operation soapAction="http://tempuri.org/IInformeAccidenteWS/ObtenerNombreWS" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -81,7 +81,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="Obtener">
-      <soap:operation soapAction="http://tempuri.org/IwsInformeAccidente/Obtener" style="document" />
+      <soap:operation soapAction="http://tempuri.org/IInformeAccidenteWS/Obtener" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -90,7 +90,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="Listar">
-      <soap:operation soapAction="http://tempuri.org/IwsInformeAccidente/Listar" style="document" />
+      <soap:operation soapAction="http://tempuri.org/IInformeAccidenteWS/Listar" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -99,7 +99,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="Buscar">
-      <soap:operation soapAction="http://tempuri.org/IwsInformeAccidente/Buscar" style="document" />
+      <soap:operation soapAction="http://tempuri.org/IInformeAccidenteWS/Buscar" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -108,7 +108,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="Agregar">
-      <soap:operation soapAction="http://tempuri.org/IwsInformeAccidente/Agregar" style="document" />
+      <soap:operation soapAction="http://tempuri.org/IInformeAccidenteWS/Agregar" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -117,7 +117,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="Modificar">
-      <soap:operation soapAction="http://tempuri.org/IwsInformeAccidente/Modificar" style="document" />
+      <soap:operation soapAction="http://tempuri.org/IInformeAccidenteWS/Modificar" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -126,8 +126,8 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:service name="wsInformeAccidente">
-    <wsdl:port name="BasicHttpBinding_IwsInformeAccidente" binding="tns:BasicHttpBinding_IwsInformeAccidente">
+  <wsdl:service name="InformeAccidenteWS">
+    <wsdl:port name="BasicHttpBinding_IInformeAccidenteWS" binding="tns:BasicHttpBinding_IInformeAccidenteWS">
       <soap:address location="http://localhost:8733/SINCO/Pacifico.SINCO.WS/wsInformceAccidente/" />
     </wsdl:port>
   </wsdl:service>

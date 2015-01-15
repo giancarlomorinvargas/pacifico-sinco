@@ -14,7 +14,7 @@ namespace Pacifico.SINCO.WS
     public class wsUtil : IwsUtil
     {
         /*<summary>
-        wsObtenerNombreWS
+        ObtenerNombreWS
         </summary>
         <param name="value"></param>
         <returns></returns>*/

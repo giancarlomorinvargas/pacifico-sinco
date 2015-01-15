@@ -51,12 +51,12 @@ namespace Pacifico.SINCO.WEB.Modulos.Informe
             {
                 lblMensajeError.InnerText = "";
                 //WS-SINIESTRO
-                IwsInformeAccidenteClient service = new IwsInformeAccidenteClient();
+                InformeAccidenteWSClient service = new InformeAccidenteWSClient();
 
                 //Validación
 
                 //Parametros
-                MSInformeAccidente model = new MSInformeAccidente();
+                InformeAccidente model = new InformeAccidente();
                 model.NumInforme = txtNumInforme.Value;
                 model.Distrito = cmbDistrito.Value;
                 model.Direccion = txtDireccion.Value;

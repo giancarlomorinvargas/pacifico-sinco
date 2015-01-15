@@ -55,12 +55,12 @@ namespace Pacifico.SINCO.WEB.Modulos.Informe
                     }
 
                     //WS-SINIESTRO
-                    IwsInformeAccidenteClient owsInformeClient = new IwsInformeAccidenteClient();
+                    InformeAccidenteWSClient owsInformeClient = new InformeAccidenteWSClient();
 
                     //Obtiene Listado de Siniestros
                     string listadoJson = owsInformeClient.Listar();
 
-                    List<MSInformeAccidente> listado = new JavaScriptSerializer().Deserialize<List<MSInformeAccidente>>(listadoJson);
+                    List<InformeAccidente> listado = new JavaScriptSerializer().Deserialize<List<InformeAccidente>>(listadoJson);
 
                     rptListadoInformes.DataSource = listado;
                     rptListadoInformes.DataBind();
@@ -86,7 +86,7 @@ namespace Pacifico.SINCO.WEB.Modulos.Informe
             {
                 lblMensajeError.InnerText = "";
                 //WS-SINIESTRO
-                IwsInformeAccidenteClient owsInformeClient = new IwsInformeAccidenteClient();
+                InformeAccidenteWSClient owsInformeClient = new InformeAccidenteWSClient();
 
                 //Parametros
                 string NumPoliza = txtNumPoliza.Value;
@@ -96,7 +96,7 @@ namespace Pacifico.SINCO.WEB.Modulos.Informe
                 //Obtiene Listado de Siniestros
                 string listadoJson = owsInformeClient.Buscar(NumPoliza, Tipo, FechaSiniestro);
 
-                List<MSInformeAccidente> listado = new JavaScriptSerializer().Deserialize<List<MSInformeAccidente>>(listadoJson);
+                List<InformeAccidente> listado = new JavaScriptSerializer().Deserialize<List<InformeAccidente>>(listadoJson);
 
                 rptListadoInformes.DataSource = listado;
                 rptListadoInformes.DataBind();
