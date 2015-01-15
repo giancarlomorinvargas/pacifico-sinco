@@ -34,11 +34,11 @@ namespace Pacifico.SINCO.WS
          }
 
 
-        public string Obtener(int Id)
+        public string Obtener(int id)
          {
              try
              {
-                 InformeAccidente model = reglaNegocioInformeAccidente.Obtener(Id);
+                 InformeAccidente model = reglaNegocioInformeAccidente.Obtener(id);
                  return new JavaScriptSerializer().Serialize(model);
              }
              catch (Exception e)
@@ -60,11 +60,11 @@ namespace Pacifico.SINCO.WS
              }
          }
 
-        public string Buscar(string NumPoliza, string TipoSiniestro, string FechaSiniestro)
+        public string Buscar(string numPoliza, string tipoSiniestro, string fechaSiniestro)
          {
             try
             {
-                List<InformeAccidente> listado = reglaNegocioInformeAccidente.Buscar(NumPoliza, TipoSiniestro, FechaSiniestro);
+                List<InformeAccidente> listado = reglaNegocioInformeAccidente.Buscar(numPoliza, tipoSiniestro, fechaSiniestro);
                 return new JavaScriptSerializer().Serialize(listado);
              }
              catch (Exception e)
