@@ -1,0 +1,17 @@
+D:\rcastillejo\Documentos\tp3\repo\Pacifico.SINCO\Pacifico.SINCO.WS\bin\Debug\Pacifico.SINCO.WS.dll.config
+D:\rcastillejo\Documentos\tp3\repo\Pacifico.SINCO\Pacifico.SINCO.WS\bin\Debug\Pacifico.SINCO.WS.dll
+D:\rcastillejo\Documentos\tp3\repo\Pacifico.SINCO\Pacifico.SINCO.WS\bin\Debug\Pacifico.SINCO.WS.pdb
+D:\rcastillejo\Documentos\tp3\repo\Pacifico.SINCO\Pacifico.SINCO.WS\bin\Debug\Pacifico.SINCO.EN.dll
+D:\rcastillejo\Documentos\tp3\repo\Pacifico.SINCO\Pacifico.SINCO.WS\bin\Debug\Pacifico.SINCO.RN.dll
+D:\rcastillejo\Documentos\tp3\repo\Pacifico.SINCO\Pacifico.SINCO.WS\bin\Debug\Pacifico.SINCO.UTL.dll
+D:\rcastillejo\Documentos\tp3\repo\Pacifico.SINCO\Pacifico.SINCO.WS\bin\Debug\Pacifico.SINCO.AD.dll
+D:\rcastillejo\Documentos\tp3\repo\Pacifico.SINCO\Pacifico.SINCO.WS\bin\Debug\EntityFramework.dll
+D:\rcastillejo\Documentos\tp3\repo\Pacifico.SINCO\Pacifico.SINCO.WS\bin\Debug\Pacifico.SINCO.EN.pdb
+D:\rcastillejo\Documentos\tp3\repo\Pacifico.SINCO\Pacifico.SINCO.WS\bin\Debug\Pacifico.SINCO.RN.pdb
+D:\rcastillejo\Documentos\tp3\repo\Pacifico.SINCO\Pacifico.SINCO.WS\bin\Debug\Pacifico.SINCO.UTL.pdb
+D:\rcastillejo\Documentos\tp3\repo\Pacifico.SINCO\Pacifico.SINCO.WS\bin\Debug\Pacifico.SINCO.AD.pdb
+D:\rcastillejo\Documentos\tp3\repo\Pacifico.SINCO\Pacifico.SINCO.WS\bin\Debug\EntityFramework.xml
+D:\rcastillejo\Documentos\tp3\repo\Pacifico.SINCO\Pacifico.SINCO.WS\bin\Debug\es\EntityFramework.resources.dll
+D:\rcastillejo\Documentos\tp3\repo\Pacifico.SINCO\Pacifico.SINCO.WS\obj\Debug\Pacifico.SINCO.WS.csprojResolveAssemblyReference.cache
+D:\rcastillejo\Documentos\tp3\repo\Pacifico.SINCO\Pacifico.SINCO.WS\obj\Debug\Pacifico.SINCO.WS.dll
+D:\rcastillejo\Documentos\tp3\repo\Pacifico.SINCO\Pacifico.SINCO.WS\obj\Debug\Pacifico.SINCO.WS.pdb

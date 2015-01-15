@@ -37,6 +37,18 @@
   <wsdl:message name="IwsSiniestro_ActualizaSiniestro_OutputMessage">
     <wsdl:part name="parameters" element="tns:ActualizaSiniestroResponse" />
   </wsdl:message>
+  <wsdl:message name="IwsSiniestro_ProcesarSiniestro_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcesarSiniestro" />
+  </wsdl:message>
+  <wsdl:message name="IwsSiniestro_ProcesarSiniestro_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcesarSiniestroResponse" />
+  </wsdl:message>
+  <wsdl:message name="IwsSiniestro_RegistrarSiniestroPendiente_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegistrarSiniestroPendiente" />
+  </wsdl:message>
+  <wsdl:message name="IwsSiniestro_RegistrarSiniestroPendiente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegistrarSiniestroPendienteResponse" />
+  </wsdl:message>
   <wsdl:portType name="IwsSiniestro">
     <wsdl:operation name="wsObtenerNombreWS">
       <wsdl:input wsaw:Action="http://tempuri.org/IwsSiniestro/wsObtenerNombreWS" message="tns:IwsSiniestro_wsObtenerNombreWS_InputMessage" />
@@ -57,6 +69,14 @@
     <wsdl:operation name="ActualizaSiniestro">
       <wsdl:input wsaw:Action="http://tempuri.org/IwsSiniestro/ActualizaSiniestro" message="tns:IwsSiniestro_ActualizaSiniestro_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IwsSiniestro/ActualizaSiniestroResponse" message="tns:IwsSiniestro_ActualizaSiniestro_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcesarSiniestro">
+      <wsdl:input wsaw:Action="http://tempuri.org/IwsSiniestro/ProcesarSiniestro" message="tns:IwsSiniestro_ProcesarSiniestro_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IwsSiniestro/ProcesarSiniestroResponse" message="tns:IwsSiniestro_ProcesarSiniestro_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarSiniestroPendiente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IwsSiniestro/RegistrarSiniestroPendiente" message="tns:IwsSiniestro_RegistrarSiniestroPendiente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IwsSiniestro/RegistrarSiniestroPendienteResponse" message="tns:IwsSiniestro_RegistrarSiniestroPendiente_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IwsSiniestro" type="tns:IwsSiniestro">
@@ -99,6 +119,24 @@
     </wsdl:operation>
     <wsdl:operation name="ActualizaSiniestro">
       <soap:operation soapAction="http://tempuri.org/IwsSiniestro/ActualizaSiniestro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcesarSiniestro">
+      <soap:operation soapAction="http://tempuri.org/IwsSiniestro/ProcesarSiniestro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarSiniestroPendiente">
+      <soap:operation soapAction="http://tempuri.org/IwsSiniestro/RegistrarSiniestroPendiente" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

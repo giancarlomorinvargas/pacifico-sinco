@@ -28,5 +28,11 @@ namespace Pacifico.SINCO.WS.Interfaces
 
         [OperationContract]
         bool ActualizaSiniestro(enSiniestro pEnSiniestro);
+
+        [OperationContract]
+        bool ProcesarSiniestro(enSiniestro pEnSiniestro);
+        
+        [OperationContract]
+        bool RegistrarSiniestroPendiente(enSiniestro pEnSiniestro);
     }
 }
