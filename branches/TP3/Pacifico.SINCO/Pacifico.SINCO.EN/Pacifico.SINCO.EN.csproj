@@ -56,7 +56,7 @@
     <Compile Include="MPPoliza.cs" />
     <Compile Include="MPVehiculo.cs" />
     <Compile Include="MSDetallePresupuesto.cs" />
-    <Compile Include="MSInformeAccidente.cs" />
+    <Compile Include="InformeAccidente.cs" />
     <Compile Include="MSListaPrecio.cs" />
     <Compile Include="MSPresupuesto.cs" />
     <Compile Include="MSServicio.cs" />

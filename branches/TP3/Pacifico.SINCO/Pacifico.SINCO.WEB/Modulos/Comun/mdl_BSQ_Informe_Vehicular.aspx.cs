@@ -27,14 +27,14 @@ namespace Pacifico.SINCO.WEB.Modulos.Comun
             try
             {
 
-                IwsInformeAccidenteClient owsInformeAccidenteClient = new IwsInformeAccidenteClient();
+                InformeAccidenteWSClient owsInformeAccidenteClient = new InformeAccidenteWSClient();
                 
                 //Obtiene Listado de Siniestros
                 string listadoJson = owsInformeAccidenteClient.Listar();
-                //List<MSInformeAccidente> listadoResult = new List<MSInformeAccidente>();
-                List<MSInformeAccidente> listado = new JavaScriptSerializer().Deserialize<List<MSInformeAccidente>>(listadoJson);
+                //List<InformeAccidente> listadoResult = new List<InformeAccidente>();
+                List<InformeAccidente> listado = new JavaScriptSerializer().Deserialize<List<InformeAccidente>>(listadoJson);
                 /*
-                foreach (MSInformeAccidente item in listado.Where(b => b.Estado == Constantes.iEstado_Registrado )) {
+                foreach (InformeAccidente item in listado.Where(b => b.Estado == Constantes.iEstado_Registrado )) {
                     listadoResult.Add(item);
                 }
 
@@ -60,7 +60,7 @@ namespace Pacifico.SINCO.WEB.Modulos.Comun
         {
             try
             {
-                IwsInformeAccidenteClient owsInformeAccidenteClient = new IwsInformeAccidenteClient();
+                InformeAccidenteWSClient owsInformeAccidenteClient = new InformeAccidenteWSClient();
 
 
                 string NumInforme= txtNumInforme.Value.ToUpper();
@@ -68,10 +68,10 @@ namespace Pacifico.SINCO.WEB.Modulos.Comun
 
                 //Obtiene Listado de Siniestros
                 string listadoJson = owsInformeAccidenteClient.Listar();
-                List<MSInformeAccidente> listadoResult = new List<MSInformeAccidente>();
-                List<MSInformeAccidente> listado = new JavaScriptSerializer().Deserialize<List<MSInformeAccidente>>(listadoJson);
+                List<InformeAccidente> listadoResult = new List<InformeAccidente>();
+                List<InformeAccidente> listado = new JavaScriptSerializer().Deserialize<List<InformeAccidente>>(listadoJson);
 
-                foreach (MSInformeAccidente item in listado)
+                foreach (InformeAccidente item in listado)
                 {
                     string asegurado = item.Siniestro.Poliza.Asegurado.Nombre + " " + item.Siniestro.Poliza.Asegurado.ApellidoPaterno + " " + item.Siniestro.Poliza.Asegurado.ApellidoMaterno;
                     if (asegurado.ToUpper().Contains(Asegurado)) {

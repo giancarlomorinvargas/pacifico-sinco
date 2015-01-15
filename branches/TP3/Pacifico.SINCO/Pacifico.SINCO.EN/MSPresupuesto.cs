@@ -27,7 +27,7 @@ namespace Pacifico.SINCO.EN
         public DateTime FechaModifico { get; set; }
 
         public int MS_Informe_Accidente_Id { get; set; }
-        public virtual MSInformeAccidente InformeAccidente { get; set; }
+        public virtual InformeAccidente InformeAccidente { get; set; }
 
         public virtual ICollection<MSDetallePresupuesto> DetallePresupuesto { get; set; }
 

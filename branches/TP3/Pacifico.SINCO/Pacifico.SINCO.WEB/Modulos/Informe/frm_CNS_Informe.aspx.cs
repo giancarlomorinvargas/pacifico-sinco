@@ -35,12 +35,12 @@ namespace Pacifico.SINCO.WEB.Modulos.Informe
                     int id = int.Parse(Request.QueryString["pIdInforme"]);
 
                     //WS-SINIESTRO
-                    IwsInformeAccidenteClient service = new IwsInformeAccidenteClient();
+                    InformeAccidenteWSClient service = new InformeAccidenteWSClient();
 
                     //Parametros
                     string modelJson = service.Obtener(id);
 
-                    MSInformeAccidente model = new JavaScriptSerializer().Deserialize<MSInformeAccidente>(modelJson);
+                    InformeAccidente model = new JavaScriptSerializer().Deserialize<InformeAccidente>(modelJson);
                     txtNumInforme.Value = model.NumInforme.ToString();
                     txtDireccion.Value = model.Direccion;
                     txtDistrito.Value = model.Distrito;

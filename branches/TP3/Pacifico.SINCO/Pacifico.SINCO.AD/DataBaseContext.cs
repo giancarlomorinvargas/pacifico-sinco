@@ -23,7 +23,7 @@ namespace Pacifico.SINCO.AD
         public DbSet<MSListaPrecio> MSListaPrecio { get; set; }
 
         public DbSet<MSSiniestro> MSSiniestro { get; set; }
-        public DbSet<MSInformeAccidente> MSInformeAccidente { get; set; }
+        public DbSet<InformeAccidente> MSInformeAccidente { get; set; }
 
         public DbSet<MSPresupuesto> MSPresupuesto { get; set; }
         public DbSet<MSDetallePresupuesto> MSDetallePresupuesto { get; set; }
@@ -45,7 +45,7 @@ namespace Pacifico.SINCO.AD
             .WithMany()
             .HasForeignKey(c => c.Estado);
 
-            modelBuilder.Entity<MSInformeAccidente>()
+            modelBuilder.Entity<InformeAccidente>()
             .HasRequired(c => c.EstadoEntity)
             .WithMany()
             .HasForeignKey(c => c.Estado);

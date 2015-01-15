@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:8733/SINCO/Pacifico.SINCO.WS/wsInformceAccidente/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Pacifico.SINCO.EN" />
-  <xs:element name="wsObtenerNombreWS">
+  <xs:element name="ObtenerNombreWS">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="wsObtenerNombreWSResponse">
+  <xs:element name="ObtenerNombreWSResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="wsObtenerNombreWSResult" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ObtenerNombreWSResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -58,7 +58,7 @@
   <xs:element name="Agregar">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Pacifico.SINCO.EN" minOccurs="0" name="model" nillable="true" type="q1:MSInformeAccidente" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Pacifico.SINCO.EN" minOccurs="0" name="model" nillable="true" type="q1:InformeAccidente" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -72,7 +72,7 @@
   <xs:element name="Modificar">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Pacifico.SINCO.EN" minOccurs="0" name="model" nillable="true" type="q2:MSInformeAccidente" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Pacifico.SINCO.EN" minOccurs="0" name="model" nillable="true" type="q2:InformeAccidente" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
