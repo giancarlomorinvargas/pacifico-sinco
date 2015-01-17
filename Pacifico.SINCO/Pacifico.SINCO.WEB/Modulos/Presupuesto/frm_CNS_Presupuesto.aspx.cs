@@ -35,12 +35,12 @@ namespace Pacifico.SINCO.WEB.Modulos.Presupuesto
                     int id = int.Parse(Request.QueryString["pIdPresupuesto"]);
 
                     //WS-SINIESTRO
-                    IwsPresupuestoClient service = new IwsPresupuestoClient();
+                    PresupuestoWSClient service = new PresupuestoWSClient();
 
                     //Parametros
                     string modelJson = service.ObtenerPresupuesto(id);
 
-                    MSPresupuesto model = new JavaScriptSerializer().Deserialize<MSPresupuesto>(modelJson);
+                    PresupuestoEN model = new JavaScriptSerializer().Deserialize<PresupuestoEN>(modelJson);
                     MS_Presupuesto_Id.Value = model.MS_Presupuesto_Id.ToString();
                     UsuarioRegistro.Value = model.UsuarioRegistro;
                     FechaRegistro.Value = model.FechaModifico.ToString("d");

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Pacifico.SINCO.AD
 {
-    public interface IDetallePresupuestoDAO : IBaseDAO<MSDetallePresupuesto>
+    public interface IDetallePresupuestoDAO : IBaseDAO<DetallePresupuestoEN>
     {
     }
 }

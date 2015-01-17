@@ -44,12 +44,12 @@ namespace Pacifico.SINCO.WEB.Modulos.Presupuesto
                 if (!this.IsPostBack)
                 {
                     //WS-SINIESTRO
-                    IwsPresupuestoClient owsPresupuestoClient = new IwsPresupuestoClient();
+                    PresupuestoWSClient owsPresupuestoClient = new PresupuestoWSClient();
 
                     //Obtiene Listado de Siniestros
                     string listadoJson = owsPresupuestoClient.ListarPresupuesto();
 
-                    List<MSPresupuesto> listado = new JavaScriptSerializer().Deserialize<List<MSPresupuesto>>(listadoJson);
+                    List<PresupuestoEN> listado = new JavaScriptSerializer().Deserialize<List<PresupuestoEN>>(listadoJson);
 
                     rptListadoPresupuestos.DataSource = listado;
                     rptListadoPresupuestos.DataBind();
@@ -75,7 +75,7 @@ namespace Pacifico.SINCO.WEB.Modulos.Presupuesto
             {
                 lblMensajeError.InnerText = "";        
                 //WS-SINIESTRO
-                IwsPresupuestoClient owsPresupuestoClient = new IwsPresupuestoClient();
+                PresupuestoWSClient owsPresupuestoClient = new PresupuestoWSClient();
 
                 //Parametros
                 string NumPresupuesto = txtNumPresupuesto.Value;
@@ -86,7 +86,7 @@ namespace Pacifico.SINCO.WEB.Modulos.Presupuesto
                 //Obtiene Listado de Siniestros
                 string listadoJson = owsPresupuestoClient.BuscarPresupuesto(NumPresupuesto, NumInforme, NumPoliza, FechaPresupuesto);
 
-                List<MSPresupuesto> listado = new JavaScriptSerializer().Deserialize<List<MSPresupuesto>>(listadoJson);
+                List<PresupuestoEN> listado = new JavaScriptSerializer().Deserialize<List<PresupuestoEN>>(listadoJson);
 
                 rptListadoPresupuestos.DataSource = listado;
                 rptListadoPresupuestos.DataBind();

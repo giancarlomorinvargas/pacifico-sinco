@@ -15,7 +15,7 @@
   <xs:element name="Obtener">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="Id" type="xs:int" />
+        <xs:element minOccurs="0" name="id" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -41,8 +41,8 @@
   <xs:element name="Buscar">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="MarcaId" type="xs:int" />
-        <xs:element minOccurs="0" name="ModeloId" type="xs:int" />
+        <xs:element minOccurs="0" name="marcaId" type="xs:int" />
+        <xs:element minOccurs="0" name="modeloId" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

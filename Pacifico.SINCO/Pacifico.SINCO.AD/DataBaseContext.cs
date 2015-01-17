@@ -17,19 +17,19 @@ namespace Pacifico.SINCO.AD
         
         //Aquí se definen todas los DBSets de las Entidades que serán transformadas en tablas
         
-        public DbSet<Marca> MPMarca { get; set; }
-        public DbSet<Modelo> MPModelo { get; set; }
-        public DbSet<Servicio> MSServicio { get; set; }
-        public DbSet<ListaPrecio> MSListaPrecio { get; set; }
+        public DbSet<MarcaEN> MPMarca { get; set; }
+        public DbSet<ModeloEN> MPModelo { get; set; }
+        public DbSet<ServicioEN> MSServicio { get; set; }
+        public DbSet<ListaPrecioEN> MSListaPrecio { get; set; }
 
-        public DbSet<MSSiniestro> MSSiniestro { get; set; }
-        public DbSet<InformeAccidente> MSInformeAccidente { get; set; }
+        public DbSet<SiniestroEN> MSSiniestro { get; set; }
+        public DbSet<InformeAccidenteEN> MSInformeAccidente { get; set; }
 
-        public DbSet<MSPresupuesto> MSPresupuesto { get; set; }
-        public DbSet<MSDetallePresupuesto> MSDetallePresupuesto { get; set; }
-        public DbSet<Estado> Estado { get; set; }
+        public DbSet<PresupuestoEN> MSPresupuesto { get; set; }
+        public DbSet<DetallePresupuestoEN> MSDetallePresupuesto { get; set; }
+        public DbSet<EstadoEN> Estado { get; set; }
 
-        public DbSet<MSProcurador> MSProcurador { get; set; }
+        public DbSet<ProcuradorEN> MSProcurador { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -40,12 +40,12 @@ namespace Pacifico.SINCO.AD
              **/
 
 
-            modelBuilder.Entity<MSPresupuesto>()
+            modelBuilder.Entity<PresupuestoEN>()
             .HasRequired(c => c.EstadoEntity)
             .WithMany()
             .HasForeignKey(c => c.Estado);
 
-            modelBuilder.Entity<InformeAccidente>()
+            modelBuilder.Entity<InformeAccidenteEN>()
             .HasRequired(c => c.EstadoEntity)
             .WithMany()
             .HasForeignKey(c => c.Estado);
@@ -100,7 +100,7 @@ namespace Pacifico.SINCO.AD
             modelBuilder.Entity<MGFichaCarga>()
                 .HasRequired(t => t.MGTipoMovimiento)
                 .WithMany()
-                .HasForeignKey(t => t.Estado);*/
+                .HasForeignKey(t => t.EstadoEN);*/
 
             base.OnModelCreating(modelBuilder);
 

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Pacifico.SINCO.AD
 {
-    public interface IInformeAccidenteDAO : IBaseDAO<InformeAccidente>
+    public interface IInformeAccidenteDAO : IBaseDAO<InformeAccidenteEN>
     {
     }
 }

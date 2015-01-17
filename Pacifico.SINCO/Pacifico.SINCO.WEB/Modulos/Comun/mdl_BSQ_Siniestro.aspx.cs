@@ -27,7 +27,7 @@ namespace Pacifico.SINCO.WEB.Modulos.Comun
             try
             {
 
-                IwsSiniestroClient owsSiniestroClient = new IwsSiniestroClient();
+                SiniestroWSClient owsSiniestroClient = new SiniestroWSClient();
                 
                 //Obtiene Listado de Siniestros
                 //List<InformeAccidente> listadoResult = new List<InformeAccidente>();
@@ -59,7 +59,7 @@ namespace Pacifico.SINCO.WEB.Modulos.Comun
         {
             try
             {
-                IwsSiniestroClient owsSiniestroClient = new IwsSiniestroClient();
+                SiniestroWSClient owsSiniestroClient = new SiniestroWSClient();
 
 
                 string NumInforme= txtNumInforme.Value.ToUpper();

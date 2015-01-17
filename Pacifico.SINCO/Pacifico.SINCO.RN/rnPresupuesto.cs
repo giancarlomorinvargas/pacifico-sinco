@@ -40,9 +40,9 @@ namespace Pacifico.SINCO.RN
          }
 
 
-        public MSPresupuesto ObtenerPresupuesto(int Id)
+        public PresupuestoEN ObtenerPresupuesto(int Id)
         {
-            MSPresupuesto model = _PresupuestoRepositorio.Get(Id);
+            PresupuestoEN model = _PresupuestoRepositorio.Get(Id);
             if (model == null)
             {
                 throw new Exception(MENSAJE_NO_DISPONIBLE);
@@ -50,7 +50,7 @@ namespace Pacifico.SINCO.RN
             return model;
         }
 
-         public string AgregarPresupuesto(MSPresupuesto model)
+         public string AgregarPresupuesto(PresupuestoEN model)
         {
             try
             {
@@ -65,7 +65,7 @@ namespace Pacifico.SINCO.RN
 
                 _PresupuestoRepositorio.Add(model);
 
-                //TODO;Actualizar el estado del Siniestro
+                //TODO;Actualizar el estado del SiniestroEN
             }
             catch (Exception e)
             {
@@ -75,10 +75,10 @@ namespace Pacifico.SINCO.RN
             return String.Format(MENSAJE_REGISTRADO, model.NumPresupuesto);
         }
 
-         public string ModificarPresupuesto(MSPresupuesto model, List<MSDetallePresupuesto> DetallePresupuesto)
+         public string ModificarPresupuesto(PresupuestoEN model, List<DetallePresupuestoEN> DetallePresupuesto)
         {
-            ICollection<MSDetallePresupuesto> detalleRespaldo = model.DetallePresupuesto;
-            InformeAccidente InformeAccidenteRespaldo = model.InformeAccidente;
+            ICollection<DetallePresupuestoEN> detalleRespaldo = model.DetallePresupuesto;
+            InformeAccidenteEN InformeAccidenteRespaldo = model.InformeAccidente;
             try
             {
 
@@ -89,7 +89,7 @@ namespace Pacifico.SINCO.RN
                 model.FechaModifico = DateTime.Now;
 
                 //Recorrer el listado anterior
-                foreach (MSDetallePresupuesto detalle in model.DetallePresupuesto)
+                foreach (DetallePresupuestoEN detalle in model.DetallePresupuesto)
                 {
                     //evaluar los item del listado anterior que no se encuentren en el listado actual
 
@@ -97,14 +97,14 @@ namespace Pacifico.SINCO.RN
                         m.MS_Detalle_Presupuesto_Id == detalle.MS_Detalle_Presupuesto_Id) == null)
                     {
                         //OJO: Para eliminar, primero se debe obtener el objeto desde la bd (Indispensable en ORM)
-                        MSDetallePresupuesto detalleDel = _DetallePresupuestoRepositorio.Get(detalle.MS_Detalle_Presupuesto_Id);
+                        DetallePresupuestoEN detalleDel = _DetallePresupuestoRepositorio.Get(detalle.MS_Detalle_Presupuesto_Id);
                         //Removemos el item de la bd
                         _DetallePresupuestoRepositorio.Remove(detalleDel);
                     }
                 }
 
 
-                foreach (MSDetallePresupuesto detalle in DetallePresupuesto)
+                foreach (DetallePresupuestoEN detalle in DetallePresupuesto)
                 {
                     if (detalle.MS_Detalle_Presupuesto_Id == 0)
                     {
@@ -130,15 +130,15 @@ namespace Pacifico.SINCO.RN
         }
 
 
-         public List<MSPresupuesto> BuscarPresupuesto(string NumPresupuesto, string NumInforme, string NumPoliza, string FechaPresupuesto)
+         public List<PresupuestoEN> BuscarPresupuesto(string NumPresupuesto, string NumInforme, string NumPoliza, string FechaPresupuesto)
          {
              string NumPresupuestoParam = NumPresupuesto.ToUpper();
              string NumInformeParam = NumInforme.ToUpper();
              string NumPolizaParam = NumPoliza.ToUpper();
 
-             List<MSPresupuesto> listaPresupuesto = new List<MSPresupuesto>();
+             List<PresupuestoEN> listaPresupuesto = new List<PresupuestoEN>();
 
-             foreach (MSPresupuesto Presupuesto in _PresupuestoRepositorio.GetAll().Where(
+             foreach (PresupuestoEN Presupuesto in _PresupuestoRepositorio.GetAll().Where(
                          b => ((b.NumPresupuesto.ToUpper().Contains(NumPresupuestoParam))
                              && (b.InformeAccidente.NumInforme.ToUpper().Contains(NumInformeParam))
                              && (b.InformeAccidente.Siniestro.Poliza.NumPoliza.ToUpper().Contains(NumPolizaParam))
@@ -160,9 +160,9 @@ namespace Pacifico.SINCO.RN
              return listaPresupuesto;
          }
 
-         public List<MSPresupuesto> ListarPresupuesto()
+         public List<PresupuestoEN> ListarPresupuesto()
         {
-            List<MSPresupuesto> listaPresupuesto;
+            List<PresupuestoEN> listaPresupuesto;
             listaPresupuesto = _PresupuestoRepositorio.GetAll().ToList();
 
             if (listaPresupuesto == null || listaPresupuesto.Count() == 0)

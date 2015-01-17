@@ -26,13 +26,13 @@ namespace Pacifico.SINCO.WEB.Modulos.Comun
 
             try
             {
-                IwsListaPrecioClient serviceListaPrecio = new IwsListaPrecioClient();
+                ListaPrecioWSClient serviceListaPrecio = new ListaPrecioWSClient();
 
                 int marcaId = Int32.Parse(Request.QueryString["marcaId"]);
                 int modeloId = Int32.Parse(Request.QueryString["modeloId"]);
 
                 string listadoJson = serviceListaPrecio.Buscar(marcaId, modeloId);
-                List<MSListaPrecio> listado = new JavaScriptSerializer().Deserialize<List<MSListaPrecio>>(listadoJson);
+                List<ListaPrecioEN> listado = new JavaScriptSerializer().Deserialize<List<ListaPrecioEN>>(listadoJson);
 
                 rptListadoPrecios.DataSource = listado;
                 rptListadoPrecios.DataBind();

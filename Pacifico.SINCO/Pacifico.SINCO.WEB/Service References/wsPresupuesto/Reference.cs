@@ -12,70 +12,70 @@ namespace Pacifico.SINCO.WEB.wsPresupuesto {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="wsPresupuesto.IwsPresupuesto")]
-    public interface IwsPresupuesto {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="wsPresupuesto.IPresupuestoWS")]
+    public interface IPresupuestoWS {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwsPresupuesto/wsObtenerNombreWS", ReplyAction="http://tempuri.org/IwsPresupuesto/wsObtenerNombreWSResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPresupuestoWS/wsObtenerNombreWS", ReplyAction="http://tempuri.org/IPresupuestoWS/wsObtenerNombreWSResponse")]
         string wsObtenerNombreWS();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwsPresupuesto/wsObtenerNombreWS", ReplyAction="http://tempuri.org/IwsPresupuesto/wsObtenerNombreWSResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPresupuestoWS/wsObtenerNombreWS", ReplyAction="http://tempuri.org/IPresupuestoWS/wsObtenerNombreWSResponse")]
         System.Threading.Tasks.Task<string> wsObtenerNombreWSAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwsPresupuesto/ObtenerPresupuesto", ReplyAction="http://tempuri.org/IwsPresupuesto/ObtenerPresupuestoResponse")]
-        string ObtenerPresupuesto(int Id);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPresupuestoWS/ObtenerPresupuesto", ReplyAction="http://tempuri.org/IPresupuestoWS/ObtenerPresupuestoResponse")]
+        string ObtenerPresupuesto(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwsPresupuesto/ObtenerPresupuesto", ReplyAction="http://tempuri.org/IwsPresupuesto/ObtenerPresupuestoResponse")]
-        System.Threading.Tasks.Task<string> ObtenerPresupuestoAsync(int Id);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPresupuestoWS/ObtenerPresupuesto", ReplyAction="http://tempuri.org/IPresupuestoWS/ObtenerPresupuestoResponse")]
+        System.Threading.Tasks.Task<string> ObtenerPresupuestoAsync(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwsPresupuesto/ListarPresupuesto", ReplyAction="http://tempuri.org/IwsPresupuesto/ListarPresupuestoResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPresupuestoWS/ListarPresupuesto", ReplyAction="http://tempuri.org/IPresupuestoWS/ListarPresupuestoResponse")]
         string ListarPresupuesto();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwsPresupuesto/ListarPresupuesto", ReplyAction="http://tempuri.org/IwsPresupuesto/ListarPresupuestoResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPresupuestoWS/ListarPresupuesto", ReplyAction="http://tempuri.org/IPresupuestoWS/ListarPresupuestoResponse")]
         System.Threading.Tasks.Task<string> ListarPresupuestoAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwsPresupuesto/BuscarPresupuesto", ReplyAction="http://tempuri.org/IwsPresupuesto/BuscarPresupuestoResponse")]
-        string BuscarPresupuesto(string NumPresupuesto, string NumInforme, string NumPoliza, string FechaPresupuesto);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPresupuestoWS/BuscarPresupuesto", ReplyAction="http://tempuri.org/IPresupuestoWS/BuscarPresupuestoResponse")]
+        string BuscarPresupuesto(string numPresupuesto, string numInforme, string numPoliza, string fechaPresupuesto);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwsPresupuesto/BuscarPresupuesto", ReplyAction="http://tempuri.org/IwsPresupuesto/BuscarPresupuestoResponse")]
-        System.Threading.Tasks.Task<string> BuscarPresupuestoAsync(string NumPresupuesto, string NumInforme, string NumPoliza, string FechaPresupuesto);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPresupuestoWS/BuscarPresupuesto", ReplyAction="http://tempuri.org/IPresupuestoWS/BuscarPresupuestoResponse")]
+        System.Threading.Tasks.Task<string> BuscarPresupuestoAsync(string numPresupuesto, string numInforme, string numPoliza, string fechaPresupuesto);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwsPresupuesto/AgregarPresupuesto", ReplyAction="http://tempuri.org/IwsPresupuesto/AgregarPresupuestoResponse")]
-        string AgregarPresupuesto(Pacifico.SINCO.EN.MSPresupuesto Presupuesto);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPresupuestoWS/AgregarPresupuesto", ReplyAction="http://tempuri.org/IPresupuestoWS/AgregarPresupuestoResponse")]
+        string AgregarPresupuesto(Pacifico.SINCO.EN.PresupuestoEN presupuesto);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwsPresupuesto/AgregarPresupuesto", ReplyAction="http://tempuri.org/IwsPresupuesto/AgregarPresupuestoResponse")]
-        System.Threading.Tasks.Task<string> AgregarPresupuestoAsync(Pacifico.SINCO.EN.MSPresupuesto Presupuesto);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPresupuestoWS/AgregarPresupuesto", ReplyAction="http://tempuri.org/IPresupuestoWS/AgregarPresupuestoResponse")]
+        System.Threading.Tasks.Task<string> AgregarPresupuestoAsync(Pacifico.SINCO.EN.PresupuestoEN presupuesto);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwsPresupuesto/ModificarPresupuesto", ReplyAction="http://tempuri.org/IwsPresupuesto/ModificarPresupuestoResponse")]
-        string ModificarPresupuesto(Pacifico.SINCO.EN.MSPresupuesto Presupuesto, Pacifico.SINCO.EN.MSDetallePresupuesto[] DestallePresupuesto);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPresupuestoWS/ModificarPresupuesto", ReplyAction="http://tempuri.org/IPresupuestoWS/ModificarPresupuestoResponse")]
+        string ModificarPresupuesto(Pacifico.SINCO.EN.PresupuestoEN presupuesto, Pacifico.SINCO.EN.DetallePresupuestoEN[] destallePresupuesto);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwsPresupuesto/ModificarPresupuesto", ReplyAction="http://tempuri.org/IwsPresupuesto/ModificarPresupuestoResponse")]
-        System.Threading.Tasks.Task<string> ModificarPresupuestoAsync(Pacifico.SINCO.EN.MSPresupuesto Presupuesto, Pacifico.SINCO.EN.MSDetallePresupuesto[] DestallePresupuesto);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPresupuestoWS/ModificarPresupuesto", ReplyAction="http://tempuri.org/IPresupuestoWS/ModificarPresupuestoResponse")]
+        System.Threading.Tasks.Task<string> ModificarPresupuestoAsync(Pacifico.SINCO.EN.PresupuestoEN presupuesto, Pacifico.SINCO.EN.DetallePresupuestoEN[] destallePresupuesto);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IwsPresupuestoChannel : Pacifico.SINCO.WEB.wsPresupuesto.IwsPresupuesto, System.ServiceModel.IClientChannel {
+    public interface IPresupuestoWSChannel : Pacifico.SINCO.WEB.wsPresupuesto.IPresupuestoWS, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class IwsPresupuestoClient : System.ServiceModel.ClientBase<Pacifico.SINCO.WEB.wsPresupuesto.IwsPresupuesto>, Pacifico.SINCO.WEB.wsPresupuesto.IwsPresupuesto {
+    public partial class PresupuestoWSClient : System.ServiceModel.ClientBase<Pacifico.SINCO.WEB.wsPresupuesto.IPresupuestoWS>, Pacifico.SINCO.WEB.wsPresupuesto.IPresupuestoWS {
         
-        public IwsPresupuestoClient() {
+        public PresupuestoWSClient() {
         }
         
-        public IwsPresupuestoClient(string endpointConfigurationName) : 
+        public PresupuestoWSClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public IwsPresupuestoClient(string endpointConfigurationName, string remoteAddress) : 
+        public PresupuestoWSClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public IwsPresupuestoClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public PresupuestoWSClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public IwsPresupuestoClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public PresupuestoWSClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         
@@ -87,12 +87,12 @@ namespace Pacifico.SINCO.WEB.wsPresupuesto {
             return base.Channel.wsObtenerNombreWSAsync();
         }
         
-        public string ObtenerPresupuesto(int Id) {
-            return base.Channel.ObtenerPresupuesto(Id);
+        public string ObtenerPresupuesto(int id) {
+            return base.Channel.ObtenerPresupuesto(id);
         }
         
-        public System.Threading.Tasks.Task<string> ObtenerPresupuestoAsync(int Id) {
-            return base.Channel.ObtenerPresupuestoAsync(Id);
+        public System.Threading.Tasks.Task<string> ObtenerPresupuestoAsync(int id) {
+            return base.Channel.ObtenerPresupuestoAsync(id);
         }
         
         public string ListarPresupuesto() {
@@ -103,28 +103,28 @@ namespace Pacifico.SINCO.WEB.wsPresupuesto {
             return base.Channel.ListarPresupuestoAsync();
         }
         
-        public string BuscarPresupuesto(string NumPresupuesto, string NumInforme, string NumPoliza, string FechaPresupuesto) {
-            return base.Channel.BuscarPresupuesto(NumPresupuesto, NumInforme, NumPoliza, FechaPresupuesto);
+        public string BuscarPresupuesto(string numPresupuesto, string numInforme, string numPoliza, string fechaPresupuesto) {
+            return base.Channel.BuscarPresupuesto(numPresupuesto, numInforme, numPoliza, fechaPresupuesto);
         }
         
-        public System.Threading.Tasks.Task<string> BuscarPresupuestoAsync(string NumPresupuesto, string NumInforme, string NumPoliza, string FechaPresupuesto) {
-            return base.Channel.BuscarPresupuestoAsync(NumPresupuesto, NumInforme, NumPoliza, FechaPresupuesto);
+        public System.Threading.Tasks.Task<string> BuscarPresupuestoAsync(string numPresupuesto, string numInforme, string numPoliza, string fechaPresupuesto) {
+            return base.Channel.BuscarPresupuestoAsync(numPresupuesto, numInforme, numPoliza, fechaPresupuesto);
         }
         
-        public string AgregarPresupuesto(Pacifico.SINCO.EN.MSPresupuesto Presupuesto) {
-            return base.Channel.AgregarPresupuesto(Presupuesto);
+        public string AgregarPresupuesto(Pacifico.SINCO.EN.PresupuestoEN presupuesto) {
+            return base.Channel.AgregarPresupuesto(presupuesto);
         }
         
-        public System.Threading.Tasks.Task<string> AgregarPresupuestoAsync(Pacifico.SINCO.EN.MSPresupuesto Presupuesto) {
-            return base.Channel.AgregarPresupuestoAsync(Presupuesto);
+        public System.Threading.Tasks.Task<string> AgregarPresupuestoAsync(Pacifico.SINCO.EN.PresupuestoEN presupuesto) {
+            return base.Channel.AgregarPresupuestoAsync(presupuesto);
         }
         
-        public string ModificarPresupuesto(Pacifico.SINCO.EN.MSPresupuesto Presupuesto, Pacifico.SINCO.EN.MSDetallePresupuesto[] DestallePresupuesto) {
-            return base.Channel.ModificarPresupuesto(Presupuesto, DestallePresupuesto);
+        public string ModificarPresupuesto(Pacifico.SINCO.EN.PresupuestoEN presupuesto, Pacifico.SINCO.EN.DetallePresupuestoEN[] destallePresupuesto) {
+            return base.Channel.ModificarPresupuesto(presupuesto, destallePresupuesto);
         }
         
-        public System.Threading.Tasks.Task<string> ModificarPresupuestoAsync(Pacifico.SINCO.EN.MSPresupuesto Presupuesto, Pacifico.SINCO.EN.MSDetallePresupuesto[] DestallePresupuesto) {
-            return base.Channel.ModificarPresupuestoAsync(Presupuesto, DestallePresupuesto);
+        public System.Threading.Tasks.Task<string> ModificarPresupuestoAsync(Pacifico.SINCO.EN.PresupuestoEN presupuesto, Pacifico.SINCO.EN.DetallePresupuestoEN[] destallePresupuesto) {
+            return base.Channel.ModificarPresupuestoAsync(presupuesto, destallePresupuesto);
         }
     }
 }

@@ -32,10 +32,10 @@ namespace Pacifico.SINCO.RN
          }
 
 
-        public InformeAccidente Obtener(int id)
+        public InformeAccidenteEN Obtener(int id)
          {
              IInformeAccidenteDAO InformeAccidenteDao = new InformeAccidenteDAO();
-             InformeAccidente model = InformeAccidenteDao.Get(id);
+             InformeAccidenteEN model = InformeAccidenteDao.Get(id);
              if (model == null)
              {
                  throw new Exception(MENSAJE_NO_DISPONIBLE);
@@ -44,7 +44,7 @@ namespace Pacifico.SINCO.RN
          }
 
 
-        public string Agregar(InformeAccidente model)
+        public string Agregar(InformeAccidenteEN model)
         {
             try
             {
@@ -66,10 +66,10 @@ namespace Pacifico.SINCO.RN
             return String.Format(MENSAJE_REGISTRADO, model.NumInforme);
         }
 
-        public string Modificar(InformeAccidente model)
+        public string Modificar(InformeAccidenteEN model)
         {
-            Estado estado = model.EstadoEntity;
-            MSSiniestro siniestroRespaldo = model.Siniestro;
+            EstadoEN estado = model.EstadoEntity;
+            SiniestroEN siniestroRespaldo = model.Siniestro;
             try
             {
 
@@ -93,10 +93,10 @@ namespace Pacifico.SINCO.RN
             return String.Format(MENSAJE_ACTUALIZADO, model.NumInforme);
         }
 
-        public List<InformeAccidente> Listar()
+        public List<InformeAccidenteEN> Listar()
         {
             IInformeAccidenteDAO informeAccidenteDao = new InformeAccidenteDAO();
-             List<InformeAccidente> listado;
+             List<InformeAccidenteEN> listado;
              listado = informeAccidenteDao.GetAll().ToList();
 
              if (listado == null || listado.Count() == 0)
@@ -106,16 +106,16 @@ namespace Pacifico.SINCO.RN
              return listado;
          }
 
-        public List<InformeAccidente> Buscar(string numPoliza, string tipoSiniestro, string fechaSiniestro)
+        public List<InformeAccidenteEN> Buscar(string numPoliza, string tipoSiniestro, string fechaSiniestro)
         {
             IInformeAccidenteDAO informeAccidenteDao = new InformeAccidenteDAO();
             string numPolizaParam = numPoliza == null ? "" : numPoliza.ToUpper();
             string tipoSiniestroParam = tipoSiniestro == null ? "" : tipoSiniestro;
             string fechaSiniestroParam = fechaSiniestro == null ? "" : fechaSiniestro;
 
-             List<InformeAccidente> listado = new List<InformeAccidente>();
+             List<InformeAccidenteEN> listado = new List<InformeAccidenteEN>();
 
-             foreach (InformeAccidente Model in informeAccidenteDao.GetAll().Where(
+             foreach (InformeAccidenteEN Model in informeAccidenteDao.GetAll().Where(
                  b => b.Siniestro.Poliza.NumPoliza.ToUpper().Contains(numPolizaParam)
                      && b.Siniestro.Tipo.Contains(tipoSiniestroParam)).ToList())
              {                 

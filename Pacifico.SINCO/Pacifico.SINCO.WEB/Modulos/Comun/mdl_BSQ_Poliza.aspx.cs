@@ -37,7 +37,7 @@ namespace Pacifico.SINCO.WEB.Modulos.Comun
                     //DateTime Now = DateTime.Now;
                     List<enPoliza> olEnPolizaResult = new List<enPoliza>();
                     //WS-SINIESTRO
-                    IwsUtilClient owsUtilClient = new IwsUtilClient();
+                    UtilWSClient owsUtilClient = new UtilWSClient();
 
                     //Parametros
                     enPoliza oEnPoliza = new enPoliza();
@@ -79,7 +79,7 @@ namespace Pacifico.SINCO.WEB.Modulos.Comun
                 List<enPoliza> olEnPolizaResult = new List<enPoliza>();
 
                 //WS
-                IwsUtilClient owsUtilClient = new IwsUtilClient();
+                UtilWSClient owsUtilClient = new UtilWSClient();
 
                 //Parametros
                 enPoliza oEnPoliza = new enPoliza();

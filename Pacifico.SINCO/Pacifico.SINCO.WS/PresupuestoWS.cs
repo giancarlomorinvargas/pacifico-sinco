@@ -35,11 +35,11 @@ namespace Pacifico.SINCO.WS
             return string.Format(Constantes.sNombreWS_Presupuesto);
         }
 
-         public string ObtenerPresupuesto(int Id)
+         public string ObtenerPresupuesto(int id)
         {
             try
             {
-                MSPresupuesto model = reglaNegocioPresupuesto.ObtenerPresupuesto(Id);
+                PresupuestoEN model = reglaNegocioPresupuesto.ObtenerPresupuesto(id);
                 return new JavaScriptSerializer().Serialize(model);
             }
             catch (Exception e)
@@ -48,7 +48,7 @@ namespace Pacifico.SINCO.WS
             }
         }
 
-         public string AgregarPresupuesto(MSPresupuesto model)
+         public string AgregarPresupuesto(PresupuestoEN model)
         {
             try
             {
@@ -60,11 +60,11 @@ namespace Pacifico.SINCO.WS
             }
         }
 
-         public string ModificarPresupuesto(MSPresupuesto model, List<MSDetallePresupuesto> detallePresupuesto)
+         public string ModificarPresupuesto(PresupuestoEN model, List<DetallePresupuestoEN> detalle)
         {
             try
             {
-                return reglaNegocioPresupuesto.ModificarPresupuesto(model, detallePresupuesto);
+                return reglaNegocioPresupuesto.ModificarPresupuesto(model, detalle);
             }
             catch (Exception e)
             {
@@ -73,11 +73,11 @@ namespace Pacifico.SINCO.WS
         }
 
 
-         public string BuscarPresupuesto(string NumPresupuesto, string NumInforme, string NumPoliza, string FechaPresupuesto)
+         public string BuscarPresupuesto(string numPresupuesto, string numInforme, string numPoliza, string fechaPresupuesto)
          {
              try
              {
-                 List<MSPresupuesto> listaPresupuesto = reglaNegocioPresupuesto.BuscarPresupuesto(NumPresupuesto, NumInforme, NumPoliza, FechaPresupuesto);
+                 List<PresupuestoEN> listaPresupuesto = reglaNegocioPresupuesto.BuscarPresupuesto(numPresupuesto, numInforme, numPoliza, fechaPresupuesto);
                  return new JavaScriptSerializer().Serialize(listaPresupuesto);
              }
              catch (Exception e)
@@ -90,7 +90,7 @@ namespace Pacifico.SINCO.WS
         {
             try
             {
-                List<MSPresupuesto> listaPresupuesto = reglaNegocioPresupuesto.ListarPresupuesto();
+                List<PresupuestoEN> listaPresupuesto = reglaNegocioPresupuesto.ListarPresupuesto();
                 return new JavaScriptSerializer().Serialize(listaPresupuesto);
             }
             catch (Exception e)

@@ -16,7 +16,7 @@
   <xs:element name="ObtenerPresupuesto">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="Id" type="xs:int" />
+        <xs:element minOccurs="0" name="id" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -42,10 +42,10 @@
   <xs:element name="BuscarPresupuesto">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="NumPresupuesto" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="NumInforme" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="NumPoliza" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="FechaPresupuesto" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="numPresupuesto" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="numInforme" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="numPoliza" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fechaPresupuesto" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -59,7 +59,7 @@
   <xs:element name="AgregarPresupuesto">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Pacifico.SINCO.EN" minOccurs="0" name="Presupuesto" nillable="true" type="q1:MSPresupuesto" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Pacifico.SINCO.EN" minOccurs="0" name="presupuesto" nillable="true" type="q1:PresupuestoEN" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -73,8 +73,8 @@
   <xs:element name="ModificarPresupuesto">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Pacifico.SINCO.EN" minOccurs="0" name="Presupuesto" nillable="true" type="q2:MSPresupuesto" />
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Pacifico.SINCO.EN" minOccurs="0" name="DestallePresupuesto" nillable="true" type="q3:ArrayOfMSDetallePresupuesto" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Pacifico.SINCO.EN" minOccurs="0" name="presupuesto" nillable="true" type="q2:PresupuestoEN" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Pacifico.SINCO.EN" minOccurs="0" name="destallePresupuesto" nillable="true" type="q3:ArrayOfDetallePresupuestoEN" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

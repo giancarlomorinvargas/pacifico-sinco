@@ -46,7 +46,7 @@ namespace Pacifico.SINCO.WEB.Modulos.Siniestro
                     string vIdSiniestro = Request.QueryString["pIdSiniestro"];
 
                     //WS-SINIESTRO
-                    IwsSiniestroClient owsSiniestroClient = new IwsSiniestroClient();
+                    SiniestroWSClient owsSiniestroClient = new SiniestroWSClient();
 
                     //Parametros
                     enSiniestro oEnSiniestro = new enSiniestro();
@@ -93,7 +93,7 @@ namespace Pacifico.SINCO.WEB.Modulos.Siniestro
             {
                 lblMensajeError.InnerText = "";
                 //WS-SINIESTRO
-                IwsSiniestroClient owsSiniestroClient = new IwsSiniestroClient();
+                SiniestroWSClient owsSiniestroClient = new SiniestroWSClient();
 
                 //Validación
 

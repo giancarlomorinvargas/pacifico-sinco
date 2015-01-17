@@ -1,5 +1,6 @@
 ﻿using Pacifico.SINCO.EN;
 using Pacifico.SINCO.UTL;
+using Pacifico.SINCO.WEB.Facade.Informe;
 using Pacifico.SINCO.WEB.wsInformeAccidente;
 using System;
 using System.Collections.Generic;
@@ -56,7 +57,7 @@ namespace Pacifico.SINCO.WEB.Modulos.Informe
                 //Validación
 
                 //Parametros
-                InformeAccidente model = new InformeAccidente();
+                InformeAccidenteEN model = new InformeAccidenteEN();
                 model.NumInforme = txtNumInforme.Value;
                 model.Distrito = cmbDistrito.Value;
                 model.Direccion = txtDireccion.Value;

@@ -7,15 +7,15 @@ using System.Linq;
 using System.Web;
 using System.Web.Script.Serialization;
 
-namespace Pacifico.SINCO.WEB.Modulos.Informe
+namespace Pacifico.SINCO.WEB.Facade.Informe
 {
     public class InformeFacade
     {
 
         InformeAccidenteWSClient informeAccidenteWSCliente = new InformeAccidenteWSClient();
-        IwsSiniestroClient siniestroWSCliente = new IwsSiniestroClient();
+        SiniestroWSClient siniestroWSCliente = new SiniestroWSClient();
 
-        public string Registrar(InformeAccidente informe)
+        public string Registrar(InformeAccidenteEN informe)
         {
             enSiniestro siniestroBusqueda = new enSiniestro(){MS_Siniestro_Id = informe.MS_Siniestro_Id};
 
@@ -29,11 +29,11 @@ namespace Pacifico.SINCO.WEB.Modulos.Informe
         }
 
 
-        public string Modificar(InformeAccidente informe)
+        public string Modificar(InformeAccidenteEN informe)
         {
 
             string informeSerializado = informeAccidenteWSCliente.Obtener(informe.MS_Informe_Accidente_Id);
-            InformeAccidente informeObtenido = new JavaScriptSerializer().Deserialize<InformeAccidente>(informeSerializado);
+            InformeAccidenteEN informeObtenido = new JavaScriptSerializer().Deserialize<InformeAccidenteEN>(informeSerializado);
 
             enSiniestro siniestroBusqueda = new enSiniestro() { MS_Siniestro_Id = informeObtenido.MS_Siniestro_Id };
             enSiniestro siniestroObtenido = siniestroWSCliente.ObtenerSiniestro(siniestroBusqueda);

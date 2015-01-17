@@ -57,7 +57,7 @@ namespace Pacifico.SINCO.WEB.Modulos.Siniestro
             {
                 lblMensajeError.InnerText = "";
                 //WS-SINIESTRO
-                IwsSiniestroClient owsSiniestroClient = new IwsSiniestroClient();
+                SiniestroWSClient owsSiniestroClient = new SiniestroWSClient();
 
                 //Validación
 

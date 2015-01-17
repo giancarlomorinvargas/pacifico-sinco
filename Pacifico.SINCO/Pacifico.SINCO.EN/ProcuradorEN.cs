@@ -7,21 +7,19 @@ using System.Web;
 
 namespace Pacifico.SINCO.EN
 {
-    [Table("ASEGURADO")]
-    public class Asegurado
+    [Table("PROCURADOR")]
+    public class ProcuradorEN
     {
         [Key]
-        [Column("Asegurado_Id")]
-        public int MP_Asegurado_Id { get; set; }
-        [Column("DniAsegurado")]
-        public string DniAsegurado { get; set; }
+        [Column("Procurador_Id")]
+        public int MS_Procurador_Id { get; set; }
+        [Column("V_NumProcurador")]
+        public string NumProcurador { get; set; }
         [Column("V_Nombre")]
         public string Nombre { get; set; }
         [Column("V_ApellidoPaterno")]
         public string ApellidoPaterno { get; set; }
         [Column("V_ApellidoMaterno")]
         public string ApellidoMaterno { get; set; }
-        [Column("F_Nacimiento")]
-        public DateTime FechaNacimiento { get; set; }
     }
 }

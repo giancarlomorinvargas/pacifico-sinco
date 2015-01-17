@@ -37,7 +37,7 @@ namespace Pacifico.SINCO.WS
          {
              try
              {
-                 ListaPrecio model = reglaNegocioListaPrecio.Obtener(Id);
+                 ListaPrecioEN model = reglaNegocioListaPrecio.Obtener(Id);
                  return new JavaScriptSerializer().Serialize(model);
              }
              catch (Exception e)
@@ -50,7 +50,7 @@ namespace Pacifico.SINCO.WS
          {
              try
              {
-                 List<ListaPrecio> model = reglaNegocioListaPrecio.Listar();
+                 List<ListaPrecioEN> model = reglaNegocioListaPrecio.Listar();
                  return new JavaScriptSerializer().Serialize(model);
              }
              catch (Exception e)
@@ -63,7 +63,7 @@ namespace Pacifico.SINCO.WS
          {
              try
              {
-                 List<ListaPrecio> model = reglaNegocioListaPrecio.Buscar(MarcaId, ModeloId);
+                 List<ListaPrecioEN> model = reglaNegocioListaPrecio.Buscar(MarcaId, ModeloId);
                  return new JavaScriptSerializer().Serialize(model);
              }
              catch (Exception e)
