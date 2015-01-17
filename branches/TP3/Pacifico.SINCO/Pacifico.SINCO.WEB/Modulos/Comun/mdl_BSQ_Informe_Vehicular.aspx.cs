@@ -32,7 +32,7 @@ namespace Pacifico.SINCO.WEB.Modulos.Comun
                 //Obtiene Listado de Siniestros
                 string listadoJson = owsInformeAccidenteClient.Listar();
                 //List<InformeAccidente> listadoResult = new List<InformeAccidente>();
-                List<InformeAccidente> listado = new JavaScriptSerializer().Deserialize<List<InformeAccidente>>(listadoJson);
+                List<InformeAccidenteEN> listado = new JavaScriptSerializer().Deserialize<List<InformeAccidenteEN>>(listadoJson);
                 /*
                 foreach (InformeAccidente item in listado.Where(b => b.Estado == Constantes.iEstado_Registrado )) {
                     listadoResult.Add(item);
@@ -68,10 +68,10 @@ namespace Pacifico.SINCO.WEB.Modulos.Comun
 
                 //Obtiene Listado de Siniestros
                 string listadoJson = owsInformeAccidenteClient.Listar();
-                List<InformeAccidente> listadoResult = new List<InformeAccidente>();
-                List<InformeAccidente> listado = new JavaScriptSerializer().Deserialize<List<InformeAccidente>>(listadoJson);
+                List<InformeAccidenteEN> listadoResult = new List<InformeAccidenteEN>();
+                List<InformeAccidenteEN> listado = new JavaScriptSerializer().Deserialize<List<InformeAccidenteEN>>(listadoJson);
 
-                foreach (InformeAccidente item in listado)
+                foreach (InformeAccidenteEN item in listado)
                 {
                     string asegurado = item.Siniestro.Poliza.Asegurado.Nombre + " " + item.Siniestro.Poliza.Asegurado.ApellidoPaterno + " " + item.Siniestro.Poliza.Asegurado.ApellidoMaterno;
                     if (asegurado.ToUpper().Contains(Asegurado)) {

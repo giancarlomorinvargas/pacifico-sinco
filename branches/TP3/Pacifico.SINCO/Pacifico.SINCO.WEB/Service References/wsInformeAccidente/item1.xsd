@@ -42,9 +42,9 @@
   <xs:element name="Buscar">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="NumPoliza" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="TipoSiniestro" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="FechaSiniestro" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="numPoliza" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="tipoSiniestro" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fechaSiniestro" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -58,7 +58,7 @@
   <xs:element name="Agregar">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Pacifico.SINCO.EN" minOccurs="0" name="model" nillable="true" type="q1:InformeAccidente" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Pacifico.SINCO.EN" minOccurs="0" name="model" nillable="true" type="q1:InformeAccidenteEN" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -72,7 +72,7 @@
   <xs:element name="Modificar">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Pacifico.SINCO.EN" minOccurs="0" name="model" nillable="true" type="q2:InformeAccidente" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Pacifico.SINCO.EN" minOccurs="0" name="model" nillable="true" type="q2:InformeAccidenteEN" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

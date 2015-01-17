@@ -52,12 +52,12 @@ namespace Pacifico.SINCO.WEB.Modulos.Presupuesto
             {
                 lblMensajeError.InnerText = "";
                 //WS-SINIESTRO
-                IwsPresupuestoClient service = new IwsPresupuestoClient();
+                PresupuestoWSClient service = new PresupuestoWSClient();
 
                 //Validación
 
                 //Parametros
-                MSPresupuesto model = new MSPresupuesto();
+                PresupuestoEN model = new PresupuestoEN();
                 model.NumPresupuesto = txtNumPresupuesto.Value;
                 model.FechaPresupuesto = Convert.ToDateTime(txtFechaPresupuesto.Value);
                 model.SubTotal = float.Parse(txtSubTotal.Value);
@@ -67,7 +67,7 @@ namespace Pacifico.SINCO.WEB.Modulos.Presupuesto
 
                 string DetalleFichaCargaSerializado = txtDetalle.Value;
 
-                MSPresupuesto FichaCargaDes = new JavaScriptSerializer().Deserialize<MSPresupuesto>(DetalleFichaCargaSerializado);
+                PresupuestoEN FichaCargaDes = new JavaScriptSerializer().Deserialize<PresupuestoEN>(DetalleFichaCargaSerializado);
 
                 model.DetallePresupuesto = FichaCargaDes.DetallePresupuesto;
 

@@ -38,7 +38,7 @@ namespace Pacifico.SINCO.WS
          {
              try
              {
-                 InformeAccidente model = reglaNegocioInformeAccidente.Obtener(id);
+                 InformeAccidenteEN model = reglaNegocioInformeAccidente.Obtener(id);
                  return new JavaScriptSerializer().Serialize(model);
              }
              catch (Exception e)
@@ -51,7 +51,7 @@ namespace Pacifico.SINCO.WS
         {
             try
             {
-                List<InformeAccidente> listado = reglaNegocioInformeAccidente.Listar();
+                List<InformeAccidenteEN> listado = reglaNegocioInformeAccidente.Listar();
                 return new JavaScriptSerializer().Serialize(listado);
              }
              catch (Exception e)
@@ -64,7 +64,7 @@ namespace Pacifico.SINCO.WS
          {
             try
             {
-                List<InformeAccidente> listado = reglaNegocioInformeAccidente.Buscar(numPoliza, tipoSiniestro, fechaSiniestro);
+                List<InformeAccidenteEN> listado = reglaNegocioInformeAccidente.Buscar(numPoliza, tipoSiniestro, fechaSiniestro);
                 return new JavaScriptSerializer().Serialize(listado);
              }
              catch (Exception e)
@@ -73,7 +73,7 @@ namespace Pacifico.SINCO.WS
              }
          }
 
-        public string Agregar(InformeAccidente model)
+        public string Agregar(InformeAccidenteEN model)
         {
             try
             {
@@ -83,9 +83,9 @@ namespace Pacifico.SINCO.WS
                     MS_Siniestro_Id = model.MS_Siniestro_Id
                 });
 
-                if (siniestro.Estado == Constantes.sEstado_Pendiente)
+                if (siniestro.EstadoEN == Constantes.sEstado_Pendiente)
                 {
-                    siniestro.Estado = Constantes.sEstado_EnProceso;
+                    siniestro.EstadoEN = Constantes.sEstado_EnProceso;
                     new rnSiniestro().ActualizaEstado(siniestro);
                 }*/
 
@@ -97,19 +97,19 @@ namespace Pacifico.SINCO.WS
             }
         }
 
-        public string Modificar(InformeAccidente model)
+        public string Modificar(InformeAccidenteEN model)
         {
             try
             {
-                /*InformeAccidente informeActual = new InformeAccidenteRN().Obtener(model.MS_Informe_Accidente_Id);
+                /*InformeAccidenteEN informeActual = new InformeAccidenteRN().Obtener(model.MS_Informe_Accidente_Id);
                 enSiniestro siniestroActual = new rnSiniestro().ObtenerSiniestro(new enSiniestro()
                 {
                     MS_Siniestro_Id = informeActual.MS_Siniestro_Id
                 });
 
-                if (siniestroActual.Estado == Constantes.sEstado_EnProceso)
+                if (siniestroActual.EstadoEN == Constantes.sEstado_EnProceso)
                 {
-                    siniestroActual.Estado = Constantes.sEstado_Pendiente;
+                    siniestroActual.EstadoEN = Constantes.sEstado_Pendiente;
                     new rnSiniestro().ActualizaEstado(siniestroActual);
                 }
 
@@ -118,9 +118,9 @@ namespace Pacifico.SINCO.WS
                     MS_Siniestro_Id = model.MS_Siniestro_Id
                 });
 
-                if (siniestro.Estado == Constantes.sEstado_Pendiente)
+                if (siniestro.EstadoEN == Constantes.sEstado_Pendiente)
                 {
-                    siniestro.Estado = Constantes.sEstado_EnProceso;
+                    siniestro.EstadoEN = Constantes.sEstado_EnProceso;
                     new rnSiniestro().ActualizaEstado(siniestro);
                 }*/
 

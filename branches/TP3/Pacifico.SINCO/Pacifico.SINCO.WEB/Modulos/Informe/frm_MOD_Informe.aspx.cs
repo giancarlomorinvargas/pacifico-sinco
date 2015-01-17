@@ -1,5 +1,6 @@
 ﻿using Pacifico.SINCO.EN;
 using Pacifico.SINCO.UTL;
+using Pacifico.SINCO.WEB.Facade.Informe;
 using Pacifico.SINCO.WEB.wsInformeAccidente;
 using System;
 using System.Collections.Generic;
@@ -47,7 +48,7 @@ namespace Pacifico.SINCO.WEB.Modulos.Informe
                     //Parametros
                     string modelJson = service.Obtener(id);
 
-                    InformeAccidente model = new JavaScriptSerializer().Deserialize<InformeAccidente>(modelJson);
+                    InformeAccidenteEN model = new JavaScriptSerializer().Deserialize<InformeAccidenteEN>(modelJson);
 
                     MS_Informe_Accidente_Id.Value = model.MS_Informe_Accidente_Id.ToString();
 
@@ -96,7 +97,7 @@ namespace Pacifico.SINCO.WEB.Modulos.Informe
                 //Validación
 
                 //Parametros
-                InformeAccidente model = new InformeAccidente();
+                InformeAccidenteEN model = new InformeAccidenteEN();
                 model.MS_Informe_Accidente_Id = int.Parse(MS_Informe_Accidente_Id.Value);
                 model.NumInforme = txtNumInforme.Value;
                 model.Distrito = cmbDistrito.Value;

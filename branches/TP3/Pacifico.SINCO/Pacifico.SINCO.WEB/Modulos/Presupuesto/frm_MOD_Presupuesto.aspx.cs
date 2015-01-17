@@ -43,12 +43,12 @@ namespace Pacifico.SINCO.WEB.Modulos.Presupuesto
                     int id = int.Parse(Request.QueryString["pIdPresupuesto"]);
 
                     //WS-SINIESTRO
-                    IwsPresupuestoClient service = new IwsPresupuestoClient();
+                    PresupuestoWSClient service = new PresupuestoWSClient();
 
                     //Parametros
                     string modelJson = service.ObtenerPresupuesto(id);
 
-                    MSPresupuesto model = new JavaScriptSerializer().Deserialize<MSPresupuesto>(modelJson);
+                    PresupuestoEN model = new JavaScriptSerializer().Deserialize<PresupuestoEN>(modelJson);
                     MS_Presupuesto_Id.Value = model.MS_Presupuesto_Id.ToString();
                     UsuarioRegistro.Value = model.UsuarioRegistro;
                     FechaRegistro.Value = model.FechaModifico.ToString("d");
@@ -97,12 +97,12 @@ namespace Pacifico.SINCO.WEB.Modulos.Presupuesto
             {
                 lblMensajeError.InnerText = "";
                 //WS-SINIESTRO
-                IwsPresupuestoClient service = new IwsPresupuestoClient();
+                PresupuestoWSClient service = new PresupuestoWSClient();
 
                 //Validación
 
                 //Parametros
-                MSPresupuesto model = new MSPresupuesto();
+                PresupuestoEN model = new PresupuestoEN();
                 model.MS_Presupuesto_Id = int.Parse(MS_Presupuesto_Id.Value);
                 model.NumPresupuesto = txtNumPresupuesto.Value;
                 model.FechaPresupuesto = Convert.ToDateTime(txtFechaPresupuesto.Value);
@@ -115,9 +115,9 @@ namespace Pacifico.SINCO.WEB.Modulos.Presupuesto
 
                 string DetalleFichaCargaSerializado = txtDetalle.Value;
 
-                MSPresupuesto modelJson = new JavaScriptSerializer().Deserialize<MSPresupuesto>(DetalleFichaCargaSerializado);
+                PresupuestoEN modelJson = new JavaScriptSerializer().Deserialize<PresupuestoEN>(DetalleFichaCargaSerializado);
 
-                model.DetallePresupuesto = (ICollection<MSDetallePresupuesto>)Session["detallePresupuestoAnterior"];
+                model.DetallePresupuesto = (ICollection<DetallePresupuestoEN>)Session["detallePresupuestoAnterior"];
                 Session["detallePresupuestoAnterior"] = null;
 
                 string mensaje = service.ModificarPresupuesto(model, modelJson.DetallePresupuesto.ToArray());

@@ -60,7 +60,7 @@ namespace Pacifico.SINCO.WEB.Modulos.Informe
                     //Obtiene Listado de Siniestros
                     string listadoJson = owsInformeClient.Listar();
 
-                    List<InformeAccidente> listado = new JavaScriptSerializer().Deserialize<List<InformeAccidente>>(listadoJson);
+                    List<InformeAccidenteEN> listado = new JavaScriptSerializer().Deserialize<List<InformeAccidenteEN>>(listadoJson);
 
                     rptListadoInformes.DataSource = listado;
                     rptListadoInformes.DataBind();
@@ -96,7 +96,7 @@ namespace Pacifico.SINCO.WEB.Modulos.Informe
                 //Obtiene Listado de Siniestros
                 string listadoJson = owsInformeClient.Buscar(NumPoliza, Tipo, FechaSiniestro);
 
-                List<InformeAccidente> listado = new JavaScriptSerializer().Deserialize<List<InformeAccidente>>(listadoJson);
+                List<InformeAccidenteEN> listado = new JavaScriptSerializer().Deserialize<List<InformeAccidenteEN>>(listadoJson);
 
                 rptListadoInformes.DataSource = listado;
                 rptListadoInformes.DataBind();

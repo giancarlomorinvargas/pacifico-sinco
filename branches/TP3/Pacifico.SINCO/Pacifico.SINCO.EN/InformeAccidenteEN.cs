@@ -9,7 +9,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Pacifico.SINCO.EN
 {
     [Table("INFORME_ACCIDENTE")]
-    public class InformeAccidente
+    public class InformeAccidenteEN
     {
         [Key]
         [Column("Informe_Accidente_Id")]
@@ -24,7 +24,7 @@ namespace Pacifico.SINCO.EN
         public string Direccion { get; set; }
         [Column("Estado_Id")]
         public int Estado { get; set; }
-        public virtual Estado EstadoEntity { get; set; }
+        public virtual EstadoEN EstadoEntity { get; set; }
 
         [Column("V_UsuarioRegistro")]
         public string UsuarioRegistro { get; set; }
@@ -38,7 +38,7 @@ namespace Pacifico.SINCO.EN
 
         [Column("Siniestro_Id")]
         public int MS_Siniestro_Id { get; set; }
-        public virtual MSSiniestro Siniestro { get; set; }
+        public virtual SiniestroEN Siniestro { get; set; }
 
 
         [Column("Tecnico_Taller_Id")]

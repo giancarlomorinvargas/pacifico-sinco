@@ -29,7 +29,7 @@ namespace Pacifico.SINCO.WEB.Modulos.Comun
                 {
                     List<enProcurador> olEnPolizaResult = new List<enProcurador>();
                     //WS
-                    IwsUtilClient owsUtilClient = new IwsUtilClient();
+                    UtilWSClient owsUtilClient = new UtilWSClient();
 
                     //Parametros
                     enProcurador oEnProcurador = new enProcurador();
@@ -66,7 +66,7 @@ namespace Pacifico.SINCO.WEB.Modulos.Comun
             {
                 lblMensajeError.InnerText = "";
                 //WS
-                IwsUtilClient owsUtilClient = new IwsUtilClient();
+                UtilWSClient owsUtilClient = new UtilWSClient();
 
                 List<enProcurador> olEnPolizaResult = new List<enProcurador>();
                 //Parametros

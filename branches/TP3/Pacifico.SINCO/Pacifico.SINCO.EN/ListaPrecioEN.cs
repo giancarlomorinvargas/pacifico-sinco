@@ -9,7 +9,7 @@ using System.Runtime.Serialization;
 namespace Pacifico.SINCO.EN
 {
     [Table("LISTA_PRECIO")]
-    public class ListaPrecio
+    public class ListaPrecioEN
     {
         [Key]
         [Column("Lista_Precio_Id")]
@@ -21,15 +21,15 @@ namespace Pacifico.SINCO.EN
 
         [Column("Modelo_Id")]
         public int MP_Modelo_Id { get; set; }
-        public virtual Modelo Modelo { get; set; }
+        public virtual ModeloEN Modelo { get; set; }
 
         [Column("Marca_Id")]
         public int MP_Marca_Id { get; set; }
-        public virtual Marca Marca { get; set; }
+        public virtual MarcaEN Marca { get; set; }
 
         [Column("Servicio_Id")]
         public int MS_Servicio_Id { get; set; }       
-        public virtual Servicio Servicio { get; set; }
+        public virtual ServicioEN Servicio { get; set; }
         
     }
 }

@@ -7,7 +7,7 @@ using System.Web;
 
 namespace Pacifico.SINCO.AD
 {
-    public class DetallePresupuestoDAO : BaseDAO<MSDetallePresupuesto>, IDetallePresupuestoDAO
+    public class DetallePresupuestoDAO : BaseDAO<DetallePresupuestoEN>, IDetallePresupuestoDAO
     {
     }
 }

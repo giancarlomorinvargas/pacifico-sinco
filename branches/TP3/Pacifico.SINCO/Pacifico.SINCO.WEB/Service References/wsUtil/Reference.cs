@@ -12,52 +12,52 @@ namespace Pacifico.SINCO.WEB.wsUtil {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="wsUtil.IwsUtil")]
-    public interface IwsUtil {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="wsUtil.IUtilWS")]
+    public interface IUtilWS {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwsUtil/wsObtenerNombreWS", ReplyAction="http://tempuri.org/IwsUtil/wsObtenerNombreWSResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUtilWS/wsObtenerNombreWS", ReplyAction="http://tempuri.org/IUtilWS/wsObtenerNombreWSResponse")]
         string wsObtenerNombreWS();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwsUtil/wsObtenerNombreWS", ReplyAction="http://tempuri.org/IwsUtil/wsObtenerNombreWSResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUtilWS/wsObtenerNombreWS", ReplyAction="http://tempuri.org/IUtilWS/wsObtenerNombreWSResponse")]
         System.Threading.Tasks.Task<string> wsObtenerNombreWSAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwsUtil/ListarPoliza", ReplyAction="http://tempuri.org/IwsUtil/ListarPolizaResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUtilWS/ListarPoliza", ReplyAction="http://tempuri.org/IUtilWS/ListarPolizaResponse")]
         Pacifico.SINCO.EN.enPoliza[] ListarPoliza(Pacifico.SINCO.EN.enPoliza pEnPoliza);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwsUtil/ListarPoliza", ReplyAction="http://tempuri.org/IwsUtil/ListarPolizaResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUtilWS/ListarPoliza", ReplyAction="http://tempuri.org/IUtilWS/ListarPolizaResponse")]
         System.Threading.Tasks.Task<Pacifico.SINCO.EN.enPoliza[]> ListarPolizaAsync(Pacifico.SINCO.EN.enPoliza pEnPoliza);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwsUtil/ListarProcurador", ReplyAction="http://tempuri.org/IwsUtil/ListarProcuradorResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUtilWS/ListarProcurador", ReplyAction="http://tempuri.org/IUtilWS/ListarProcuradorResponse")]
         Pacifico.SINCO.EN.enProcurador[] ListarProcurador(Pacifico.SINCO.EN.enProcurador pEnProcurador);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwsUtil/ListarProcurador", ReplyAction="http://tempuri.org/IwsUtil/ListarProcuradorResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUtilWS/ListarProcurador", ReplyAction="http://tempuri.org/IUtilWS/ListarProcuradorResponse")]
         System.Threading.Tasks.Task<Pacifico.SINCO.EN.enProcurador[]> ListarProcuradorAsync(Pacifico.SINCO.EN.enProcurador pEnProcurador);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IwsUtilChannel : Pacifico.SINCO.WEB.wsUtil.IwsUtil, System.ServiceModel.IClientChannel {
+    public interface IUtilWSChannel : Pacifico.SINCO.WEB.wsUtil.IUtilWS, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class IwsUtilClient : System.ServiceModel.ClientBase<Pacifico.SINCO.WEB.wsUtil.IwsUtil>, Pacifico.SINCO.WEB.wsUtil.IwsUtil {
+    public partial class UtilWSClient : System.ServiceModel.ClientBase<Pacifico.SINCO.WEB.wsUtil.IUtilWS>, Pacifico.SINCO.WEB.wsUtil.IUtilWS {
         
-        public IwsUtilClient() {
+        public UtilWSClient() {
         }
         
-        public IwsUtilClient(string endpointConfigurationName) : 
+        public UtilWSClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public IwsUtilClient(string endpointConfigurationName, string remoteAddress) : 
+        public UtilWSClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public IwsUtilClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public UtilWSClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public IwsUtilClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public UtilWSClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         

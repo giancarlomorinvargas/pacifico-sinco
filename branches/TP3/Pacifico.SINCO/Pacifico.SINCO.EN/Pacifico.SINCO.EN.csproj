@@ -42,25 +42,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MSProcurador.cs" />
-    <Compile Include="Estado.cs" />
+    <Compile Include="SiniestroEN.cs" />
+    <Compile Include="ProcuradorEN.cs" />
+    <Compile Include="EstadoEN.cs" />
     <Compile Include="enAsegurado.cs" />
     <Compile Include="enBase.cs" />
     <Compile Include="enPoliza.cs" />
     <Compile Include="enProcurador.cs" />
     <Compile Include="enSiniestro.cs" />
     <Compile Include="enVehiculo.cs" />
-    <Compile Include="Asegurado.cs" />
-    <Compile Include="Marca.cs" />
-    <Compile Include="Modelo.cs" />
-    <Compile Include="MPPoliza.cs" />
-    <Compile Include="MPVehiculo.cs" />
-    <Compile Include="MSDetallePresupuesto.cs" />
-    <Compile Include="InformeAccidente.cs" />
-    <Compile Include="ListaPrecio.cs" />
-    <Compile Include="MSPresupuesto.cs" />
-    <Compile Include="Servicio.cs" />
-    <Compile Include="MSSiniestro.cs" />
+    <Compile Include="AseguradoEN.cs" />
+    <Compile Include="MarcaEN.cs" />
+    <Compile Include="ModeloEN.cs" />
+    <Compile Include="PolizaEN.cs" />
+    <Compile Include="VehiculoEN.cs" />
+    <Compile Include="DetallePresupuestoEN.cs" />
+    <Compile Include="InformeAccidenteEN.cs" />
+    <Compile Include="ListaPrecioEN.cs" />
+    <Compile Include="PresupuestoEN.cs" />
+    <Compile Include="ServicioEN.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

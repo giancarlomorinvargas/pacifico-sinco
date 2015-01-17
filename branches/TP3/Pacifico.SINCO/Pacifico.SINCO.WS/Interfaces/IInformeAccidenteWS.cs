@@ -24,9 +24,9 @@ namespace Pacifico.SINCO.WS.Interfaces
         [OperationContract]
         string Buscar(string numPoliza, string tipoSiniestro, string fechaSiniestro);
         [OperationContract]
-        string Agregar(InformeAccidente model);
+        string Agregar(InformeAccidenteEN model);
         [OperationContract]
-        string Modificar(InformeAccidente model);
+        string Modificar(InformeAccidenteEN model);
 
     }
 }

@@ -137,14 +137,14 @@ namespace Pacifico.SINCO.WS
                 {
                     rnProcurador oRnProcurador = new rnProcurador();
 
-                    //Actualizar Disponibilidad de Procurador (Disponible) asociado al siniestro
+                    //Actualizar Disponibilidad de ProcuradorEN (Disponible) asociado al siniestro
                     bool exito1 = oRnProcurador.ActualizarDisponibilidadProcurador(new enProcurador()
                     {
                         MS_Procurador_Id = pEnSiniestroConsulta.MS_Procurador_Id,
                         Disponible = true
                     });
 
-                    //Actualizar Disponibilidad de Procurador (Ocupado) asignado
+                    //Actualizar Disponibilidad de ProcuradorEN (Ocupado) asignado
                     bool exito2 = oRnProcurador.ActualizarDisponibilidadProcurador(new enProcurador()
                     {
                         MS_Procurador_Id = pEnSiniestro.MS_Procurador_Id,

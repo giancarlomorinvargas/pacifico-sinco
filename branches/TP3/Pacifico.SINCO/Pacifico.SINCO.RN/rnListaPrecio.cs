@@ -24,9 +24,9 @@ namespace Pacifico.SINCO.RN
          }
 
 
-        public ListaPrecio Obtener(int Id)
+        public ListaPrecioEN Obtener(int Id)
          {
-             ListaPrecio model = _ListaPrecioRepositorio.Get(Id);
+             ListaPrecioEN model = _ListaPrecioRepositorio.Get(Id);
              if (model == null)
              {
                  throw new Exception(MENSAJE_NO_DISPONIBLE);
@@ -35,18 +35,18 @@ namespace Pacifico.SINCO.RN
              return model;
          }
 
-        public List<ListaPrecio> Listar()
+        public List<ListaPrecioEN> Listar()
          {
-             List<ListaPrecio> result = _ListaPrecioRepositorio.GetAll().ToList();
+             List<ListaPrecioEN> result = _ListaPrecioRepositorio.GetAll().ToList();
              //return new JavaScriptSerializer().Serialize(result);
              return result;
          }
 
-        public List<ListaPrecio> Buscar(int MarcaId, int ModeloId)
+        public List<ListaPrecioEN> Buscar(int MarcaId, int ModeloId)
          {
-             List<ListaPrecio> listado = new List<ListaPrecio>();
+             List<ListaPrecioEN> listado = new List<ListaPrecioEN>();
 
-             foreach (ListaPrecio Model in _ListaPrecioRepositorio.GetAll().Where(
+             foreach (ListaPrecioEN Model in _ListaPrecioRepositorio.GetAll().Where(
                  b => b.MP_Marca_Id == MarcaId && b.MP_Modelo_Id == ModeloId).ToList())
              {
                  listado.Add(Model);

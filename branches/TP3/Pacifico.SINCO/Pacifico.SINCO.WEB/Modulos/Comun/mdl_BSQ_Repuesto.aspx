@@ -146,11 +146,6 @@
                <tbody>
                    <tr>
 			            <td>
-                            <!--<a href="#" 
-                                style="width:40px;"
-                                onclick="parent.cargarListaPrecio({listaPrecioId:'<%# Eval("MS_Lista_Precio_Id") %>',
-                                descripcion:'<%# Eval("Servicio.Descripcion") %>',
-                                precio:'<%# Eval("Precio") %>'})">Seleccionar</a>-->
                             
                             <input id="chkIdListaPrecio" type="checkbox" value="<%#Eval("MS_Lista_Precio_Id")%>"
                                 onclick="fn_checkLista(this,{listaPrecioId:'<%# Eval("MS_Lista_Precio_Id") %>',

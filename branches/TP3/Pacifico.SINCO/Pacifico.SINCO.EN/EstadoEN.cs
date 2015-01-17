@@ -8,7 +8,7 @@ using System.Web;
 namespace Pacifico.SINCO.EN
 {
     [Table("ESTADO")]
-    public class Estado
+    public class EstadoEN
     {
         [Key]
         [Column("Estado_Id")]

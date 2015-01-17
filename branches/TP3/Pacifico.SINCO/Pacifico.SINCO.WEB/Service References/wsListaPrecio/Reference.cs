@@ -12,58 +12,58 @@ namespace Pacifico.SINCO.WEB.wsListaPrecio {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="wsListaPrecio.IwsListaPrecio")]
-    public interface IwsListaPrecio {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="wsListaPrecio.IListaPrecioWS")]
+    public interface IListaPrecioWS {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwsListaPrecio/wsObtenerNombreWS", ReplyAction="http://tempuri.org/IwsListaPrecio/wsObtenerNombreWSResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IListaPrecioWS/wsObtenerNombreWS", ReplyAction="http://tempuri.org/IListaPrecioWS/wsObtenerNombreWSResponse")]
         string wsObtenerNombreWS();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwsListaPrecio/wsObtenerNombreWS", ReplyAction="http://tempuri.org/IwsListaPrecio/wsObtenerNombreWSResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IListaPrecioWS/wsObtenerNombreWS", ReplyAction="http://tempuri.org/IListaPrecioWS/wsObtenerNombreWSResponse")]
         System.Threading.Tasks.Task<string> wsObtenerNombreWSAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwsListaPrecio/Obtener", ReplyAction="http://tempuri.org/IwsListaPrecio/ObtenerResponse")]
-        string Obtener(int Id);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IListaPrecioWS/Obtener", ReplyAction="http://tempuri.org/IListaPrecioWS/ObtenerResponse")]
+        string Obtener(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwsListaPrecio/Obtener", ReplyAction="http://tempuri.org/IwsListaPrecio/ObtenerResponse")]
-        System.Threading.Tasks.Task<string> ObtenerAsync(int Id);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IListaPrecioWS/Obtener", ReplyAction="http://tempuri.org/IListaPrecioWS/ObtenerResponse")]
+        System.Threading.Tasks.Task<string> ObtenerAsync(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwsListaPrecio/Listar", ReplyAction="http://tempuri.org/IwsListaPrecio/ListarResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IListaPrecioWS/Listar", ReplyAction="http://tempuri.org/IListaPrecioWS/ListarResponse")]
         string Listar();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwsListaPrecio/Listar", ReplyAction="http://tempuri.org/IwsListaPrecio/ListarResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IListaPrecioWS/Listar", ReplyAction="http://tempuri.org/IListaPrecioWS/ListarResponse")]
         System.Threading.Tasks.Task<string> ListarAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwsListaPrecio/Buscar", ReplyAction="http://tempuri.org/IwsListaPrecio/BuscarResponse")]
-        string Buscar(int MarcaId, int ModeloId);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IListaPrecioWS/Buscar", ReplyAction="http://tempuri.org/IListaPrecioWS/BuscarResponse")]
+        string Buscar(int marcaId, int modeloId);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwsListaPrecio/Buscar", ReplyAction="http://tempuri.org/IwsListaPrecio/BuscarResponse")]
-        System.Threading.Tasks.Task<string> BuscarAsync(int MarcaId, int ModeloId);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IListaPrecioWS/Buscar", ReplyAction="http://tempuri.org/IListaPrecioWS/BuscarResponse")]
+        System.Threading.Tasks.Task<string> BuscarAsync(int marcaId, int modeloId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IwsListaPrecioChannel : Pacifico.SINCO.WEB.wsListaPrecio.IwsListaPrecio, System.ServiceModel.IClientChannel {
+    public interface IListaPrecioWSChannel : Pacifico.SINCO.WEB.wsListaPrecio.IListaPrecioWS, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class IwsListaPrecioClient : System.ServiceModel.ClientBase<Pacifico.SINCO.WEB.wsListaPrecio.IwsListaPrecio>, Pacifico.SINCO.WEB.wsListaPrecio.IwsListaPrecio {
+    public partial class ListaPrecioWSClient : System.ServiceModel.ClientBase<Pacifico.SINCO.WEB.wsListaPrecio.IListaPrecioWS>, Pacifico.SINCO.WEB.wsListaPrecio.IListaPrecioWS {
         
-        public IwsListaPrecioClient() {
+        public ListaPrecioWSClient() {
         }
         
-        public IwsListaPrecioClient(string endpointConfigurationName) : 
+        public ListaPrecioWSClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public IwsListaPrecioClient(string endpointConfigurationName, string remoteAddress) : 
+        public ListaPrecioWSClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public IwsListaPrecioClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public ListaPrecioWSClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public IwsListaPrecioClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public ListaPrecioWSClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         
@@ -75,12 +75,12 @@ namespace Pacifico.SINCO.WEB.wsListaPrecio {
             return base.Channel.wsObtenerNombreWSAsync();
         }
         
-        public string Obtener(int Id) {
-            return base.Channel.Obtener(Id);
+        public string Obtener(int id) {
+            return base.Channel.Obtener(id);
         }
         
-        public System.Threading.Tasks.Task<string> ObtenerAsync(int Id) {
-            return base.Channel.ObtenerAsync(Id);
+        public System.Threading.Tasks.Task<string> ObtenerAsync(int id) {
+            return base.Channel.ObtenerAsync(id);
         }
         
         public string Listar() {
@@ -91,12 +91,12 @@ namespace Pacifico.SINCO.WEB.wsListaPrecio {
             return base.Channel.ListarAsync();
         }
         
-        public string Buscar(int MarcaId, int ModeloId) {
-            return base.Channel.Buscar(MarcaId, ModeloId);
+        public string Buscar(int marcaId, int modeloId) {
+            return base.Channel.Buscar(marcaId, modeloId);
         }
         
-        public System.Threading.Tasks.Task<string> BuscarAsync(int MarcaId, int ModeloId) {
-            return base.Channel.BuscarAsync(MarcaId, ModeloId);
+        public System.Threading.Tasks.Task<string> BuscarAsync(int marcaId, int modeloId) {
+            return base.Channel.BuscarAsync(marcaId, modeloId);
         }
     }
 }

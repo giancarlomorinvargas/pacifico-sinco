@@ -4,16 +4,17 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Runtime.Serialization;
 
 namespace Pacifico.SINCO.EN
 {
-    [Table("SERVICIO")]
-    public class Servicio
+    [Table("MODELO")]
+    public class ModeloEN
     {
         [Key]
-        [Column("Servicio_Id")]
-        public int MS_Servicio_Id { get; set; }
-        [Column("V_Descripcion")]
+        [Column("Modelo_Id")]
+        public int MP_Modelo_Id { get; set; }
+        [Column("Descripcion")]
         public string Descripcion { get; set; }
     }
 }

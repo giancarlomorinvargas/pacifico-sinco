@@ -40,7 +40,7 @@ namespace Pacifico.SINCO.WEB.Modulos.Informe
                     //Parametros
                     string modelJson = service.Obtener(id);
 
-                    InformeAccidente model = new JavaScriptSerializer().Deserialize<InformeAccidente>(modelJson);
+                    InformeAccidenteEN model = new JavaScriptSerializer().Deserialize<InformeAccidenteEN>(modelJson);
                     txtNumInforme.Value = model.NumInforme.ToString();
                     txtDireccion.Value = model.Direccion;
                     txtDistrito.Value = model.Distrito;
