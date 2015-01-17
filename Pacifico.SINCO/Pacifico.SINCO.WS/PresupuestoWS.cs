@@ -13,14 +13,14 @@ using System.Web.Script.Serialization;
 
 namespace Pacifico.SINCO.WS
 {
-    public class wsPresupuesto : IwsPresupuesto
+    public class PresupuestoWS : IPresupuestoWS
     {
 
         
         private rnPresupuesto reglaNegocioPresupuesto;
 
 
-        public wsPresupuesto()
+        public PresupuestoWS()
          {
              reglaNegocioPresupuesto = new rnPresupuesto();
          }

@@ -50,16 +50,16 @@
     <Compile Include="enProcurador.cs" />
     <Compile Include="enSiniestro.cs" />
     <Compile Include="enVehiculo.cs" />
-    <Compile Include="MPAsegurado.cs" />
-    <Compile Include="MPMarca.cs" />
-    <Compile Include="MPModelo.cs" />
+    <Compile Include="Asegurado.cs" />
+    <Compile Include="Marca.cs" />
+    <Compile Include="Modelo.cs" />
     <Compile Include="MPPoliza.cs" />
     <Compile Include="MPVehiculo.cs" />
     <Compile Include="MSDetallePresupuesto.cs" />
     <Compile Include="InformeAccidente.cs" />
-    <Compile Include="MSListaPrecio.cs" />
+    <Compile Include="ListaPrecio.cs" />
     <Compile Include="MSPresupuesto.cs" />
-    <Compile Include="MSServicio.cs" />
+    <Compile Include="Servicio.cs" />
     <Compile Include="MSSiniestro.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

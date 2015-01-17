@@ -11,7 +11,7 @@ using Pacifico.SINCO.RN;
 
 namespace Pacifico.SINCO.WS
 {
-    public class wsUtil : IwsUtil
+    public class UtilWS : IUtilWS
     {
         /*<summary>
         ObtenerNombreWS

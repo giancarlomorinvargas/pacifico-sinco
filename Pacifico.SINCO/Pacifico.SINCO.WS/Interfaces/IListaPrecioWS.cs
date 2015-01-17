@@ -10,19 +10,19 @@ using Pacifico.SINCO.EN;
 
 namespace Pacifico.SINCO.WS.Interfaces
 {
-
     [ServiceContract]
-    public interface IwsUtil
+    public interface IListaPrecioWS
     {
 
         [OperationContract]
         string wsObtenerNombreWS();
-        
-        [OperationContract]
-        List<enPoliza> ListarPoliza(enPoliza pEnPoliza);
 
         [OperationContract]
-        List<enProcurador> ListarProcurador(enProcurador pEnProcurador);
+        string Obtener(int id);
+        [OperationContract]
+        string Listar();
+        [OperationContract]
+        string Buscar(int marcaId, int modeloId);
+
     }
-
 }

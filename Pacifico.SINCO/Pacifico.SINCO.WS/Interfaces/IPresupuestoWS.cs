@@ -11,7 +11,7 @@ using Pacifico.SINCO.EN;
 namespace Pacifico.SINCO.WS.Interfaces
 {
     [ServiceContract]
-    public interface IwsPresupuesto
+    public interface IPresupuestoWS
     {
 
         [OperationContract]

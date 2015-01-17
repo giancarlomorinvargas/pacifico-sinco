@@ -7,12 +7,15 @@ using System.Web;
 
 namespace Pacifico.SINCO.EN
 {
-    [Table("Estado")]
+    [Table("ESTADO")]
     public class Estado
     {
         [Key]
+        [Column("Estado_Id")]
         public int Estado_Id { get; set; }
+        [Column("V_Nombre")]
         public string Nombre { get; set; }
+        [Column("V_Descripcion")]
         public string Descripcion { get; set; }
     }
 }

@@ -17,9 +17,9 @@ namespace Pacifico.SINCO.EN
         public string Chasis { get; set; }
 
         public int MP_Modelo_Id  { get; set; }
-        public virtual MPModelo Modelo { get; set; }
+        public virtual Modelo Modelo { get; set; }
 
         public int MP_Marca_Id { get; set; }
-        public virtual MPMarca Marca { get; set; }
+        public virtual Marca Marca { get; set; }
     }
 }

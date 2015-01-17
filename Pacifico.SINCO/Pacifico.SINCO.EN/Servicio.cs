@@ -7,11 +7,13 @@ using System.Web;
 
 namespace Pacifico.SINCO.EN
 {
-    [Table("MP_Marca")]
-    public class MPMarca
+    [Table("SERVICIO")]
+    public class Servicio
     {
         [Key]
-        public int MP_Marca_Id { get; set; }
+        [Column("Servicio_Id")]
+        public int MS_Servicio_Id { get; set; }
+        [Column("V_Descripcion")]
         public string Descripcion { get; set; }
     }
 }

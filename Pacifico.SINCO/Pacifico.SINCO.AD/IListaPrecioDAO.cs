@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Pacifico.SINCO.AD
 {
-    public interface IListaPrecioDAO : IBaseDAO<MSListaPrecio>
+    public interface IListaPrecioDAO : IBaseDAO<ListaPrecio>
     {
     }
 }

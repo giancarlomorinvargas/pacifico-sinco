@@ -24,7 +24,7 @@ namespace Pacifico.SINCO.EN
         public DateTime FechaModifico { get; set; }
 
         public int MP_Asegurado_ID { get; set; }
-        public virtual MPAsegurado Asegurado { get; set; }
+        public virtual Asegurado Asegurado { get; set; }
 
         public int MP_Vehiculo_ID { get; set; }
         public virtual MPVehiculo Vehiculo { get; set; }
