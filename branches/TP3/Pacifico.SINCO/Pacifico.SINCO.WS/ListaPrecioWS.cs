@@ -13,12 +13,12 @@ using System.ServiceModel;
 
 namespace Pacifico.SINCO.WS
 {
-    public class wsListaPrecio : IwsListaPrecio
+    public class ListaPrecioWS : IListaPrecioWS
     {
 
         private rnListaPrecio reglaNegocioListaPrecio;
 
-        public wsListaPrecio()
+        public ListaPrecioWS()
          {
              reglaNegocioListaPrecio = new rnListaPrecio();
          }
@@ -37,7 +37,7 @@ namespace Pacifico.SINCO.WS
          {
              try
              {
-                 MSListaPrecio model = reglaNegocioListaPrecio.Obtener(Id);
+                 ListaPrecio model = reglaNegocioListaPrecio.Obtener(Id);
                  return new JavaScriptSerializer().Serialize(model);
              }
              catch (Exception e)
@@ -50,7 +50,7 @@ namespace Pacifico.SINCO.WS
          {
              try
              {
-                 List<MSListaPrecio> model = reglaNegocioListaPrecio.Listar();
+                 List<ListaPrecio> model = reglaNegocioListaPrecio.Listar();
                  return new JavaScriptSerializer().Serialize(model);
              }
              catch (Exception e)
@@ -63,7 +63,7 @@ namespace Pacifico.SINCO.WS
          {
              try
              {
-                 List<MSListaPrecio> model = reglaNegocioListaPrecio.Buscar(MarcaId, ModeloId);
+                 List<ListaPrecio> model = reglaNegocioListaPrecio.Buscar(MarcaId, ModeloId);
                  return new JavaScriptSerializer().Serialize(model);
              }
              catch (Exception e)

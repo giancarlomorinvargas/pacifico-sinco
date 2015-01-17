@@ -20,6 +20,6 @@ namespace Pacifico.SINCO.EN
 
 
         public int MS_Lista_Precio_Id { get; set; }
-        public virtual MSListaPrecio ListaPrecio { get; set; }
+        public virtual ListaPrecio ListaPrecio { get; set; }
     }
 }

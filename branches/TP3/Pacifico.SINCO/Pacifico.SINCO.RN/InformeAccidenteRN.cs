@@ -110,8 +110,8 @@ namespace Pacifico.SINCO.RN
         {
             IInformeAccidenteDAO informeAccidenteDao = new InformeAccidenteDAO();
             string numPolizaParam = numPoliza == null ? "" : numPoliza.ToUpper();
-            string tipoSiniestroParam = tipoSiniestro == null ? "" : tipoSiniestro.ToUpper();
-            string fechaSiniestroParam = fechaSiniestro == null ? "" : fechaSiniestro.ToUpper();
+            string tipoSiniestroParam = tipoSiniestro == null ? "" : tipoSiniestro;
+            string fechaSiniestroParam = fechaSiniestro == null ? "" : fechaSiniestro;
 
              List<InformeAccidente> listado = new List<InformeAccidente>();
 

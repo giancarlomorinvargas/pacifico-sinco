@@ -12,7 +12,7 @@ using System.ServiceModel;
 
 namespace Pacifico.SINCO.WS
 {
-    public class wsSiniestro : IwsSiniestro
+    public class SiniestroWS : ISiniestroWS
     {
 
         private static string MENSAJE_ERROR_GENERAL = "Error en el sistema";

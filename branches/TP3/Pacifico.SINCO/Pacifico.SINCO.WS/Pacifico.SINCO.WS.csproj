@@ -49,15 +49,15 @@
   <ItemGroup>
     <Compile Include="InformeAccidenteWS.cs" />
     <Compile Include="Interfaces\IInformeAccidenteWS.cs" />
-    <Compile Include="wsListaPrecio.cs" />
-    <Compile Include="Interfaces\IwsListaPrecio.cs" />
-    <Compile Include="Interfaces\IwsPresupuesto.cs" />
-    <Compile Include="Interfaces\IwsSiniestro.cs" />
-    <Compile Include="Interfaces\IwsUtil.cs" />
+    <Compile Include="ListaPrecioWS.cs" />
+    <Compile Include="Interfaces\IListaPrecioWS.cs" />
+    <Compile Include="Interfaces\IPresupuestoWS.cs" />
+    <Compile Include="Interfaces\ISiniestroWS.cs" />
+    <Compile Include="Interfaces\IUtilWS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="wsPresupuesto.cs" />
-    <Compile Include="wsSiniestro.cs" />
-    <Compile Include="wsUtil.cs" />
+    <Compile Include="PresupuestoWS.cs" />
+    <Compile Include="SiniestroWS.cs" />
+    <Compile Include="UtilWS.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

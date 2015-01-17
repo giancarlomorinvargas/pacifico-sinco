@@ -8,11 +8,13 @@ using System.Runtime.Serialization;
 
 namespace Pacifico.SINCO.EN
 {
-    [Table("MP_Modelo")]
-    public class MPModelo
+    [Table("MODELO")]
+    public class Modelo
     {
         [Key]
+        [Column("Modelo_Id")]
         public int MP_Modelo_Id { get; set; }
+        [Column("Descripcion")]
         public string Descripcion { get; set; }
     }
 }

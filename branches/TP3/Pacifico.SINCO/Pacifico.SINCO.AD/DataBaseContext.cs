@@ -17,10 +17,10 @@ namespace Pacifico.SINCO.AD
         
         //Aquí se definen todas los DBSets de las Entidades que serán transformadas en tablas
         
-        public DbSet<MPMarca> MPMarca { get; set; }
-        public DbSet<MPModelo> MPModelo { get; set; }
-        public DbSet<MSServicio> MSServicio { get; set; }
-        public DbSet<MSListaPrecio> MSListaPrecio { get; set; }
+        public DbSet<Marca> MPMarca { get; set; }
+        public DbSet<Modelo> MPModelo { get; set; }
+        public DbSet<Servicio> MSServicio { get; set; }
+        public DbSet<ListaPrecio> MSListaPrecio { get; set; }
 
         public DbSet<MSSiniestro> MSSiniestro { get; set; }
         public DbSet<InformeAccidente> MSInformeAccidente { get; set; }
