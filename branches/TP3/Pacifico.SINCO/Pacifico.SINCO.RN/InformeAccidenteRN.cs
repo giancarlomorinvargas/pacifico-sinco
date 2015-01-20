@@ -133,5 +133,31 @@ namespace Pacifico.SINCO.RN
              return listado;
          }
 
+        public List<InformeAccidenteEN> Buscar(string numInforme, string asegurado)
+        {
+            IInformeAccidenteDAO informeAccidenteDao = new InformeAccidenteDAO();
+            string numInformeParam = numInforme == null ? "" : numInforme.ToUpper();
+            string aseguradoParam = asegurado == null ? "" : asegurado.ToUpper();
+
+            List<InformeAccidenteEN> listado = new List<InformeAccidenteEN>();
+
+            foreach (InformeAccidenteEN item in informeAccidenteDao.GetAll().Where(
+                b => b.NumInforme.ToUpper().Contains(numInformeParam)).ToList())
+            {
+                string nombreCompletoAsegurado = item.Siniestro.Poliza.Asegurado.Nombre + " " + item.Siniestro.Poliza.Asegurado.ApellidoPaterno + " " + item.Siniestro.Poliza.Asegurado.ApellidoMaterno;
+                if (nombreCompletoAsegurado.ToUpper().Contains(aseguradoParam))
+                {
+                    listado.Add(item);
+                }
+            }
+
+            if (listado.Count() == 0)
+            {
+                throw new Exception(MENSAJE_BUSQUEDA_NO_ENCONTRADA);
+            }
+
+            return listado;
+        }
+
     }
 }

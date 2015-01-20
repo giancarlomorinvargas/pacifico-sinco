@@ -63,24 +63,24 @@ namespace Pacifico.SINCO.WEB.Modulos.Comun
                 InformeAccidenteWSClient owsInformeAccidenteClient = new InformeAccidenteWSClient();
 
 
-                string NumInforme= txtNumInforme.Value.ToUpper();
-                string Asegurado = txtAsegurado.Value.ToUpper();
+                string numInforme= txtNumInforme.Value.ToUpper();
+                string asegurado = txtAsegurado.Value.ToUpper();
 
                 //Obtiene Listado de Siniestros
-                string listadoJson = owsInformeAccidenteClient.Listar();
-                List<InformeAccidenteEN> listadoResult = new List<InformeAccidenteEN>();
+                string listadoJson = owsInformeAccidenteClient.BuscarParaPresupuesto(numInforme, asegurado);
+                //List<InformeAccidenteEN> listadoResult = new List<InformeAccidenteEN>();
                 List<InformeAccidenteEN> listado = new JavaScriptSerializer().Deserialize<List<InformeAccidenteEN>>(listadoJson);
 
-                foreach (InformeAccidenteEN item in listado)
+                /*foreach (InformeAccidenteEN item in listado)
                 {
                     string asegurado = item.Siniestro.Poliza.Asegurado.Nombre + " " + item.Siniestro.Poliza.Asegurado.ApellidoPaterno + " " + item.Siniestro.Poliza.Asegurado.ApellidoMaterno;
                     if (asegurado.ToUpper().Contains(Asegurado)) {
                         listadoResult.Add(item);
                     }
-                }
+                }*/
 
 
-                rptListadoInformes.DataSource = listadoResult;
+                rptListadoInformes.DataSource = listado;
                 rptListadoInformes.DataBind();
 
             }

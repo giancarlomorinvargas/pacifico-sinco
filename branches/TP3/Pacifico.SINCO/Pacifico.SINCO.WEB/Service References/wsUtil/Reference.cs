@@ -22,16 +22,40 @@ namespace Pacifico.SINCO.WEB.wsUtil {
         System.Threading.Tasks.Task<string> wsObtenerNombreWSAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUtilWS/ListarPoliza", ReplyAction="http://tempuri.org/IUtilWS/ListarPolizaResponse")]
-        Pacifico.SINCO.EN.enPoliza[] ListarPoliza(Pacifico.SINCO.EN.enPoliza pEnPoliza);
+        string ListarPoliza();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUtilWS/ListarPoliza", ReplyAction="http://tempuri.org/IUtilWS/ListarPolizaResponse")]
-        System.Threading.Tasks.Task<Pacifico.SINCO.EN.enPoliza[]> ListarPolizaAsync(Pacifico.SINCO.EN.enPoliza pEnPoliza);
+        System.Threading.Tasks.Task<string> ListarPolizaAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUtilWS/BuscarPoliza", ReplyAction="http://tempuri.org/IUtilWS/BuscarPolizaResponse")]
+        string BuscarPoliza(string dniAsegurado, string numPoliza, string placa);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUtilWS/BuscarPoliza", ReplyAction="http://tempuri.org/IUtilWS/BuscarPolizaResponse")]
+        System.Threading.Tasks.Task<string> BuscarPolizaAsync(string dniAsegurado, string numPoliza, string placa);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUtilWS/ListarProcurador", ReplyAction="http://tempuri.org/IUtilWS/ListarProcuradorResponse")]
-        Pacifico.SINCO.EN.enProcurador[] ListarProcurador(Pacifico.SINCO.EN.enProcurador pEnProcurador);
+        string ListarProcurador();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUtilWS/ListarProcurador", ReplyAction="http://tempuri.org/IUtilWS/ListarProcuradorResponse")]
-        System.Threading.Tasks.Task<Pacifico.SINCO.EN.enProcurador[]> ListarProcuradorAsync(Pacifico.SINCO.EN.enProcurador pEnProcurador);
+        System.Threading.Tasks.Task<string> ListarProcuradorAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUtilWS/BuscarProcurador", ReplyAction="http://tempuri.org/IUtilWS/BuscarProcuradorResponse")]
+        string BuscarProcurador(string numProcurador, string procurador);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUtilWS/BuscarProcurador", ReplyAction="http://tempuri.org/IUtilWS/BuscarProcuradorResponse")]
+        System.Threading.Tasks.Task<string> BuscarProcuradorAsync(string numProcurador, string procurador);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUtilWS/ActualizaDisponibilidadProcurador", ReplyAction="http://tempuri.org/IUtilWS/ActualizaDisponibilidadProcuradorResponse")]
+        string ActualizaDisponibilidadProcurador(Pacifico.SINCO.EN.ProcuradorEN pEnProcurador);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUtilWS/ActualizaDisponibilidadProcurador", ReplyAction="http://tempuri.org/IUtilWS/ActualizaDisponibilidadProcuradorResponse")]
+        System.Threading.Tasks.Task<string> ActualizaDisponibilidadProcuradorAsync(Pacifico.SINCO.EN.ProcuradorEN pEnProcurador);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUtilWS/ObtenerProcurador", ReplyAction="http://tempuri.org/IUtilWS/ObtenerProcuradorResponse")]
+        string ObtenerProcurador(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUtilWS/ObtenerProcurador", ReplyAction="http://tempuri.org/IUtilWS/ObtenerProcuradorResponse")]
+        System.Threading.Tasks.Task<string> ObtenerProcuradorAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -69,20 +93,52 @@ namespace Pacifico.SINCO.WEB.wsUtil {
             return base.Channel.wsObtenerNombreWSAsync();
         }
         
-        public Pacifico.SINCO.EN.enPoliza[] ListarPoliza(Pacifico.SINCO.EN.enPoliza pEnPoliza) {
-            return base.Channel.ListarPoliza(pEnPoliza);
+        public string ListarPoliza() {
+            return base.Channel.ListarPoliza();
         }
         
-        public System.Threading.Tasks.Task<Pacifico.SINCO.EN.enPoliza[]> ListarPolizaAsync(Pacifico.SINCO.EN.enPoliza pEnPoliza) {
-            return base.Channel.ListarPolizaAsync(pEnPoliza);
+        public System.Threading.Tasks.Task<string> ListarPolizaAsync() {
+            return base.Channel.ListarPolizaAsync();
         }
         
-        public Pacifico.SINCO.EN.enProcurador[] ListarProcurador(Pacifico.SINCO.EN.enProcurador pEnProcurador) {
-            return base.Channel.ListarProcurador(pEnProcurador);
+        public string BuscarPoliza(string dniAsegurado, string numPoliza, string placa) {
+            return base.Channel.BuscarPoliza(dniAsegurado, numPoliza, placa);
         }
         
-        public System.Threading.Tasks.Task<Pacifico.SINCO.EN.enProcurador[]> ListarProcuradorAsync(Pacifico.SINCO.EN.enProcurador pEnProcurador) {
-            return base.Channel.ListarProcuradorAsync(pEnProcurador);
+        public System.Threading.Tasks.Task<string> BuscarPolizaAsync(string dniAsegurado, string numPoliza, string placa) {
+            return base.Channel.BuscarPolizaAsync(dniAsegurado, numPoliza, placa);
+        }
+        
+        public string ListarProcurador() {
+            return base.Channel.ListarProcurador();
+        }
+        
+        public System.Threading.Tasks.Task<string> ListarProcuradorAsync() {
+            return base.Channel.ListarProcuradorAsync();
+        }
+        
+        public string BuscarProcurador(string numProcurador, string procurador) {
+            return base.Channel.BuscarProcurador(numProcurador, procurador);
+        }
+        
+        public System.Threading.Tasks.Task<string> BuscarProcuradorAsync(string numProcurador, string procurador) {
+            return base.Channel.BuscarProcuradorAsync(numProcurador, procurador);
+        }
+        
+        public string ActualizaDisponibilidadProcurador(Pacifico.SINCO.EN.ProcuradorEN pEnProcurador) {
+            return base.Channel.ActualizaDisponibilidadProcurador(pEnProcurador);
+        }
+        
+        public System.Threading.Tasks.Task<string> ActualizaDisponibilidadProcuradorAsync(Pacifico.SINCO.EN.ProcuradorEN pEnProcurador) {
+            return base.Channel.ActualizaDisponibilidadProcuradorAsync(pEnProcurador);
+        }
+        
+        public string ObtenerProcurador(int id) {
+            return base.Channel.ObtenerProcurador(id);
+        }
+        
+        public System.Threading.Tasks.Task<string> ObtenerProcuradorAsync(int id) {
+            return base.Channel.ObtenerProcuradorAsync(id);
         }
     }
 }

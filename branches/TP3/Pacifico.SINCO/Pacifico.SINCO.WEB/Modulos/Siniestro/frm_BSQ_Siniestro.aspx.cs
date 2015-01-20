@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Script.Serialization;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -56,12 +57,13 @@ namespace Pacifico.SINCO.WEB.Modulos.Siniestro
                     SiniestroWSClient owsSiniestroClient = new SiniestroWSClient();
 
                     //Parametros
-                    enSiniestro oEnSiniestro = new enSiniestro();
+                    //enSiniestro oEnSiniestro = new enSiniestro();
 
                     //Obtiene Listado de Siniestros
-                    List<enSiniestro> loEnSiniestro = owsSiniestroClient.ListarSiniestro(oEnSiniestro).Cast<enSiniestro>().ToList();
+                    string listadoSerializado = owsSiniestroClient.Listar();
+                    List<SiniestroEN> listado = new JavaScriptSerializer().Deserialize<List<SiniestroEN>>(listadoSerializado);
 
-                    rptListadoSiniestros.DataSource = loEnSiniestro;
+                    rptListadoSiniestros.DataSource = listado;
                     rptListadoSiniestros.DataBind();
 
                 }
@@ -88,15 +90,16 @@ namespace Pacifico.SINCO.WEB.Modulos.Siniestro
                 SiniestroWSClient owsSiniestroClient = new SiniestroWSClient();
 
                 //Parametros
-                enSiniestro oEnSiniestro = new enSiniestro();
-                oEnSiniestro.NumPoliza = txtNumPoliza.Value;
-                oEnSiniestro.Tipo = cmbTipoSiniestro.Value.ToString();
-                oEnSiniestro.vFechaRegistro = txtFechaSiniestro.Value;
+                //enSiniestro oEnSiniestro = new enSiniestro();
+                string numPoliza = txtNumPoliza.Value;
+                string tipo = cmbTipoSiniestro.Value.ToString();
+                string fechaRegistro = txtFechaSiniestro.Value;
 
                 //Obtiene Listado de Siniestros
-                List<enSiniestro> loEnSiniestro = owsSiniestroClient.ListarSiniestro(oEnSiniestro).Cast<enSiniestro>().ToList();
+                string listadoSerializado= owsSiniestroClient.Buscar(numPoliza, tipo, fechaRegistro);
+                List<SiniestroEN> listado = new JavaScriptSerializer().Deserialize<List<SiniestroEN>>(listadoSerializado);
 
-                rptListadoSiniestros.DataSource = loEnSiniestro;
+                rptListadoSiniestros.DataSource = listado;
                 rptListadoSiniestros.DataBind();
          
             }

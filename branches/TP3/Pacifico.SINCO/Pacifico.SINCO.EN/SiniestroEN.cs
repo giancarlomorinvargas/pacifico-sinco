@@ -28,6 +28,7 @@ namespace Pacifico.SINCO.EN
         public string Descripcion { get; set; }
         [Column("Estado_Id")]
         public int Estado { get; set; }
+        public virtual EstadoEN EstadoEntity { get; set; }
 
         [Column("V_UsuarioRegistro")]
         public string UsuarioRegistro { get; set; }

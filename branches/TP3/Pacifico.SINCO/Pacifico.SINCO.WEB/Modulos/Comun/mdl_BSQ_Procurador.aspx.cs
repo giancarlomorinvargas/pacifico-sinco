@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Script.Serialization;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -27,22 +28,23 @@ namespace Pacifico.SINCO.WEB.Modulos.Comun
                 //IsPostBack
                 if (!this.IsPostBack)
                 {
-                    List<enProcurador> olEnPolizaResult = new List<enProcurador>();
+                    //List<enProcurador> olEnPolizaResult = new List<enProcurador>();
                     //WS
                     UtilWSClient owsUtilClient = new UtilWSClient();
 
                     //Parametros
-                    enProcurador oEnProcurador = new enProcurador();
+                    //enProcurador oEnProcurador = new enProcurador();
 
                     //Obtiene Listado
-                    List<enProcurador> olEnPoliza = owsUtilClient.ListarProcurador(oEnProcurador).Cast<enProcurador>().ToList();
+                    string listadoSerializado = owsUtilClient.ListarProcurador();
+                    List<ProcuradorEN> listado = new JavaScriptSerializer().Deserialize<List<ProcuradorEN>> (listadoSerializado);
                     /*
                     foreach (enProcurador procurador in olEnPoliza.Where(b => b.Disponible))
                     {
                         olEnPolizaResult.Add(procurador);
                     }*/
 
-                    rptListadoProcurador.DataSource = olEnPoliza;
+                    rptListadoProcurador.DataSource = listado;
                     rptListadoProcurador.DataBind();
                 }
             }
@@ -68,23 +70,25 @@ namespace Pacifico.SINCO.WEB.Modulos.Comun
                 //WS
                 UtilWSClient owsUtilClient = new UtilWSClient();
 
-                List<enProcurador> olEnPolizaResult = new List<enProcurador>();
+                //List<enProcurador> olEnPolizaResult = new List<enProcurador>();
                 //Parametros
-                enProcurador oEnProcurador = new enProcurador();
-                oEnProcurador.NumProcurador = txtCodigoProcurador.Value;
-                oEnProcurador.ApellidoPaterno = txtNombreProcurador.Value;
-                oEnProcurador.Nombre = txtNombreProcurador.Value;
-                oEnProcurador.ApellidoMaterno = txtNombreProcurador.Value;
+                //enProcurador oEnProcurador = new enProcurador();
+                string numProcurador = txtCodigoProcurador.Value;
+                //string apellidoPaterno = txtNombreProcurador.Value;
+                string nombre = txtNombreProcurador.Value;
+                //string apellidoMaterno = txtNombreProcurador.Value;
 
                 //Obtiene Listado
-                List<enProcurador> olEnPoliza = owsUtilClient.ListarProcurador(oEnProcurador).Cast<enProcurador>().ToList();
+                //List<enProcurador> olEnPoliza = owsUtilClient.ListarProcurador(oEnProcurador).Cast<enProcurador>().ToList();
+                string listadoSerializado = owsUtilClient.BuscarProcurador(numProcurador, nombre);
+                List<ProcuradorEN> listado = new JavaScriptSerializer().Deserialize<List<ProcuradorEN>>(listadoSerializado);
                 /*
                 foreach (enProcurador procurador in olEnPoliza.Where(b => b.Disponible))
                 {
                     olEnPolizaResult.Add(procurador);
                 }*/
 
-                rptListadoProcurador.DataSource = olEnPoliza;
+                rptListadoProcurador.DataSource = listado;
                 rptListadoProcurador.DataBind();
 
             }

@@ -39,6 +39,12 @@ namespace Pacifico.SINCO.WEB.wsInformeAccidente {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInformeAccidenteWS/Buscar", ReplyAction="http://tempuri.org/IInformeAccidenteWS/BuscarResponse")]
         System.Threading.Tasks.Task<string> BuscarAsync(string numPoliza, string tipoSiniestro, string fechaSiniestro);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInformeAccidenteWS/BuscarParaPresupuesto", ReplyAction="http://tempuri.org/IInformeAccidenteWS/BuscarParaPresupuestoResponse")]
+        string BuscarParaPresupuesto(string numInforme, string asegurado);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInformeAccidenteWS/BuscarParaPresupuesto", ReplyAction="http://tempuri.org/IInformeAccidenteWS/BuscarParaPresupuestoResponse")]
+        System.Threading.Tasks.Task<string> BuscarParaPresupuestoAsync(string numInforme, string asegurado);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInformeAccidenteWS/Agregar", ReplyAction="http://tempuri.org/IInformeAccidenteWS/AgregarResponse")]
         string Agregar(Pacifico.SINCO.EN.InformeAccidenteEN model);
         
@@ -109,6 +115,14 @@ namespace Pacifico.SINCO.WEB.wsInformeAccidente {
         
         public System.Threading.Tasks.Task<string> BuscarAsync(string numPoliza, string tipoSiniestro, string fechaSiniestro) {
             return base.Channel.BuscarAsync(numPoliza, tipoSiniestro, fechaSiniestro);
+        }
+        
+        public string BuscarParaPresupuesto(string numInforme, string asegurado) {
+            return base.Channel.BuscarParaPresupuesto(numInforme, asegurado);
+        }
+        
+        public System.Threading.Tasks.Task<string> BuscarParaPresupuestoAsync(string numInforme, string asegurado) {
+            return base.Channel.BuscarParaPresupuestoAsync(numInforme, asegurado);
         }
         
         public string Agregar(Pacifico.SINCO.EN.InformeAccidenteEN model) {

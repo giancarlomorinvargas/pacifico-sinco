@@ -73,6 +73,19 @@ namespace Pacifico.SINCO.WS
              }
          }
 
+        public string BuscarParaPresupuesto(string numInforme, string asegurado)
+        {
+            try
+            {
+                List<InformeAccidenteEN> listado = reglaNegocioInformeAccidente.Buscar(numInforme, asegurado);
+                return new JavaScriptSerializer().Serialize(listado);
+            }
+            catch (Exception e)
+            {
+                throw new FaultException(e.Message);
+            }
+        }
+
         public string Agregar(InformeAccidenteEN model)
         {
             try

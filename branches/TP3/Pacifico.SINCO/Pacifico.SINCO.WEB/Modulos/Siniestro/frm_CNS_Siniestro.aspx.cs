@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Script.Serialization;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -48,12 +49,13 @@ namespace Pacifico.SINCO.WEB.Modulos.Siniestro
                     SiniestroWSClient owsSiniestroClient = new SiniestroWSClient();
 
                     //Parametros
-                    enSiniestro oEnSiniestro = new enSiniestro();
-                    oEnSiniestro.MS_Siniestro_Id = int.Parse(vIdSiniestro);
+                    //enSiniestro oEnSiniestro = new enSiniestro();
+                    //oEnSiniestro.MS_Siniestro_Id = int.Parse(vIdSiniestro);
+                    int siniestroId = int.Parse(vIdSiniestro);
 
                     //Obtiene Listado de Siniestros
-                    enSiniestro beanEnSiniestro = owsSiniestroClient.ObtenerSiniestro(oEnSiniestro);
-
+                    string siniestroSerializado = owsSiniestroClient.Obtener(siniestroId);
+                    SiniestroEN beanEnSiniestro = new JavaScriptSerializer().Deserialize<SiniestroEN>(siniestroSerializado);
                     //hddCodSiniestro.Value = beanEnSiniestro.MS_Siniestro_Id.ToString();
                     //hddCodPoliza.Value = beanEnSiniestro.MP_Poliza_Id.ToString();
                     //hddCodProcurador.Value = beanEnSiniestro.MS_Procurador_Id.ToString();
@@ -61,16 +63,18 @@ namespace Pacifico.SINCO.WEB.Modulos.Siniestro
                     txtNumSiniestro.Value = beanEnSiniestro.NumSiniestro;
                     cmbTipoSiniestro.Value = beanEnSiniestro.Tipo;
                     txtDescripcion.Value = beanEnSiniestro.Descripcion;
-                    txtFechaSiniestro.Value = beanEnSiniestro.vFechaSiniestro;
+                    txtFechaSiniestro.Value = beanEnSiniestro.FechaSiniestro.ToString("d");
                     txtLugar.Value = beanEnSiniestro.Lugar;
 
-                    txtNumPoliza.Value = beanEnSiniestro.NumPoliza;
-                    txtAsegurado.Value = beanEnSiniestro.NombreAsegurado;
-                    txtInicio.Value = beanEnSiniestro.vFechaInicio;
-                    txtFin.Value = beanEnSiniestro.vFechaFin;
+                    txtNumPoliza.Value = beanEnSiniestro.Poliza.NumPoliza;
+                    txtAsegurado.Value = beanEnSiniestro.Poliza.Asegurado.Nombre + 
+                        " " + beanEnSiniestro.Poliza.Asegurado.ApellidoPaterno + " " + beanEnSiniestro.Poliza.Asegurado.ApellidoMaterno;
+                    txtInicio.Value = beanEnSiniestro.Poliza.FechaInicio.ToString("d");
+                    txtFin.Value = beanEnSiniestro.Poliza.FechaFin.ToString("d");
 
-                    txtCodProcurador.Value = beanEnSiniestro.NumProcurador;
-                    txtNombreProcurador.Value = beanEnSiniestro.NombreProcurador;
+                    txtCodProcurador.Value = beanEnSiniestro.Procurador.NumProcurador;
+                    txtNombreProcurador.Value = beanEnSiniestro.Procurador.Nombre +
+                        " " + beanEnSiniestro.Procurador.ApellidoPaterno + " " + beanEnSiniestro.Procurador.ApellidoMaterno;
 
                 }
             }

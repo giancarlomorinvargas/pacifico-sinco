@@ -119,6 +119,8 @@
     </table>
     <!-- FIN TITULO-->
 						
+    <asp:HiddenField ID="UsuarioRegistro" runat="server" ClientIDMode="Static" EnableViewState="false" />
+    <asp:HiddenField ID="FechaRegistro" runat="server" ClientIDMode="Static" EnableViewState="false" />
 						
     <!-- INCIO PANEL-->
     <table width="100%" border="0" cellpadding="0" cellspacing="0" class="css_tema_panel">

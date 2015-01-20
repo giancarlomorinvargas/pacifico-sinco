@@ -9,6 +9,7 @@ using Pacifico.SINCO.WS.Interfaces;
 using Pacifico.SINCO.EN;
 using Pacifico.SINCO.RN;
 using System.ServiceModel;
+using System.Web.Script.Serialization;
 
 namespace Pacifico.SINCO.WS
 {
@@ -19,8 +20,6 @@ namespace Pacifico.SINCO.WS
         private static string MENSAJE_BUSQUEDA_NO_ENCONTRADA = "No existe información que coincida con lo ingresado";
         private static string MENSAJE_NO_DISPONIBLE = "El Siniestro no se encuentra disponible";
 
-        private static string MENSAJE_REGISTRADO = "La presupuesto se registró con éxito: {0}";
-        private static string MENSAJE_ACTUALIZADO = "La presupuesto se actualizó con éxito: {0}";
 
         private static string MENSAJE_ERROR_PROCESAR = "No se puedo procesar el siniestro, porque no está Pendiente";
         private static string MENSAJE_ERROR_PENDIENTE = "No se puedo registrar el siniestro, porque no está en Proceso";
@@ -38,205 +37,164 @@ namespace Pacifico.SINCO.WS
         /*<summary>
         ListarSiniestro
         </summary>
-        <param name="pEnSiniestro"></param>
+        <param name="model"></param>
         <returns></returns>*/
-        public List<enSiniestro> ListarSiniestro(enSiniestro pEnSiniestro)
+        public string Listar()
         {
-            List<enSiniestro> loEnSiniestro = null;
             try
             {
-                rnSiniestro oRnSiniestro = new rnSiniestro();
-                loEnSiniestro = oRnSiniestro.ListarSiniestro(pEnSiniestro);
+                SiniestroRN siniestroRN = new SiniestroRN();
+                List<SiniestroEN> listado = siniestroRN.Listar();
+                return new JavaScriptSerializer().Serialize(listado);
             }
             catch (Exception ex)
             {
-                loEnSiniestro = null;
-                throw new FaultException(MENSAJE_ERROR_GENERAL);
+                throw new FaultException(ex.Message);
             }
-            if (loEnSiniestro == null || loEnSiniestro.Count() == 0)
+        }
+
+        public string Buscar(string numPoliza, string tipo, string fecRegistro)
+        {
+            try
             {
-                throw new FaultException(MENSAJE_BUSQUEDA_NO_ENCONTRADA);
+                SiniestroRN siniestroRN = new SiniestroRN();
+                List<SiniestroEN> listado = siniestroRN.Buscar(numPoliza, tipo, fecRegistro);
+                return new JavaScriptSerializer().Serialize(listado);
             }
-            return loEnSiniestro;
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
         }
 
         /*<summary>
         ListarSiniestro
         </summary>
-        <param name="pEnSiniestro"></param>
+        <param name="model"></param>
         <returns></returns>*/
-        public enSiniestro ObtenerSiniestro(enSiniestro pEnSiniestro)
+        public string Obtener(int id)
         {
-            enSiniestro oEnSiniestro = null;
             try
             {
-                rnSiniestro oRnSiniestro = new rnSiniestro();
-                oEnSiniestro = oRnSiniestro.ObtenerSiniestro(pEnSiniestro);
+                SiniestroRN siniestroRN = new SiniestroRN();
+                SiniestroEN siniestro = siniestroRN.Obtener(id);
+                return new JavaScriptSerializer().Serialize(siniestro);
             }
             catch (Exception ex)
             {
-                oEnSiniestro = null;
-                throw new FaultException(MENSAJE_ERROR_GENERAL);
+                throw new FaultException(ex.Message);
             }
-            if (oEnSiniestro == null)
-            {
-                throw new FaultException(MENSAJE_NO_DISPONIBLE);
-            }
-            return oEnSiniestro;
         }
 
         /*<summary>
         IngresarSiniestro
         </summary>
-        <param name="pEnSiniestro"></param>
+        <param name="model"></param>
         <returns></returns>*/
-        public bool IngresarSiniestro(enSiniestro pEnSiniestro)
+        public string Ingresar(SiniestroEN siniestro)
         {
-            bool bExito = false;
             try
             {
-                rnSiniestro oRnSiniestro = new rnSiniestro();
-                bExito = oRnSiniestro.IngresarSiniestro(pEnSiniestro);
+                SiniestroRN siniestroRN = new SiniestroRN();
+                return siniestroRN.Ingresar(siniestro);
 
-                if (bExito)
+                /*if (bExito)
                 {
-                    rnProcurador oRnProcurador = new rnProcurador();
+                    ProcuradorRN oRnProcurador = new ProcuradorRN();
                     enProcurador pEnProcurador = new enProcurador()
                     {
-                        MS_Procurador_Id = pEnSiniestro.MS_Procurador_Id,
+                        MS_Procurador_Id = model.MS_Procurador_Id,
                         Disponible = false
                     };
                     bExito = oRnProcurador.ActualizarDisponibilidadProcurador(pEnProcurador);
-                }
+                }*/
             }
             catch (Exception ex)
             {
-                bExito = false;
-                throw new FaultException(MENSAJE_ERROR_GENERAL);
+                throw new FaultException(ex.Message);
             }
-            return bExito;
         }
 
         /*<summary>
         ActualizaSiniestro
         </summary>
-        <param name="pEnSiniestro"></param>
+        <param name="model"></param>
         <returns></returns>*/
-        public bool ActualizaSiniestro(enSiniestro pEnSiniestro)
+        public string Actualizar(SiniestroEN siniestro)
         {
-            bool bExito = false;
+            //bool bExito = false;
             try
             {
-                rnSiniestro oRnSiniestro = new rnSiniestro();
+                SiniestroRN siniestroRN = new SiniestroRN();
 
-                enSiniestro pEnSiniestroConsulta = oRnSiniestro.ObtenerSiniestro(pEnSiniestro);
+                return siniestroRN.Actualizar(siniestro);
 
-                bExito = oRnSiniestro.ActualizaSiniestro(pEnSiniestro);
+                /*bExito = siniestroRN.ActualizaSiniestro(siniestro);
 
-                if (bExito && pEnSiniestroConsulta.MS_Procurador_Id != pEnSiniestro.MS_Procurador_Id)
+                if (bExito && siniestroConsulta.MS_Procurador_Id != model.MS_Procurador_Id)
                 {
-                    rnProcurador oRnProcurador = new rnProcurador();
+                    ProcuradorRN oRnProcurador = new ProcuradorRN();
 
                     //Actualizar Disponibilidad de ProcuradorEN (Disponible) asociado al siniestro
                     bool exito1 = oRnProcurador.ActualizarDisponibilidadProcurador(new enProcurador()
                     {
-                        MS_Procurador_Id = pEnSiniestroConsulta.MS_Procurador_Id,
+                        MS_Procurador_Id = siniestroConsulta.MS_Procurador_Id,
                         Disponible = true
                     });
 
                     //Actualizar Disponibilidad de ProcuradorEN (Ocupado) asignado
                     bool exito2 = oRnProcurador.ActualizarDisponibilidadProcurador(new enProcurador()
                     {
-                        MS_Procurador_Id = pEnSiniestro.MS_Procurador_Id,
+                        MS_Procurador_Id = model.MS_Procurador_Id,
                         Disponible = false
                     });
 
                     bExito = exito1 && exito2;
-                }
+                }*/
             }
             catch (Exception ex)
             {
-                bExito = false;
-                throw new FaultException(MENSAJE_ERROR_GENERAL);
+                throw new FaultException(ex.Message);
             }
-            return bExito;
         }
 
         /*<summary>
         ActualizaSiniestro
         </summary>
-        <param name="pEnSiniestro"></param>
+        <param name="model"></param>
         <returns></returns>*/
-        public bool ProcesarSiniestro(enSiniestro pEnSiniestro)
+        public string RegistrarProceso(int id)
         {
-            bool bExito = false;
             try
             {
-                rnSiniestro oRnSiniestro = new rnSiniestro();
+                SiniestroRN siniestroRN = new SiniestroRN();
                 
-                enSiniestro pEnSiniestroConsulta = oRnSiniestro.ObtenerSiniestro(pEnSiniestro);
-
-                if (pEnSiniestroConsulta.Estado == Constantes.sEstado_Pendiente)
-                {
-                    pEnSiniestroConsulta.Estado = Constantes.sEstado_EnProceso;
-                    bExito = oRnSiniestro.ActualizaEstado(pEnSiniestroConsulta);
-                }
-                else
-                {
-                    throw new FaultException(MENSAJE_ERROR_PROCESAR);
-                }
-
-            }
-            catch (FaultException ex)
-            {
-                bExito = false;
-                throw ex;
+                return siniestroRN.RegistrarProceso(id);
             }
             catch (Exception ex)
             {
-                bExito = false;
-                throw new FaultException(MENSAJE_ERROR_GENERAL);
+                throw new FaultException(ex.Message);
             }
-            return bExito;
         }
 
 
         /*<summary>
         ActualizaSiniestro
         </summary>
-        <param name="pEnSiniestro"></param>
+        <param name="model"></param>
         <returns></returns>*/
-        public bool RegistrarSiniestroPendiente(enSiniestro pEnSiniestro)
+        public string RegistrarPendiente(int id)
         {
-            bool bExito = false;
             try
             {
-                rnSiniestro oRnSiniestro = new rnSiniestro();
+                SiniestroRN siniestroRN = new SiniestroRN();
 
-                enSiniestro pEnSiniestroConsulta = oRnSiniestro.ObtenerSiniestro(pEnSiniestro);
-
-                if (pEnSiniestroConsulta.Estado == Constantes.sEstado_EnProceso)
-                {
-                    pEnSiniestroConsulta.Estado = Constantes.sEstado_Pendiente;
-                    bExito = oRnSiniestro.ActualizaEstado(pEnSiniestroConsulta);
-                }
-                else
-                {
-                    throw new FaultException(MENSAJE_ERROR_PENDIENTE);
-                }
-
-            }
-            catch (FaultException ex)
-            {
-                bExito = false;
-                throw ex;
+                return siniestroRN.RegistrarPendiente(id);
             }
             catch (Exception ex)
             {
-                bExito = false;
-                throw new FaultException(MENSAJE_ERROR_GENERAL);
+                throw new FaultException(ex.Message);
             }
-            return bExito;
         }
 
     }

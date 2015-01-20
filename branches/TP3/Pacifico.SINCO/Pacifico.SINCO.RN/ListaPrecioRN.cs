@@ -10,23 +10,16 @@ using System.Threading.Tasks;
 
 namespace Pacifico.SINCO.RN
 {
-    public class rnListaPrecio
+    public class ListaPrecioRN
     {
         
         private static string MENSAJE_NO_DISPONIBLE = "La Lista de precios no se encuentra disponible";
 
 
-        private IListaPrecioDAO _ListaPrecioRepositorio;
-
-        public rnListaPrecio()
-         {
-             _ListaPrecioRepositorio = new ListaPrecioDAO();
-         }
-
-
         public ListaPrecioEN Obtener(int Id)
          {
-             ListaPrecioEN model = _ListaPrecioRepositorio.Get(Id);
+             IListaPrecioDAO listaPrecioDao = new ListaPrecioDAO();
+             ListaPrecioEN model = listaPrecioDao.Get(Id);
              if (model == null)
              {
                  throw new Exception(MENSAJE_NO_DISPONIBLE);
@@ -36,8 +29,9 @@ namespace Pacifico.SINCO.RN
          }
 
         public List<ListaPrecioEN> Listar()
-         {
-             List<ListaPrecioEN> result = _ListaPrecioRepositorio.GetAll().ToList();
+        {
+            IListaPrecioDAO listaPrecioDao = new ListaPrecioDAO();
+             List<ListaPrecioEN> result = listaPrecioDao.GetAll().ToList();
              //return new JavaScriptSerializer().Serialize(result);
              return result;
          }
@@ -45,8 +39,8 @@ namespace Pacifico.SINCO.RN
         public List<ListaPrecioEN> Buscar(int MarcaId, int ModeloId)
          {
              List<ListaPrecioEN> listado = new List<ListaPrecioEN>();
-
-             foreach (ListaPrecioEN Model in _ListaPrecioRepositorio.GetAll().Where(
+             IListaPrecioDAO listaPrecioDao = new ListaPrecioDAO();
+             foreach (ListaPrecioEN Model in listaPrecioDao.GetAll().Where(
                  b => b.MP_Marca_Id == MarcaId && b.MP_Modelo_Id == ModeloId).ToList())
              {
                  listado.Add(Model);

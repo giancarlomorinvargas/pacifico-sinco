@@ -13,87 +13,101 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ListarSiniestro">
+  <xs:element name="Listar">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Pacifico.SINCO.EN" minOccurs="0" name="pEnSiniestro" nillable="true" type="q1:enSiniestro" />
+        <xs:element minOccurs="0" name="ListarResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ListarSiniestroResponse">
+  <xs:element name="Buscar">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Pacifico.SINCO.EN" minOccurs="0" name="ListarSiniestroResult" nillable="true" type="q2:ArrayOfenSiniestro" />
+        <xs:element minOccurs="0" name="numPoliza" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="tipo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fecRegistro" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ObtenerSiniestro">
+  <xs:element name="BuscarResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Pacifico.SINCO.EN" minOccurs="0" name="pEnSiniestro" nillable="true" type="q3:enSiniestro" />
+        <xs:element minOccurs="0" name="BuscarResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ObtenerSiniestroResponse">
+  <xs:element name="Obtener">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Pacifico.SINCO.EN" minOccurs="0" name="ObtenerSiniestroResult" nillable="true" type="q4:enSiniestro" />
+        <xs:element minOccurs="0" name="id" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="IngresarSiniestro">
+  <xs:element name="ObtenerResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Pacifico.SINCO.EN" minOccurs="0" name="pEnSiniestro" nillable="true" type="q5:enSiniestro" />
+        <xs:element minOccurs="0" name="ObtenerResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="IngresarSiniestroResponse">
+  <xs:element name="Ingresar">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="IngresarSiniestroResult" type="xs:boolean" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Pacifico.SINCO.EN" minOccurs="0" name="siniestro" nillable="true" type="q1:SiniestroEN" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ActualizaSiniestro">
+  <xs:element name="IngresarResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Pacifico.SINCO.EN" minOccurs="0" name="pEnSiniestro" nillable="true" type="q6:enSiniestro" />
+        <xs:element minOccurs="0" name="IngresarResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ActualizaSiniestroResponse">
+  <xs:element name="Actualizar">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="ActualizaSiniestroResult" type="xs:boolean" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Pacifico.SINCO.EN" minOccurs="0" name="siniestro" nillable="true" type="q2:SiniestroEN" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ProcesarSiniestro">
+  <xs:element name="ActualizarResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Pacifico.SINCO.EN" minOccurs="0" name="pEnSiniestro" nillable="true" type="q7:enSiniestro" />
+        <xs:element minOccurs="0" name="ActualizarResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ProcesarSiniestroResponse">
+  <xs:element name="RegistrarProceso">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="ProcesarSiniestroResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="id" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="RegistrarSiniestroPendiente">
+  <xs:element name="RegistrarProcesoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Pacifico.SINCO.EN" minOccurs="0" name="pEnSiniestro" nillable="true" type="q8:enSiniestro" />
+        <xs:element minOccurs="0" name="RegistrarProcesoResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="RegistrarSiniestroPendienteResponse">
+  <xs:element name="RegistrarPendiente">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="RegistrarSiniestroPendienteResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistrarPendienteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RegistrarPendienteResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

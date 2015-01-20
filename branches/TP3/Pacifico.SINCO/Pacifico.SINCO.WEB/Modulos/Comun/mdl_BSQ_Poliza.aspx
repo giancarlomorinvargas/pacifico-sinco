@@ -164,12 +164,12 @@
         <ItemTemplate>
             <tbody>
                 <tr class="even">
-			        <td> <input id="chkIdPoliza" type="checkbox" value="<%#Eval("MP_Poliza_Id") %>" onclick="javascript: fn_checkLista(this, '<%#Eval("NumPoliza") %>', '<%#Eval("NombreAsegurado") %>', '<%#Eval("FechaInicio") %>','<%#Eval("FechaFin") %>', '<%#Eval("Vigente")%>')"/> </td>
+			        <td> <input id="chkIdPoliza" type="checkbox" value="<%#Eval("MP_Poliza_Id") %>" onclick="javascript: fn_checkLista(this, '<%#Eval("NumPoliza") %>', '<%#Eval("Asegurado.Nombre") + " " + Eval("Asegurado.ApellidoPaterno") + " " + Eval("Asegurado.ApellidoMaterno") %>', '<%#Eval("FechaInicio") %>','<%#Eval("FechaFin") %>', '<%#Eval("Vigente")%>')"/> </td>
 			        <td style="text-align:center;"><%#Eval("NumPoliza") %></td>			
-			        <td><%#Eval("NombreAsegurado") %></td>
-			        <td style="text-align:center;"><%#Eval("vMarca") %></td>
-			        <td style="text-align:center;"><%#Eval("vModelo") %></td>
-			        <td style="text-align:center;"><%#Eval("Placa") %></td>
+			        <td><%#Eval("Asegurado.Nombre") + " " +Eval("Asegurado.ApellidoPaterno")  + " " +Eval("Asegurado.ApellidoMaterno")%></td>
+			        <td style="text-align:center;"><%#Eval("Vehiculo.Marca.Descripcion") %></td>
+			        <td style="text-align:center;"><%#Eval("Vehiculo.Modelo.Descripcion") %></td>
+			        <td style="text-align:center;"><%#Eval("Vehiculo.Placa") %></td>
 			        <td style="text-align:center;color:<%# bool.Parse(Eval("Vigente").ToString()) ? "green" : "red" %>;";"><%#bool.Parse(Eval("Vigente").ToString()) ? "Vigente" : "No Vigente" %></td>
 		        </tr>                                                
             </ItemTemplate>

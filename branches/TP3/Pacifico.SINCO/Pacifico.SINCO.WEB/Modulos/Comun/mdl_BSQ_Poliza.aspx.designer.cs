@@ -67,6 +67,15 @@ namespace Pacifico.SINCO.WEB.Modulos.Comun {
         protected global::System.Web.UI.WebControls.HiddenField hddFechaFin;
         
         /// <summary>
+        /// hddVigente control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hddVigente;
+        
+        /// <summary>
         /// txtNumeroPoliza control.
         /// </summary>
         /// <remarks>

@@ -21,5 +21,9 @@ namespace Pacifico.SINCO.EN
         public string ApellidoPaterno { get; set; }
         [Column("V_ApellidoMaterno")]
         public string ApellidoMaterno { get; set; }
+        [Column("V_Telefono")]
+        public string Telefono { get; set; }
+        [Column("B_Disponible")]
+        public bool Disponible { get; set; }
     }
 }

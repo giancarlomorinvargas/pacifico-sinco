@@ -1,10 +1,12 @@
 ﻿using Pacifico.SINCO.EN;
 using Pacifico.SINCO.UTL;
+using Pacifico.SINCO.WEB.Facade.Informe;
 using Pacifico.SINCO.WEB.wsSiniestro;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Script.Serialization;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -49,11 +51,14 @@ namespace Pacifico.SINCO.WEB.Modulos.Siniestro
                     SiniestroWSClient owsSiniestroClient = new SiniestroWSClient();
 
                     //Parametros
-                    enSiniestro oEnSiniestro = new enSiniestro();
-                    oEnSiniestro.MS_Siniestro_Id = int.Parse(vIdSiniestro);
+                    int siniestroId = int.Parse(vIdSiniestro);
 
                     //Obtiene Listado de Siniestros
-                    enSiniestro beanEnSiniestro = owsSiniestroClient.ObtenerSiniestro(oEnSiniestro);
+                    string siniestroSerializado = owsSiniestroClient.Obtener(siniestroId);
+                    SiniestroEN beanEnSiniestro = new JavaScriptSerializer().Deserialize<SiniestroEN>(siniestroSerializado);
+
+                    UsuarioRegistro.Value = beanEnSiniestro.UsuarioRegistro;
+                    FechaRegistro.Value = beanEnSiniestro.FechaModifico.ToString("d");
 
                     hddCodSiniestro.Value = beanEnSiniestro.MS_Siniestro_Id.ToString();
                     hddCodPoliza.Value = beanEnSiniestro.MP_Poliza_Id.ToString();
@@ -62,16 +67,19 @@ namespace Pacifico.SINCO.WEB.Modulos.Siniestro
                     txtNumSiniestro.Value = beanEnSiniestro.NumSiniestro;
                     cmbTipoSiniestro.Value = beanEnSiniestro.Tipo;
                     txaDescripcion.Value = beanEnSiniestro.Descripcion;
-                    txtFechaSiniestro.Value = beanEnSiniestro.vFechaSiniestro;
+                    txtFechaSiniestro.Value = beanEnSiniestro.FechaSiniestro.ToString("d");
                     txtLugar.Value = beanEnSiniestro.Lugar;
 
-                    txtNumPoliza.Value = beanEnSiniestro.NumPoliza;
-                    txtAsegurado.Value = beanEnSiniestro.NombreAsegurado;
-                    txtInicio.Value = beanEnSiniestro.vFechaInicio;
-                    txtFin.Value = beanEnSiniestro.vFechaFin;
+                    txtNumPoliza.Value = beanEnSiniestro.Poliza.NumPoliza;
+                    txtAsegurado.Value = beanEnSiniestro.Poliza.Asegurado.Nombre +
+                        " " + beanEnSiniestro.Poliza.Asegurado.ApellidoPaterno + " " + beanEnSiniestro.Poliza.Asegurado.ApellidoMaterno;
+                    txtInicio.Value = beanEnSiniestro.Poliza.FechaInicio.ToString("d");
+                    txtFin.Value = beanEnSiniestro.Poliza.FechaFin.ToString("d");
 
-                    txtCodProcurador.Value = beanEnSiniestro.NumProcurador;
-                    txtNombreProcurador.Value = beanEnSiniestro.NombreProcurador;
+                    txtCodProcurador.Value = beanEnSiniestro.Procurador.NumProcurador;
+                    txtNombreProcurador.Value = beanEnSiniestro.Procurador.Nombre +
+                        " " + beanEnSiniestro.Procurador.ApellidoPaterno + " " + beanEnSiniestro.Procurador.ApellidoMaterno;
+
                 }
 
             }
@@ -93,12 +101,13 @@ namespace Pacifico.SINCO.WEB.Modulos.Siniestro
             {
                 lblMensajeError.InnerText = "";
                 //WS-SINIESTRO
-                SiniestroWSClient owsSiniestroClient = new SiniestroWSClient();
+                //SiniestroWSClient owsSiniestroClient = new SiniestroWSClient();
+                SiniestroFacade siniestroFacade = new SiniestroFacade();
 
                 //Validación
 
                 //Parametros
-                enSiniestro oEnSiniestro = new enSiniestro();
+                SiniestroEN oEnSiniestro = new SiniestroEN();
                 oEnSiniestro.MS_Siniestro_Id = int.Parse(hddCodSiniestro.Value);
                 oEnSiniestro.NumSiniestro = txtNumSiniestro.Value;
                 oEnSiniestro.Tipo = cmbTipoSiniestro.Value.ToString();
@@ -106,19 +115,18 @@ namespace Pacifico.SINCO.WEB.Modulos.Siniestro
                 oEnSiniestro.Lugar = txtLugar.Value;
                 oEnSiniestro.Descripcion = txaDescripcion.Value;
                 oEnSiniestro.Estado = Constantes.sEstado_Pendiente;
-                oEnSiniestro.UsuarioRegistro = Constantes.sUsuario_Login;
+                oEnSiniestro.UsuarioRegistro = UsuarioRegistro.Value;
+                oEnSiniestro.FechaRegistro = Convert.ToDateTime(FechaRegistro.Value);
                 oEnSiniestro.UsuarioModifico = Constantes.sUsuario_Login;
                 oEnSiniestro.MP_Poliza_Id = int.Parse(hddCodPoliza.Value);
                 oEnSiniestro.MS_Procurador_Id = int.Parse(hddCodProcurador.Value);
 
                 //Obtiene Listado de Siniestros
-                bool exito = owsSiniestroClient.ActualizaSiniestro(oEnSiniestro);
+                //bool exito = owsSiniestroClient.ActualizaSiniestro(oEnSiniestro);
+                string mensaje = siniestroFacade.Modificar(oEnSiniestro);
 
-                if (exito)
-                {
-                    HttpContext.Current.Session["SINIESTRO_MENSAJE"] = "Siniestro Registrado Satisfactoriamente";
-                    Response.Redirect("~/Modulos/Siniestro/frm_BSQ_Siniestro.aspx", false);
-                }
+                HttpContext.Current.Session["SINIESTRO_MENSAJE"] = mensaje;
+                Response.Redirect("~/Modulos/Siniestro/frm_BSQ_Siniestro.aspx", false);
                 
 
             }

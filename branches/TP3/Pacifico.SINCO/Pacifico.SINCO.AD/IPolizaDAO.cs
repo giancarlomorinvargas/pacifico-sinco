@@ -1,14 +1,15 @@
-﻿using System;
+﻿using Pacifico.SINCO.AD;
+using Pacifico.SINCO.EN;
+using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Pacifico.SINCO.AD
 {
-    public class adBase
+    public interface IPolizaDAO : IBaseDAO<PolizaEN>
     {
-        public SqlConnection conexion { get; set; }
     }
 }

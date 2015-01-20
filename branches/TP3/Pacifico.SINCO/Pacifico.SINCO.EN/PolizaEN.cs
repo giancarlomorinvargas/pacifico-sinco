@@ -39,5 +39,8 @@ namespace Pacifico.SINCO.EN
         [Column("Vehiculo_ID")]
         public int MP_Vehiculo_ID { get; set; }
         public virtual VehiculoEN Vehiculo { get; set; }
+
+        [NotMapped]
+        public bool Vigente { get; set; }
     }
 }

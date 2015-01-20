@@ -17,11 +17,8 @@ namespace Pacifico.SINCO.WEB.Facade.Informe
 
         public string Registrar(InformeAccidenteEN informe)
         {
-            enSiniestro siniestroBusqueda = new enSiniestro(){MS_Siniestro_Id = informe.MS_Siniestro_Id};
 
-            enSiniestro siniestroInforme = siniestroWSCliente.ObtenerSiniestro(siniestroBusqueda);
-
-            siniestroWSCliente.ProcesarSiniestro(siniestroInforme);
+            siniestroWSCliente.RegistrarProceso(informe.MS_Siniestro_Id);
 
             string mensaje = informeAccidenteWSCliente.Agregar(informe);
 
@@ -34,17 +31,10 @@ namespace Pacifico.SINCO.WEB.Facade.Informe
 
             string informeSerializado = informeAccidenteWSCliente.Obtener(informe.MS_Informe_Accidente_Id);
             InformeAccidenteEN informeObtenido = new JavaScriptSerializer().Deserialize<InformeAccidenteEN>(informeSerializado);
+            
+            siniestroWSCliente.RegistrarPendiente(informeObtenido.MS_Siniestro_Id);
 
-            enSiniestro siniestroBusqueda = new enSiniestro() { MS_Siniestro_Id = informeObtenido.MS_Siniestro_Id };
-            enSiniestro siniestroObtenido = siniestroWSCliente.ObtenerSiniestro(siniestroBusqueda);
-
-            siniestroWSCliente.RegistrarSiniestroPendiente(siniestroObtenido);
-
-
-            siniestroBusqueda = new enSiniestro() { MS_Siniestro_Id = informe.MS_Siniestro_Id };
-            siniestroObtenido = siniestroWSCliente.ObtenerSiniestro(siniestroBusqueda);
-
-            siniestroWSCliente.ProcesarSiniestro(siniestroObtenido);
+            siniestroWSCliente.RegistrarProceso(informe.MS_Siniestro_Id);
 
             string mensaje = informeAccidenteWSCliente.Modificar(informe);
 
