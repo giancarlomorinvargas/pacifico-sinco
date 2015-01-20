@@ -46,15 +46,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="InformeAccidenteRN.cs" />
-    <Compile Include="rnListaPrecio.cs" />
-    <Compile Include="rnPresupuesto.cs" />
+    <Compile Include="ListaPrecioRN.cs" />
+    <Compile Include="PresupuestoRN.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="rnAsegurado.cs" />
-    <Compile Include="rnBase.cs" />
-    <Compile Include="rnPoliza.cs" />
-    <Compile Include="rnProcurador.cs" />
-    <Compile Include="rnSiniestro.cs" />
-    <Compile Include="rnVehiculo.cs" />
+    <Compile Include="PolizaRN.cs" />
+    <Compile Include="ProcuradorRN.cs" />
+    <Compile Include="SiniestroRN.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Pacifico.SINCO.AD\Pacifico.SINCO.AD.csproj">

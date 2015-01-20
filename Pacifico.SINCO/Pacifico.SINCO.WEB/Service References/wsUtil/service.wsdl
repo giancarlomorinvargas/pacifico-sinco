@@ -19,11 +19,35 @@
   <wsdl:message name="IUtilWS_ListarPoliza_OutputMessage">
     <wsdl:part name="parameters" element="tns:ListarPolizaResponse" />
   </wsdl:message>
+  <wsdl:message name="IUtilWS_BuscarPoliza_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarPoliza" />
+  </wsdl:message>
+  <wsdl:message name="IUtilWS_BuscarPoliza_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarPolizaResponse" />
+  </wsdl:message>
   <wsdl:message name="IUtilWS_ListarProcurador_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarProcurador" />
   </wsdl:message>
   <wsdl:message name="IUtilWS_ListarProcurador_OutputMessage">
     <wsdl:part name="parameters" element="tns:ListarProcuradorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUtilWS_BuscarProcurador_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarProcurador" />
+  </wsdl:message>
+  <wsdl:message name="IUtilWS_BuscarProcurador_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarProcuradorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUtilWS_ActualizaDisponibilidadProcurador_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizaDisponibilidadProcurador" />
+  </wsdl:message>
+  <wsdl:message name="IUtilWS_ActualizaDisponibilidadProcurador_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizaDisponibilidadProcuradorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUtilWS_ObtenerProcurador_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerProcurador" />
+  </wsdl:message>
+  <wsdl:message name="IUtilWS_ObtenerProcurador_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerProcuradorResponse" />
   </wsdl:message>
   <wsdl:portType name="IUtilWS">
     <wsdl:operation name="wsObtenerNombreWS">
@@ -34,9 +58,25 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IUtilWS/ListarPoliza" message="tns:IUtilWS_ListarPoliza_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUtilWS/ListarPolizaResponse" message="tns:IUtilWS_ListarPoliza_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="BuscarPoliza">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUtilWS/BuscarPoliza" message="tns:IUtilWS_BuscarPoliza_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUtilWS/BuscarPolizaResponse" message="tns:IUtilWS_BuscarPoliza_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="ListarProcurador">
       <wsdl:input wsaw:Action="http://tempuri.org/IUtilWS/ListarProcurador" message="tns:IUtilWS_ListarProcurador_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUtilWS/ListarProcuradorResponse" message="tns:IUtilWS_ListarProcurador_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarProcurador">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUtilWS/BuscarProcurador" message="tns:IUtilWS_BuscarProcurador_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUtilWS/BuscarProcuradorResponse" message="tns:IUtilWS_BuscarProcurador_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizaDisponibilidadProcurador">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUtilWS/ActualizaDisponibilidadProcurador" message="tns:IUtilWS_ActualizaDisponibilidadProcurador_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUtilWS/ActualizaDisponibilidadProcuradorResponse" message="tns:IUtilWS_ActualizaDisponibilidadProcurador_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerProcurador">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUtilWS/ObtenerProcurador" message="tns:IUtilWS_ObtenerProcurador_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUtilWS/ObtenerProcuradorResponse" message="tns:IUtilWS_ObtenerProcurador_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IUtilWS" type="tns:IUtilWS">
@@ -59,8 +99,44 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="BuscarPoliza">
+      <soap:operation soapAction="http://tempuri.org/IUtilWS/BuscarPoliza" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="ListarProcurador">
       <soap:operation soapAction="http://tempuri.org/IUtilWS/ListarProcurador" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarProcurador">
+      <soap:operation soapAction="http://tempuri.org/IUtilWS/BuscarProcurador" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizaDisponibilidadProcurador">
+      <soap:operation soapAction="http://tempuri.org/IUtilWS/ActualizaDisponibilidadProcurador" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerProcurador">
+      <soap:operation soapAction="http://tempuri.org/IUtilWS/ObtenerProcurador" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

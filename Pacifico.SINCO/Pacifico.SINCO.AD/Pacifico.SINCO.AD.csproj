@@ -43,11 +43,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="adBase.cs" />
-    <Compile Include="adPoliza.cs" />
-    <Compile Include="adProcurador.cs" />
-    <Compile Include="adSiniestro.cs" />
     <Compile Include="BaseDAO.cs" />
+    <Compile Include="ISiniestroDAO.cs" />
+    <Compile Include="SiniestroDAO.cs" />
+    <Compile Include="IPolizaDAO.cs" />
+    <Compile Include="PolizaDAO.cs" />
+    <Compile Include="ProcuradorDAO.cs" />
+    <Compile Include="IProcuradorDAO.cs" />
     <Compile Include="DataBaseContext.cs" />
     <Compile Include="DetallePresupuestoDAO.cs" />
     <Compile Include="IBaseDAO.cs" />

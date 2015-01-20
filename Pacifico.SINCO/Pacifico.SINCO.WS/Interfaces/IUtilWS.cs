@@ -19,10 +19,22 @@ namespace Pacifico.SINCO.WS.Interfaces
         string wsObtenerNombreWS();
         
         [OperationContract]
-        List<enPoliza> ListarPoliza(enPoliza pEnPoliza);
+        string ListarPoliza();
 
         [OperationContract]
-        List<enProcurador> ListarProcurador(enProcurador pEnProcurador);
+        string BuscarPoliza(string dniAsegurado, string numPoliza, string placa);
+
+        [OperationContract]
+        string ListarProcurador();
+
+        [OperationContract]
+        string BuscarProcurador(string numProcurador, string procurador);
+
+        [OperationContract]
+        string ActualizaDisponibilidadProcurador(ProcuradorEN pEnProcurador);
+
+        [OperationContract]
+        string ObtenerProcurador(int id);
     }
 
 }

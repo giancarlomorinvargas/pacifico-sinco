@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Script.Serialization;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -35,15 +36,15 @@ namespace Pacifico.SINCO.WEB.Modulos.Comun
                 if (!this.IsPostBack)
                 {
                     //DateTime Now = DateTime.Now;
-                    List<enPoliza> olEnPolizaResult = new List<enPoliza>();
                     //WS-SINIESTRO
                     UtilWSClient owsUtilClient = new UtilWSClient();
 
                     //Parametros
-                    enPoliza oEnPoliza = new enPoliza();
+                    //enPoliza oEnPoliza = new enPoliza();
 
                     //Obtiene Listado de Siniestros
-                    List<enPoliza> olEnPoliza = owsUtilClient.ListarPoliza(oEnPoliza).Cast<enPoliza>().ToList();
+                    string listadoSerializado = owsUtilClient.ListarPoliza();
+                    List<PolizaEN> lsitado = new JavaScriptSerializer().Deserialize<List<PolizaEN>>(listadoSerializado);
                     /*
                     foreach (enPoliza poliza in olEnPoliza.Where(
                         b => (b.FechaInicio<=Now  && Now <= b.FechaFin)))
@@ -51,7 +52,7 @@ namespace Pacifico.SINCO.WEB.Modulos.Comun
                         olEnPolizaResult.Add(poliza);
                     }*/
 
-                    rptListadoPolizas.DataSource = olEnPoliza;
+                    rptListadoPolizas.DataSource = lsitado;
                     rptListadoPolizas.DataBind();
                 }
             }
@@ -76,19 +77,21 @@ namespace Pacifico.SINCO.WEB.Modulos.Comun
                 lblMensajeError.InnerText = "";
 
                 //DateTime Now = DateTime.Now;
-                List<enPoliza> olEnPolizaResult = new List<enPoliza>();
+                //List<enPoliza> olEnPolizaResult = new List<enPoliza>();
 
                 //WS
                 UtilWSClient owsUtilClient = new UtilWSClient();
 
                 //Parametros
-                enPoliza oEnPoliza = new enPoliza();
-                oEnPoliza.DniAsegurado = txtDniAsegurado.Value;
-                oEnPoliza.NumPoliza = txtNumeroPoliza.Value;
-                oEnPoliza.Placa = txtNumeroPlaca.Value;
+                //enPoliza oEnPoliza = new enPoliza();
+                string dniAsegurado = txtDniAsegurado.Value;
+                string numPoliza = txtNumeroPoliza.Value;
+                string placa = txtNumeroPlaca.Value;
 
                 //Obtiene Listado
-                List<enPoliza> olEnPoliza = owsUtilClient.ListarPoliza(oEnPoliza).Cast<enPoliza>().ToList();
+                //List<enPoliza> olEnPoliza = owsUtilClient.ListarPoliza(oEnPoliza).Cast<enPoliza>().ToList();
+                string listadoSerializado = owsUtilClient.BuscarPoliza(dniAsegurado, numPoliza, placa);
+                List<PolizaEN> lsitado = new JavaScriptSerializer().Deserialize<List<PolizaEN>>(listadoSerializado);
                 /*
                 foreach (enPoliza poliza in olEnPoliza.Where(
                     b => (b.FechaInicio <= Now && Now <= b.FechaFin)))
@@ -96,7 +99,7 @@ namespace Pacifico.SINCO.WEB.Modulos.Comun
                     olEnPolizaResult.Add(poliza);
                 }*/
 
-                rptListadoPolizas.DataSource = olEnPoliza;
+                rptListadoPolizas.DataSource = lsitado;
                 rptListadoPolizas.DataBind();
 
             }

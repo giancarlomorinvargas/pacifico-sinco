@@ -169,19 +169,19 @@
                                 tipo:'<%# Eval("Tipo") %>',
                                 fechaSiniestro:'<%# ((DateTime)Eval("FechaSiniestro")).ToString("d")%>',
                                 lugar:'<%# Eval("Lugar")%>',
-                                numPoliza:'<%# Eval("NumPoliza") %>',    
-                                numProcurador:'<%# Eval("NumProcurador") %>',
-                                procurador:'<%# Eval("NombreProcurador")%>',
-                                asegurado:'<%# Eval("NombreAsegurado")%>'})"/>                            
+                                numPoliza:'<%# Eval("Poliza.NumPoliza") %>',    
+                                numProcurador:'<%# Eval("Procurador.NumProcurador") %>',
+                                procurador:'<%#Eval("Procurador.Nombre") + " " + Eval("Procurador.ApellidoPaterno") + " " + Eval("Procurador.ApellidoMaterno")%>',
+                                asegurado:'<%#Eval("Poliza.Asegurado.Nombre") + " " + Eval("Poliza.Asegurado.ApellidoPaterno") + " " + Eval("Poliza.Asegurado.ApellidoMaterno")%>'})"/>                            
 			            </td>
                             
 			            <td style="text-align:center;"><%#Eval("NumSiniestro") %><td>
 			            <td style="text-align:center;"><%#Eval("Tipo") %><td>
 			            <td style="text-align:center;"><%#Eval("Lugar") %><td>
-			            <td style="text-align:center;"><%# Eval("NombreAsegurado")%><td>
-			            <td style="text-align:center;"><%#Eval("NumProcurador") %><td>
-                        <td style="text-align:center;"><%#Eval("NombreProcurador")%><td>
-			            <td style="text-align:center;color:<%# Int32.Parse(Eval("Estado").ToString())  == Pacifico.SINCO.UTL.Constantes.sEstado_Pendiente ? "green" : "red" %>;";"><%#Eval("vEstado") %><td>
+			            <td style="text-align:center;"><%#Eval("Poliza.Asegurado.Nombre") + " " + Eval("Poliza.Asegurado.ApellidoPaterno") + " " + Eval("Poliza.Asegurado.ApellidoMaterno")%><td>
+			            <td style="text-align:center;"><%#Eval("Procurador.NumProcurador")%><td>
+                        <td style="text-align:center;"><%#Eval("Procurador.Nombre") + " " +  Eval("Procurador.ApellidoPaterno") + " " +  Eval("Procurador.ApellidoMaterno")%><td>
+			            <td style="text-align:center;color:<%# Int32.Parse(Eval("Estado").ToString())  == Pacifico.SINCO.UTL.Constantes.sEstado_Pendiente ? "green" : "red" %>;";"><%#Eval("EstadoEntity.Nombre") %><td>
 		            </tr>                                       
                </ItemTemplate>
             <FooterTemplate>

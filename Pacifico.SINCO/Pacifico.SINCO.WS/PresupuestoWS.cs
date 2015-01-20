@@ -15,16 +15,7 @@ namespace Pacifico.SINCO.WS
 {
     public class PresupuestoWS : IPresupuestoWS
     {
-
         
-        private rnPresupuesto reglaNegocioPresupuesto;
-
-
-        public PresupuestoWS()
-         {
-             reglaNegocioPresupuesto = new rnPresupuesto();
-         }
-
         /* <summary>
          ObtenerNombreWS
          </summary>
@@ -39,6 +30,7 @@ namespace Pacifico.SINCO.WS
         {
             try
             {
+                PresupuestoRN reglaNegocioPresupuesto = new PresupuestoRN();
                 PresupuestoEN model = reglaNegocioPresupuesto.ObtenerPresupuesto(id);
                 return new JavaScriptSerializer().Serialize(model);
             }
@@ -52,6 +44,7 @@ namespace Pacifico.SINCO.WS
         {
             try
             {
+                PresupuestoRN reglaNegocioPresupuesto = new PresupuestoRN();
                 return reglaNegocioPresupuesto.AgregarPresupuesto(model);
             }
             catch (Exception e)
@@ -64,6 +57,7 @@ namespace Pacifico.SINCO.WS
         {
             try
             {
+                PresupuestoRN reglaNegocioPresupuesto = new PresupuestoRN();
                 return reglaNegocioPresupuesto.ModificarPresupuesto(model, detalle);
             }
             catch (Exception e)
@@ -77,6 +71,7 @@ namespace Pacifico.SINCO.WS
          {
              try
              {
+                 PresupuestoRN reglaNegocioPresupuesto = new PresupuestoRN();
                  List<PresupuestoEN> listaPresupuesto = reglaNegocioPresupuesto.BuscarPresupuesto(numPresupuesto, numInforme, numPoliza, fechaPresupuesto);
                  return new JavaScriptSerializer().Serialize(listaPresupuesto);
              }
@@ -90,6 +85,7 @@ namespace Pacifico.SINCO.WS
         {
             try
             {
+                PresupuestoRN reglaNegocioPresupuesto = new PresupuestoRN();
                 List<PresupuestoEN> listaPresupuesto = reglaNegocioPresupuesto.ListarPresupuesto();
                 return new JavaScriptSerializer().Serialize(listaPresupuesto);
             }

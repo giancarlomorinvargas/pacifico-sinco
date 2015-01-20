@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Pacifico.SINCO.RN
 {
-    public class rnPresupuesto
+    public class PresupuestoRN
     {
         
         public static int ESTADO_REGISTRADO = Constantes.pEstado_Registrado;
@@ -29,20 +29,11 @@ namespace Pacifico.SINCO.RN
         
         String usuario = "rcastillejo";
 
-        IPresupuestoDAO _PresupuestoRepositorio;
-        IDetallePresupuestoDAO _DetallePresupuestoRepositorio;
-
-
-        public rnPresupuesto()
-         {
-             _PresupuestoRepositorio = new PresupuestoDAO();
-             _DetallePresupuestoRepositorio = new DetallePresupuestoDAO();
-         }
-
 
         public PresupuestoEN ObtenerPresupuesto(int Id)
         {
-            PresupuestoEN model = _PresupuestoRepositorio.Get(Id);
+            IPresupuestoDAO presupuestoDao = new PresupuestoDAO();
+            PresupuestoEN model = presupuestoDao.Get(Id);
             if (model == null)
             {
                 throw new Exception(MENSAJE_NO_DISPONIBLE);
@@ -54,6 +45,7 @@ namespace Pacifico.SINCO.RN
         {
             try
             {
+                IPresupuestoDAO presupuestoDao = new PresupuestoDAO();
                 model.Estado = ESTADO_REGISTRADO;
                 //model.FechaPresupuesto = DateTime.Now;
 
@@ -63,7 +55,7 @@ namespace Pacifico.SINCO.RN
                 model.FechaModifico = DateTime.Now;
 
 
-                _PresupuestoRepositorio.Add(model);
+                presupuestoDao.Add(model);
 
                 //TODO;Actualizar el estado del SiniestroEN
             }
@@ -82,6 +74,8 @@ namespace Pacifico.SINCO.RN
             try
             {
 
+                IPresupuestoDAO presupuestoDao = new PresupuestoDAO();
+                IDetallePresupuestoDAO detallePresupuestoDao = new DetallePresupuestoDAO();
 
                 model.Estado = ESTADO_REGISTRADO;
 
@@ -97,9 +91,9 @@ namespace Pacifico.SINCO.RN
                         m.MS_Detalle_Presupuesto_Id == detalle.MS_Detalle_Presupuesto_Id) == null)
                     {
                         //OJO: Para eliminar, primero se debe obtener el objeto desde la bd (Indispensable en ORM)
-                        DetallePresupuestoEN detalleDel = _DetallePresupuestoRepositorio.Get(detalle.MS_Detalle_Presupuesto_Id);
+                        DetallePresupuestoEN detalleDel = detallePresupuestoDao.Get(detalle.MS_Detalle_Presupuesto_Id);
                         //Removemos el item de la bd
-                        _DetallePresupuestoRepositorio.Remove(detalleDel);
+                        detallePresupuestoDao.Remove(detalleDel);
                     }
                 }
 
@@ -109,16 +103,16 @@ namespace Pacifico.SINCO.RN
                     if (detalle.MS_Detalle_Presupuesto_Id == 0)
                     {
                         detalle.MS_Presupuesto_Id = model.MS_Presupuesto_Id;
-                        _DetallePresupuestoRepositorio.Add(detalle);
+                        detallePresupuestoDao.Add(detalle);
                     }
                     else
                     {
-                        _DetallePresupuestoRepositorio.Modify(detalle);
+                        detallePresupuestoDao.Modify(detalle);
                     }
                 }
                 model.DetallePresupuesto = null;
                 model.InformeAccidente = null;
-                _PresupuestoRepositorio.Modify(model);
+                presupuestoDao.Modify(model);
             }
             catch (Exception e)
             {
@@ -132,13 +126,16 @@ namespace Pacifico.SINCO.RN
 
          public List<PresupuestoEN> BuscarPresupuesto(string NumPresupuesto, string NumInforme, string NumPoliza, string FechaPresupuesto)
          {
-             string NumPresupuestoParam = NumPresupuesto.ToUpper();
-             string NumInformeParam = NumInforme.ToUpper();
-             string NumPolizaParam = NumPoliza.ToUpper();
+             string NumPresupuestoParam = NumPresupuesto == null ? "" : NumPresupuesto.ToUpper();
+             string NumInformeParam = NumInforme == null ? "" : NumInforme.ToUpper();
+             string NumPolizaParam = NumPoliza == null ? "" : NumPoliza.ToUpper();
+             string FechaPresupuestoParam = FechaPresupuesto == null ? "" : FechaPresupuesto;
 
              List<PresupuestoEN> listaPresupuesto = new List<PresupuestoEN>();
 
-             foreach (PresupuestoEN Presupuesto in _PresupuestoRepositorio.GetAll().Where(
+             IPresupuestoDAO presupuestoDao = new PresupuestoDAO();
+
+             foreach (PresupuestoEN Presupuesto in presupuestoDao.GetAll().Where(
                          b => ((b.NumPresupuesto.ToUpper().Contains(NumPresupuestoParam))
                              && (b.InformeAccidente.NumInforme.ToUpper().Contains(NumInformeParam))
                              && (b.InformeAccidente.Siniestro.Poliza.NumPoliza.ToUpper().Contains(NumPolizaParam))
@@ -148,7 +145,8 @@ namespace Pacifico.SINCO.RN
                      )
              {
                  string fecPresupuesto = Presupuesto.FechaPresupuesto.ToString("d");
-                 if (fecPresupuesto.Contains(FechaPresupuesto)) {
+                 if (fecPresupuesto.Contains(FechaPresupuestoParam))
+                 {
                      listaPresupuesto.Add(Presupuesto);
                  }
              }
@@ -161,9 +159,10 @@ namespace Pacifico.SINCO.RN
          }
 
          public List<PresupuestoEN> ListarPresupuesto()
-        {
+         {
+             IPresupuestoDAO presupuestoDao = new PresupuestoDAO();
             List<PresupuestoEN> listaPresupuesto;
-            listaPresupuesto = _PresupuestoRepositorio.GetAll().ToList();
+            listaPresupuesto = presupuestoDao.GetAll().ToList();
 
             if (listaPresupuesto == null || listaPresupuesto.Count() == 0)
             {

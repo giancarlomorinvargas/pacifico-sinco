@@ -1,5 +1,6 @@
 ﻿using Pacifico.SINCO.EN;
 using Pacifico.SINCO.UTL;
+using Pacifico.SINCO.WEB.Facade.Informe;
 using Pacifico.SINCO.WEB.wsSiniestro;
 using System;
 using System.Collections.Generic;
@@ -57,12 +58,13 @@ namespace Pacifico.SINCO.WEB.Modulos.Siniestro
             {
                 lblMensajeError.InnerText = "";
                 //WS-SINIESTRO
-                SiniestroWSClient owsSiniestroClient = new SiniestroWSClient();
+                //SiniestroWSClient owsSiniestroClient = new SiniestroWSClient();
+                SiniestroFacade siniestroFacade = new SiniestroFacade();
 
                 //Validación
 
                 //Parametros
-                enSiniestro oEnSiniestro = new enSiniestro();
+                SiniestroEN oEnSiniestro = new SiniestroEN();
                 oEnSiniestro.NumSiniestro = txtNumSiniestro.Value;
                 oEnSiniestro.Tipo = cmbTipoSiniestro.Value.ToString();
                 oEnSiniestro.FechaSiniestro = Convert.ToDateTime(txtFechaSiniestro.Value);
@@ -75,13 +77,13 @@ namespace Pacifico.SINCO.WEB.Modulos.Siniestro
                 oEnSiniestro.MS_Procurador_Id = int.Parse(hddCodProcurador.Value);
 
                 //Obtiene Listado de Siniestros
-                bool exito = owsSiniestroClient.IngresarSiniestro(oEnSiniestro);
+                //bool exito = owsSiniestroClient.IngresarSiniestro(oEnSiniestro);
+                string mensaje = siniestroFacade.Registrar(oEnSiniestro);
 
-                if (exito)
-                {
-                    HttpContext.Current.Session["SINIESTRO_MENSAJE"] = "Siniestro Registrado Satisfactoriamente";
-                    Response.Redirect("~/Modulos/Siniestro/frm_BSQ_Siniestro.aspx", false);
-                }
+
+                HttpContext.Current.Session["SINIESTRO_MENSAJE"] = mensaje;
+                Response.Redirect("~/Modulos/Siniestro/frm_BSQ_Siniestro.aspx", false);
+                
 
             }
             catch (Exception ex)

@@ -21,41 +21,47 @@ namespace Pacifico.SINCO.WEB.wsSiniestro {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISiniestroWS/wsObtenerNombreWS", ReplyAction="http://tempuri.org/ISiniestroWS/wsObtenerNombreWSResponse")]
         System.Threading.Tasks.Task<string> wsObtenerNombreWSAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISiniestroWS/ListarSiniestro", ReplyAction="http://tempuri.org/ISiniestroWS/ListarSiniestroResponse")]
-        Pacifico.SINCO.EN.enSiniestro[] ListarSiniestro(Pacifico.SINCO.EN.enSiniestro pEnSiniestro);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISiniestroWS/Listar", ReplyAction="http://tempuri.org/ISiniestroWS/ListarResponse")]
+        string Listar();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISiniestroWS/ListarSiniestro", ReplyAction="http://tempuri.org/ISiniestroWS/ListarSiniestroResponse")]
-        System.Threading.Tasks.Task<Pacifico.SINCO.EN.enSiniestro[]> ListarSiniestroAsync(Pacifico.SINCO.EN.enSiniestro pEnSiniestro);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISiniestroWS/Listar", ReplyAction="http://tempuri.org/ISiniestroWS/ListarResponse")]
+        System.Threading.Tasks.Task<string> ListarAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISiniestroWS/ObtenerSiniestro", ReplyAction="http://tempuri.org/ISiniestroWS/ObtenerSiniestroResponse")]
-        Pacifico.SINCO.EN.enSiniestro ObtenerSiniestro(Pacifico.SINCO.EN.enSiniestro pEnSiniestro);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISiniestroWS/Buscar", ReplyAction="http://tempuri.org/ISiniestroWS/BuscarResponse")]
+        string Buscar(string numPoliza, string tipo, string fecRegistro);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISiniestroWS/ObtenerSiniestro", ReplyAction="http://tempuri.org/ISiniestroWS/ObtenerSiniestroResponse")]
-        System.Threading.Tasks.Task<Pacifico.SINCO.EN.enSiniestro> ObtenerSiniestroAsync(Pacifico.SINCO.EN.enSiniestro pEnSiniestro);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISiniestroWS/Buscar", ReplyAction="http://tempuri.org/ISiniestroWS/BuscarResponse")]
+        System.Threading.Tasks.Task<string> BuscarAsync(string numPoliza, string tipo, string fecRegistro);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISiniestroWS/IngresarSiniestro", ReplyAction="http://tempuri.org/ISiniestroWS/IngresarSiniestroResponse")]
-        bool IngresarSiniestro(Pacifico.SINCO.EN.enSiniestro pEnSiniestro);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISiniestroWS/Obtener", ReplyAction="http://tempuri.org/ISiniestroWS/ObtenerResponse")]
+        string Obtener(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISiniestroWS/IngresarSiniestro", ReplyAction="http://tempuri.org/ISiniestroWS/IngresarSiniestroResponse")]
-        System.Threading.Tasks.Task<bool> IngresarSiniestroAsync(Pacifico.SINCO.EN.enSiniestro pEnSiniestro);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISiniestroWS/Obtener", ReplyAction="http://tempuri.org/ISiniestroWS/ObtenerResponse")]
+        System.Threading.Tasks.Task<string> ObtenerAsync(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISiniestroWS/ActualizaSiniestro", ReplyAction="http://tempuri.org/ISiniestroWS/ActualizaSiniestroResponse")]
-        bool ActualizaSiniestro(Pacifico.SINCO.EN.enSiniestro pEnSiniestro);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISiniestroWS/Ingresar", ReplyAction="http://tempuri.org/ISiniestroWS/IngresarResponse")]
+        string Ingresar(Pacifico.SINCO.EN.SiniestroEN siniestro);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISiniestroWS/ActualizaSiniestro", ReplyAction="http://tempuri.org/ISiniestroWS/ActualizaSiniestroResponse")]
-        System.Threading.Tasks.Task<bool> ActualizaSiniestroAsync(Pacifico.SINCO.EN.enSiniestro pEnSiniestro);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISiniestroWS/Ingresar", ReplyAction="http://tempuri.org/ISiniestroWS/IngresarResponse")]
+        System.Threading.Tasks.Task<string> IngresarAsync(Pacifico.SINCO.EN.SiniestroEN siniestro);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISiniestroWS/ProcesarSiniestro", ReplyAction="http://tempuri.org/ISiniestroWS/ProcesarSiniestroResponse")]
-        bool ProcesarSiniestro(Pacifico.SINCO.EN.enSiniestro pEnSiniestro);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISiniestroWS/Actualizar", ReplyAction="http://tempuri.org/ISiniestroWS/ActualizarResponse")]
+        string Actualizar(Pacifico.SINCO.EN.SiniestroEN siniestro);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISiniestroWS/ProcesarSiniestro", ReplyAction="http://tempuri.org/ISiniestroWS/ProcesarSiniestroResponse")]
-        System.Threading.Tasks.Task<bool> ProcesarSiniestroAsync(Pacifico.SINCO.EN.enSiniestro pEnSiniestro);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISiniestroWS/Actualizar", ReplyAction="http://tempuri.org/ISiniestroWS/ActualizarResponse")]
+        System.Threading.Tasks.Task<string> ActualizarAsync(Pacifico.SINCO.EN.SiniestroEN siniestro);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISiniestroWS/RegistrarSiniestroPendiente", ReplyAction="http://tempuri.org/ISiniestroWS/RegistrarSiniestroPendienteResponse")]
-        bool RegistrarSiniestroPendiente(Pacifico.SINCO.EN.enSiniestro pEnSiniestro);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISiniestroWS/RegistrarProceso", ReplyAction="http://tempuri.org/ISiniestroWS/RegistrarProcesoResponse")]
+        string RegistrarProceso(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISiniestroWS/RegistrarSiniestroPendiente", ReplyAction="http://tempuri.org/ISiniestroWS/RegistrarSiniestroPendienteResponse")]
-        System.Threading.Tasks.Task<bool> RegistrarSiniestroPendienteAsync(Pacifico.SINCO.EN.enSiniestro pEnSiniestro);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISiniestroWS/RegistrarProceso", ReplyAction="http://tempuri.org/ISiniestroWS/RegistrarProcesoResponse")]
+        System.Threading.Tasks.Task<string> RegistrarProcesoAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISiniestroWS/RegistrarPendiente", ReplyAction="http://tempuri.org/ISiniestroWS/RegistrarPendienteResponse")]
+        string RegistrarPendiente(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISiniestroWS/RegistrarPendiente", ReplyAction="http://tempuri.org/ISiniestroWS/RegistrarPendienteResponse")]
+        System.Threading.Tasks.Task<string> RegistrarPendienteAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -93,52 +99,60 @@ namespace Pacifico.SINCO.WEB.wsSiniestro {
             return base.Channel.wsObtenerNombreWSAsync();
         }
         
-        public Pacifico.SINCO.EN.enSiniestro[] ListarSiniestro(Pacifico.SINCO.EN.enSiniestro pEnSiniestro) {
-            return base.Channel.ListarSiniestro(pEnSiniestro);
+        public string Listar() {
+            return base.Channel.Listar();
         }
         
-        public System.Threading.Tasks.Task<Pacifico.SINCO.EN.enSiniestro[]> ListarSiniestroAsync(Pacifico.SINCO.EN.enSiniestro pEnSiniestro) {
-            return base.Channel.ListarSiniestroAsync(pEnSiniestro);
+        public System.Threading.Tasks.Task<string> ListarAsync() {
+            return base.Channel.ListarAsync();
         }
         
-        public Pacifico.SINCO.EN.enSiniestro ObtenerSiniestro(Pacifico.SINCO.EN.enSiniestro pEnSiniestro) {
-            return base.Channel.ObtenerSiniestro(pEnSiniestro);
+        public string Buscar(string numPoliza, string tipo, string fecRegistro) {
+            return base.Channel.Buscar(numPoliza, tipo, fecRegistro);
         }
         
-        public System.Threading.Tasks.Task<Pacifico.SINCO.EN.enSiniestro> ObtenerSiniestroAsync(Pacifico.SINCO.EN.enSiniestro pEnSiniestro) {
-            return base.Channel.ObtenerSiniestroAsync(pEnSiniestro);
+        public System.Threading.Tasks.Task<string> BuscarAsync(string numPoliza, string tipo, string fecRegistro) {
+            return base.Channel.BuscarAsync(numPoliza, tipo, fecRegistro);
         }
         
-        public bool IngresarSiniestro(Pacifico.SINCO.EN.enSiniestro pEnSiniestro) {
-            return base.Channel.IngresarSiniestro(pEnSiniestro);
+        public string Obtener(int id) {
+            return base.Channel.Obtener(id);
         }
         
-        public System.Threading.Tasks.Task<bool> IngresarSiniestroAsync(Pacifico.SINCO.EN.enSiniestro pEnSiniestro) {
-            return base.Channel.IngresarSiniestroAsync(pEnSiniestro);
+        public System.Threading.Tasks.Task<string> ObtenerAsync(int id) {
+            return base.Channel.ObtenerAsync(id);
         }
         
-        public bool ActualizaSiniestro(Pacifico.SINCO.EN.enSiniestro pEnSiniestro) {
-            return base.Channel.ActualizaSiniestro(pEnSiniestro);
+        public string Ingresar(Pacifico.SINCO.EN.SiniestroEN siniestro) {
+            return base.Channel.Ingresar(siniestro);
         }
         
-        public System.Threading.Tasks.Task<bool> ActualizaSiniestroAsync(Pacifico.SINCO.EN.enSiniestro pEnSiniestro) {
-            return base.Channel.ActualizaSiniestroAsync(pEnSiniestro);
+        public System.Threading.Tasks.Task<string> IngresarAsync(Pacifico.SINCO.EN.SiniestroEN siniestro) {
+            return base.Channel.IngresarAsync(siniestro);
         }
         
-        public bool ProcesarSiniestro(Pacifico.SINCO.EN.enSiniestro pEnSiniestro) {
-            return base.Channel.ProcesarSiniestro(pEnSiniestro);
+        public string Actualizar(Pacifico.SINCO.EN.SiniestroEN siniestro) {
+            return base.Channel.Actualizar(siniestro);
         }
         
-        public System.Threading.Tasks.Task<bool> ProcesarSiniestroAsync(Pacifico.SINCO.EN.enSiniestro pEnSiniestro) {
-            return base.Channel.ProcesarSiniestroAsync(pEnSiniestro);
+        public System.Threading.Tasks.Task<string> ActualizarAsync(Pacifico.SINCO.EN.SiniestroEN siniestro) {
+            return base.Channel.ActualizarAsync(siniestro);
         }
         
-        public bool RegistrarSiniestroPendiente(Pacifico.SINCO.EN.enSiniestro pEnSiniestro) {
-            return base.Channel.RegistrarSiniestroPendiente(pEnSiniestro);
+        public string RegistrarProceso(int id) {
+            return base.Channel.RegistrarProceso(id);
         }
         
-        public System.Threading.Tasks.Task<bool> RegistrarSiniestroPendienteAsync(Pacifico.SINCO.EN.enSiniestro pEnSiniestro) {
-            return base.Channel.RegistrarSiniestroPendienteAsync(pEnSiniestro);
+        public System.Threading.Tasks.Task<string> RegistrarProcesoAsync(int id) {
+            return base.Channel.RegistrarProcesoAsync(id);
+        }
+        
+        public string RegistrarPendiente(int id) {
+            return base.Channel.RegistrarPendiente(id);
+        }
+        
+        public System.Threading.Tasks.Task<string> RegistrarPendienteAsync(int id) {
+            return base.Channel.RegistrarPendienteAsync(id);
         }
     }
 }

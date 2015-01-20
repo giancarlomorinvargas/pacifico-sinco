@@ -187,11 +187,11 @@
                    <tr <%#Int32.Parse(Eval("Estado").ToString())%2==0?"class=\"even\"":"" %> >
                         <td><input id="chkIdSiniestro" type="checkbox" value="<%#Eval("MS_Siniestro_Id") %>" onclick="javascript:fn_checkLista(this, '<%#Eval("Estado")%>')"/></td>
                         <td style="text-align:center;"><%#Eval("NumSiniestro") %><td>
-			            <td style="text-align:center;"><%#Eval("NumPoliza") %><td>
-			            <td><%#Eval("NombreAsegurado") %><td>
+			            <td style="text-align:center;"><%#Eval("Poliza.NumPoliza") %><td>
+			            <td><%#Eval("Poliza.Asegurado.Nombre") + " " + Eval("Poliza.Asegurado.ApellidoPaterno") + " " + Eval("Poliza.Asegurado.ApellidoMaterno")%><td>
 			            <td style="text-align:center;"><%#Eval("FechaSiniestro") %><td>
 			            <td><%#Eval("Tipo") %><td>
-			            <td style="text-align:center;color:<%#Int32.Parse(Eval("Estado").ToString())==Pacifico.SINCO.UTL.Constantes.sEstado_Pendiente ? "green": "red"%>;"><%#Eval("vEstado") %><td>
+			            <td style="text-align:center;color:<%#Int32.Parse(Eval("Estado").ToString())==Pacifico.SINCO.UTL.Constantes.sEstado_Pendiente ? "green": "red"%>;"><%#Eval("EstadoEntity.Nombre") %><td>
 		            </tr>                                       
                </ItemTemplate>
             <FooterTemplate>

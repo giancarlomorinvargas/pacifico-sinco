@@ -31,6 +31,12 @@
   <wsdl:message name="IInformeAccidenteWS_Buscar_OutputMessage">
     <wsdl:part name="parameters" element="tns:BuscarResponse" />
   </wsdl:message>
+  <wsdl:message name="IInformeAccidenteWS_BuscarParaPresupuesto_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarParaPresupuesto" />
+  </wsdl:message>
+  <wsdl:message name="IInformeAccidenteWS_BuscarParaPresupuesto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarParaPresupuestoResponse" />
+  </wsdl:message>
   <wsdl:message name="IInformeAccidenteWS_Agregar_InputMessage">
     <wsdl:part name="parameters" element="tns:Agregar" />
   </wsdl:message>
@@ -59,6 +65,10 @@
     <wsdl:operation name="Buscar">
       <wsdl:input wsaw:Action="http://tempuri.org/IInformeAccidenteWS/Buscar" message="tns:IInformeAccidenteWS_Buscar_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IInformeAccidenteWS/BuscarResponse" message="tns:IInformeAccidenteWS_Buscar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarParaPresupuesto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInformeAccidenteWS/BuscarParaPresupuesto" message="tns:IInformeAccidenteWS_BuscarParaPresupuesto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInformeAccidenteWS/BuscarParaPresupuestoResponse" message="tns:IInformeAccidenteWS_BuscarParaPresupuesto_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Agregar">
       <wsdl:input wsaw:Action="http://tempuri.org/IInformeAccidenteWS/Agregar" message="tns:IInformeAccidenteWS_Agregar_InputMessage" />
@@ -100,6 +110,15 @@
     </wsdl:operation>
     <wsdl:operation name="Buscar">
       <soap:operation soapAction="http://tempuri.org/IInformeAccidenteWS/Buscar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarParaPresupuesto">
+      <soap:operation soapAction="http://tempuri.org/IInformeAccidenteWS/BuscarParaPresupuesto" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

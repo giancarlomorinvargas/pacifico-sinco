@@ -55,6 +55,21 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="BuscarParaPresupuesto">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="numInforme" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="asegurado" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BuscarParaPresupuestoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="BuscarParaPresupuestoResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="Agregar">
     <xs:complexType>
       <xs:sequence>

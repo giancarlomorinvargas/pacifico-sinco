@@ -16,11 +16,11 @@ namespace Pacifico.SINCO.WS
     public class ListaPrecioWS : IListaPrecioWS
     {
 
-        private rnListaPrecio reglaNegocioListaPrecio;
+        private ListaPrecioRN reglaNegocioListaPrecio;
 
         public ListaPrecioWS()
          {
-             reglaNegocioListaPrecio = new rnListaPrecio();
+             reglaNegocioListaPrecio = new ListaPrecioRN();
          }
         
         /* <summary>
@@ -33,11 +33,11 @@ namespace Pacifico.SINCO.WS
             return string.Format(Constantes.sNombreWS_ListaPrecio);
         }
         
-        public string Obtener(int Id)
+        public string Obtener(int id)
          {
              try
              {
-                 ListaPrecioEN model = reglaNegocioListaPrecio.Obtener(Id);
+                 ListaPrecioEN model = reglaNegocioListaPrecio.Obtener(id);
                  return new JavaScriptSerializer().Serialize(model);
              }
              catch (Exception e)
@@ -59,11 +59,11 @@ namespace Pacifico.SINCO.WS
              }
          }
 
-        public string Buscar(int MarcaId, int ModeloId)
+        public string Buscar(int marcaId, int modeloId)
          {
              try
              {
-                 List<ListaPrecioEN> model = reglaNegocioListaPrecio.Buscar(MarcaId, ModeloId);
+                 List<ListaPrecioEN> model = reglaNegocioListaPrecio.Buscar(marcaId, modeloId);
                  return new JavaScriptSerializer().Serialize(model);
              }
              catch (Exception e)

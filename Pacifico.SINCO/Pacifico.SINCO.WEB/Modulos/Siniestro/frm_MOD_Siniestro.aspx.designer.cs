@@ -49,6 +49,24 @@ namespace Pacifico.SINCO.WEB.Modulos.Siniestro {
         protected global::System.Web.UI.WebControls.HiddenField hddCodProcurador;
         
         /// <summary>
+        /// UsuarioRegistro control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField UsuarioRegistro;
+        
+        /// <summary>
+        /// FechaRegistro control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField FechaRegistro;
+        
+        /// <summary>
         /// txtNumSiniestro control.
         /// </summary>
         /// <remarks>

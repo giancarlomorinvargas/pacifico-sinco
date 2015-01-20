@@ -31,7 +31,8 @@ namespace Pacifico.SINCO.WEB.Modulos.Comun
                 
                 //Obtiene Listado de Siniestros
                 //List<InformeAccidente> listadoResult = new List<InformeAccidente>();
-                List<enSiniestro> listado = owsSiniestroClient.ListarSiniestro(new enSiniestro()).Cast<enSiniestro>().ToList();
+                string listadoSerializado = owsSiniestroClient.Listar();
+                List<SiniestroEN> listado = new JavaScriptSerializer().Deserialize<List<SiniestroEN>>(listadoSerializado);
                 /*
                 foreach (InformeAccidente item in listado.Where(b => b.Estado == Constantes.iEstado_Registrado )) {
                     listadoResult.Add(item);
@@ -62,11 +63,12 @@ namespace Pacifico.SINCO.WEB.Modulos.Comun
                 SiniestroWSClient owsSiniestroClient = new SiniestroWSClient();
 
 
-                string NumInforme= txtNumInforme.Value.ToUpper();
-                string Asegurado = txtAsegurado.Value.ToUpper();
+                /*string NumInforme= txtNumInforme.Value.ToUpper();
+                string Asegurado = cmbTipoSiniestro.Value;*/
 
                 //Obtiene Listado de Siniestros
-                List<enSiniestro> listadoResult = owsSiniestroClient.ListarSiniestro(new enSiniestro()).Cast<enSiniestro>().ToList();
+                string listadoSerializado = owsSiniestroClient.Listar();
+                List<SiniestroEN> listado = new JavaScriptSerializer().Deserialize<List<SiniestroEN>>(listadoSerializado);
                 /*List<InformeAccidente> listado = new JavaScriptSerializer().Deserialize<List<InformeAccidente>>(listadoJson);
 
                 foreach (InformeAccidente item in listado)
@@ -78,7 +80,7 @@ namespace Pacifico.SINCO.WEB.Modulos.Comun
                 }*/
 
 
-                rptListadoSiniestros.DataSource = listadoResult;
+                rptListadoSiniestros.DataSource = listado;
                 rptListadoSiniestros.DataBind();
 
             }

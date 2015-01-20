@@ -18,21 +18,24 @@ namespace Pacifico.SINCO.WS.Interfaces
         string wsObtenerNombreWS();
 
         [OperationContract]
-        List<enSiniestro> ListarSiniestro(enSiniestro pEnSiniestro);
+        string Listar();
 
         [OperationContract]
-        enSiniestro ObtenerSiniestro(enSiniestro pEnSiniestro);
+        string Buscar(string numPoliza, string tipo, string fecRegistro);
 
         [OperationContract]
-        bool IngresarSiniestro(enSiniestro pEnSiniestro);
+        string Obtener(int id);
 
         [OperationContract]
-        bool ActualizaSiniestro(enSiniestro pEnSiniestro);
+        string Ingresar(SiniestroEN siniestro);
 
         [OperationContract]
-        bool ProcesarSiniestro(enSiniestro pEnSiniestro);
+        string Actualizar(SiniestroEN siniestro);
+
+        [OperationContract]
+        string RegistrarProceso(int id);
         
         [OperationContract]
-        bool RegistrarSiniestroPendiente(enSiniestro pEnSiniestro);
+        string RegistrarPendiente(int id);
     }
 }

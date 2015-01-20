@@ -15,29 +15,84 @@
   </xs:element>
   <xs:element name="ListarPoliza">
     <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Pacifico.SINCO.EN" minOccurs="0" name="pEnPoliza" nillable="true" type="q1:enPoliza" />
-      </xs:sequence>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
   <xs:element name="ListarPolizaResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Pacifico.SINCO.EN" minOccurs="0" name="ListarPolizaResult" nillable="true" type="q2:ArrayOfenPoliza" />
+        <xs:element minOccurs="0" name="ListarPolizaResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BuscarPoliza">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dniAsegurado" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="numPoliza" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="placa" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BuscarPolizaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="BuscarPolizaResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ListarProcurador">
     <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Pacifico.SINCO.EN" minOccurs="0" name="pEnProcurador" nillable="true" type="q3:enProcurador" />
-      </xs:sequence>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
   <xs:element name="ListarProcuradorResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Pacifico.SINCO.EN" minOccurs="0" name="ListarProcuradorResult" nillable="true" type="q4:ArrayOfenProcurador" />
+        <xs:element minOccurs="0" name="ListarProcuradorResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BuscarProcurador">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="numProcurador" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="procurador" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BuscarProcuradorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="BuscarProcuradorResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ActualizaDisponibilidadProcurador">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Pacifico.SINCO.EN" minOccurs="0" name="pEnProcurador" nillable="true" type="q1:ProcuradorEN" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ActualizaDisponibilidadProcuradorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ActualizaDisponibilidadProcuradorResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerProcurador">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerProcuradorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ObtenerProcuradorResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -8,6 +8,8 @@ using Pacifico.SINCO.UTL;
 using Pacifico.SINCO.WS.Interfaces;
 using Pacifico.SINCO.EN;
 using Pacifico.SINCO.RN;
+using System.ServiceModel;
+using System.Web.Script.Serialization;
 
 namespace Pacifico.SINCO.WS
 {
@@ -28,53 +30,89 @@ namespace Pacifico.SINCO.WS
         </summary>
         <param name="pEnPoliza"></param>
         <returns></returns>*/
-        public List<enPoliza> ListarPoliza(enPoliza pEnPoliza)
+        public string ListarPoliza()
         {
-            List<enPoliza> loEnPoliza = null;
             try
             {
-                rnPoliza oRnPoliza = new rnPoliza();
-                loEnPoliza = oRnPoliza.ListarPoliza(pEnPoliza);
+                PolizaRN polizaRN = new PolizaRN();
+                List<PolizaEN>  listado = polizaRN.Listar();
+                return new JavaScriptSerializer().Serialize(listado);
             }
             catch (Exception ex)
             {
-                loEnPoliza = null;
-                throw ex;
+                throw new FaultException(ex.Message);
             }
-            return loEnPoliza;
+        }
+
+        public string BuscarPoliza(string dniAsegurado, string numPoliza, string placa)
+        {
+            try
+            {
+                PolizaRN polizaRN = new PolizaRN();
+                List<PolizaEN> listado = polizaRN.Buscar(dniAsegurado, numPoliza, placa);
+                return new JavaScriptSerializer().Serialize(listado);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
         }
 
 
-        public List<enProcurador> ListarProcurador(enProcurador pEnProcurador)
+        public string ListarProcurador()
         {
-            List<enProcurador> loEnProcurador = null;
             try
             {
-                rnProcurador oRnProcurador = new rnProcurador();
-                loEnProcurador = oRnProcurador.ListarProcurador(pEnProcurador);
+                ProcuradorRN procuradorRN = new ProcuradorRN();
+                List<ProcuradorEN> listado = procuradorRN.Listar();
+                return new JavaScriptSerializer().Serialize(listado);
             }
             catch (Exception ex)
             {
-                loEnProcurador = null;
-                throw ex;
+                throw new FaultException(ex.Message);
             }
-            return loEnProcurador;
         }
 
-        public bool ActualizaDisponibilidadProcurador(enProcurador pEnProcurador)
+
+        public string BuscarProcurador(string numProcurador, string procurador)
         {
-            bool bExito = false;
             try
             {
-                rnProcurador oRnProcurador = new rnProcurador();
-                bExito = oRnProcurador.ActualizarDisponibilidadProcurador(pEnProcurador);
+                ProcuradorRN procuradorRN = new ProcuradorRN();
+                List<ProcuradorEN> listado = procuradorRN.Buscar(numProcurador, procurador);
+                return new JavaScriptSerializer().Serialize(listado);
             }
             catch (Exception ex)
             {
-                bExito = false;
-                throw ex;
+                throw new FaultException(ex.Message);
             }
-            return bExito;
+        }
+
+        public string ActualizaDisponibilidadProcurador(ProcuradorEN pEnProcurador)
+        {
+            try
+            {
+                ProcuradorRN procuradorRN = new ProcuradorRN();
+                return procuradorRN.ActualizarDisponibilidad(pEnProcurador);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+        }
+
+        public string ObtenerProcurador(int id)
+        {
+            try
+            {
+                ProcuradorRN procuradorRN = new ProcuradorRN();
+                ProcuradorEN procurador = procuradorRN.Obtener(id);
+                return new JavaScriptSerializer().Serialize(procurador);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
         }
 
     }

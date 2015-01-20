@@ -39,6 +39,10 @@ namespace Pacifico.SINCO.AD
              * Definimos relaciones complejas
              **/
 
+            modelBuilder.Entity<SiniestroEN>()
+            .HasRequired(c => c.EstadoEntity)
+            .WithMany()
+            .HasForeignKey(c => c.Estado);
 
             modelBuilder.Entity<PresupuestoEN>()
             .HasRequired(c => c.EstadoEntity)

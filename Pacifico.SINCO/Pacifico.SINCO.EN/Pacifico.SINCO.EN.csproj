@@ -45,12 +45,6 @@
     <Compile Include="SiniestroEN.cs" />
     <Compile Include="ProcuradorEN.cs" />
     <Compile Include="EstadoEN.cs" />
-    <Compile Include="enAsegurado.cs" />
-    <Compile Include="enBase.cs" />
-    <Compile Include="enPoliza.cs" />
-    <Compile Include="enProcurador.cs" />
-    <Compile Include="enSiniestro.cs" />
-    <Compile Include="enVehiculo.cs" />
     <Compile Include="AseguradoEN.cs" />
     <Compile Include="MarcaEN.cs" />
     <Compile Include="ModeloEN.cs" />
