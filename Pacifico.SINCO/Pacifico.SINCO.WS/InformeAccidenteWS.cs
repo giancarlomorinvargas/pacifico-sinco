@@ -144,5 +144,30 @@ namespace Pacifico.SINCO.WS
                 throw new FaultException(e.Message);
             }
         }
+
+
+        public string PendienteEvaluar(int siniestroId, int informeid)
+        {
+            try
+            {
+                return new InformeAccidenteRN().PendienteEvaluar(siniestroId, informeid);
+            }
+            catch (Exception e)
+            {
+                throw new FaultException(e.Message);
+            }
+        }
+
+        public string ReversaPendienteEvaluar(int siniestroId)
+        {
+            try
+            {
+                return new InformeAccidenteRN().ReversaPendienteEvaluar(siniestroId);
+            }
+            catch (Exception e)
+            {
+                throw new FaultException(e.Message);
+            }
+        }
     }
 }

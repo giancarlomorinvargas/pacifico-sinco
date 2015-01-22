@@ -45,6 +45,9 @@ namespace Pacifico.SINCO.EN
 
         [Column("Procurador_Id")]
         public int MS_Procurador_Id { get; set; }
-        public virtual ProcuradorEN Procurador { get; set; } 
+        public virtual ProcuradorEN Procurador { get; set; }
+
+        [Column("Tecnico_Id")]
+        public int? TecnicoId { get; set; }
     }
 }

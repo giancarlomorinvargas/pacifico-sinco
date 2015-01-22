@@ -29,6 +29,10 @@ namespace Pacifico.SINCO.WS.Interfaces
         string Agregar(InformeAccidenteEN model);
         [OperationContract]
         string Modificar(InformeAccidenteEN model);
+        [OperationContract]
+        string PendienteEvaluar(int siniestroId, int tecnicoid);
+        [OperationContract]
+        string ReversaPendienteEvaluar(int siniestroId);
 
     }
 }

@@ -26,6 +26,7 @@ namespace Pacifico.SINCO.WEB.Modulos.Comun
 
             try
             {
+                lblMensajeError.InnerText = "";
 
                 InformeAccidenteWSClient owsInformeAccidenteClient = new InformeAccidenteWSClient();
                 

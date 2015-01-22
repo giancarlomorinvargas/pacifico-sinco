@@ -98,4 +98,33 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="PendienteEvaluar">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="siniestroId" type="xs:int" />
+        <xs:element minOccurs="0" name="tecnicoid" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PendienteEvaluarResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PendienteEvaluarResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReversaPendienteEvaluar">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="siniestroId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReversaPendienteEvaluarResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ReversaPendienteEvaluarResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

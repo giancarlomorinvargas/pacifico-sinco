@@ -26,6 +26,8 @@ namespace Pacifico.SINCO.WEB.Modulos.Comun
 
             try
             {
+                lblMensajeError.InnerText = "";
+
                 ListaPrecioWSClient serviceListaPrecio = new ListaPrecioWSClient();
 
                 int marcaId = Int32.Parse(Request.QueryString["marcaId"]);

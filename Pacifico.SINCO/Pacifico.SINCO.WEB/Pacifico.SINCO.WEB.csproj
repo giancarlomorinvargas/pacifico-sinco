@@ -63,11 +63,16 @@
     <Content Include="Error.aspx" />
     <Content Include="MasterPage.Master" />
     <Content Include="MasterPageModal.Master" />
+    <Content Include="Modulos\Comun\mdl_BSQ_Tecnico.aspx" />
+    <Content Include="Modulos\Comun\mdl_BSQ_Procurador.aspx" />
     <Content Include="Modulos\Comun\mdl_BSQ_Siniestro.aspx" />
     <Content Include="Modulos\Informe\frm_AGR_Informe.aspx" />
     <Content Include="Modulos\Informe\frm_BSQ_Informe.aspx" />
     <Content Include="Modulos\Informe\frm_CNS_Informe.aspx" />
     <Content Include="Modulos\Informe\frm_MOD_Informe.aspx" />
+    <Content Include="Modulos\Siniestro\Apertura\frm_APR_Siniestro.aspx" />
+    <Content Include="Modulos\Siniestro\Apertura\frm_CNS_Siniestro.aspx" />
+    <Content Include="Modulos\Siniestro\Apertura\frm_REG_APR_Siniestro.aspx" />
     <Content Include="Properties\DataSources\Pacifico.SINCO.EN.enSiniestro.datasource" />
     <Content Include="Properties\DataSources\Pacifico.SINCO.EN.enPoliza.datasource" />
     <Content Include="Properties\DataSources\Pacifico.SINCO.EN.enProcurador.datasource" />
@@ -108,6 +113,16 @@
     <None Include="Service References\wsSiniestro\service1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\wsTecnico\Pacifico.SINCO.EN.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\wsTecnico\service.wsdl" />
+    <None Include="Service References\wsTecnico\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\wsTecnico\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\wsUtil\configuration91.svcinfo" />
     <None Include="Service References\wsUtil\configuration.svcinfo" />
     <None Include="Service References\wsUtil\Pacifico.SINCO.EN.xsd">
@@ -120,7 +135,6 @@
     <Content Include="Login.aspx" />
     <Content Include="Modulos\Comun\mdl_BSQ_Informe_Vehicular.aspx" />
     <Content Include="Modulos\Comun\mdl_BSQ_Poliza.aspx" />
-    <Content Include="Modulos\Comun\mdl_BSQ_Procurador.aspx" />
     <Content Include="Modulos\Comun\mdl_BSQ_Repuesto.aspx" />
     <Content Include="Modulos\Presupuesto\frm_AGR_Presupuesto.aspx" />
     <Content Include="Modulos\Presupuesto\frm_BSQ_Presupuesto.aspx" />
@@ -152,6 +166,12 @@
     <None Include="Service References\wsListaPrecio\configuration91.svcinfo" />
     <None Include="Service References\wsListaPrecio\configuration.svcinfo" />
     <None Include="Service References\wsListaPrecio\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\wsTecnico\configuration91.svcinfo" />
+    <None Include="Service References\wsTecnico\configuration.svcinfo" />
+    <None Include="Service References\wsTecnico\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -366,6 +386,20 @@
     <Compile Include="MasterPageModal.Master.designer.cs">
       <DependentUpon>MasterPageModal.Master</DependentUpon>
     </Compile>
+    <Compile Include="Modulos\Comun\mdl_BSQ_Tecnico.aspx.cs">
+      <DependentUpon>mdl_BSQ_Tecnico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modulos\Comun\mdl_BSQ_Tecnico.aspx.designer.cs">
+      <DependentUpon>mdl_BSQ_Tecnico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\Comun\mdl_BSQ_Procurador.aspx.cs">
+      <DependentUpon>mdl_BSQ_Procurador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modulos\Comun\mdl_BSQ_Procurador.aspx.designer.cs">
+      <DependentUpon>mdl_BSQ_Procurador.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Modulos\Comun\mdl_BSQ_Siniestro.aspx.cs">
       <DependentUpon>mdl_BSQ_Siniestro.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -386,13 +420,6 @@
     </Compile>
     <Compile Include="Modulos\Comun\mdl_BSQ_Poliza.aspx.designer.cs">
       <DependentUpon>mdl_BSQ_Poliza.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Modulos\Comun\mdl_BSQ_Procurador.aspx.cs">
-      <DependentUpon>mdl_BSQ_Procurador.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Modulos\Comun\mdl_BSQ_Procurador.aspx.designer.cs">
-      <DependentUpon>mdl_BSQ_Procurador.aspx</DependentUpon>
     </Compile>
     <Compile Include="Modulos\Comun\mdl_BSQ_Repuesto.aspx.cs">
       <DependentUpon>mdl_BSQ_Repuesto.aspx</DependentUpon>
@@ -465,6 +492,27 @@
     <Compile Include="Modulos\Principal.aspx.designer.cs">
       <DependentUpon>Principal.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Modulos\Siniestro\Apertura\frm_APR_Siniestro.aspx.cs">
+      <DependentUpon>frm_APR_Siniestro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modulos\Siniestro\Apertura\frm_APR_Siniestro.aspx.designer.cs">
+      <DependentUpon>frm_APR_Siniestro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\Siniestro\Apertura\frm_CNS_Siniestro.aspx.cs">
+      <DependentUpon>frm_CNS_Siniestro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modulos\Siniestro\Apertura\frm_CNS_Siniestro.aspx.designer.cs">
+      <DependentUpon>frm_CNS_Siniestro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\Siniestro\Apertura\frm_REG_APR_Siniestro.aspx.cs">
+      <DependentUpon>frm_REG_APR_Siniestro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modulos\Siniestro\Apertura\frm_REG_APR_Siniestro.aspx.designer.cs">
+      <DependentUpon>frm_REG_APR_Siniestro.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Modulos\Siniestro\frm_AGR_Siniestro.aspx.cs">
       <DependentUpon>frm_AGR_Siniestro.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -510,6 +558,11 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Service References\wsSiniestro\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\wsTecnico\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -560,6 +613,7 @@
     <WCFMetadataStorage Include="Service References\wsListaPrecio\" />
     <WCFMetadataStorage Include="Service References\wsPresupuesto\" />
     <WCFMetadataStorage Include="Service References\wsSiniestro\" />
+    <WCFMetadataStorage Include="Service References\wsTecnico\" />
     <WCFMetadataStorage Include="Service References\wsUtil\" />
   </ItemGroup>
   <ItemGroup />

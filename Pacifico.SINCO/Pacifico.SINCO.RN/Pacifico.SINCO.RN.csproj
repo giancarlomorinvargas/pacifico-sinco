@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TecnicoRN.cs" />
     <Compile Include="InformeAccidenteRN.cs" />
     <Compile Include="ListaPrecioRN.cs" />
     <Compile Include="PresupuestoRN.cs" />

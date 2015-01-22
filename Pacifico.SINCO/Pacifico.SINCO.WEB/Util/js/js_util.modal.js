@@ -16,11 +16,11 @@ function fn_util_AbreModal(pTitulo, pURL, pAncho, pAlto, pFuncion) {
 	    , beforeclose: function (event, ui) {
 	        $(this).remove(); pFuncion();
 	    }
-        ,buttons: {
+        /*,buttons: {
             "Cerrar": function () {
                 $(this).remove();
             }
-        }
+        }*/
 		, width: (pAncho + 30)
     });
 	

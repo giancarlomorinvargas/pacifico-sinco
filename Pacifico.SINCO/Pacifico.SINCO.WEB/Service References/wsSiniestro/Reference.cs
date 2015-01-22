@@ -62,6 +62,18 @@ namespace Pacifico.SINCO.WEB.wsSiniestro {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISiniestroWS/RegistrarPendiente", ReplyAction="http://tempuri.org/ISiniestroWS/RegistrarPendienteResponse")]
         System.Threading.Tasks.Task<string> RegistrarPendienteAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISiniestroWS/Consultar", ReplyAction="http://tempuri.org/ISiniestroWS/ConsultarResponse")]
+        string Consultar(string numSiniestro, string tipo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISiniestroWS/Consultar", ReplyAction="http://tempuri.org/ISiniestroWS/ConsultarResponse")]
+        System.Threading.Tasks.Task<string> ConsultarAsync(string numSiniestro, string tipo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISiniestroWS/Aperturar", ReplyAction="http://tempuri.org/ISiniestroWS/AperturarResponse")]
+        string Aperturar(Pacifico.SINCO.EN.SiniestroEN siniestro);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISiniestroWS/Aperturar", ReplyAction="http://tempuri.org/ISiniestroWS/AperturarResponse")]
+        System.Threading.Tasks.Task<string> AperturarAsync(Pacifico.SINCO.EN.SiniestroEN siniestro);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -153,6 +165,22 @@ namespace Pacifico.SINCO.WEB.wsSiniestro {
         
         public System.Threading.Tasks.Task<string> RegistrarPendienteAsync(int id) {
             return base.Channel.RegistrarPendienteAsync(id);
+        }
+        
+        public string Consultar(string numSiniestro, string tipo) {
+            return base.Channel.Consultar(numSiniestro, tipo);
+        }
+        
+        public System.Threading.Tasks.Task<string> ConsultarAsync(string numSiniestro, string tipo) {
+            return base.Channel.ConsultarAsync(numSiniestro, tipo);
+        }
+        
+        public string Aperturar(Pacifico.SINCO.EN.SiniestroEN siniestro) {
+            return base.Channel.Aperturar(siniestro);
+        }
+        
+        public System.Threading.Tasks.Task<string> AperturarAsync(Pacifico.SINCO.EN.SiniestroEN siniestro) {
+            return base.Channel.AperturarAsync(siniestro);
         }
     }
 }

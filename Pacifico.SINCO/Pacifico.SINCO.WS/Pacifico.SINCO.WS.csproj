@@ -47,7 +47,9 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TecnicoWS.cs" />
     <Compile Include="InformeAccidenteWS.cs" />
+    <Compile Include="Interfaces\ITecnicoWS.cs" />
     <Compile Include="Interfaces\IInformeAccidenteWS.cs" />
     <Compile Include="ListaPrecioWS.cs" />
     <Compile Include="Interfaces\IListaPrecioWS.cs" />

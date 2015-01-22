@@ -27,22 +27,36 @@ namespace Pacifico.SINCO.WEB.Modulos.Comun
             try
             {
 
-                SiniestroWSClient owsSiniestroClient = new SiniestroWSClient();
+                lblMensajeError.InnerText = "";
+
+                if (!this.IsPostBack)
+                {
+                    List<String> tipoSiniestro = Utilitario.getTipoSiniestro();
+
+                    cmbTipoSiniestro.Items.Clear();
+                    cmbTipoSiniestro.Items.Add(new ListItem { Value = "", Text = "[SELECCIONE]" });
+                    foreach (string tipo in tipoSiniestro)
+                    {
+                        cmbTipoSiniestro.Items.Add(tipo);
+                    }
+
+
+                    SiniestroWSClient owsSiniestroClient = new SiniestroWSClient();
+
+                    //Obtiene Listado de Siniestros
+                    //List<InformeAccidente> listadoResult = new List<InformeAccidente>();
+                    string listadoSerializado = owsSiniestroClient.Listar();
+                    List<SiniestroEN> listado = new JavaScriptSerializer().Deserialize<List<SiniestroEN>>(listadoSerializado);
+                    /*
+                    foreach (InformeAccidente item in listado.Where(b => b.Estado == Constantes.iEstado_Registrado )) {
+                        listadoResult.Add(item);
+                    }
                 
-                //Obtiene Listado de Siniestros
-                //List<InformeAccidente> listadoResult = new List<InformeAccidente>();
-                string listadoSerializado = owsSiniestroClient.Listar();
-                List<SiniestroEN> listado = new JavaScriptSerializer().Deserialize<List<SiniestroEN>>(listadoSerializado);
-                /*
-                foreach (InformeAccidente item in listado.Where(b => b.Estado == Constantes.iEstado_Registrado )) {
-                    listadoResult.Add(item);
+
+                    rptListadoInformes.DataSource = listadoResult;*/
+                    rptListadoSiniestros.DataSource = listado;
+                    rptListadoSiniestros.DataBind();
                 }
-                
-
-                rptListadoInformes.DataSource = listadoResult;*/
-                rptListadoSiniestros.DataSource = listado;
-                rptListadoSiniestros.DataBind();
-
             }
             catch (Exception ex)
             {
@@ -63,22 +77,12 @@ namespace Pacifico.SINCO.WEB.Modulos.Comun
                 SiniestroWSClient owsSiniestroClient = new SiniestroWSClient();
 
 
-                /*string NumInforme= txtNumInforme.Value.ToUpper();
-                string Asegurado = cmbTipoSiniestro.Value;*/
+                string numSiniestro= txtNumSiniestro.Value;
+                string tipoSiniestro = cmbTipoSiniestro.Value;
 
                 //Obtiene Listado de Siniestros
-                string listadoSerializado = owsSiniestroClient.Listar();
+                string listadoSerializado = owsSiniestroClient.Consultar(numSiniestro, tipoSiniestro);
                 List<SiniestroEN> listado = new JavaScriptSerializer().Deserialize<List<SiniestroEN>>(listadoSerializado);
-                /*List<InformeAccidente> listado = new JavaScriptSerializer().Deserialize<List<InformeAccidente>>(listadoJson);
-
-                foreach (InformeAccidente item in listado)
-                {
-                    string asegurado = item.Siniestro.Poliza.Asegurado.Nombre + " " + item.Siniestro.Poliza.Asegurado.ApellidoPaterno + " " + item.Siniestro.Poliza.Asegurado.ApellidoMaterno;
-                    if (asegurado.ToUpper().Contains(Asegurado)) {
-                        listadoResult.Add(item);
-                    }
-                }*/
-
 
                 rptListadoSiniestros.DataSource = listado;
                 rptListadoSiniestros.DataBind();

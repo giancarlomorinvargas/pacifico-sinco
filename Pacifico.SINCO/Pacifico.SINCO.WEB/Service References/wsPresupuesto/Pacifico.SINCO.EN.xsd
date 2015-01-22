@@ -137,6 +137,7 @@
       <xs:element minOccurs="0" name="UsuarioModifico" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="UsuarioRegistro" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Vehiculo" nillable="true" type="tns:VehiculoEN" />
+      <xs:element minOccurs="0" name="Vigente" type="xs:boolean" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="PolizaEN" nillable="true" type="tns:PolizaEN" />
@@ -172,6 +173,7 @@
       <xs:element minOccurs="0" name="MS_Procurador_Id" type="xs:int" />
       <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="NumProcurador" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Telefono" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ProcuradorEN" nillable="true" type="tns:ProcuradorEN" />
