@@ -77,10 +77,10 @@
 								</tr>	
 								<tr>
 									<td class="label" style="width: 120px;">
-										Direccion/Lugar
+										Descripción del Accidente
 									</td>
-									<td>
-										<input id="txtDireccion" type="text" class="css_frm_inactivo"  ClientIDMode="Static" runat="server" readonly />
+									<td>                                        
+										<textarea id="txtDireccion" cols="100" rows="5" runat="server" style="background-color: #EEE;" readonly="readonly" ></textarea>
 									</td>
 								</tr>
 								<tr>												

@@ -6,7 +6,7 @@
 
 	    $(document).ready(function () {
 	        //Seta Calendarios
-	        fn_util_SeteaCalendario($('input[id*=txtFec]')[0]);
+	        //fn_util_SeteaCalendario($('input[id*=txtFec]')[0]);
 	    });
 	    var objItemSeleccionado;
 
@@ -54,15 +54,15 @@
 
 	        //Número Siniestro
 	        if (fn_util_trim(sTxtNumInforme) == "" || fn_util_trim(sTxtNumInforme) == "0") {
-	            sError = sError + "   - Debe ingresar un Número de Informe. <br/>";
+	            sError = sError + "   - Debe ingresar el Número de Informe. <br/>";
 	        }
 
 	        if (fn_util_trim(sTxtFechaInforme) == "") {
-	            sError = sError + "   - Debe ingresar una Fecha de Informe. <br/>";
+	            sError = sError + "   - Debe ingresar la Fecha de Informe. <br/>";
 	        }
 
 	        if (fn_util_trim(sTxtLugar) == "" || fn_util_trim(sTxtLugar) == "0") {
-	            sError = sError + "   - Debe ingresar un Lugar. <br/>";
+	            sError = sError + "   - Debe ingresar La Descripción del Accidente. <br/>";
 	        }
 
 	        if (fn_util_trim(sTxtDistrito) == "" || fn_util_trim(sTxtDistrito) == "0") {
@@ -154,10 +154,10 @@
 								</tr>	
 								<tr>
 									<td class="label" style="width: 120px;">
-										Direccion/Lugar
+										Descripción del Accidente
 									</td>
 									<td>
-										<textarea id="txtDireccion" type="text" ClientIDMode="Static" runat="server" />
+										<textarea id="txtDireccion" cols="100" rows="5"  ClientIDMode="Static" runat="server" />
 									</td>
 								</tr>
 								<tr>												
@@ -173,7 +173,7 @@
 										Fecha de Siniestro
 									</td>
 									<td>
-                                        <input id="txtFecInforme" type="text" class="" size="8" ClientIDMode="Static" runat="server" onKeyUp="return fn_util_FormatDate(this);" onBlur="return fn_util_UpdateDate(this);" />
+                                        <input id="txtFecInforme" type="text" class="css_frm_inactivo" size="8" ClientIDMode="Static" runat="server" readonly/>
 									</td>
 								</tr>																									
 							</table>

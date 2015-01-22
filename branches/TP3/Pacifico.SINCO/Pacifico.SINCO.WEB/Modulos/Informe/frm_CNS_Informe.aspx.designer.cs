@@ -28,7 +28,7 @@ namespace Pacifico.SINCO.WEB.Modulos.Informe {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtDireccion;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtDireccion;
         
         /// <summary>
         /// txtDistrito control.
