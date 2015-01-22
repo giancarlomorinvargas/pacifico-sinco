@@ -99,7 +99,7 @@
 						<td class="boton">
 							<a href="javascript:window.location='../Principal.aspx';">
 								<img src="<%=sUrl %>Util/images/iconos/ico_btn_inicio.jpg" border="0" /><br />
-								Inicio
+								Salir
 							</a>
 						</td>
 					</tr>

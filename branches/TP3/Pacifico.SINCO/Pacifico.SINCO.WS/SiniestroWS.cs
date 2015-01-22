@@ -197,5 +197,33 @@ namespace Pacifico.SINCO.WS
             }
         }
 
+        public string Consultar(string numSiniestro, string tipo)
+        {
+            try
+            {
+                SiniestroRN siniestroRN = new SiniestroRN();
+                List<SiniestroEN> listado = siniestroRN.Consultar(numSiniestro, tipo);
+                return new JavaScriptSerializer().Serialize(listado);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+        }
+
+        public string Aperturar(SiniestroEN siniestro)
+        {
+            try
+            {
+                SiniestroRN siniestroRN = new SiniestroRN();
+
+                return siniestroRN.Aperturar(siniestro);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+        }
+
     }
 }

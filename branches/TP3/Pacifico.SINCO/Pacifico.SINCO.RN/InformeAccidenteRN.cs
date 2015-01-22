@@ -14,7 +14,7 @@ namespace Pacifico.SINCO.RN
     {
 
         public static int ESTADO_REGISTRADO = Constantes.iEstado_Registrado;
-        //public static int ESTADO_APROBADO = Constantes.pEstado_Aprobado;
+        public static int ESTADO_PENDIENTE = Constantes.iEstado_Firmado;
         //public static int ESTADO_RECHAZADO = Constantes.pEstado_Rechazado;
 
         private static string MENSAJE_ERROR_GENERAL = "Error en el sistema";
@@ -157,6 +157,78 @@ namespace Pacifico.SINCO.RN
             }
 
             return listado;
+        }
+
+        public string PendienteEvaluar(int siniestroId, int tecnicoId)
+        {
+
+            IInformeAccidenteDAO informeAccidenteDao = new InformeAccidenteDAO();
+
+            try
+            {
+                foreach (InformeAccidenteEN item in informeAccidenteDao.GetAll().Where(
+                     b => b.Siniestro.MS_Siniestro_Id == siniestroId).ToList())
+                {
+                    RegistrarPendienteEvaluacion(item.MS_Informe_Accidente_Id, tecnicoId, ESTADO_PENDIENTE);
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception(MENSAJE_ERROR_GENERAL,e);
+            }
+            
+            return String.Format(MENSAJE_ACTUALIZADO);
+        }
+
+
+        public string ReversaPendienteEvaluar(int siniestroId)
+        {
+
+            IInformeAccidenteDAO informeAccidenteDao = new InformeAccidenteDAO();
+
+            try
+            {
+                foreach (InformeAccidenteEN item in informeAccidenteDao.GetAll().Where(
+                     b => b.Siniestro.MS_Siniestro_Id == siniestroId).ToList())
+                {
+                    RegistrarPendienteEvaluacion(item.MS_Informe_Accidente_Id, null, ESTADO_REGISTRADO);
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception(MENSAJE_ERROR_GENERAL, e);
+            }
+
+            return String.Format(MENSAJE_ACTUALIZADO);
+        }
+
+
+        private string RegistrarPendienteEvaluacion(int informeId, int? tecnicoId, int estado)
+        {
+            IInformeAccidenteDAO informeAccidenteDao = new InformeAccidenteDAO();
+            InformeAccidenteEN model = informeAccidenteDao.Get(informeId);
+            if (model == null)
+            {
+                throw new Exception(MENSAJE_NO_DISPONIBLE);
+            }
+            try
+            {
+                model.Estado = estado;
+                model.TecnicoId = tecnicoId;
+
+                model.UsuarioModifico = usuario;
+                model.FechaModifico = DateTime.Now;
+
+                model.EstadoEntity = null;
+                model.Siniestro = null;
+                model.Tecnico = null;
+                informeAccidenteDao.Modify(model);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(MENSAJE_ERROR_GENERAL,e);
+            }
+            return String.Format(MENSAJE_ACTUALIZADO, model.NumInforme);
         }
 
     }

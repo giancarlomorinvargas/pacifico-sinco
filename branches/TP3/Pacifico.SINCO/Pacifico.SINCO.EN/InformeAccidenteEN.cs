@@ -41,9 +41,9 @@ namespace Pacifico.SINCO.EN
         public virtual SiniestroEN Siniestro { get; set; }
 
 
-        [Column("Tecnico_Taller_Id")]
-        public int? MS_Tecnico_Taller_Id { get; set; }
-        //public virtual MSTecnicoTaller TecnicoTaller { get; set; }
+        [Column("Tecnico_Id")]
+        public int? TecnicoId { get; set; }
+        public virtual TecnicoEN Tecnico { get; set; }
         
     }
 }

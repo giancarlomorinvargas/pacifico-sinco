@@ -49,6 +49,18 @@
   <wsdl:message name="IInformeAccidenteWS_Modificar_OutputMessage">
     <wsdl:part name="parameters" element="tns:ModificarResponse" />
   </wsdl:message>
+  <wsdl:message name="IInformeAccidenteWS_PendienteEvaluar_InputMessage">
+    <wsdl:part name="parameters" element="tns:PendienteEvaluar" />
+  </wsdl:message>
+  <wsdl:message name="IInformeAccidenteWS_PendienteEvaluar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PendienteEvaluarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInformeAccidenteWS_ReversaPendienteEvaluar_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReversaPendienteEvaluar" />
+  </wsdl:message>
+  <wsdl:message name="IInformeAccidenteWS_ReversaPendienteEvaluar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReversaPendienteEvaluarResponse" />
+  </wsdl:message>
   <wsdl:portType name="IInformeAccidenteWS">
     <wsdl:operation name="ObtenerNombreWS">
       <wsdl:input wsaw:Action="http://tempuri.org/IInformeAccidenteWS/ObtenerNombreWS" message="tns:IInformeAccidenteWS_ObtenerNombreWS_InputMessage" />
@@ -77,6 +89,14 @@
     <wsdl:operation name="Modificar">
       <wsdl:input wsaw:Action="http://tempuri.org/IInformeAccidenteWS/Modificar" message="tns:IInformeAccidenteWS_Modificar_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IInformeAccidenteWS/ModificarResponse" message="tns:IInformeAccidenteWS_Modificar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PendienteEvaluar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInformeAccidenteWS/PendienteEvaluar" message="tns:IInformeAccidenteWS_PendienteEvaluar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInformeAccidenteWS/PendienteEvaluarResponse" message="tns:IInformeAccidenteWS_PendienteEvaluar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReversaPendienteEvaluar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInformeAccidenteWS/ReversaPendienteEvaluar" message="tns:IInformeAccidenteWS_ReversaPendienteEvaluar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInformeAccidenteWS/ReversaPendienteEvaluarResponse" message="tns:IInformeAccidenteWS_ReversaPendienteEvaluar_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IInformeAccidenteWS" type="tns:IInformeAccidenteWS">
@@ -137,6 +157,24 @@
     </wsdl:operation>
     <wsdl:operation name="Modificar">
       <soap:operation soapAction="http://tempuri.org/IInformeAccidenteWS/Modificar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PendienteEvaluar">
+      <soap:operation soapAction="http://tempuri.org/IInformeAccidenteWS/PendienteEvaluar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReversaPendienteEvaluar">
+      <soap:operation soapAction="http://tempuri.org/IInformeAccidenteWS/ReversaPendienteEvaluar" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

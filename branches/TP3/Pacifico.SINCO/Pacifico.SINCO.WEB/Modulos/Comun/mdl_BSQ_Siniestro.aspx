@@ -97,7 +97,7 @@
 	
     <asp:Button ID="btnBuscar" runat="server" Text="" OnClick="btnBuscar_Click" ClientIDMode="Static" Style="display: none;" />	
 	
-	<!-- INCIO PANEL
+	<!-- INCIO PANEL-->
 	<table width="100%" border="0" cellpadding="0" cellspacing="0" class="css_tema_panel">
 		<tr class="cabecera"><td class="left"></td><td class="center"></td><td class="right"></td></tr>
 		<tr class="body">	
@@ -110,16 +110,16 @@
 					<table width="100%" border="0" cellpadding="5" cellspacing="0" class="css_tb_formPanel">
 						<tr>
 							<td class="label">
-								Nro. Accidente Vehicular
+								Nro. Siniestro
 							</td>
 							<td>
-								<input id="txtNumInforme" type="text" class="" runat="server"/>
+								<input id="txtNumSiniestro" type="text" class="" runat="server"/>
 							</td>
 							<td class="label">
-								Asegurado
+								Tipo Siniestro
 							</td>
 							<td>
-								<input id="txtAsegurado" type="text" class="" runat="server"/>
+								<select id="cmbTipoSiniestro" class="" runat="server"/>
 							</td>
 						</tr>	
 					</table>

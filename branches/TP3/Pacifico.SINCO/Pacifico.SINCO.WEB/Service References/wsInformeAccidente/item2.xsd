@@ -11,9 +11,10 @@
       <xs:element minOccurs="0" name="FechaRegistro" type="xs:dateTime" />
       <xs:element minOccurs="0" name="MS_Informe_Accidente_Id" type="xs:int" />
       <xs:element minOccurs="0" name="MS_Siniestro_Id" type="xs:int" />
-      <xs:element minOccurs="0" name="MS_Tecnico_Taller_Id" nillable="true" type="xs:int" />
       <xs:element minOccurs="0" name="NumInforme" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Siniestro" nillable="true" type="tns:SiniestroEN" />
+      <xs:element minOccurs="0" name="Tecnico" nillable="true" type="tns:TecnicoEN" />
+      <xs:element minOccurs="0" name="TecnicoId" nillable="true" type="xs:int" />
       <xs:element minOccurs="0" name="UsuarioModifico" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="UsuarioRegistro" nillable="true" type="xs:string" />
     </xs:sequence>
@@ -64,6 +65,7 @@
       <xs:element minOccurs="0" name="UsuarioModifico" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="UsuarioRegistro" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Vehiculo" nillable="true" type="tns:VehiculoEN" />
+      <xs:element minOccurs="0" name="Vigente" type="xs:boolean" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="PolizaEN" nillable="true" type="tns:PolizaEN" />
@@ -113,7 +115,31 @@
       <xs:element minOccurs="0" name="MS_Procurador_Id" type="xs:int" />
       <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="NumProcurador" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Telefono" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ProcuradorEN" nillable="true" type="tns:ProcuradorEN" />
+  <xs:complexType name="TecnicoEN">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApellidoMaterno" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ApellidoPaterno" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Disponible" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumTecnico" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Taller" nillable="true" type="tns:TallerEN" />
+      <xs:element minOccurs="0" name="TallerId" type="xs:int" />
+      <xs:element minOccurs="0" name="TecnicoId" type="xs:int" />
+      <xs:element minOccurs="0" name="Telefono" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TecnicoEN" nillable="true" type="tns:TecnicoEN" />
+  <xs:complexType name="TallerEN">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Direccion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Distrito" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TallerId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TallerEN" nillable="true" type="tns:TallerEN" />
 </xs:schema>

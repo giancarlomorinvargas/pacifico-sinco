@@ -55,6 +55,18 @@
   <wsdl:message name="ISiniestroWS_RegistrarPendiente_OutputMessage">
     <wsdl:part name="parameters" element="tns:RegistrarPendienteResponse" />
   </wsdl:message>
+  <wsdl:message name="ISiniestroWS_Consultar_InputMessage">
+    <wsdl:part name="parameters" element="tns:Consultar" />
+  </wsdl:message>
+  <wsdl:message name="ISiniestroWS_Consultar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISiniestroWS_Aperturar_InputMessage">
+    <wsdl:part name="parameters" element="tns:Aperturar" />
+  </wsdl:message>
+  <wsdl:message name="ISiniestroWS_Aperturar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AperturarResponse" />
+  </wsdl:message>
   <wsdl:portType name="ISiniestroWS">
     <wsdl:operation name="wsObtenerNombreWS">
       <wsdl:input wsaw:Action="http://tempuri.org/ISiniestroWS/wsObtenerNombreWS" message="tns:ISiniestroWS_wsObtenerNombreWS_InputMessage" />
@@ -87,6 +99,14 @@
     <wsdl:operation name="RegistrarPendiente">
       <wsdl:input wsaw:Action="http://tempuri.org/ISiniestroWS/RegistrarPendiente" message="tns:ISiniestroWS_RegistrarPendiente_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISiniestroWS/RegistrarPendienteResponse" message="tns:ISiniestroWS_RegistrarPendiente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Consultar">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISiniestroWS/Consultar" message="tns:ISiniestroWS_Consultar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISiniestroWS/ConsultarResponse" message="tns:ISiniestroWS_Consultar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Aperturar">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISiniestroWS/Aperturar" message="tns:ISiniestroWS_Aperturar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISiniestroWS/AperturarResponse" message="tns:ISiniestroWS_Aperturar_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ISiniestroWS" type="tns:ISiniestroWS">
@@ -156,6 +176,24 @@
     </wsdl:operation>
     <wsdl:operation name="RegistrarPendiente">
       <soap:operation soapAction="http://tempuri.org/ISiniestroWS/RegistrarPendiente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Consultar">
+      <soap:operation soapAction="http://tempuri.org/ISiniestroWS/Consultar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Aperturar">
+      <soap:operation soapAction="http://tempuri.org/ISiniestroWS/Aperturar" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -37,5 +37,12 @@ namespace Pacifico.SINCO.WS.Interfaces
         
         [OperationContract]
         string RegistrarPendiente(int id);
+
+        [OperationContract]
+        string Consultar(string numSiniestro, string tipo);
+
+        [OperationContract]
+        string Aperturar(SiniestroEN siniestro);
+
     }
 }
