@@ -96,7 +96,7 @@
 					        <td>
 
 						        <ul class="jd_menu">
-							        <li><a href="#" class="accessible">Inicio</a></li>
+							        <li><a href="<%=sUrl %>Modulos/Principal.aspx">Inicio</a></li>
 							        <li class="separator"></li>
 							        <li><a href="<%=sUrl %>Modulos/Siniestro/frm_BSQ_Siniestro.aspx">Gestión de Siniestros</a>
 								        <!--<ul>

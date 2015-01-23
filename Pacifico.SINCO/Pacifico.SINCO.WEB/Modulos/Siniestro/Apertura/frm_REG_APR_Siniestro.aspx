@@ -206,7 +206,7 @@
 								</tr>	
 								<tr>
 									<td class="label">
-										Procurador
+										Nombres y Apellidos del Procurador
 									</td>
 									<td>
 										<input id="txtNombreProcurador" type="text" size="50" class="css_input_inactivo" ClientIDMode="Static" runat="server" readonly="readonly" />
@@ -231,7 +231,7 @@
 								</tr>	
 								<tr>
 									<td class="label">
-										Técnico
+										Nombre del Técnico
 									</td>
 									<td>
 										<input id="txtTecnico" type="text" class="css_input_inactivo" ClientIDMode="Static" runat="server" readonly="readonly"/>

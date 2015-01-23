@@ -7,14 +7,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="cphCuerpo" runat="Server">
 
     <br />
-    <font class="css_lbl_titulo">Bienvenido, Usuario</font>
+    <font class="css_lbl_titulo">Bienvenido, Usuario </font>
     <br /> <br />
-    wsPresupuesto: <label id="lblwsPresupuesto" runat="server" class="css_lbl_tituloModal">PENDIENTE</label>
-    <br />
-    wsSiniestro: <label id="lblwsSiniestro" runat="server" class="css_lbl_tituloModal">PENDIENTE</label>
-    <br />
-    wsUtil: <label id="lblwsUtil" runat="server" class="css_lbl_tituloModal">PENDIENTE</label>
-    <br /><br />
+    
+    <font class="css_lbl_titulo">Rodriguez Juan </font>
     
 </asp:Content>
 

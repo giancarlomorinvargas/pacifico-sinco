@@ -167,12 +167,12 @@
 		        <thead>
                      <tr>
 			            <th>_</th>
-			            <th>Nro. Siniestro<th>
-			            <th>Nro. de Poliza<th>
+			            <th title="Número de Siniestro">Número de Siniestro<th>
+			            <th title="Número de Póliza">Número de Poliza<th>
 			            <th>Asegurado<th>
 			            <th>Fecha de Siniestro<th>
 			            <th>Tipo de Siniestro<th>
-			            <th>Estado de  Siniestro<th>
+			            <th>Estado de Siniestro<th>
 		            </tr>	
                 </thead>
             </HeaderTemplate>
