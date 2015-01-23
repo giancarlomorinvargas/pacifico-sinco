@@ -141,7 +141,7 @@
 							</td>
 							<td>&nbsp;</td>
 							<td class="label"style="width:180px;">
-								Tipo
+								Tipo Siniestro
 							</td>
 							<td>
 								<select id="cmbTipoSiniestro" class="" runat="server"/>
@@ -173,17 +173,17 @@
 		        <thead>
                      <tr>
 			            <th>_</th>
-			            <th>Nro. Informe</th>
+			            <th title="Número de Informe">Número Informe</th>
                         <th />
 			            <th>Fecha de Informe</th>
                         <th />
-			            <th>Nro. de Poliza</th>
+			            <th title="Número de Póliza">Número de Poliza</th>
                         <th />
-			            <th>Doc. del Asegurado</th>
+			            <th title="Documento del Asegurado">Documento del Asegurado</th>
                         <th />
 			            <th>Tipo</th>		
                         <th />						
-			            <th>Estado</th>
+			            <th title="Estado del Informe">Estado</th>
                         <th />
 		            </tr>	
                 </thead>

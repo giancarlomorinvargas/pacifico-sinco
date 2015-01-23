@@ -211,7 +211,7 @@
 								</tr>	
 								<tr>
 									<td class="label" style="width: 120px;">
-										Fecha
+										Fecha del Siniestro
 									</td>
 									<td>
 										<input id="txtFecSiniestro" type="text" class="css_frm_inactivo" size="8" ClientIDMode="Static" runat="server" readonly/>
@@ -242,7 +242,7 @@
 								</tr>	
 								<tr>
 									<td class="label" style="width: 120px;">
-										Procurador
+										Nombres y Apellidos del Procurador
 									</td>
 									<td>
 										<input id="txtProcurador" type="text" class="css_frm_inactivo" ClientIDMode="Static" runat="server" readonly="readonly"/>

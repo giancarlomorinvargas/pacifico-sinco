@@ -141,7 +141,7 @@
 								</tr>	
 								<tr>
 									<td class="label">
-										Procurador
+										Nombres y Apellidos del Procurador
 									</td>
 									<td>
 										<input id="txtNombreProcurador" type="text" size="50" class="css_input_inactivo" runat="server" readonly="readonly" />
