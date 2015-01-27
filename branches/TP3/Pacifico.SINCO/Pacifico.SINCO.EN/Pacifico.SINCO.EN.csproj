@@ -42,10 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PresupuestoDetalleEN.cs" />
-    <Compile Include="PresupuestoPendienteCabeceraEN.cs" />
-    <Compile Include="PresupuestoPendienteDetalleEN.cs" />
-    <Compile Include="PresupuestoPendienteEN.cs" />
+    <Compile Include="LiquidacionEN.cs" />
     <Compile Include="TecnicoEN.cs" />
     <Compile Include="TallerEN.cs" />
     <Compile Include="SiniestroEN.cs" />
