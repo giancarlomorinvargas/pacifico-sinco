@@ -26,7 +26,7 @@
 
             //Valida Final
             if (sError == "") {
-                fn_mdl_confirma("¿Está seguro que desea realizar la apertura del Sinestro?",
+                fn_mdl_confirma("¿Está seguro que desea realizar la asignación del Técnico?",
                                 function () {
                                     $("#btnGrabar").click();
                                 },
@@ -93,7 +93,7 @@
 		    </td>
 	    </tr>
 	    <tr>
-		    <td class="subModulo">Registro de Apertura de  Siniestro</td>
+		    <td class="subModulo">Registrar la asignación del Técnico</td>
 	    </tr>
     </table>
     <!-- FIN TITULO-->
