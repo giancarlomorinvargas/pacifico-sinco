@@ -171,6 +171,90 @@ namespace Pacifico.SINCO.RN
             //return new JavaScriptSerializer().Serialize(listaPresupuesto);
             return listaPresupuesto;
         }
+         //CODIGO AGREGADO POR EDUARDO PASSANO CH. INICIO
+         public List<PresupuestoPendienteCabeceraEN> ListarPresupuestoPendiente()
+         {
+             IPresupuestoDAO presupuestoDao = new PresupuestoDAO();
+             List<PresupuestoEN> listaPresupuestoPendiente = new List<PresupuestoEN>();
+             List<PresupuestoPendienteCabeceraEN> listaPresupuestoPendiente1 = new List<PresupuestoPendienteCabeceraEN>();
+             foreach (PresupuestoEN Model in presupuestoDao.GetAll().Where(
+                   b => b.Estado == 22).ToList())
+             {
+                 //listaPresupuestoPendiente.Add(Model);    
+                 //  PresupuestoPendienteEN item = new PresupuestoPendienteEN()
+                 // {
+                 // MS_Presupuesto_Id = Model.MS_Presupuesto_Id,
+                 //NumPresupuesto = Model.InformeAccidente.Siniestro.Poliza.NumPoliza,
+                 //  NumPresupuesto = Model.Poliza.NumPoliza,
+                 //   Estado = Model.Estado,
+                 // FechaRegistro=Model.FechaRegistro,
+                 //   Total=Model.Total,
+
+
+                 //SubTotal=Model.SubTotal
+
+                 //};
+                 PresupuestoPendienteCabeceraEN item = new PresupuestoPendienteCabeceraEN()
+                 {
+                     PresupuestoID = Model.MS_Presupuesto_Id,
+                     NumeroPoliza = Model.InformeAccidente.Siniestro.Poliza.NumPoliza,
+                     MatriculaVehiculo = Model.InformeAccidente.Siniestro.Poliza.Vehiculo.Placa,
+                     SubTotal = Model.SubTotal.ToString(),
+                     Total = Model.Total.ToString()
+                 };
+                 listaPresupuestoPendiente1.Add(item);
+             }
+
+             // if (listaPresupuestoPendiente == null || listaPresupuestoPendiente.Count() == 0)
+             //  {
+             //   throw new Exception(MENSAJE_BUSQUEDA_NO_ENCONTRADA);
+             //  }
+             //return new JavaScriptSerializer().Serialize(listaPresupuesto);
+             return listaPresupuestoPendiente1;
+         }
+
+
+
+         public DetallePresupuestoEN ObtenerPresupuestoDetalle(int Id)
+         {
+             IPresupuestoDAO presupuestoDao = new PresupuestoDAO();
+             PresupuestoEN model = presupuestoDao.Get(Id);
+
+             DetallePresupuestoEN item = new DetallePresupuestoEN();
+
+             //    item.SubTotal=model.SubTotal;
+             //  item.Total = model.Total;
+
+
+             if (model == null)
+             {
+                 throw new Exception(MENSAJE_NO_DISPONIBLE);
+             }
+             return item;
+         }
+         // PresupuestoPendienteDetalleEN
+         public List<PresupuestoPendienteDetalleEN> ObtenerPresupuestoPendienteDetalle(int Id)
+         {
+             IPresupuestoDAO presupuestoDao = new PresupuestoDAO();
+             List<PresupuestoPendienteDetalleEN> listaPresupuestoPendienteDetalle = new List<PresupuestoPendienteDetalleEN>();
+             PresupuestoEN model = presupuestoDao.Get(Id);
+             foreach (PresupuestoEN Model in presupuestoDao.GetAll().Where(
+           b => b.Estado == 22).ToList())
+             {
+                 PresupuestoPendienteDetalleEN item = new PresupuestoPendienteDetalleEN();
+                 {
+                     //item.Servicio = model.PresupuestoDetalle.ListaPrecio.Servicio.Descripcion;
+                     //listaPresupuestoPendienteDetalle.Add(item);
+
+                 }
+             }
+             return listaPresupuestoPendienteDetalle;
+
+         }
+
+
+        //CODIGO AGREGADO POR EDUARDO PASSANO CH. FIN
+      
 
     }
 }

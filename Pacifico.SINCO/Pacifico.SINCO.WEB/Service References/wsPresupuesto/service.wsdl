@@ -43,6 +43,24 @@
   <wsdl:message name="IPresupuestoWS_ModificarPresupuesto_OutputMessage">
     <wsdl:part name="parameters" element="tns:ModificarPresupuestoResponse" />
   </wsdl:message>
+  <wsdl:message name="IPresupuestoWS_ListarPresupuestoPendiente_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarPresupuestoPendiente" />
+  </wsdl:message>
+  <wsdl:message name="IPresupuestoWS_ListarPresupuestoPendiente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarPresupuestoPendienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPresupuestoWS_ObtenerPresupuestoDetalle_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerPresupuestoDetalle" />
+  </wsdl:message>
+  <wsdl:message name="IPresupuestoWS_ObtenerPresupuestoDetalle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerPresupuestoDetalleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPresupuestoWS_ObtenerPresupuestoPendienteDetalle_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerPresupuestoPendienteDetalle" />
+  </wsdl:message>
+  <wsdl:message name="IPresupuestoWS_ObtenerPresupuestoPendienteDetalle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerPresupuestoPendienteDetalleResponse" />
+  </wsdl:message>
   <wsdl:portType name="IPresupuestoWS">
     <wsdl:operation name="wsObtenerNombreWS">
       <wsdl:input wsaw:Action="http://tempuri.org/IPresupuestoWS/wsObtenerNombreWS" message="tns:IPresupuestoWS_wsObtenerNombreWS_InputMessage" />
@@ -67,6 +85,18 @@
     <wsdl:operation name="ModificarPresupuesto">
       <wsdl:input wsaw:Action="http://tempuri.org/IPresupuestoWS/ModificarPresupuesto" message="tns:IPresupuestoWS_ModificarPresupuesto_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPresupuestoWS/ModificarPresupuestoResponse" message="tns:IPresupuestoWS_ModificarPresupuesto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarPresupuestoPendiente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPresupuestoWS/ListarPresupuestoPendiente" message="tns:IPresupuestoWS_ListarPresupuestoPendiente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPresupuestoWS/ListarPresupuestoPendienteResponse" message="tns:IPresupuestoWS_ListarPresupuestoPendiente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerPresupuestoDetalle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPresupuestoWS/ObtenerPresupuestoDetalle" message="tns:IPresupuestoWS_ObtenerPresupuestoDetalle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPresupuestoWS/ObtenerPresupuestoDetalleResponse" message="tns:IPresupuestoWS_ObtenerPresupuestoDetalle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerPresupuestoPendienteDetalle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPresupuestoWS/ObtenerPresupuestoPendienteDetalle" message="tns:IPresupuestoWS_ObtenerPresupuestoPendienteDetalle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPresupuestoWS/ObtenerPresupuestoPendienteDetalleResponse" message="tns:IPresupuestoWS_ObtenerPresupuestoPendienteDetalle_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IPresupuestoWS" type="tns:IPresupuestoWS">
@@ -118,6 +148,33 @@
     </wsdl:operation>
     <wsdl:operation name="ModificarPresupuesto">
       <soap:operation soapAction="http://tempuri.org/IPresupuestoWS/ModificarPresupuesto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarPresupuestoPendiente">
+      <soap:operation soapAction="http://tempuri.org/IPresupuestoWS/ListarPresupuestoPendiente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerPresupuestoDetalle">
+      <soap:operation soapAction="http://tempuri.org/IPresupuestoWS/ObtenerPresupuestoDetalle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerPresupuestoPendienteDetalle">
+      <soap:operation soapAction="http://tempuri.org/IPresupuestoWS/ObtenerPresupuestoPendienteDetalle" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

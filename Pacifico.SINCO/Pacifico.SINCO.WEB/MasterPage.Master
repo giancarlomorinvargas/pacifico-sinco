@@ -1,128 +1,132 @@
 <%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="Pacifico.SINCO.WEB.MasterPage" %>
 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-	<title>SINCO :: Sistema de Siniestros y Conciliaciones</title>
-	<link rel="SHORTCUT ICON" href="Util/images/PV16x16.ico" />
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <title>SINCO :: Sistema de Siniestros y Conciliaciones</title>
+    <link rel="SHORTCUT ICON" href="Util/images/PV16x16.ico" />
 </head>
 <body class="css_body_sistema">
 
     <script type='text/javascript' src="<%=sUrl %>Util/js/jquery/jquery-1.10.2.js"></script>
     <script type='text/javascript' src="<%=sUrl %>Util/js/jquery/jquery-ui-1.10.4.custom.min.js"></script>
-    	
-	<script type='text/javascript' src="<%=sUrl %>Util/js/js_util.modal.js"> </script>
-	<script type='text/javascript' src="<%=sUrl %>Util/js/js_util.funcion.js"> </script>	
-	<script type='text/javascript' src="<%=sUrl %>Util/js/js_util.date.js"> </script>		
 
-    <link type="text/css" rel="stylesheet" href="<%=sUrl %>Util/css/jquery/jquery-ui-1.8.15.custom.css" />					
-	<link type="text/css" rel="stylesheet" href="<%=sUrl %>Util/css/css_global.css" />
-	<link type="text/css" rel="stylesheet" href="<%=sUrl %>Util/css/css_formulario.css" />
-	<link type="text/css" rel="stylesheet" href="<%=sUrl %>Util/css/css_fuente.css" />
-	<link type="text/css" rel="stylesheet" href="<%=sUrl %>Util/css/css_tema.css" />
-	<link type="text/css" rel="stylesheet" href="<%=sUrl %>Util/css/css_tema_A.css" />	
-		
-	<script type="text/javascript" src="<%=sUrl %>Util/js/jquery/jquery.positionBy.js"></script>	
-	<script type="text/javascript" src="<%=sUrl %>Util/js/jquery/jquery.jdMenu.js"></script>
-	<link type="text/css" rel="stylesheet" href="<%=sUrl %>Util/css/jquery/jquery.jdMenu.css" />
-		
-	<script type="text/javascript">
+    <script type='text/javascript' src="<%=sUrl %>Util/js/js_util.modal.js"> </script>
+    <script type='text/javascript' src="<%=sUrl %>Util/js/js_util.funcion.js"> </script>
+    <script type='text/javascript' src="<%=sUrl %>Util/js/js_util.date.js"> </script>
+
+    <link type="text/css" rel="stylesheet" href="<%=sUrl %>Util/css/jquery/jquery-ui-1.8.15.custom.css" />
+    <link type="text/css" rel="stylesheet" href="<%=sUrl %>Util/css/css_global.css" />
+    <link type="text/css" rel="stylesheet" href="<%=sUrl %>Util/css/css_formulario.css" />
+    <link type="text/css" rel="stylesheet" href="<%=sUrl %>Util/css/css_fuente.css" />
+    <link type="text/css" rel="stylesheet" href="<%=sUrl %>Util/css/css_tema.css" />
+    <link type="text/css" rel="stylesheet" href="<%=sUrl %>Util/css/css_tema_A.css" />
+
+    <script type="text/javascript" src="<%=sUrl %>Util/js/jquery/jquery.positionBy.js"></script>
+    <script type="text/javascript" src="<%=sUrl %>Util/js/jquery/jquery.jdMenu.js"></script>
+    <link type="text/css" rel="stylesheet" href="<%=sUrl %>Util/css/jquery/jquery.jdMenu.css" />
+
+    <script type="text/javascript">
 
     </script>
-		
+
     <style>
         .validation-summary-errors {
-            color:red;
+            color: red;
         }
+
         .operation-success {
-            color:green;
+            color: green;
         }
+
         .ui-dialog-titlebar-close {
-          visibility: hidden;
+            visibility: hidden;
         }
     </style>
 
     <asp:ContentPlaceHolder ID="cphHead" runat="server">
     </asp:ContentPlaceHolder>
-    
+
     <form id="form1" runat="server" defaultbutton="btnDesabilitado">
-    
-
-        
+           <!-- CODIGO AGREGADO POR EDUARDO PASSANO INICIO-->
+        <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
+        </asp:ToolkitScriptManager>
+ <!-- CODIGO AGREGADO POR EDUARDO PASSANO FIN-->
         <table width="100%" border="0" cellpadding="0" cellspacing="0" class="css_body_contenedor">
-	        <tr>
-		        <td>
-			
-			
-			        <!-- INICIO CABECERA-->
-			        <table width="100%" border="0" cellpadding="0" cellspacing="0" class="css_cabecera_table">
-				        <tr>
-					        <td class="left">&nbsp;
-						
-					        </td>
-					        <td class="cuerpo">
-						
-						        <table width="100%" border="0"cellpadding="0" cellspacing="0" > 
-							        <tr>
-								        <td align="left">
-									        <img src="<%=sUrl %>Util/images/img_logo.jpg" border="0" />
-								        </td>
-								        <th align="right" style="vertical-align:bottom;">Versión 0.1.12</th>
-							        </tr>							
-						        </table>
-												
-					        </td>
-					        <td class="right">&nbsp;
-						
-					        </td>
-				        </tr>
-			        </table>			
-			        <!-- FIN CABECERA-->		
-			
-			
-			        <!-- INICIO LINEA-->
-			        <table width="100%" border="0" cellpadding="0" cellspacing="0" class="css_tema_lineaCabecera">
-				        <tr>
-					        <td></td>					
-				        </tr>
-			        </table>			
-			        <!-- FIN LINEA-->	
-			
-			
-			        <!-- INICIO MENU-->
-			        <table width="100%" border="0" cellpadding="0" cellspacing="0" class="css_tema_menuBorde">
-				        <tr>
-					        <td>
+            <tr>
+                <td>
 
-						        <ul class="jd_menu">
-							        <li><a href="<%=sUrl %>Modulos/Principal.aspx">Inicio</a></li>
-							        <li class="separator"></li>
-							        <li><a href="<%=sUrl %>Modulos/Siniestro/frm_BSQ_Siniestro.aspx">Gestión de Siniestros</a>
-								        <!--<ul>
+
+                    <!-- INICIO CABECERA-->
+                    <table width="100%" border="0" cellpadding="0" cellspacing="0" class="css_cabecera_table">
+                        <tr>
+                            <td class="left">&nbsp;
+						
+                            </td>
+                            <td class="cuerpo">
+
+                                <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                        <td align="left">
+                                            <img src="<%=sUrl %>Util/images/img_logo.jpg" border="0" />
+                                        </td>
+                                        <th align="right" style="vertical-align: bottom;">Versión 0.1.12</th>
+                                    </tr>
+                                </table>
+
+                            </td>
+                            <td class="right">&nbsp;
+						
+                            </td>
+                        </tr>
+                    </table>
+                    <!-- FIN CABECERA-->
+
+
+                    <!-- INICIO LINEA-->
+                    <table width="100%" border="0" cellpadding="0" cellspacing="0" class="css_tema_lineaCabecera">
+                        <tr>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <!-- FIN LINEA-->
+
+
+                    <!-- INICIO MENU-->
+                    <table width="100%" border="0" cellpadding="0" cellspacing="0" class="css_tema_menuBorde">
+                        <tr>
+                            <td>
+
+                                <ul class="jd_menu">
+                                    <li><a href="<%=sUrl %>Modulos/Principal.aspx">Inicio</a></li>
+                                    <li class="separator"></li>
+                                    <li><a href="<%=sUrl %>Modulos/Siniestro/frm_BSQ_Siniestro.aspx">Gestión de Siniestros</a>
+                                        <!--<ul>
 									        <li><img src="<%=sUrl %>Util/images/menu/ico_menu.gif" class="jd_menu_icono"/><a href="<%=sUrl %>Modulos/Siniestro/frm_BSQ_Siniestro.aspx">Mantenimiento de Siniestros</a></li>
                                             <li><img src="<%=sUrl %>Util/images/menu/ico_menu.gif" class="jd_menu_icono"/><a href="<%=sUrl %>Modulos/Presupuesto/frm_BSQ_Presupuesto.aspx">Generación de Presupuestos</a></li>
 								        </ul>-->
-							        </li>
-                                    <li class="separator"></li> 
-							        <li><a href="<%=sUrl %>Modulos/Informe/frm_BSQ_Informe.aspx">Gestión de Informes Vehiculares</a>
-								        <!--<ul>
+                                    </li>
+                                    <li class="separator"></li>
+                                    <li><a href="<%=sUrl %>Modulos/Informe/frm_BSQ_Informe.aspx">Gestión de Informes Vehiculares</a>
+                                        <!--<ul>
 									        <li><img src="<%=sUrl %>Util/images/menu/ico_menu.gif" class="jd_menu_icono"/><a href="<%=sUrl %>Modulos/Presupuesto/frm_BSQ_Presupuesto.aspx">Generación de Presupuestos</a></li>														        				
 								        </ul>-->
-							        </li>	
-                                    <li class="separator"></li> 
-							        <li><a href="<%=sUrl %>Modulos/Siniestro/Apertura/frm_APR_Siniestro.aspx">Apertura Siniestro</a>
-								        <!--<ul>
+                                    </li>
+                                    <li class="separator"></li>
+                                    <li><a href="<%=sUrl %>Modulos/Siniestro/Apertura/frm_APR_Siniestro.aspx">Apertura Siniestro</a>
+                                        <!--<ul>
 									        <li><img src="<%=sUrl %>Util/images/menu/ico_menu.gif" class="jd_menu_icono"/><a href="<%=sUrl %>Modulos/Presupuesto/frm_BSQ_Presupuesto.aspx">Generación de Presupuestos</a></li>														        				
 								        </ul>-->
-							        </li>	
-                                    <li class="separator"></li> 
-							        <li><a href="<%=sUrl %>Modulos/Presupuesto/frm_BSQ_Presupuesto.aspx">Generación de Presupuestos</a>
-								        <!--<ul>
+                                    </li>
+                                    <li class="separator"></li>
+                                    <li><a href="<%=sUrl %>Modulos/Presupuesto/frm_BSQ_Presupuesto.aspx">Generación de Presupuestos</a>
+                                        <!--<ul>
 									        <li><img src="<%=sUrl %>Util/images/menu/ico_menu.gif" class="jd_menu_icono"/><a href="<%=sUrl %>Modulos/Presupuesto/frm_BSQ_Presupuesto.aspx">Generación de Presupuestos</a></li>														        				
 								        </ul>-->
-							        </li>	
-							        <!--<li class="separator"></li>
+                                    </li>
+                                    <!--<li class="separator"></li>
 							        <li><a href="#" class="accessible">Conciliaciones</a>
 								        <ul>
 									        <li><img src="<%=sUrl %>Util/images/menu/ico_menu.gif" class="jd_menu_icono"/><a href="#" target="_blank">Búsqueda</a></li>					
@@ -144,58 +148,64 @@
 									        <li><img src="<%=sUrl %>Util/images/menu/ico_menu.gif" class="jd_menu_icono"/><a href="#" target="_blank">Configuración</a></li>		
 								        </ul>
 							        </li>-->
-							        <li class="separator"></li>
-						        </ul>
-												
-					        </td>	
-					        <td>&nbsp;</td>					
-					        <td style="text-align:right;" >
-						        <strong>Usuario:</strong> Rodriguez Juan 
+                                    <li class="separator"></li>
+
+                                    <li><a href="<%=sUrl %>Modulos/Presupuesto/frm_EVA_Presupuesto.aspx">Evaluación de Presupuesto</a></li>
+                                    <li class="separator"></li>
+                                </ul>
+
+                            </td>
+                            <td>&nbsp;</td>
+                            <td style="text-align: right;">
+                                <strong>Usuario:</strong> Rodriguez Juan 
 						        &nbsp;&nbsp;
 						        <strong>Rol:</strong> Administrador
-					        </td>			
-					        <td align="center" width="30px">
-						        <img src="<%=sUrl %>Util/images/iconos/ico_menu_usuario.jpg" align="middle" />
-					        </td>
-					        <td align="center" width="10px">
-						        <img src="<%=sUrl %>Util/images/menu/img_separator.gif" align="middle" />
-					        </td>					
-					        <td class="css_lbl_rojo" style="text-align:right;cursor:pointer;" width="80px" onclick="javascript: window.location='<%=sUrl %>Login.aspx';" title="Salir">
-						        Cerrar Sesión
-					        </td>
-					        <td align="center" width="30px" style="padding-right:5px;">
-						        <img src="<%=sUrl %>Util/images/iconos/ico_cerrar_sesion.jpg" align="middle" />
-					        </td>
-				        </tr>
-			        </table>		
-			        <!-- FIN MENU-->					
-			
-										
-			        <!-- INICIO CUERPO-->
-			        <table width="100%" border="0" cellpadding="0" cellspacing="0" class="css_tema_cuerpo">
-				        <tr>					
-					        <td>
-						
+                            </td>
+                            <td align="center" width="30px">
+                                <img src="<%=sUrl %>Util/images/iconos/ico_menu_usuario.jpg" align="middle" />
+                            </td>
+                            <td align="center" width="10px">
+                                <img src="<%=sUrl %>Util/images/menu/img_separator.gif" align="middle" />
+                            </td>
+                            <td class="css_lbl_rojo" style="text-align: right; cursor: pointer;" width="80px" onclick="javascript: window.location='<%=sUrl %>Login.aspx';" title="Salir">Cerrar Sesión
+                            </td>
+                            <td align="center" width="30px" style="padding-right: 5px;">
+                                <img src="<%=sUrl %>Util/images/iconos/ico_cerrar_sesion.jpg" align="middle" />
+                            </td>
+                        </tr>
+                    </table>
+                    <!-- FIN MENU-->
+
+
+                    <!-- INICIO CUERPO-->
+                    <table width="100%" border="0" cellpadding="0" cellspacing="0" class="css_tema_cuerpo">
+                        <tr>
+                            <td>
+
                                 <asp:ContentPlaceHolder ID="cphCuerpo" runat="server">
                                 </asp:ContentPlaceHolder>
-						
-					        </td>
-				        </tr>
-			        </table>			
-			
-			        <table width="100%" border="0" cellpadding="0" cellspacing="0" class="css_tema_cuerpoPie">
-				        <tr class="pie"><td class="left"></td><td></td><td class="right"></td></tr>
-			        </table>			
-			        <!-- FIN CUERPO-->	
-						
-									
-		        </td>
-	        </tr>	
-        </table>
-    
-       <asp:Button ID="btnDesabilitado" runat="server" EnableViewState="false" Enabled="false" Style="display: none;" />    
 
-    </form>		
+                            </td>
+                        </tr>
+                    </table>
+
+                    <table width="100%" border="0" cellpadding="0" cellspacing="0" class="css_tema_cuerpoPie">
+                        <tr class="pie">
+                            <td class="left"></td>
+                            <td></td>
+                            <td class="right"></td>
+                        </tr>
+                    </table>
+                    <!-- FIN CUERPO-->
+
+
+                </td>
+            </tr>
+        </table>
+
+        <asp:Button ID="btnDesabilitado" runat="server" EnableViewState="false" Enabled="false" Style="display: none;" />
+
+    </form>
 
 </body>
 </html>
