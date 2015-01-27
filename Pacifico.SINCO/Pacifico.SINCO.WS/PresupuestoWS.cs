@@ -31,7 +31,7 @@ namespace Pacifico.SINCO.WS
             try
             {
                 PresupuestoRN reglaNegocioPresupuesto = new PresupuestoRN();
-                DetallePresupuestoEN model = reglaNegocioPresupuesto.ObtenerPresupuestoDetalle(id);
+                PresupuestoEN model = reglaNegocioPresupuesto.ObtenerPresupuesto(id);
                 return new JavaScriptSerializer().Serialize(model);
             }
             catch (Exception e)
@@ -95,7 +95,7 @@ namespace Pacifico.SINCO.WS
             }
         }
          //CODIGO AGREGADO POR EDUARDO PASSANO CH. INICIO
-         public string ListarPresupuestoPendiente()
+         /*public string ListarPresupuestoPendiente()
          {
              try
              {
@@ -142,7 +142,7 @@ namespace Pacifico.SINCO.WS
              {
                  throw new FaultException(e.Message);
              }
-         }
+         }*/
         //   public List<PresupuestoPendienteDetalleEN> ObtenerPresupuestoPendienteDetalle(int Id)
 
         //CODIGO AGREGADO POR EDUARDO PASSANO CH. FIN
