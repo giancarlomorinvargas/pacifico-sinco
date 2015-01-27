@@ -44,5 +44,10 @@ namespace Pacifico.SINCO.WS.Interfaces
         [OperationContract]
         string Aperturar(SiniestroEN siniestro);
 
+        [OperationContract]
+        string RegistrarAsistido(int id);
+
+        [OperationContract]
+        string RegistrarAprobado(int id);
     }
 }
