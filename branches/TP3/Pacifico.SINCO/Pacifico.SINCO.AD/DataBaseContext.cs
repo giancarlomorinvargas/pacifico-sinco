@@ -34,6 +34,8 @@ namespace Pacifico.SINCO.AD
         public DbSet<TallerEN> Taller { get; set; }
         public DbSet<TecnicoEN> Tecnico { get; set; }
 
+        public DbSet<LiquidacionEN> Liquidacion { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             Database.SetInitializer<DataBaseContext>(null);
@@ -69,6 +71,15 @@ namespace Pacifico.SINCO.AD
             .WithMany()
             .HasForeignKey(c => c.TallerId);
 
+            modelBuilder.Entity<LiquidacionEN>()
+            .HasRequired(c => c.EstadoEntity)
+            .WithMany()
+            .HasForeignKey(c => c.Estado);
+
+            modelBuilder.Entity<LiquidacionEN>()
+            .HasRequired(c => c.Siniestro)
+            .WithMany()
+            .HasForeignKey(c => c.SiniestroId);
 
             /*modelBuilder.Entity<MGFichaCarga>()
             .HasRequired(c => c.Remitente)
