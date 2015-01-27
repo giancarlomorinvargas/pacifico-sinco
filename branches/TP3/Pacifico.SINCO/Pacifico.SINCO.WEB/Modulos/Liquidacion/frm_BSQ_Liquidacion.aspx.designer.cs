@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Pacifico.SINCO.WEB.Modulos.Siniestro.Apertura {
+namespace Pacifico.SINCO.WEB.Modulos.Liquidacion {
     
     
-    public partial class frm_APR_Siniestro {
+    public partial class frm_BSQ_Liquidacion {
         
         /// <summary>
         /// btnBuscar control.
@@ -22,31 +22,22 @@ namespace Pacifico.SINCO.WEB.Modulos.Siniestro.Apertura {
         protected global::System.Web.UI.WebControls.Button btnBuscar;
         
         /// <summary>
-        /// hddCodSiniestro control.
+        /// hddCodLiquidacion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hddCodSiniestro;
+        protected global::System.Web.UI.WebControls.HiddenField hddCodLiquidacion;
         
         /// <summary>
-        /// hddEstadoSiniestro control.
+        /// hddEstadoLiquidacion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hddEstadoSiniestro;
-        
-        /// <summary>
-        /// hddTipoSiniestro control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hddTipoSiniestro;
+        protected global::System.Web.UI.WebControls.HiddenField hddEstadoLiquidacion;
         
         /// <summary>
         /// hddMensaje control.
@@ -67,13 +58,22 @@ namespace Pacifico.SINCO.WEB.Modulos.Siniestro.Apertura {
         protected global::System.Web.UI.WebControls.HiddenField hddMensajeError;
         
         /// <summary>
-        /// txtNumPoliza control.
+        /// txtNumLiquidacion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtNumPoliza;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtNumLiquidacion;
+        
+        /// <summary>
+        /// txtNumSiniestro control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtNumSiniestro;
         
         /// <summary>
         /// cmbTipoSiniestro control.
@@ -85,22 +85,22 @@ namespace Pacifico.SINCO.WEB.Modulos.Siniestro.Apertura {
         protected global::System.Web.UI.HtmlControls.HtmlSelect cmbTipoSiniestro;
         
         /// <summary>
-        /// txtFechaSiniestro control.
+        /// txtFechaLiquidacion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtFechaSiniestro;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtFechaLiquidacion;
         
         /// <summary>
-        /// rptListadoSiniestros control.
+        /// rptListadoLiquidaciones control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptListadoSiniestros;
+        protected global::System.Web.UI.WebControls.Repeater rptListadoLiquidaciones;
         
         /// <summary>
         /// lblMensaje control.

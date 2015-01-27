@@ -67,6 +67,18 @@
   <wsdl:message name="ISiniestroWS_Aperturar_OutputMessage">
     <wsdl:part name="parameters" element="tns:AperturarResponse" />
   </wsdl:message>
+  <wsdl:message name="ISiniestroWS_RegistrarAsistido_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegistrarAsistido" />
+  </wsdl:message>
+  <wsdl:message name="ISiniestroWS_RegistrarAsistido_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegistrarAsistidoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISiniestroWS_RegistrarAprobado_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegistrarAprobado" />
+  </wsdl:message>
+  <wsdl:message name="ISiniestroWS_RegistrarAprobado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegistrarAprobadoResponse" />
+  </wsdl:message>
   <wsdl:portType name="ISiniestroWS">
     <wsdl:operation name="wsObtenerNombreWS">
       <wsdl:input wsaw:Action="http://tempuri.org/ISiniestroWS/wsObtenerNombreWS" message="tns:ISiniestroWS_wsObtenerNombreWS_InputMessage" />
@@ -107,6 +119,14 @@
     <wsdl:operation name="Aperturar">
       <wsdl:input wsaw:Action="http://tempuri.org/ISiniestroWS/Aperturar" message="tns:ISiniestroWS_Aperturar_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISiniestroWS/AperturarResponse" message="tns:ISiniestroWS_Aperturar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarAsistido">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISiniestroWS/RegistrarAsistido" message="tns:ISiniestroWS_RegistrarAsistido_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISiniestroWS/RegistrarAsistidoResponse" message="tns:ISiniestroWS_RegistrarAsistido_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarAprobado">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISiniestroWS/RegistrarAprobado" message="tns:ISiniestroWS_RegistrarAprobado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISiniestroWS/RegistrarAprobadoResponse" message="tns:ISiniestroWS_RegistrarAprobado_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ISiniestroWS" type="tns:ISiniestroWS">
@@ -194,6 +214,24 @@
     </wsdl:operation>
     <wsdl:operation name="Aperturar">
       <soap:operation soapAction="http://tempuri.org/ISiniestroWS/Aperturar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarAsistido">
+      <soap:operation soapAction="http://tempuri.org/ISiniestroWS/RegistrarAsistido" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarAprobado">
+      <soap:operation soapAction="http://tempuri.org/ISiniestroWS/RegistrarAprobado" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

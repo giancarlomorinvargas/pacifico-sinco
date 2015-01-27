@@ -7,64 +7,55 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Pacifico.SINCO.WEB.Modulos.Siniestro.Apertura {
+namespace Pacifico.SINCO.WEB.Modulos.Liquidacion {
     
     
-    public partial class frm_APR_Siniestro {
+    public partial class frm_CNS_Liquidacion {
         
         /// <summary>
-        /// btnBuscar control.
+        /// hdnSiniestroId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBuscar;
+        protected global::System.Web.UI.WebControls.HiddenField hdnSiniestroId;
         
         /// <summary>
-        /// hddCodSiniestro control.
+        /// txtNumSiniestro control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hddCodSiniestro;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtNumSiniestro;
         
         /// <summary>
-        /// hddEstadoSiniestro control.
+        /// txtTipoSiniestro control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hddEstadoSiniestro;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtTipoSiniestro;
         
         /// <summary>
-        /// hddTipoSiniestro control.
+        /// txtFecSiniestro control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hddTipoSiniestro;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtFecSiniestro;
         
         /// <summary>
-        /// hddMensaje control.
+        /// txtLugar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hddMensaje;
-        
-        /// <summary>
-        /// hddMensajeError control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hddMensajeError;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtLugar;
         
         /// <summary>
         /// txtNumPoliza control.
@@ -76,31 +67,76 @@ namespace Pacifico.SINCO.WEB.Modulos.Siniestro.Apertura {
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtNumPoliza;
         
         /// <summary>
-        /// cmbTipoSiniestro control.
+        /// txtAsegurado control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect cmbTipoSiniestro;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtAsegurado;
         
         /// <summary>
-        /// txtFechaSiniestro control.
+        /// txtInicio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtFechaSiniestro;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtInicio;
         
         /// <summary>
-        /// rptListadoSiniestros control.
+        /// txtFin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptListadoSiniestros;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtFin;
+        
+        /// <summary>
+        /// txtMontoCobertura control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtMontoCobertura;
+        
+        /// <summary>
+        /// txtNumLiquidacion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtNumLiquidacion;
+        
+        /// <summary>
+        /// txtFechaLiquidacion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtFechaLiquidacion;
+        
+        /// <summary>
+        /// txtDescripcion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtDescripcion;
+        
+        /// <summary>
+        /// txtMontoLiquidacion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtMontoLiquidacion;
         
         /// <summary>
         /// lblMensaje control.

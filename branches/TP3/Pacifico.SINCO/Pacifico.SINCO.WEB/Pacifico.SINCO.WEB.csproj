@@ -38,10 +38,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AjaxControlToolkit, Version=3.5.50401.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>referencias\AjaxControlToolkit.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
@@ -67,6 +63,7 @@
     <Content Include="Error.aspx" />
     <Content Include="MasterPage.Master" />
     <Content Include="MasterPageModal.Master" />
+    <Content Include="Modulos\Comun\mdl_BSQ_Siniestro_Asistido.aspx" />
     <Content Include="Modulos\Comun\mdl_BSQ_Tecnico.aspx" />
     <Content Include="Modulos\Comun\mdl_BSQ_Procurador.aspx" />
     <Content Include="Modulos\Comun\mdl_BSQ_Siniestro.aspx" />
@@ -74,7 +71,10 @@
     <Content Include="Modulos\Informe\frm_BSQ_Informe.aspx" />
     <Content Include="Modulos\Informe\frm_CNS_Informe.aspx" />
     <Content Include="Modulos\Informe\frm_MOD_Informe.aspx" />
-    <Content Include="Modulos\Presupuesto\frm_EVA_Presupuesto.aspx" />
+    <Content Include="Modulos\Liquidacion\frm_AGR_Liquidacion.aspx" />
+    <Content Include="Modulos\Liquidacion\frm_BSQ_Liquidacion.aspx" />
+    <Content Include="Modulos\Liquidacion\frm_CNS_Liquidacion.aspx" />
+    <Content Include="Modulos\Liquidacion\frm_MOD_Liquidacion.aspx" />
     <Content Include="Modulos\Siniestro\Apertura\frm_APR_Siniestro.aspx" />
     <Content Include="Modulos\Siniestro\Apertura\frm_CNS_Siniestro.aspx" />
     <Content Include="Modulos\Siniestro\Apertura\frm_REG_APR_Siniestro.aspx" />
@@ -91,6 +91,16 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\wsInformeAccidente\wsInformeAccidente.wsdl" />
+    <None Include="Service References\wsLiquidacion\Pacifico.SINCO.EN.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\wsLiquidacion\service.wsdl" />
+    <None Include="Service References\wsLiquidacion\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\wsLiquidacion\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\wsListaPrecio\item.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -180,7 +190,12 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <Content Include="referencias\AjaxControlToolkit.dll" />
+    <None Include="Service References\wsLiquidacion\configuration91.svcinfo" />
+    <None Include="Service References\wsLiquidacion\configuration.svcinfo" />
+    <None Include="Service References\wsLiquidacion\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Util\css\css_formulario.css" />
     <Content Include="Util\css\css_fuente.css" />
     <Content Include="Util\css\css_global.css" />
@@ -195,7 +210,6 @@
     <Content Include="Util\images\fondos\fnd_btn_general.gif" />
     <Content Include="Util\images\fondos\fnd_btn_login.gif" />
     <Content Include="Util\images\fondos\fnd_pagina.jpg" />
-    <Content Include="Util\images\iconos\aprobar.jpg" />
     <Content Include="Util\images\iconos\ico_btn_buscar.jpg" />
     <Content Include="Util\images\iconos\ico_btn_cancelar.jpg" />
     <Content Include="Util\images\iconos\ico_btn_editar.jpg" />
@@ -222,8 +236,6 @@
     <Content Include="Util\images\iconos\ico_mdl_roles.jpg" />
     <Content Include="Util\images\iconos\ico_mdl_usuarios.jpg" />
     <Content Include="Util\images\iconos\ico_menu_usuario.jpg" />
-    <Content Include="Util\images\iconos\rechazar.jpg" />
-    <Content Include="Util\images\iconos\refresh.jpg" />
     <Content Include="Util\images\img_login.jpg" />
     <Content Include="Util\images\img_logo.jpg" />
     <Content Include="Util\images\indiceDown.gif" />
@@ -251,7 +263,6 @@
     <Content Include="Util\images\ok.gif" />
     <Content Include="Util\images\PV16x16.ico" />
     <Content Include="Util\images\question.gif" />
-    <Content Include="Util\images\refresh.jpg" />
     <Content Include="Util\images\tema\fnd_cabecera.jpg" />
     <Content Include="Util\images\tema\fnd_cabecera_left.jpg" />
     <Content Include="Util\images\tema\fnd_cabecera_right.jpg" />
@@ -374,6 +385,7 @@
     <Compile Include="Error.aspx.designer.cs">
       <DependentUpon>Error.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Facade\Liquidacion\LiquidacionFacade.cs" />
     <Compile Include="Facade\Siniestro\SiniestroFacade.cs" />
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -395,6 +407,13 @@
     </Compile>
     <Compile Include="MasterPageModal.Master.designer.cs">
       <DependentUpon>MasterPageModal.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\Comun\mdl_BSQ_Siniestro_Asistido.aspx.cs">
+      <DependentUpon>mdl_BSQ_Siniestro_Asistido.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modulos\Comun\mdl_BSQ_Siniestro_Asistido.aspx.designer.cs">
+      <DependentUpon>mdl_BSQ_Siniestro_Asistido.aspx</DependentUpon>
     </Compile>
     <Compile Include="Modulos\Comun\mdl_BSQ_Tecnico.aspx.cs">
       <DependentUpon>mdl_BSQ_Tecnico.aspx</DependentUpon>
@@ -467,6 +486,34 @@
       <DependentUpon>frm_MOD_Informe.aspx</DependentUpon>
     </Compile>
     <Compile Include="Facade\Informe\InformeFacade.cs" />
+    <Compile Include="Modulos\Liquidacion\frm_AGR_Liquidacion.aspx.cs">
+      <DependentUpon>frm_AGR_Liquidacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modulos\Liquidacion\frm_AGR_Liquidacion.aspx.designer.cs">
+      <DependentUpon>frm_AGR_Liquidacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\Liquidacion\frm_BSQ_Liquidacion.aspx.cs">
+      <DependentUpon>frm_BSQ_Liquidacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modulos\Liquidacion\frm_BSQ_Liquidacion.aspx.designer.cs">
+      <DependentUpon>frm_BSQ_Liquidacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\Liquidacion\frm_CNS_Liquidacion.aspx.cs">
+      <DependentUpon>frm_CNS_Liquidacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modulos\Liquidacion\frm_CNS_Liquidacion.aspx.designer.cs">
+      <DependentUpon>frm_CNS_Liquidacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\Liquidacion\frm_MOD_Liquidacion.aspx.cs">
+      <DependentUpon>frm_MOD_Liquidacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modulos\Liquidacion\frm_MOD_Liquidacion.aspx.designer.cs">
+      <DependentUpon>frm_MOD_Liquidacion.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Modulos\Presupuesto\frm_AGR_Presupuesto.aspx.cs">
       <DependentUpon>frm_AGR_Presupuesto.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -487,13 +534,6 @@
     </Compile>
     <Compile Include="Modulos\Presupuesto\frm_CNS_Presupuesto.aspx.designer.cs">
       <DependentUpon>frm_CNS_Presupuesto.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Modulos\Presupuesto\frm_EVA_Presupuesto.aspx.cs">
-      <DependentUpon>frm_EVA_Presupuesto.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Modulos\Presupuesto\frm_EVA_Presupuesto.aspx.designer.cs">
-      <DependentUpon>frm_EVA_Presupuesto.aspx</DependentUpon>
     </Compile>
     <Compile Include="Modulos\Presupuesto\frm_MOD_Presupuesto.aspx.cs">
       <DependentUpon>frm_MOD_Presupuesto.aspx</DependentUpon>
@@ -564,6 +604,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\wsLiquidacion\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\wsListaPrecio\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -627,6 +672,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\wsInformeAccidente\" />
+    <WCFMetadataStorage Include="Service References\wsLiquidacion\" />
     <WCFMetadataStorage Include="Service References\wsListaPrecio\" />
     <WCFMetadataStorage Include="Service References\wsPresupuesto\" />
     <WCFMetadataStorage Include="Service References\wsSiniestro\" />

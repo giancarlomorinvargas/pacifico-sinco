@@ -74,6 +74,18 @@ namespace Pacifico.SINCO.WEB.wsSiniestro {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISiniestroWS/Aperturar", ReplyAction="http://tempuri.org/ISiniestroWS/AperturarResponse")]
         System.Threading.Tasks.Task<string> AperturarAsync(Pacifico.SINCO.EN.SiniestroEN siniestro);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISiniestroWS/RegistrarAsistido", ReplyAction="http://tempuri.org/ISiniestroWS/RegistrarAsistidoResponse")]
+        string RegistrarAsistido(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISiniestroWS/RegistrarAsistido", ReplyAction="http://tempuri.org/ISiniestroWS/RegistrarAsistidoResponse")]
+        System.Threading.Tasks.Task<string> RegistrarAsistidoAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISiniestroWS/RegistrarAprobado", ReplyAction="http://tempuri.org/ISiniestroWS/RegistrarAprobadoResponse")]
+        string RegistrarAprobado(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISiniestroWS/RegistrarAprobado", ReplyAction="http://tempuri.org/ISiniestroWS/RegistrarAprobadoResponse")]
+        System.Threading.Tasks.Task<string> RegistrarAprobadoAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -181,6 +193,22 @@ namespace Pacifico.SINCO.WEB.wsSiniestro {
         
         public System.Threading.Tasks.Task<string> AperturarAsync(Pacifico.SINCO.EN.SiniestroEN siniestro) {
             return base.Channel.AperturarAsync(siniestro);
+        }
+        
+        public string RegistrarAsistido(int id) {
+            return base.Channel.RegistrarAsistido(id);
+        }
+        
+        public System.Threading.Tasks.Task<string> RegistrarAsistidoAsync(int id) {
+            return base.Channel.RegistrarAsistidoAsync(id);
+        }
+        
+        public string RegistrarAprobado(int id) {
+            return base.Channel.RegistrarAprobado(id);
+        }
+        
+        public System.Threading.Tasks.Task<string> RegistrarAprobadoAsync(int id) {
+            return base.Channel.RegistrarAprobadoAsync(id);
         }
     }
 }

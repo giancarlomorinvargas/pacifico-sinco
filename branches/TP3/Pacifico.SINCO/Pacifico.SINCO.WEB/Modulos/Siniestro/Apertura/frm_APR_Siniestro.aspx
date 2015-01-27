@@ -23,11 +23,12 @@
             $("#btnBuscar").click();
         }
 
-        function fn_checkLista(objCheck, estado) {            
+        function fn_checkLista(objCheck, estado, tipo) {            
             $('input[id*="chkIdSiniestro"]').prop('checked', false);
             objCheck.checked = true;
             $("#hddCodSiniestro").val(objCheck.value);
             $("#hddEstadoSiniestro").val(estado);
+            $("#hddTipoSiniestro").val(tipo);
         }
 
         function fn_redirect(pUrl) {
@@ -43,11 +44,15 @@
             var hddCodSiniestro = $("#hddCodSiniestro").val();
             if (hddCodSiniestro != "") {
                 var hddEstadoSiniestro = $("#hddEstadoSiniestro").val();
+                var hddTipoSiniestro = $("#hddTipoSiniestro").val();
 
-                if (hddEstadoSiniestro == "<%=Pacifico.SINCO.UTL.Constantes.sEstado_EnProceso%>") {
+                if (hddEstadoSiniestro == "<%=Pacifico.SINCO.UTL.Constantes.sEstado_EnProceso%>" &&
+                    hddTipoSiniestro == "<%=Pacifico.SINCO.UTL.Constantes.Choque%>") {
                     window.location = pUrl + "?pIdSiniestro=" + hddCodSiniestro;
-                } else {
-                    fn_mdl_alert("No puede se puede realizar la apertura del siniestro", null, "VALIDACIONES");
+                } else if (hddEstadoSiniestro != "<%=Pacifico.SINCO.UTL.Constantes.sEstado_EnProceso%>") {
+                    fn_mdl_alert("Sólo se permite la asignación a un Siniestro Asistido", null, "VALIDACIONES");
+                } else if (hddTipoSiniestro != "<%=Pacifico.SINCO.UTL.Constantes.Choque%>") {
+                    fn_mdl_alert("No puede se puede realizar la asignación del Siniestro de Tipo Robo Total", null, "VALIDACIONES");
                 }
             } else {
                 fn_mdl_alert("Debe seleccionar un registro", null, "VALIDACIONES");
@@ -73,7 +78,7 @@
 						<td class="boton">
 							<a href="javascript:fn_redirectModificar('frm_REG_APR_Siniestro.aspx');">
 								<img src="<%=sUrl %>Util/images/iconos/ico_btn_nuevo.jpg" border="0" /><br />
-								Aperturar
+								Asignar
 							</a>
 						</td>
 						<td class="boton">
@@ -100,7 +105,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td class="subModulo">Apertura de Siniestro</td>
+			<td class="subModulo">Listado de Siniestros</td>
 		</tr>
 	</table>
 	<!-- FIN TITULO-->
@@ -109,6 +114,8 @@
    <asp:Button ID="btnBuscar" runat="server" Text="" OnClick="btnBuscar_Click" ClientIDMode="Static" Style="display: none;" />	
    <asp:HiddenField ID="hddCodSiniestro" runat="server" ClientIDMode="Static" EnableViewState="false" />	
    <asp:HiddenField ID="hddEstadoSiniestro" runat="server" ClientIDMode="Static" EnableViewState="false" />	
+    <asp:HiddenField ID="hddTipoSiniestro" runat="server" ClientIDMode="Static" EnableViewState="false" />	
+    
 
    <asp:HiddenField ID="hddMensaje" runat="server" ClientIDMode="Static" EnableViewState="false" />	
    <asp:HiddenField ID="hddMensajeError" runat="server" ClientIDMode="Static" EnableViewState="false" />	
@@ -179,7 +186,7 @@
             <ItemTemplate>
                <tbody>
                    <tr <%#Int32.Parse(Eval("Estado").ToString())%2==0?"class=\"even\"":"" %> >
-                        <td><input id="chkIdSiniestro" type="checkbox" value="<%#Eval("MS_Siniestro_Id") %>" onclick="javascript:fn_checkLista(this, '<%#Eval("Estado")%>')"/></td>
+                        <td><input id="chkIdSiniestro" type="checkbox" value="<%#Eval("MS_Siniestro_Id") %>" onclick="javascript:fn_checkLista(this, '<%#Eval("Estado")%>', '<%#Eval("Tipo")%>')"/></td>
                         <td style="text-align:center;"><%#Eval("NumSiniestro") %><td>
 			            <td style="text-align:center;"><%#Eval("Poliza.NumPoliza") %><td>
 			            <td><%#Eval("Poliza.Asegurado.Nombre") + " " + Eval("Poliza.Asegurado.ApellidoPaterno") + " " + Eval("Poliza.Asegurado.ApellidoMaterno")%><td>
