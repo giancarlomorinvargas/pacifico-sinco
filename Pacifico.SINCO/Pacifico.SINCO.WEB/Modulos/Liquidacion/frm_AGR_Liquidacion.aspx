@@ -118,7 +118,7 @@
 							</a>
 						</td>											
 						<td class="boton">
-							<a href="javascript:window.location='frm_BSQ_Informe.aspx';">
+							<a href="javascript:window.location='frm_BSQ_Liquidacion.aspx';">
 								<img src="<%=sUrl %>Util/images/iconos/ico_btn_cancelar.jpg" border="0" /><br />
 								Cancelar
 							</a>
