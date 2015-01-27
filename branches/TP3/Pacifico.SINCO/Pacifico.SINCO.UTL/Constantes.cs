@@ -15,6 +15,7 @@ namespace Pacifico.SINCO.UTL
         public const string sNombreWS_ListaPrecio = "wsListaPrecio";
         public const string sNombreWS_InformeAccidente = "wsInformeAccidente";
         public const string sNombreWS_Tecnico = "wsTecnico";
+        public const string sNombreWS_Liquidacion = "wsLiquidacion";
 
         public const string sUsuario_Login = "ADMIN";
 
@@ -22,9 +23,10 @@ namespace Pacifico.SINCO.UTL
         public const string sNum_Siniestro = "SI";
         public const int sEstado_Registrado = 21;
         public const int sEstado_Pendiente = 22;
+        //Asistido
         public const int sEstado_EnProceso = 23;
         public const int sEstado_Asignado = 24;
-        //public const int sEstado_Terminado = 25;
+        public const int sEstado_Aprobado = 25;
 
         //INFORME
         public const string iNum_Informe = "IA";
@@ -36,5 +38,14 @@ namespace Pacifico.SINCO.UTL
         public const int pEstado_Registrado = 41;
         public const int pEstado_Aprobado = 42;
         public const int pEstado_Rechazado = 43;
+
+        //Tipo SIniestro
+        public const string Robo = "Robo Total";
+        public const string Choque = "Choque";
+
+        //LIQUIDACION
+        public const string lNum_Liquidacion = "LV";
+        public const int lEstado_Registrado = 51;
+
     }
 }
