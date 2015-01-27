@@ -27,6 +27,14 @@ namespace Pacifico.SINCO.WS.Interfaces
         string AgregarPresupuesto(PresupuestoEN presupuesto);
         [OperationContract]
         string ModificarPresupuesto(PresupuestoEN presupuesto, List<DetallePresupuestoEN> destallePresupuesto);
+        // CODIGO MODIFICADO POR EDUARDO PASSANO CH.  INICIO
+        [OperationContract]
+        string ListarPresupuestoPendiente();
+        [OperationContract]
+        string ObtenerPresupuestoDetalle(int numPresupuesto);
+        [OperationContract]
+        string ObtenerPresupuestoPendienteDetalle(int Id);
 
+        // CODIGO MODIFICADO POR EDUARDO PASSANO CH.  FIN
     }
 }
