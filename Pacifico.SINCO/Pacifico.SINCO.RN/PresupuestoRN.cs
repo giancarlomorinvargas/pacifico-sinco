@@ -172,7 +172,7 @@ namespace Pacifico.SINCO.RN
             return listaPresupuesto;
         }
          //CODIGO AGREGADO POR EDUARDO PASSANO CH. INICIO
-         public List<PresupuestoPendienteCabeceraEN> ListarPresupuestoPendiente()
+         /*public List<PresupuestoPendienteCabeceraEN> ListarPresupuestoPendiente()
          {
              IPresupuestoDAO presupuestoDao = new PresupuestoDAO();
              List<PresupuestoEN> listaPresupuestoPendiente = new List<PresupuestoEN>();
@@ -250,7 +250,7 @@ namespace Pacifico.SINCO.RN
              }
              return listaPresupuestoPendienteDetalle;
 
-         }
+         }*/
 
 
         //CODIGO AGREGADO POR EDUARDO PASSANO CH. FIN
