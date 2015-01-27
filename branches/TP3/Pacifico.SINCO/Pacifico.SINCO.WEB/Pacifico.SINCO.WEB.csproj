@@ -94,7 +94,7 @@
     <None Include="Service References\wsLiquidacion\Pacifico.SINCO.EN.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\wsLiquidacion\service.wsdl" />
+    <Content Include="Service References\wsLiquidacion\service.wsdl" />
     <None Include="Service References\wsLiquidacion\service.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -190,12 +190,12 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Service References\wsLiquidacion\configuration91.svcinfo" />
-    <None Include="Service References\wsLiquidacion\configuration.svcinfo" />
-    <None Include="Service References\wsLiquidacion\Reference.svcmap">
+    <Content Include="Service References\wsLiquidacion\configuration91.svcinfo" />
+    <Content Include="Service References\wsLiquidacion\configuration.svcinfo" />
+    <Content Include="Service References\wsLiquidacion\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
+    </Content>
     <Content Include="Util\css\css_formulario.css" />
     <Content Include="Util\css\css_fuente.css" />
     <Content Include="Util\css\css_global.css" />
