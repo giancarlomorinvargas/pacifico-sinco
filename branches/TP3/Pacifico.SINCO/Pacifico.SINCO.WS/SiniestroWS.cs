@@ -225,5 +225,32 @@ namespace Pacifico.SINCO.WS
             }
         }
 
+        public string RegistrarAsistido(int id)
+        {
+            try
+            {
+                SiniestroRN siniestroRN = new SiniestroRN();
+
+                return siniestroRN.RegistrarAsistido(id);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+        }
+
+        public string RegistrarAprobado(int id)
+        {
+            try
+            {
+                SiniestroRN siniestroRN = new SiniestroRN();
+
+                return siniestroRN.RegistrarAprobado(id);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+        }
     }
 }
