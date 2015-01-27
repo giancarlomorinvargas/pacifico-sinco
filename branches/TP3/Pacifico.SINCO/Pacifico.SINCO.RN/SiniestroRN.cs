@@ -24,7 +24,7 @@ namespace Pacifico.SINCO.RN
 
         private static string MENSAJE_REGISTRADO = "Siniestro Registrado Satisfactoriamente";
         private static string MENSAJE_ACTUALIZADO = MENSAJE_REGISTRADO;
-        private static string MENSAJE_ASIGNADO = "La apertura del Siniestro se realizó satisfactoriamente";
+        private static string MENSAJE_ASIGNADO = "La asignación se realizó satisfactoriamente";
 
         private static string MENSAJE_ERROR_PROCESAR = "No se puedo procesar el siniestro, porque no está Pendiente";
         private static string MENSAJE_ERROR_PENDIENTE = "No se puedo registrar el siniestro, porque no está en Proceso";
@@ -278,5 +278,64 @@ namespace Pacifico.SINCO.RN
         }
 
 
+        public string RegistrarAsistido(int id)
+        {
+            ISiniestroDAO siniestroDao = new SiniestroDAO();
+            //SiniestroEN siniestroConsulta = Obtener(id);
+            SiniestroEN siniestroConsulta = siniestroDao.Get(id);
+
+            if (siniestroConsulta == null)
+            {
+                throw new Exception(MENSAJE_NO_DISPONIBLE);
+            }
+
+            if (siniestroConsulta.Estado == Constantes.sEstado_Aprobado)
+            {
+                siniestroConsulta.Estado = Constantes.sEstado_EnProceso;
+                try
+                {
+                    siniestroDao.Modify(siniestroConsulta);
+                }
+                catch (Exception e)
+                {
+                    throw new Exception(MENSAJE_ERROR_GENERAL, e);
+                }
+                return MENSAJE_REGISTRADO;
+            }
+            else
+            {
+                throw new Exception(MENSAJE_ERROR_GENERAL);
+            }
+        }
+
+        public string RegistrarAprobado(int id)
+        {
+            ISiniestroDAO siniestroDao = new SiniestroDAO();
+            //SiniestroEN siniestroConsulta = Obtener(id);
+            SiniestroEN siniestroConsulta = siniestroDao.Get(id);
+
+            if (siniestroConsulta == null)
+            {
+                throw new Exception(MENSAJE_NO_DISPONIBLE);
+            }
+
+            if (siniestroConsulta.Estado == Constantes.sEstado_EnProceso)
+            {
+                siniestroConsulta.Estado = Constantes.sEstado_Aprobado;
+                try
+                {
+                    siniestroDao.Modify(siniestroConsulta);
+                }
+                catch (Exception e)
+                {
+                    throw new Exception(MENSAJE_ERROR_GENERAL, e);
+                }
+                return MENSAJE_REGISTRADO;
+            }
+            else
+            {
+                throw new Exception(MENSAJE_ERROR_GENERAL);
+            }
+        }
     }
 }
