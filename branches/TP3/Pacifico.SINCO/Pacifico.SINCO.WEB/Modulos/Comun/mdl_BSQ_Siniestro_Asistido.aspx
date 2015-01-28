@@ -40,8 +40,8 @@
             parent.fn_util_CierraModal();*/
             if (informeSeleccionado && informeSeleccionado != null) {
                 console.log("informeSeleccionado",informeSeleccionado)
-                if(informeSeleccionado.estado == "<%=Pacifico.SINCO.UTL.Constantes.sEstado_EnProceso%>"
-                    && informeSeleccionado.tipo == "<%=Pacifico.SINCO.UTL.Constantes.Robo%>"){
+                if(informeSeleccionado.estado == "<%=Pacifico.SINCO.UTL.Constantes.sEstado_EnProceso%>"&&
+                    informeSeleccionado.tipo == "<%=Pacifico.SINCO.UTL.Constantes.Robo%>"){
                     parent.cargarSiniestro(informeSeleccionado);
                 }else if(informeSeleccionado.estado != "<%=Pacifico.SINCO.UTL.Constantes.sEstado_EnProceso%>"){
                     fn_mdl_alert("Sólo se permite el registro de una Liquidación de un Siniestro Asistido", null, "VALIDACIONES");
@@ -171,10 +171,10 @@
                                 numSiniestro:'<%# Eval("NumSiniestro") %>', estado:'<%# Eval("Estado")%>',
                                 tipo:'<%# Eval("Tipo") %>',
                                 fechaSiniestro:'<%# ((DateTime)Eval("FechaSiniestro")).ToString("d")%>',
-                                lugar:'<%# Eval("Lugar")%>',
-								fechaInicio:'<%# Eval("Poliza.FechaInicio") %>', fechaFin:'<%# Eval("Poliza.FechaFin") %>',
-								montoCobertura:'<%# Eval("Poliza.MontoCobertura") %>',
-                                numPoliza:'<%# Eval("Poliza.NumPoliza") %>',
+    lugar:'<%# Eval("Lugar")%>', montoCobertura:'<%# Eval("Poliza.MontoCobertura")%> ',
+        numPoliza:'<%# Eval("Poliza.NumPoliza") %>',
+        fechaInicio:'<%#((DateTime)Eval("Poliza.FechaInicio")).ToString("d")%>',
+        fechaFin:'<%#((DateTime)Eval("Poliza.FechaFin")).ToString("d") %>',
                                 numProcurador:'<%# Eval("Procurador.NumProcurador") %>',
                                 procurador:'<%#Eval("Procurador.Nombre") + " " + Eval("Procurador.ApellidoPaterno") + " " + Eval("Procurador.ApellidoMaterno")%>',
                                 asegurado:'<%#Eval("Poliza.Asegurado.Nombre") + " " + Eval("Poliza.Asegurado.ApellidoPaterno") + " " + Eval("Poliza.Asegurado.ApellidoMaterno")%>'})"/>                            
@@ -187,7 +187,7 @@
 			            <td style="text-align:center;"><%#Eval("Procurador.NumProcurador")%><td>
                         <td style="text-align:center;"><%#Eval("Procurador.Nombre") + " " +  Eval("Procurador.ApellidoPaterno") + " " +  Eval("Procurador.ApellidoMaterno")%><td>
 			            <td style="text-align:center;color:<%# (Int32.Parse(Eval("Estado").ToString())  == Pacifico.SINCO.UTL.Constantes.sEstado_EnProceso 
-               && Eval("Tipo").ToString() == Pacifico.SINCO.UTL.Constantes.Robo) ? "green" : "red" %>;";"><%#Eval("EstadoEntity.Nombre") %><td>
+                                                    && Eval("Tipo").ToString() == Pacifico.SINCO.UTL.Constantes.Robo) ? "green" : "red" %>;";"><%#Eval("EstadoEntity.Nombre") %><td>
 		            </tr>                                       
                </ItemTemplate>
             <FooterTemplate>
