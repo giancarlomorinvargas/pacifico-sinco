@@ -13,6 +13,7 @@
       <xs:element minOccurs="0" name="MS_Informe_Accidente_Id" type="xs:int" />
       <xs:element minOccurs="0" name="MS_Presupuesto_Id" type="xs:int" />
       <xs:element minOccurs="0" name="NumPresupuesto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ObservacionRechazo" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="SubTotal" type="xs:float" />
       <xs:element minOccurs="0" name="Total" type="xs:float" />
       <xs:element minOccurs="0" name="UsuarioModifico" nillable="true" type="xs:string" />

@@ -170,37 +170,25 @@ namespace Pacifico.SINCO.RN
             }
             //return new JavaScriptSerializer().Serialize(listaPresupuesto);
             return listaPresupuesto;
-        }
+         }
          //CODIGO AGREGADO POR EDUARDO PASSANO CH. INICIO
-         /*public List<PresupuestoPendienteCabeceraEN> ListarPresupuestoPendiente()
+         public List<PresupuestoPendienteCabeceraEN> ListarPresupuestoPendiente()
          {
              IPresupuestoDAO presupuestoDao = new PresupuestoDAO();
              List<PresupuestoEN> listaPresupuestoPendiente = new List<PresupuestoEN>();
              List<PresupuestoPendienteCabeceraEN> listaPresupuestoPendiente1 = new List<PresupuestoPendienteCabeceraEN>();
              foreach (PresupuestoEN Model in presupuestoDao.GetAll().Where(
-                   b => b.Estado == 22).ToList())
+                   b => b.Estado == 41).ToList())
              {
-                 //listaPresupuestoPendiente.Add(Model);    
-                 //  PresupuestoPendienteEN item = new PresupuestoPendienteEN()
-                 // {
-                 // MS_Presupuesto_Id = Model.MS_Presupuesto_Id,
-                 //NumPresupuesto = Model.InformeAccidente.Siniestro.Poliza.NumPoliza,
-                 //  NumPresupuesto = Model.Poliza.NumPoliza,
-                 //   Estado = Model.Estado,
-                 // FechaRegistro=Model.FechaRegistro,
-                 //   Total=Model.Total,
 
-
-                 //SubTotal=Model.SubTotal
-
-                 //};
                  PresupuestoPendienteCabeceraEN item = new PresupuestoPendienteCabeceraEN()
                  {
                      PresupuestoID = Model.MS_Presupuesto_Id,
                      NumeroPoliza = Model.InformeAccidente.Siniestro.Poliza.NumPoliza,
                      MatriculaVehiculo = Model.InformeAccidente.Siniestro.Poliza.Vehiculo.Placa,
                      SubTotal = Model.SubTotal.ToString(),
-                     Total = Model.Total.ToString()
+                     Total = Model.Total.ToString(),
+                     Estado = Model.Estado
                  };
                  listaPresupuestoPendiente1.Add(item);
              }
@@ -222,39 +210,122 @@ namespace Pacifico.SINCO.RN
 
              DetallePresupuestoEN item = new DetallePresupuestoEN();
 
-             //    item.SubTotal=model.SubTotal;
-             //  item.Total = model.Total;
-
-
              if (model == null)
              {
                  throw new Exception(MENSAJE_NO_DISPONIBLE);
              }
              return item;
          }
-         // PresupuestoPendienteDetalleEN
+
          public List<PresupuestoPendienteDetalleEN> ObtenerPresupuestoPendienteDetalle(int Id)
          {
              IPresupuestoDAO presupuestoDao = new PresupuestoDAO();
              List<PresupuestoPendienteDetalleEN> listaPresupuestoPendienteDetalle = new List<PresupuestoPendienteDetalleEN>();
              PresupuestoEN model = presupuestoDao.Get(Id);
-             foreach (PresupuestoEN Model in presupuestoDao.GetAll().Where(
-           b => b.Estado == 22).ToList())
+             foreach (DetallePresupuestoEN detalle in model.DetallePresupuesto)
              {
                  PresupuestoPendienteDetalleEN item = new PresupuestoPendienteDetalleEN();
                  {
-                     //item.Servicio = model.PresupuestoDetalle.ListaPrecio.Servicio.Descripcion;
-                     //listaPresupuestoPendienteDetalle.Add(item);
-
+                     if (detalle.MS_Presupuesto_Id == model.MS_Presupuesto_Id)
+                     {
+                         item.Importe = detalle.Importe.ToString();
+                         item.Descuento = detalle.Descuento.ToString();
+                         item.Servicio = detalle.ListaPrecio.Servicio.Descripcion.ToString();
+                         item.Precio = detalle.ListaPrecio.Precio.ToString();
+                     }
+                     listaPresupuestoPendienteDetalle.Add(item);
                  }
              }
+
              return listaPresupuestoPendienteDetalle;
 
-         }*/
+         }
+
+         public string AprobarPresupuestoPendiente(int Id)
+         {
+             IPresupuestoDAO presupuestoDao = new PresupuestoDAO();
+             PresupuestoEN model = presupuestoDao.Get(Id);
+             try
+             {
+                 model.Estado = ESTADO_APROBADO;
+                 model.UsuarioModifico = usuario;
+                 model.FechaModifico = DateTime.Now;
+                 presupuestoDao.Modify(model);
+             }
+             catch (Exception e)
+             {
+                 throw new Exception(MENSAJE_ERROR_GENERAL);
+             }
+
+             return String.Format(MENSAJE_REGISTRADO, model.NumPresupuesto);
+         }
+
+         public string RechazarPresupuestoPendiente(int Id, string motivo)
+         {
+             IPresupuestoDAO presupuestoDao = new PresupuestoDAO();
+             PresupuestoEN model = presupuestoDao.Get(Id);
+             try
+             {
+                 model.Estado = ESTADO_RECHAZADO;
+                 model.ObservacionRechazo = motivo;
+                 model.UsuarioModifico = usuario;
+                 model.FechaModifico = DateTime.Now;
+                 presupuestoDao.Modify(model);
+             }
+             catch (Exception e)
+             {
+                 throw new Exception(MENSAJE_ERROR_GENERAL);
+             }
+
+             return String.Format(MENSAJE_REGISTRADO, model.NumPresupuesto);
+         }
+
+         public List<PresupuestoPendienteCabeceraEN> BuscarPresupuestoPendiente(string NumPresupuesto, string NumInforme, string NumPoliza, string FechaPresupuesto)
+         {
+             string NumPresupuestoParam = NumPresupuesto == null ? "" : NumPresupuesto.ToUpper();
+             string NumInformeParam = NumInforme == null ? "" : NumInforme.ToUpper();
+             string NumPolizaParam = NumPoliza == null ? "" : NumPoliza.ToUpper();
+             string FechaPresupuestoParam = FechaPresupuesto == null ? "" : FechaPresupuesto;
+
+             List<PresupuestoEN> listaPresupuesto = new List<PresupuestoEN>();
+             List<PresupuestoPendienteCabeceraEN> listaPresupuestoPendiente1 = new List<PresupuestoPendienteCabeceraEN>();
+             IPresupuestoDAO presupuestoDao = new PresupuestoDAO();
+
+             foreach (PresupuestoEN Presupuesto in presupuestoDao.GetAll().Where(
+                         b => ((b.NumPresupuesto.ToUpper().Contains(NumPresupuestoParam))
+                             && (b.InformeAccidente.NumInforme.ToUpper().Contains(NumInformeParam))
+                             && (b.InformeAccidente.Siniestro.Poliza.NumPoliza.ToUpper().Contains(NumPolizaParam))
+
+                             )
+                        ).ToList()
+                     )
+             {
+                 string fecPresupuesto = Presupuesto.FechaPresupuesto.ToString("d");
+                 if (fecPresupuesto.Contains(FechaPresupuestoParam))
+                 {
+                     PresupuestoPendienteCabeceraEN item = new PresupuestoPendienteCabeceraEN()
+                     {
+                         PresupuestoID = Presupuesto.MS_Presupuesto_Id,
+                         NumeroPoliza = Presupuesto.InformeAccidente.Siniestro.Poliza.NumPoliza,
+                         MatriculaVehiculo = Presupuesto.InformeAccidente.Siniestro.Poliza.Vehiculo.Placa,
+                         SubTotal = Presupuesto.SubTotal.ToString(),
+                         Total = Presupuesto.Total.ToString(),
+                         Estado = Presupuesto.Estado
+                     };
+                     listaPresupuestoPendiente1.Add(item);
+                 }
+             }
+
+             if (listaPresupuestoPendiente1.Count() == 0)
+             {
+                 throw new Exception(MENSAJE_BUSQUEDA_NO_ENCONTRADA);
+             }
+             //return new JavaScriptSerializer().Serialize(listaPresupuesto);
+             return listaPresupuestoPendiente1;
+         }
 
 
-        //CODIGO AGREGADO POR EDUARDO PASSANO CH. FIN
-      
+
 
     }
 }

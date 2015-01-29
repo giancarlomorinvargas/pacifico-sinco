@@ -42,6 +42,7 @@ namespace Pacifico.SINCO.EN
 
         public virtual ICollection<DetallePresupuestoEN> DetallePresupuesto { get; set; }
 
-
+        [Column("V_Observacion_Rechazo")]
+        public string ObservacionRechazo { get; set; }
     }
 }

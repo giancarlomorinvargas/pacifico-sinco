@@ -95,7 +95,7 @@ namespace Pacifico.SINCO.WS
             }
         }
          //CODIGO AGREGADO POR EDUARDO PASSANO CH. INICIO
-         /*public string ListarPresupuestoPendiente()
+         public string ListarPresupuestoPendiente()
          {
              try
              {
@@ -142,10 +142,59 @@ namespace Pacifico.SINCO.WS
              {
                  throw new FaultException(e.Message);
              }
-         }*/
-        //   public List<PresupuestoPendienteDetalleEN> ObtenerPresupuestoPendienteDetalle(int Id)
+         }
+         public string AprobarPresupuestoPendiente(int Id)
+         {
+             try
+             {
+                 PresupuestoRN reglaNegocioPresupuesto = new PresupuestoRN();
 
-        //CODIGO AGREGADO POR EDUARDO PASSANO CH. FIN
-       
+
+                 string n = reglaNegocioPresupuesto.AprobarPresupuestoPendiente(Id);
+                 return new JavaScriptSerializer().Serialize(n);
+             }
+             catch (Exception e)
+             {
+                 throw new FaultException(e.Message);
+             }
+         }
+
+         public string RechazarPresupuestoPendiente(int Id, string motivo)
+         {
+             try
+             {
+                 PresupuestoRN reglaNegocioPresupuesto = new PresupuestoRN();
+
+
+                 string n = reglaNegocioPresupuesto.RechazarPresupuestoPendiente(Id, motivo);
+                 return new JavaScriptSerializer().Serialize(n);
+             }
+             catch (Exception e)
+             {
+                 throw new FaultException(e.Message);
+             }
+         }
+
+         public string BuscarPresupuestoPendiente(string NumPresupuesto, string NumInforme, string NumPoliza, string FechaPresupuesto)
+         {
+             try
+             {
+                 PresupuestoRN reglaNegocioPresupuesto = new PresupuestoRN();
+                 List<PresupuestoPendienteCabeceraEN> listaPresupuesto = reglaNegocioPresupuesto.BuscarPresupuestoPendiente(NumPresupuesto, NumInforme, NumPoliza, FechaPresupuesto);
+                 return new JavaScriptSerializer().Serialize(listaPresupuesto);
+             }
+             catch (Exception e)
+             {
+                 throw new FaultException(e.Message);
+             }
+         }
+
     }
+
+
+
+    //   public List<PresupuestoPendienteDetalleEN> ObtenerPresupuestoPendienteDetalle(int Id)
+
+    //CODIGO AGREGADO POR EDUARDO PASSANO CH. FIN
+
 }

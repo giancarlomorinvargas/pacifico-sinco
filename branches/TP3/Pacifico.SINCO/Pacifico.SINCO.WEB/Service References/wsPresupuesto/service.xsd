@@ -125,4 +125,50 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="AprobarPresupuestoPendiente">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AprobarPresupuestoPendienteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AprobarPresupuestoPendienteResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RechazarPresupuestoPendiente">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Id" type="xs:int" />
+        <xs:element minOccurs="0" name="motivo" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RechazarPresupuestoPendienteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RechazarPresupuestoPendienteResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BuscarPresupuestoPendiente">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="NumPresupuesto" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NumInforme" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NumPoliza" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="FechaPresupuesto" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BuscarPresupuestoPendienteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="BuscarPresupuestoPendienteResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>
