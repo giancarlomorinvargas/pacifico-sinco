@@ -43,7 +43,7 @@
                 if(informeSeleccionado.estado == "<%=Pacifico.SINCO.UTL.Constantes.iEstado_Firmado%>"){
                     parent.cargarInforme(informeSeleccionado);
                 }else{
-                    fn_mdl_alert("Informe de Accidente Vehicular no se encuentra Firmada", null, "VALIDACIONES");
+                    fn_mdl_alert("Informe de Accidente Vehicular no se encuentra pendiente de evaluación", null, "VALIDACIONES");
                 }
             }else{
                 fn_mdl_alert("Debe seleccionar un registro", null, "VALIDACIONES");
