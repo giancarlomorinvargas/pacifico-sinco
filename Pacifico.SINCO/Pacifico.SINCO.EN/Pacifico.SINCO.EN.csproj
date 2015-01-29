@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LiquidacionEN.cs" />
+    <Compile Include="OrdenEN.cs" />
     <Compile Include="PresupuestoPendienteCabeceraEN.cs" />
     <Compile Include="PresupuestoPendienteDetalleEN.cs" />
     <Compile Include="PresupuestoPendienteEN.cs" />

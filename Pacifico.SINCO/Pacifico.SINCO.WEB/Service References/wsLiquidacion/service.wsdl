@@ -43,6 +43,18 @@
   <wsdl:message name="ILiquidacionWS_Modificar_OutputMessage">
     <wsdl:part name="parameters" element="tns:ModificarResponse" />
   </wsdl:message>
+  <wsdl:message name="ILiquidacionWS_RegistrarGenerado_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegistrarGenerado" />
+  </wsdl:message>
+  <wsdl:message name="ILiquidacionWS_RegistrarGenerado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegistrarGeneradoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILiquidacionWS_RegistrarRechazo_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegistrarRechazo" />
+  </wsdl:message>
+  <wsdl:message name="ILiquidacionWS_RegistrarRechazo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegistrarRechazoResponse" />
+  </wsdl:message>
   <wsdl:portType name="ILiquidacionWS">
     <wsdl:operation name="ObtenerNombreWS">
       <wsdl:input wsaw:Action="http://tempuri.org/ILiquidacionWS/ObtenerNombreWS" message="tns:ILiquidacionWS_ObtenerNombreWS_InputMessage" />
@@ -67,6 +79,14 @@
     <wsdl:operation name="Modificar">
       <wsdl:input wsaw:Action="http://tempuri.org/ILiquidacionWS/Modificar" message="tns:ILiquidacionWS_Modificar_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILiquidacionWS/ModificarResponse" message="tns:ILiquidacionWS_Modificar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarGenerado">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILiquidacionWS/RegistrarGenerado" message="tns:ILiquidacionWS_RegistrarGenerado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILiquidacionWS/RegistrarGeneradoResponse" message="tns:ILiquidacionWS_RegistrarGenerado_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarRechazo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILiquidacionWS/RegistrarRechazo" message="tns:ILiquidacionWS_RegistrarRechazo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILiquidacionWS/RegistrarRechazoResponse" message="tns:ILiquidacionWS_RegistrarRechazo_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ILiquidacionWS" type="tns:ILiquidacionWS">
@@ -118,6 +138,24 @@
     </wsdl:operation>
     <wsdl:operation name="Modificar">
       <soap:operation soapAction="http://tempuri.org/ILiquidacionWS/Modificar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarGenerado">
+      <soap:operation soapAction="http://tempuri.org/ILiquidacionWS/RegistrarGenerado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarRechazo">
+      <soap:operation soapAction="http://tempuri.org/ILiquidacionWS/RegistrarRechazo" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

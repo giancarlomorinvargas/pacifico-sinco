@@ -41,5 +41,11 @@ namespace Pacifico.SINCO.WEB.Facade.Liquidacion
             return mensaje;
         }
 
+        public string ActualizarRechazado(int id)
+        {
+            string mensaje = liquidacionWSCliente.RegistrarRechazo(id);
+            return mensaje;
+        }
+
     }
 }

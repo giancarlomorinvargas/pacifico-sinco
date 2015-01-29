@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LiquidacionRN.cs" />
+    <Compile Include="OrdenRN.cs" />
     <Compile Include="TecnicoRN.cs" />
     <Compile Include="InformeAccidenteRN.cs" />
     <Compile Include="ListaPrecioRN.cs" />

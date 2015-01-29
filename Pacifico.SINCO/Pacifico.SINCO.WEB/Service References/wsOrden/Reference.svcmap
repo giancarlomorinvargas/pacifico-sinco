@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="34e45e67-9175-4947-9cce-7da3e1210043" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="04f8ef15-b175-4ab6-a500-77e1ad945503" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,13 +19,13 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:8733/SINCO/Pacifico.SINCO.WS/wsLiquidacion/mex" Protocol="mex" SourceId="1" />
+    <MetadataSource Address="http://localhost:8733/SINCO/Pacifico.SINCO.WS/wsOrden/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="0aa6a64d-6fd4-40a6-8399-35d58949633c" SourceId="1" SourceUrl="http://localhost:8733/SINCO/Pacifico.SINCO.WS/wsLiquidacion/mex" />
-    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="9700a4c9-e44a-40b9-83c0-d6c5a213c45c" SourceId="1" SourceUrl="http://localhost:8733/SINCO/Pacifico.SINCO.WS/wsLiquidacion/mex" />
-    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="5773b4da-e442-4e3e-ab6a-8d56ac455027" SourceId="1" SourceUrl="http://localhost:8733/SINCO/Pacifico.SINCO.WS/wsLiquidacion/mex" />
-    <MetadataFile FileName="Pacifico.SINCO.EN.xsd" MetadataType="Schema" ID="c95c3fbb-0689-4ffc-b9d8-2854c9be8252" SourceId="1" SourceUrl="http://localhost:8733/SINCO/Pacifico.SINCO.WS/wsLiquidacion/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="c385b294-97f0-466b-865d-b275d292d741" SourceId="1" SourceUrl="http://localhost:8733/SINCO/Pacifico.SINCO.WS/wsOrden/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="eeb2bac3-e192-42d4-a75f-4a76f57a52ed" SourceId="1" SourceUrl="http://localhost:8733/SINCO/Pacifico.SINCO.WS/wsOrden/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="c66367ff-0fd1-42b5-bb61-eb3294aac88a" SourceId="1" SourceUrl="http://localhost:8733/SINCO/Pacifico.SINCO.WS/wsOrden/mex" />
+    <MetadataFile FileName="Pacifico.SINCO.EN.xsd" MetadataType="Schema" ID="45aedfba-5239-4085-b83c-028bc094ac8b" SourceId="1" SourceUrl="http://localhost:8733/SINCO/Pacifico.SINCO.WS/wsOrden/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

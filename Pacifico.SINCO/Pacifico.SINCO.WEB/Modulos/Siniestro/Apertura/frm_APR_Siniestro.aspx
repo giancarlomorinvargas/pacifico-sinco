@@ -192,7 +192,8 @@
 			            <td><%#Eval("Poliza.Asegurado.Nombre") + " " + Eval("Poliza.Asegurado.ApellidoPaterno") + " " + Eval("Poliza.Asegurado.ApellidoMaterno")%><td>
 			            <td style="text-align:center;"><%#Eval("FechaSiniestro") %><td>
 			            <td><%#Eval("Tipo") %><td>
-			            <td style="text-align:center;color:<%#Int32.Parse(Eval("Estado").ToString())==Pacifico.SINCO.UTL.Constantes.sEstado_EnProceso ? "green": "red"%>;"><%#Eval("EstadoEntity.Nombre") %><td>
+			            <td style="text-align:center;color:<%#Int32.Parse(Eval("Estado").ToString())==Pacifico.SINCO.UTL.Constantes.sEstado_EnProceso
+               && Eval("Tipo").ToString()==Pacifico.SINCO.UTL.Constantes.Choque ? "green": "red"%>;"><%#Eval("EstadoEntity.Nombre") %><td>
 		            </tr>                                       
                </ItemTemplate>
             <FooterTemplate>

@@ -27,6 +27,10 @@ namespace Pacifico.SINCO.WS.Interfaces
         string Agregar(LiquidacionEN model);
         [OperationContract]
         string Modificar(LiquidacionEN model);
+        [OperationContract]
+        string RegistrarGenerado(int id);
+        [OperationContract]
+        string RegistrarRechazo(int id);
 
     }
 }

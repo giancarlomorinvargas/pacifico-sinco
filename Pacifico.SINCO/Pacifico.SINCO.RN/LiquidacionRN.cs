@@ -14,6 +14,7 @@ namespace Pacifico.SINCO.RN
     {
 
         public static int ESTADO_REGISTRADO = Constantes.lEstado_Registrado;
+        public static int ESTADO_GENERADO = Constantes.lEstado_Generado;
         //public static int ESTADO_PENDIENTE = Constantes.iEstado_Firmado;
         //public static int ESTADO_RECHAZADO = Constantes.pEstado_Rechazado;
 
@@ -22,6 +23,7 @@ namespace Pacifico.SINCO.RN
         private static string MENSAJE_BUSQUEDA_NO_ENCONTRADA = "No existe información que coincida con lo ingresado";
 
         private static string MENSAJE_REGISTRADO = "Liquidación Registrado Satisfactoriamente";
+        private static string MENSAJE_RECHAZADO = "Liquidación Rechazada Satisfactoriamente";
         private static string MENSAJE_ACTUALIZADO = "Liquidación Actualizado Satisfactoriamente";
 
 
@@ -133,6 +135,64 @@ namespace Pacifico.SINCO.RN
 
              return listado;
          }
+
+        public string RegistrarGenerado(int id)
+        {
+            ILiquidacionDAO liquidacionDao = new LiquidacionDAO();
+            LiquidacionEN liquidacionConsulta = liquidacionDao.Get(id);
+
+            if (liquidacionConsulta == null)
+            {
+                throw new Exception(MENSAJE_NO_DISPONIBLE);
+            }
+
+            if (liquidacionConsulta.Estado == Constantes.lEstado_Registrado)
+            {
+                liquidacionConsulta.Estado = Constantes.lEstado_Generado;
+                try
+                {
+                    liquidacionDao.Modify(liquidacionConsulta);
+                }
+                catch (Exception e)
+                {
+                    throw new Exception(MENSAJE_ERROR_GENERAL, e);
+                }
+                return MENSAJE_REGISTRADO;
+            }
+            else
+            {
+                throw new Exception(MENSAJE_ERROR_GENERAL);
+            }
+        }
+
+        public string RegistrarRechazo(int id)
+        {
+            ILiquidacionDAO liquidacionDao = new LiquidacionDAO();
+            LiquidacionEN liquidacionConsulta = liquidacionDao.Get(id);
+
+            if (liquidacionConsulta == null)
+            {
+                throw new Exception(MENSAJE_NO_DISPONIBLE);
+            }
+
+            if (liquidacionConsulta.Estado == Constantes.lEstado_Registrado)
+            {
+                liquidacionConsulta.Estado = Constantes.lEstado_Rechazado;
+                try
+                {
+                    liquidacionDao.Modify(liquidacionConsulta);
+                }
+                catch (Exception e)
+                {
+                    throw new Exception(MENSAJE_ERROR_GENERAL, e);
+                }
+                return MENSAJE_RECHAZADO;
+            }
+            else
+            {
+                throw new Exception(MENSAJE_ERROR_GENERAL);
+            }
+        }
 
     }
 }

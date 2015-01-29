@@ -50,6 +50,18 @@ namespace Pacifico.SINCO.WEB.wsLiquidacion {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILiquidacionWS/Modificar", ReplyAction="http://tempuri.org/ILiquidacionWS/ModificarResponse")]
         System.Threading.Tasks.Task<string> ModificarAsync(Pacifico.SINCO.EN.LiquidacionEN model);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILiquidacionWS/RegistrarGenerado", ReplyAction="http://tempuri.org/ILiquidacionWS/RegistrarGeneradoResponse")]
+        string RegistrarGenerado(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILiquidacionWS/RegistrarGenerado", ReplyAction="http://tempuri.org/ILiquidacionWS/RegistrarGeneradoResponse")]
+        System.Threading.Tasks.Task<string> RegistrarGeneradoAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILiquidacionWS/RegistrarRechazo", ReplyAction="http://tempuri.org/ILiquidacionWS/RegistrarRechazoResponse")]
+        string RegistrarRechazo(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILiquidacionWS/RegistrarRechazo", ReplyAction="http://tempuri.org/ILiquidacionWS/RegistrarRechazoResponse")]
+        System.Threading.Tasks.Task<string> RegistrarRechazoAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -125,6 +137,22 @@ namespace Pacifico.SINCO.WEB.wsLiquidacion {
         
         public System.Threading.Tasks.Task<string> ModificarAsync(Pacifico.SINCO.EN.LiquidacionEN model) {
             return base.Channel.ModificarAsync(model);
+        }
+        
+        public string RegistrarGenerado(int id) {
+            return base.Channel.RegistrarGenerado(id);
+        }
+        
+        public System.Threading.Tasks.Task<string> RegistrarGeneradoAsync(int id) {
+            return base.Channel.RegistrarGeneradoAsync(id);
+        }
+        
+        public string RegistrarRechazo(int id) {
+            return base.Channel.RegistrarRechazo(id);
+        }
+        
+        public System.Threading.Tasks.Task<string> RegistrarRechazoAsync(int id) {
+            return base.Channel.RegistrarRechazoAsync(id);
         }
     }
 }

@@ -99,5 +99,33 @@ namespace Pacifico.SINCO.WS
             }
         }
 
+        public string RegistrarGenerado(int id)
+        {
+            try
+            {
+                LiquidacionRN liquidacionRN = new LiquidacionRN();
+
+                return liquidacionRN.RegistrarGenerado(id);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+        }
+
+        public string RegistrarRechazo(int id)
+        {
+            try
+            {
+                LiquidacionRN liquidacionRN = new LiquidacionRN();
+
+                return liquidacionRN.RegistrarRechazo(id);
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+        }
+
     }
 }
