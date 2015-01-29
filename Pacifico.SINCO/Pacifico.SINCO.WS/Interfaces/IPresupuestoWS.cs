@@ -28,12 +28,19 @@ namespace Pacifico.SINCO.WS.Interfaces
         [OperationContract]
         string ModificarPresupuesto(PresupuestoEN presupuesto, List<DetallePresupuestoEN> destallePresupuesto);
         // CODIGO MODIFICADO POR EDUARDO PASSANO CH.  INICIO
-        /*[OperationContract]
+        [OperationContract]
         string ListarPresupuestoPendiente();
         [OperationContract]
         string ObtenerPresupuestoDetalle(int numPresupuesto);
         [OperationContract]
-        string ObtenerPresupuestoPendienteDetalle(int Id);*/
+        string ObtenerPresupuestoPendienteDetalle(int Id);
+        [OperationContract]
+        string AprobarPresupuestoPendiente(int Id);
+
+        [OperationContract]
+        string RechazarPresupuestoPendiente(int Id, string motivo);
+        [OperationContract]
+        string BuscarPresupuestoPendiente(string NumPresupuesto, string NumInforme, string NumPoliza, string FechaPresupuesto);
 
         // CODIGO MODIFICADO POR EDUARDO PASSANO CH.  FIN
     }

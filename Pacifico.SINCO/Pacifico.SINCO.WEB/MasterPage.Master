@@ -1,5 +1,5 @@
 <%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="Pacifico.SINCO.WEB.MasterPage" %>
-
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -47,9 +47,11 @@
     </asp:ContentPlaceHolder>
     
     <form id="form1" runat="server" defaultbutton="btnDesabilitado">
-    
-
         
+           <!-- CODIGO AGREGADO POR EDUARDO PASSANO INICIO-->
+        <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
+        </asp:ToolkitScriptManager>
+ <!-- CODIGO AGREGADO POR EDUARDO PASSANO FIN-->
         <table width="100%" border="0" cellpadding="0" cellspacing="0" class="css_body_contenedor">
 	        <tr>
 		        <td>
@@ -68,7 +70,7 @@
 								        <td align="left">
 									        <img src="<%=sUrl %>Util/images/img_logo.jpg" border="0" />
 								        </td>
-								        <th align="right" style="vertical-align:bottom;">Versión 0.1.12</th>
+								        <th align="right" style="vertical-align:bottom;">Versión 1.1.12</th>
 							        </tr>							
 						        </table>
 												
@@ -111,7 +113,7 @@
 								        </ul>-->
 							        </li>	
                                     <li class="separator"></li> 
-							        <li><a href="<%=sUrl %>Modulos/Siniestro/Apertura/frm_APR_Siniestro.aspx">Asignar Técnico</a>
+							        <li><a href="<%=sUrl %>Modulos/Siniestro/Apertura/frm_APR_Siniestro.aspx">Asignar Técnico</a> 
 								        <!--<ul>
 									        <li><img src="<%=sUrl %>Util/images/menu/ico_menu.gif" class="jd_menu_icono"/><a href="<%=sUrl %>Modulos/Presupuesto/frm_BSQ_Presupuesto.aspx">Generación de Presupuestos</a></li>														        				
 								        </ul>-->
@@ -128,6 +130,9 @@
 									        <li><img src="<%=sUrl %>Util/images/menu/ico_menu.gif" class="jd_menu_icono"/><a href="<%=sUrl %>Modulos/Presupuesto/frm_BSQ_Presupuesto.aspx">Generación de Presupuestos</a></li>														        				
 								        </ul>-->
 							        </li>	
+                                    <li class="separator"></li> 
+                                    <li><a href="<%=sUrl %>Modulos/Presupuesto/frm_EVA_Presupuesto.aspx">Evaluación de Presupuesto</a></li>
+
 							        <!--<li class="separator"></li>
 							        <li><a href="#" class="accessible">Conciliaciones</a>
 								        <ul>

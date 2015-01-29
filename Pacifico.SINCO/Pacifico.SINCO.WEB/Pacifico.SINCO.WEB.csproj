@@ -38,7 +38,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit">
+      <HintPath>referencias\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.Services.Client" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
@@ -75,12 +79,14 @@
     <Content Include="Modulos\Liquidacion\frm_BSQ_Liquidacion.aspx" />
     <Content Include="Modulos\Liquidacion\frm_CNS_Liquidacion.aspx" />
     <Content Include="Modulos\Liquidacion\frm_MOD_Liquidacion.aspx" />
+    <Content Include="Modulos\Presupuesto\frm_EVA_Presupuesto.aspx" />
     <Content Include="Modulos\Siniestro\Apertura\frm_APR_Siniestro.aspx" />
     <Content Include="Modulos\Siniestro\Apertura\frm_CNS_Siniestro.aspx" />
     <Content Include="Modulos\Siniestro\Apertura\frm_REG_APR_Siniestro.aspx" />
     <Content Include="Properties\DataSources\Pacifico.SINCO.EN.enSiniestro.datasource" />
     <Content Include="Properties\DataSources\Pacifico.SINCO.EN.enPoliza.datasource" />
     <Content Include="Properties\DataSources\Pacifico.SINCO.EN.enProcurador.datasource" />
+    
     <None Include="Service References\wsInformeAccidente\item.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -534,6 +540,13 @@
     </Compile>
     <Compile Include="Modulos\Presupuesto\frm_CNS_Presupuesto.aspx.designer.cs">
       <DependentUpon>frm_CNS_Presupuesto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\Presupuesto\frm_EVA_Presupuesto.aspx.cs">
+      <DependentUpon>frm_EVA_Presupuesto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modulos\Presupuesto\frm_EVA_Presupuesto.aspx.designer.cs">
+      <DependentUpon>frm_EVA_Presupuesto.aspx</DependentUpon>
     </Compile>
     <Compile Include="Modulos\Presupuesto\frm_MOD_Presupuesto.aspx.cs">
       <DependentUpon>frm_MOD_Presupuesto.aspx</DependentUpon>

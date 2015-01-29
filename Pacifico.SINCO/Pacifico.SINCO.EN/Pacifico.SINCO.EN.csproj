@@ -43,6 +43,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LiquidacionEN.cs" />
+    <Compile Include="PresupuestoPendienteCabeceraEN.cs" />
+    <Compile Include="PresupuestoPendienteDetalleEN.cs" />
+    <Compile Include="PresupuestoPendienteEN.cs" />
     <Compile Include="TecnicoEN.cs" />
     <Compile Include="TallerEN.cs" />
     <Compile Include="SiniestroEN.cs" />
