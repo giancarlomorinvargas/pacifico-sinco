@@ -45,8 +45,10 @@
   <ItemGroup>
     <Compile Include="BaseDAO.cs" />
     <Compile Include="ILiquidacionDAO.cs" />
+    <Compile Include="IOrdenDAO.cs" />
     <Compile Include="LiquidacionDAO.cs" />
     <Compile Include="ITecnicoDAO.cs" />
+    <Compile Include="OrdenDAO.cs" />
     <Compile Include="TecnicoDAO.cs" />
     <Compile Include="ISiniestroDAO.cs" />
     <Compile Include="SiniestroDAO.cs" />

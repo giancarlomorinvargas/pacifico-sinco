@@ -16,6 +16,7 @@ namespace Pacifico.SINCO.UTL
         public const string sNombreWS_InformeAccidente = "wsInformeAccidente";
         public const string sNombreWS_Tecnico = "wsTecnico";
         public const string sNombreWS_Liquidacion = "wsLiquidacion";
+        public const string sNombreWS_Orden = "wsOrden";
 
         public const string sUsuario_Login = "ADMIN";
 
@@ -46,6 +47,12 @@ namespace Pacifico.SINCO.UTL
         //LIQUIDACION
         public const string lNum_Liquidacion = "LV";
         public const int lEstado_Registrado = 51;
+        public const int lEstado_Generado = 52;
+        public const int lEstado_Rechazado = 53;
+
+        //ORDEN
+        public const string lNum_Orden = "OC";
+        public const int oEstado_Generado = 61;
 
     }
 }

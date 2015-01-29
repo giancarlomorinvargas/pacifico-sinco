@@ -79,6 +79,11 @@
     <Content Include="Modulos\Liquidacion\frm_BSQ_Liquidacion.aspx" />
     <Content Include="Modulos\Liquidacion\frm_CNS_Liquidacion.aspx" />
     <Content Include="Modulos\Liquidacion\frm_MOD_Liquidacion.aspx" />
+    <Content Include="Modulos\Orden\frm_BSQ_Orden.aspx" />
+    <Content Include="Modulos\Orden\frm_CNS_Orden.aspx" />
+    <Content Include="Modulos\Orden\frm_GRB_Orden.aspx" />
+    <Content Include="Modulos\Orden\frm_RAJ_Orden.aspx" />
+    <Content Include="Modulos\Orden\frm_REC_Orden.aspx" />
     <Content Include="Modulos\Presupuesto\frm_EVA_Presupuesto.aspx" />
     <Content Include="Modulos\Siniestro\Apertura\frm_APR_Siniestro.aspx" />
     <Content Include="Modulos\Siniestro\Apertura\frm_CNS_Siniestro.aspx" />
@@ -86,7 +91,6 @@
     <Content Include="Properties\DataSources\Pacifico.SINCO.EN.enSiniestro.datasource" />
     <Content Include="Properties\DataSources\Pacifico.SINCO.EN.enPoliza.datasource" />
     <Content Include="Properties\DataSources\Pacifico.SINCO.EN.enProcurador.datasource" />
-    
     <None Include="Service References\wsInformeAccidente\item.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -114,6 +118,16 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\wsListaPrecio\wsListaPrecio.wsdl" />
+    <None Include="Service References\wsOrden\Pacifico.SINCO.EN.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Service References\wsOrden\service.wsdl" />
+    <None Include="Service References\wsOrden\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\wsOrden\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\wsPresupuesto\Pacifico.SINCO.EN.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -199,6 +213,12 @@
     <Content Include="Service References\wsLiquidacion\configuration91.svcinfo" />
     <Content Include="Service References\wsLiquidacion\configuration.svcinfo" />
     <Content Include="Service References\wsLiquidacion\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Service References\wsOrden\configuration91.svcinfo" />
+    <Content Include="Service References\wsOrden\configuration.svcinfo" />
+    <Content Include="Service References\wsOrden\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </Content>
@@ -392,6 +412,7 @@
       <DependentUpon>Error.aspx</DependentUpon>
     </Compile>
     <Compile Include="Facade\Liquidacion\LiquidacionFacade.cs" />
+    <Compile Include="Facade\Orden\OrdenFacade.cs" />
     <Compile Include="Facade\Siniestro\SiniestroFacade.cs" />
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -520,6 +541,41 @@
     <Compile Include="Modulos\Liquidacion\frm_MOD_Liquidacion.aspx.designer.cs">
       <DependentUpon>frm_MOD_Liquidacion.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Modulos\Orden\frm_BSQ_Orden.aspx.cs">
+      <DependentUpon>frm_BSQ_Orden.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modulos\Orden\frm_BSQ_Orden.aspx.designer.cs">
+      <DependentUpon>frm_BSQ_Orden.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\Orden\frm_CNS_Orden.aspx.cs">
+      <DependentUpon>frm_CNS_Orden.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modulos\Orden\frm_CNS_Orden.aspx.designer.cs">
+      <DependentUpon>frm_CNS_Orden.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\Orden\frm_GRB_Orden.aspx.cs">
+      <DependentUpon>frm_GRB_Orden.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modulos\Orden\frm_GRB_Orden.aspx.designer.cs">
+      <DependentUpon>frm_GRB_Orden.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\Orden\frm_RAJ_Orden.aspx.cs">
+      <DependentUpon>frm_RAJ_Orden.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modulos\Orden\frm_RAJ_Orden.aspx.designer.cs">
+      <DependentUpon>frm_RAJ_Orden.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\Orden\frm_REC_Orden.aspx.cs">
+      <DependentUpon>frm_REC_Orden.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modulos\Orden\frm_REC_Orden.aspx.designer.cs">
+      <DependentUpon>frm_REC_Orden.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Modulos\Presupuesto\frm_AGR_Presupuesto.aspx.cs">
       <DependentUpon>frm_AGR_Presupuesto.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -627,6 +683,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\wsOrden\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\wsPresupuesto\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -687,6 +748,7 @@
     <WCFMetadataStorage Include="Service References\wsInformeAccidente\" />
     <WCFMetadataStorage Include="Service References\wsLiquidacion\" />
     <WCFMetadataStorage Include="Service References\wsListaPrecio\" />
+    <WCFMetadataStorage Include="Service References\wsOrden\" />
     <WCFMetadataStorage Include="Service References\wsPresupuesto\" />
     <WCFMetadataStorage Include="Service References\wsSiniestro\" />
     <WCFMetadataStorage Include="Service References\wsTecnico\" />
