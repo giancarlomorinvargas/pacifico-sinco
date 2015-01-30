@@ -64,13 +64,13 @@
                         </td>
                         <td class="boton">
                             <a>
-                                <asp:ImageButton ID="imgAprobar" runat="server" ImageUrl="~/Util/images/iconos/aprobar.jpg" Width="30px" Height="30px" OnClick="imgAprobar_Click" OnClientClick="return confirm('Esta apunto de aproba un presupuesto desea continuar ?');" />
+                                <asp:ImageButton ID="imgAprobar" runat="server" ImageUrl="~/Util/images/iconos/ico_btn_aprobar.jpg" Width="30px" Height="30px" OnClick="imgAprobar_Click" OnClientClick="return confirm('Esta apunto de aproba un presupuesto desea continuar ?');" />
                                 Aprobar
                             </a>
                         </td>
                         <td class="boton">
                             <a>
-                                <asp:ImageButton ID="imgRechazar" runat="server" ImageUrl="~/Util/images/iconos/rechazar.jpg" Width="30px" Height="30px" OnClick="imgRechazar_Click" />
+                                <asp:ImageButton ID="imgRechazar" runat="server" ImageUrl="~/Util/images/iconos/ico_btn_rechazar.jpg" Width="30px" Height="30px" OnClick="imgRechazar_Click" />
                                 Rechazar
                             </a>
                         </td>

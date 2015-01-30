@@ -236,12 +236,14 @@
     <Content Include="Util\images\fondos\fnd_btn_general.gif" />
     <Content Include="Util\images\fondos\fnd_btn_login.gif" />
     <Content Include="Util\images\fondos\fnd_pagina.jpg" />
+    <Content Include="Util\images\iconos\ico_btn_aprobar.jpg" />
     <Content Include="Util\images\iconos\ico_btn_buscar.jpg" />
     <Content Include="Util\images\iconos\ico_btn_cancelar.jpg" />
     <Content Include="Util\images\iconos\ico_btn_editar.jpg" />
     <Content Include="Util\images\iconos\ico_btn_grabar.jpg" />
     <Content Include="Util\images\iconos\ico_btn_inicio.jpg" />
     <Content Include="Util\images\iconos\ico_btn_nuevo.jpg" />
+    <Content Include="Util\images\iconos\ico_btn_rechazar.jpg" />
     <Content Include="Util\images\iconos\ico_cerrar_sesion.jpg" />
     <Content Include="Util\images\iconos\ico_mdl_abogados.jpg" />
     <Content Include="Util\images\iconos\ico_mdl_agenda.jpg" />
