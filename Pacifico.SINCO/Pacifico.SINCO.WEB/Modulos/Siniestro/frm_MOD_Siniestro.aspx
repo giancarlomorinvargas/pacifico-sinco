@@ -5,7 +5,7 @@
     <script type='text/javascript'>
         $(document).ready(function () {
             //Seta Calendarios
-            fn_util_SeteaCalendario($('input[id*=txtFecha]')[0]);
+            //fn_util_SeteaCalendario($('input[id*=txtFecha]')[0]);
         });
         
         function fn_abreBsqPoliza() {
@@ -141,7 +141,7 @@
 										Número de Siniestro
 									</td>
 									<td>
-										<input id="txtNumSiniestro" type="text" class="" style="background-color: #EEE;" runat="server" readonly="readonly" ClientIDMode="Static" />
+										<input id="txtNumSiniestro" type="text" class="css_input_inactivo" style="background-color: #EEE;" runat="server" readonly="readonly" ClientIDMode="Static" />
 									</td>
 								</tr>	
 								<tr>												
@@ -165,7 +165,7 @@
 										Fecha de Siniestro
 									</td>
 									<td>
-										<input id="txtFechaSiniestro" type="text" class="" size="8" runat="server" onKeyUp="return fn_util_FormatDate(this);" onBlur="return fn_util_UpdateDate(this);" ClientIDMode="Static" />										
+										<input id="txtFechaSiniestro" type="text" class="css_input_inactivo" size="8" runat="server"  ClientIDMode="Static" readonly/>										
 									</td>												
 								</tr>
 								<tr>
