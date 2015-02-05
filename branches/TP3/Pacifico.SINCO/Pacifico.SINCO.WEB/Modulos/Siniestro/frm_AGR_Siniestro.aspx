@@ -6,7 +6,7 @@
 
         $(document).ready(function () {
             //Seta Calendarios
-            fn_util_SeteaCalendario($('input[id*=txtFecha]')[0]);
+            //fn_util_SeteaCalendario($('input[id*=txtFecha]')[0]);
         });
 
         function fn_abreBsqPoliza() {
@@ -144,7 +144,7 @@
 													Número de Siniestro
 												</td>
 												<td>
-													<input id="txtNumSiniestro" type="text" class="" style="background-color: #EEE;" ClientIDMode="Static" runat="server" />
+													<input id="txtNumSiniestro" type="text" class="" style="background-color: #EEE;" ClientIDMode="Static" runat="server" readonly/>
 												</td>
 											</tr>	
 											<tr>												
@@ -168,7 +168,7 @@
 													Fecha de Siniestro
 												</td>
 												<td>
-													<input id="txtFechaSiniestro" type="text" class="" size="8" runat="server" onKeyUp="return fn_util_FormatDate(this);" onBlur="return fn_util_UpdateDate(this);" ClientIDMode="Static" />
+													<input id="txtFechaSiniestro" type="text" class="css_input_inactivo" size="8" runat="server" onKeyUp="return fn_util_FormatDate(this);" onBlur="return fn_util_UpdateDate(this);" ClientIDMode="Static"  readonly/>
 												</td>												
 											</tr>
 											<tr>
@@ -192,7 +192,7 @@
 													Número de Póliza
 												</td>
 												<td>
-													<input id="txtNumPoliza" type="text" class="css_input_inactivo"/>
+													<input id="txtNumPoliza" type="text" class="css_input_inactivo" readonly/>
 													<input type="button" value="Consultar Póliza" class="css_btn_general" onclick="javascript: fn_abreBsqPoliza();" />
 												</td>
 											</tr>	
@@ -201,7 +201,7 @@
 													Asegurado
 												</td>
 												<td>
-													<input id="txtAsegurado" type="text" size="50" class="css_input_inactivo" />
+													<input id="txtAsegurado" type="text" size="50" class="css_input_inactivo" readonly />
 												</td>
 											</tr>
 											<tr>												
@@ -209,8 +209,8 @@
 													Vigencia
 												</td>
 												<td>
-													<input id="txtInicio" type="text" size="8" class="css_input_inactivo"/> al 
-													<input id="txtFin" type="text" size="8" class="css_input_inactivo"/>
+													<input id="txtInicio" type="text" size="8" class="css_input_inactivo" readonly/> al 
+													<input id="txtFin" type="text" size="8" class="css_input_inactivo" readonly/>
 												</td>												
 											</tr>																											
 										</table>
@@ -226,7 +226,7 @@
 													Código de Procurador
 												</td>
 												<td>
-													<input id="txtCodProcurador" type="text" class="css_input_inactivo" />
+													<input id="txtCodProcurador" type="text" class="css_input_inactivo" readonly/>
 													<input type="button" value="Consultar Procurador" class="css_btn_general" onclick="javascript: fn_abreBsqProcurador();" />
 												</td>
 											</tr>	
@@ -235,7 +235,7 @@
 													Procurador
 												</td>
 												<td>
-													<input id="txtNombreProcurador" type="text" size="50" class="css_input_inactivo" />
+													<input id="txtNombreProcurador" type="text" size="50" class="css_input_inactivo" readonly/>
 												</td>
 											</tr>																																						
 										</table>

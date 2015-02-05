@@ -148,7 +148,7 @@
 										Número de Informe
 									</td>
 									<td>
-										<input id="txtNumInforme" type="text" class="css_frm_inactivo" ClientIDMode="Static" runat="server" />
+										<input id="txtNumInforme" type="text" class="css_frm_inactivo" ClientIDMode="Static" runat="server" readonly/>
 										
 									</td>
 								</tr>	

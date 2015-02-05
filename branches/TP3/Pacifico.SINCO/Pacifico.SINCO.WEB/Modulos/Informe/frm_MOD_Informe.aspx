@@ -181,7 +181,7 @@
 										Fecha de Informe
 									</td>
 									<td>
-                                        <input id="txtFecInforme" type="text" class="css_frm_inactivo" size="8" ClientIDMode="Static" runat="server" />
+                                        <input id="txtFecInforme" type="text" class="css_frm_inactivo" size="8" ClientIDMode="Static" runat="server" readonly/>
 									</td>
 								</tr>																									
 							</table>
