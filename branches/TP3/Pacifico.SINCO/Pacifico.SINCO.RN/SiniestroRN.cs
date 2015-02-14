@@ -65,7 +65,7 @@ namespace Pacifico.SINCO.RN
             List<SiniestroEN> listado = siniestroDao.GetAll().Where(
                 b => b.Poliza.NumPoliza.ToUpper().Contains(numPolizaParam)
                 && b.Tipo.Contains(tipoParam)
-                && b.FechaRegistro.ToString("d").Contains(fecRegistroParam)).ToList();
+                && b.FechaSiniestro.ToString("d").Contains(fecRegistroParam)).ToList();
 
             if (listado.Count() == 0)
             {

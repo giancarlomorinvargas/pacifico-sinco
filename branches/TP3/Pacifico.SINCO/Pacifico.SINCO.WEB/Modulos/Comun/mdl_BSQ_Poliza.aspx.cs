@@ -72,16 +72,18 @@ namespace Pacifico.SINCO.WEB.Modulos.Comun
         /// <param name="e"></param>
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
+            lblMensajeError.InnerText = "";
+
+            //WS
+            UtilWSClient owsUtilClient = new UtilWSClient();
+
             try
             {
-                lblMensajeError.InnerText = "";
 
                 //DateTime Now = DateTime.Now;
                 //List<enPoliza> olEnPolizaResult = new List<enPoliza>();
 
-                //WS
-                UtilWSClient owsUtilClient = new UtilWSClient();
-
+                
                 //Parametros
                 //enPoliza oEnPoliza = new enPoliza();
                 string dniAsegurado = txtDniAsegurado.Value;
@@ -107,6 +109,12 @@ namespace Pacifico.SINCO.WEB.Modulos.Comun
             {
                 //throw ex;
                 lblMensajeError.InnerText = ex.Message;
+
+                string listadoSerializado = owsUtilClient.ListarPoliza();
+                List<PolizaEN> lsitado = new JavaScriptSerializer().Deserialize<List<PolizaEN>>(listadoSerializado);
+
+                rptListadoPolizas.DataSource = lsitado;
+                rptListadoPolizas.DataBind();
             }
         }
 

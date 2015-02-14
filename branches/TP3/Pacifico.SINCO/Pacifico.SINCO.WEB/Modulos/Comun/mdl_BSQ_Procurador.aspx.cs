@@ -64,12 +64,11 @@ namespace Pacifico.SINCO.WEB.Modulos.Comun
         /// <param name="e"></param>
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
+            lblMensajeError.InnerText = "";
+            //WS
+            UtilWSClient owsUtilClient = new UtilWSClient();
             try
             {
-                lblMensajeError.InnerText = "";
-                //WS
-                UtilWSClient owsUtilClient = new UtilWSClient();
-
                 //List<enProcurador> olEnPolizaResult = new List<enProcurador>();
                 //Parametros
                 //enProcurador oEnProcurador = new enProcurador();
@@ -96,6 +95,12 @@ namespace Pacifico.SINCO.WEB.Modulos.Comun
             {
                 //throw ex;
                 lblMensajeError.InnerText = ex.Message;
+                
+                string listadoSerializado = owsUtilClient.ListarProcurador();
+                List<ProcuradorEN> listado = new JavaScriptSerializer().Deserialize<List<ProcuradorEN>>(listadoSerializado);
+
+                rptListadoProcurador.DataSource = listado;
+                rptListadoProcurador.DataBind();
             }
         }
 

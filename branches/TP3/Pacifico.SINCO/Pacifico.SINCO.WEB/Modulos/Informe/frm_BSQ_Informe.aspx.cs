@@ -82,11 +82,11 @@ namespace Pacifico.SINCO.WEB.Modulos.Informe
         /// <param name="e"></param>
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
+            lblMensajeError.InnerText = "";
+            //WS-SINIESTRO
+            InformeAccidenteWSClient owsInformeClient = new InformeAccidenteWSClient();
             try
             {
-                lblMensajeError.InnerText = "";
-                //WS-SINIESTRO
-                InformeAccidenteWSClient owsInformeClient = new InformeAccidenteWSClient();
 
                 //Parametros
                 string NumPoliza = txtNumPoliza.Value;
@@ -106,6 +106,14 @@ namespace Pacifico.SINCO.WEB.Modulos.Informe
             {
                 //throw ex;
                 hddMensajeError.Value = ex.Message;
+
+                //Obtiene Listado de Siniestros
+                string listadoJson = owsInformeClient.Listar();
+
+                List<InformeAccidenteEN> listado = new JavaScriptSerializer().Deserialize<List<InformeAccidenteEN>>(listadoJson);
+
+                rptListadoInformes.DataSource = listado;
+                rptListadoInformes.DataBind();
             }
         }
 
