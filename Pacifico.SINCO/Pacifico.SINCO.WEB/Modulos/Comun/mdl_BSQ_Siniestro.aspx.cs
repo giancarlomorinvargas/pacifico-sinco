@@ -72,9 +72,11 @@ namespace Pacifico.SINCO.WEB.Modulos.Comun
         /// <param name="e"></param>
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
+            lblMensajeError.InnerText = "";
+            SiniestroWSClient owsSiniestroClient = new SiniestroWSClient();
+
             try
             {
-                SiniestroWSClient owsSiniestroClient = new SiniestroWSClient();
 
 
                 string numSiniestro= txtNumSiniestro.Value;
@@ -92,6 +94,13 @@ namespace Pacifico.SINCO.WEB.Modulos.Comun
             {
                 //throw ex;
                 lblMensajeError.InnerText = ex.Message;
+
+                string listadoSerializado = owsSiniestroClient.Listar();
+                List<SiniestroEN> listado = new JavaScriptSerializer().Deserialize<List<SiniestroEN>>(listadoSerializado);
+
+                rptListadoSiniestros.DataSource = listado;
+                rptListadoSiniestros.DataBind();
+
             }
         }
     }

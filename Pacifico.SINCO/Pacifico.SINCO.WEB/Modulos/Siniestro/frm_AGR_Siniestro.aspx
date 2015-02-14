@@ -168,7 +168,7 @@
 													Fecha de Siniestro
 												</td>
 												<td>
-													<input id="txtFechaSiniestro" type="text" class="css_input_inactivo" size="8" runat="server" onKeyUp="return fn_util_FormatDate(this);" onBlur="return fn_util_UpdateDate(this);" ClientIDMode="Static"  readonly/>
+													<input id="txtFechaSiniestro" type="text" class="css_input_inactivo" size="8" runat="server" ClientIDMode="Static"  readonly/>
 												</td>												
 											</tr>
 											<tr>
