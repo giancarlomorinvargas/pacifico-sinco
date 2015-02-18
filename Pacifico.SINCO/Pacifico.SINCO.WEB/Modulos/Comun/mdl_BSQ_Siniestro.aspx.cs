@@ -94,12 +94,17 @@ namespace Pacifico.SINCO.WEB.Modulos.Comun
             {
                 //throw ex;
                 lblMensajeError.InnerText = ex.Message;
+                try
+                {
+                    string listadoSerializado = owsSiniestroClient.Listar();
+                    List<SiniestroEN> listado = new JavaScriptSerializer().Deserialize<List<SiniestroEN>>(listadoSerializado);
 
-                string listadoSerializado = owsSiniestroClient.Listar();
-                List<SiniestroEN> listado = new JavaScriptSerializer().Deserialize<List<SiniestroEN>>(listadoSerializado);
-
-                rptListadoSiniestros.DataSource = listado;
-                rptListadoSiniestros.DataBind();
+                    rptListadoSiniestros.DataSource = listado;
+                    rptListadoSiniestros.DataBind();
+                }
+                catch (Exception) { 
+                }
+                
 
             }
         }

@@ -59,9 +59,9 @@ namespace Pacifico.SINCO.WEB.Modulos.Comun
         /// <param name="e"></param>
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
+            InformeAccidenteWSClient owsInformeAccidenteClient = new InformeAccidenteWSClient();
             try
             {
-                InformeAccidenteWSClient owsInformeAccidenteClient = new InformeAccidenteWSClient();
 
 
                 string numInforme= txtNumInforme.Value.ToUpper();
@@ -89,6 +89,16 @@ namespace Pacifico.SINCO.WEB.Modulos.Comun
             {
                 //throw ex;
                 lblMensajeError.InnerText = ex.Message;
+                try
+                {
+                    //Obtiene Listado de Siniestros
+                    string listadoJson = owsInformeAccidenteClient.Listar();
+                    List<InformeAccidenteEN> listado = new JavaScriptSerializer().Deserialize<List<InformeAccidenteEN>>(listadoJson);
+
+                    rptListadoInformes.DataSource = listado;
+                    rptListadoInformes.DataBind();
+                }
+                catch (Exception) { }
             }
         }
     }

@@ -61,6 +61,12 @@
   <wsdl:message name="IInformeAccidenteWS_ReversaPendienteEvaluar_OutputMessage">
     <wsdl:part name="parameters" element="tns:ReversaPendienteEvaluarResponse" />
   </wsdl:message>
+  <wsdl:message name="IInformeAccidenteWS_RegistrarPresupuesto_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegistrarPresupuesto" />
+  </wsdl:message>
+  <wsdl:message name="IInformeAccidenteWS_RegistrarPresupuesto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegistrarPresupuestoResponse" />
+  </wsdl:message>
   <wsdl:portType name="IInformeAccidenteWS">
     <wsdl:operation name="ObtenerNombreWS">
       <wsdl:input wsaw:Action="http://tempuri.org/IInformeAccidenteWS/ObtenerNombreWS" message="tns:IInformeAccidenteWS_ObtenerNombreWS_InputMessage" />
@@ -97,6 +103,10 @@
     <wsdl:operation name="ReversaPendienteEvaluar">
       <wsdl:input wsaw:Action="http://tempuri.org/IInformeAccidenteWS/ReversaPendienteEvaluar" message="tns:IInformeAccidenteWS_ReversaPendienteEvaluar_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IInformeAccidenteWS/ReversaPendienteEvaluarResponse" message="tns:IInformeAccidenteWS_ReversaPendienteEvaluar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarPresupuesto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInformeAccidenteWS/RegistrarPresupuesto" message="tns:IInformeAccidenteWS_RegistrarPresupuesto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInformeAccidenteWS/RegistrarPresupuestoResponse" message="tns:IInformeAccidenteWS_RegistrarPresupuesto_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IInformeAccidenteWS" type="tns:IInformeAccidenteWS">
@@ -175,6 +185,15 @@
     </wsdl:operation>
     <wsdl:operation name="ReversaPendienteEvaluar">
       <soap:operation soapAction="http://tempuri.org/IInformeAccidenteWS/ReversaPendienteEvaluar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarPresupuesto">
+      <soap:operation soapAction="http://tempuri.org/IInformeAccidenteWS/RegistrarPresupuesto" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

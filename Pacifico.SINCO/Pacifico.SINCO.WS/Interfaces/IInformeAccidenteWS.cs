@@ -33,6 +33,7 @@ namespace Pacifico.SINCO.WS.Interfaces
         string PendienteEvaluar(int siniestroId, int tecnicoid);
         [OperationContract]
         string ReversaPendienteEvaluar(int siniestroId);
-
+        [OperationContract]
+        string RegistrarPresupuesto(int informeid);
     }
 }

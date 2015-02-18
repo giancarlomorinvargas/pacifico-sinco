@@ -33,6 +33,7 @@ namespace Pacifico.SINCO.UTL
         public const string iNum_Informe = "IA";
         public const int iEstado_Registrado = 31;
         public const int iEstado_Firmado = 32;
+        public const int iEstado_Presupuestado = 33;
 
         //PRESUPUESTOS
         public const string pNum_Presupuesto = "PR";

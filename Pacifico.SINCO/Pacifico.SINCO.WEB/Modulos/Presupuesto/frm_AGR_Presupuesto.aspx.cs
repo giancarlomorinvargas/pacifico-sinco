@@ -1,5 +1,6 @@
 ﻿using Pacifico.SINCO.EN;
 using Pacifico.SINCO.UTL;
+using Pacifico.SINCO.WEB.wsInformeAccidente;
 using Pacifico.SINCO.WEB.wsPresupuesto;
 using System;
 using System.Collections.Generic;
@@ -53,6 +54,7 @@ namespace Pacifico.SINCO.WEB.Modulos.Presupuesto
                 lblMensajeError.InnerText = "";
                 //WS-SINIESTRO
                 PresupuestoWSClient service = new PresupuestoWSClient();
+                InformeAccidenteWSClient informeAccidenteWSCliente = new InformeAccidenteWSClient();
 
                 //Validación
 
@@ -70,6 +72,8 @@ namespace Pacifico.SINCO.WEB.Modulos.Presupuesto
                 PresupuestoEN FichaCargaDes = new JavaScriptSerializer().Deserialize<PresupuestoEN>(DetalleFichaCargaSerializado);
 
                 model.DetallePresupuesto = FichaCargaDes.DetallePresupuesto;
+
+                informeAccidenteWSCliente.RegistrarPresupuesto(model.MS_Informe_Accidente_Id);
 
                 string mensaje = service.AgregarPresupuesto(model);
 

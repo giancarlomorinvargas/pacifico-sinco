@@ -169,5 +169,18 @@ namespace Pacifico.SINCO.WS
                 throw new FaultException(e.Message);
             }
         }
+
+
+        public string RegistrarPresupuesto(int informeid)
+        {
+            try
+            {
+                return new InformeAccidenteRN().RegistrarPresupuesto(informeid);
+            }
+            catch (Exception e)
+            {
+                throw new FaultException(e.Message);
+            }
+        }
     }
 }

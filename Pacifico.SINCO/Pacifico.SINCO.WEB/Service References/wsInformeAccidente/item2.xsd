@@ -44,6 +44,7 @@
       <xs:element minOccurs="0" name="NumSiniestro" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Poliza" nillable="true" type="tns:PolizaEN" />
       <xs:element minOccurs="0" name="Procurador" nillable="true" type="tns:ProcuradorEN" />
+      <xs:element minOccurs="0" name="TecnicoId" nillable="true" type="xs:int" />
       <xs:element minOccurs="0" name="Tipo" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="UsuarioModifico" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="UsuarioRegistro" nillable="true" type="xs:string" />

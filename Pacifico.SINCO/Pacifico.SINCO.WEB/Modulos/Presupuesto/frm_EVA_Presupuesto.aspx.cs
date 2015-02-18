@@ -174,12 +174,13 @@ namespace Pacifico.SINCO.WEB.Modulos.Presupuesto
 
         protected void imgBuscar_Click(object sender, ImageClickEventArgs e)
         {
+            hddMensajeError.Value = "";
+            //WS-SINIESTRO
+            PresupuestoWSClient owsPresupuestoClient = new PresupuestoWSClient();
+
             try
             {
-               
-                //WS-SINIESTRO
-                PresupuestoWSClient owsPresupuestoClient = new PresupuestoWSClient();
-
+           
                 //Parametros
                 string NumPresupuesto = txtNumPresupuesto.Value;
                 string NumInforme = txtNumInforme.Value;
@@ -197,10 +198,22 @@ namespace Pacifico.SINCO.WEB.Modulos.Presupuesto
             }
             catch (Exception ex)
             {
-                grvPresupuesto.DataSource = null;
-                grvPresupuesto.DataBind();
                 //throw ex;
-               // hddMensajeError.Value = ex.Message;
+                hddMensajeError.Value = ex.Message;
+                try
+                {
+                    //Obtiene Listado de Siniestros
+                    string listadoJson = owsPresupuestoClient.ListarPresupuesto();
+
+                    List<PresupuestoPendienteCabeceraEN> listado = new JavaScriptSerializer().Deserialize<List<PresupuestoPendienteCabeceraEN>>(listadoJson);
+
+                    grvPresupuesto.DataSource = listado;
+                    grvPresupuesto.DataBind();
+                }
+                catch (Exception)
+                {
+                }
+                
             }
 
         }
