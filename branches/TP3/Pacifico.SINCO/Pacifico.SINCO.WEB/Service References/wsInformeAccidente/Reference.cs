@@ -9,275 +9,7 @@
 //------------------------------------------------------------------------------
 
 namespace Pacifico.SINCO.WEB.wsInformeAccidente {
-    using System.Runtime.Serialization;
-    using System;
     
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="TecnicoEN", Namespace="http://schemas.datacontract.org/2004/07/Pacifico.SINCO.EN")]
-    [System.SerializableAttribute()]
-    public partial class TecnicoEN : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ApellidoMaternoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ApellidoPaternoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool DisponibleField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NombreField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NumTecnicoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Pacifico.SINCO.WEB.wsInformeAccidente.TallerEN TallerField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int TallerIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int TecnicoIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TelefonoField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ApellidoMaterno {
-            get {
-                return this.ApellidoMaternoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ApellidoMaternoField, value) != true)) {
-                    this.ApellidoMaternoField = value;
-                    this.RaisePropertyChanged("ApellidoMaterno");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ApellidoPaterno {
-            get {
-                return this.ApellidoPaternoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ApellidoPaternoField, value) != true)) {
-                    this.ApellidoPaternoField = value;
-                    this.RaisePropertyChanged("ApellidoPaterno");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool Disponible {
-            get {
-                return this.DisponibleField;
-            }
-            set {
-                if ((this.DisponibleField.Equals(value) != true)) {
-                    this.DisponibleField = value;
-                    this.RaisePropertyChanged("Disponible");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Nombre {
-            get {
-                return this.NombreField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NombreField, value) != true)) {
-                    this.NombreField = value;
-                    this.RaisePropertyChanged("Nombre");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string NumTecnico {
-            get {
-                return this.NumTecnicoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NumTecnicoField, value) != true)) {
-                    this.NumTecnicoField = value;
-                    this.RaisePropertyChanged("NumTecnico");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Pacifico.SINCO.WEB.wsInformeAccidente.TallerEN Taller {
-            get {
-                return this.TallerField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TallerField, value) != true)) {
-                    this.TallerField = value;
-                    this.RaisePropertyChanged("Taller");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int TallerId {
-            get {
-                return this.TallerIdField;
-            }
-            set {
-                if ((this.TallerIdField.Equals(value) != true)) {
-                    this.TallerIdField = value;
-                    this.RaisePropertyChanged("TallerId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int TecnicoId {
-            get {
-                return this.TecnicoIdField;
-            }
-            set {
-                if ((this.TecnicoIdField.Equals(value) != true)) {
-                    this.TecnicoIdField = value;
-                    this.RaisePropertyChanged("TecnicoId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Telefono {
-            get {
-                return this.TelefonoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TelefonoField, value) != true)) {
-                    this.TelefonoField = value;
-                    this.RaisePropertyChanged("Telefono");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="TallerEN", Namespace="http://schemas.datacontract.org/2004/07/Pacifico.SINCO.EN")]
-    [System.SerializableAttribute()]
-    public partial class TallerEN : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DireccionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DistritoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NombreField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int TallerIdField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Direccion {
-            get {
-                return this.DireccionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DireccionField, value) != true)) {
-                    this.DireccionField = value;
-                    this.RaisePropertyChanged("Direccion");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Distrito {
-            get {
-                return this.DistritoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DistritoField, value) != true)) {
-                    this.DistritoField = value;
-                    this.RaisePropertyChanged("Distrito");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Nombre {
-            get {
-                return this.NombreField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NombreField, value) != true)) {
-                    this.NombreField = value;
-                    this.RaisePropertyChanged("Nombre");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int TallerId {
-            get {
-                return this.TallerIdField;
-            }
-            set {
-                if ((this.TallerIdField.Equals(value) != true)) {
-                    this.TallerIdField = value;
-                    this.RaisePropertyChanged("TallerId");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="wsInformeAccidente.IInformeAccidenteWS")]
@@ -336,6 +68,12 @@ namespace Pacifico.SINCO.WEB.wsInformeAccidente {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInformeAccidenteWS/ReversaPendienteEvaluar", ReplyAction="http://tempuri.org/IInformeAccidenteWS/ReversaPendienteEvaluarResponse")]
         System.Threading.Tasks.Task<string> ReversaPendienteEvaluarAsync(int siniestroId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInformeAccidenteWS/RegistrarPresupuesto", ReplyAction="http://tempuri.org/IInformeAccidenteWS/RegistrarPresupuestoResponse")]
+        string RegistrarPresupuesto(int informeid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInformeAccidenteWS/RegistrarPresupuesto", ReplyAction="http://tempuri.org/IInformeAccidenteWS/RegistrarPresupuestoResponse")]
+        System.Threading.Tasks.Task<string> RegistrarPresupuestoAsync(int informeid);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -435,6 +173,14 @@ namespace Pacifico.SINCO.WEB.wsInformeAccidente {
         
         public System.Threading.Tasks.Task<string> ReversaPendienteEvaluarAsync(int siniestroId) {
             return base.Channel.ReversaPendienteEvaluarAsync(siniestroId);
+        }
+        
+        public string RegistrarPresupuesto(int informeid) {
+            return base.Channel.RegistrarPresupuesto(informeid);
+        }
+        
+        public System.Threading.Tasks.Task<string> RegistrarPresupuestoAsync(int informeid) {
+            return base.Channel.RegistrarPresupuestoAsync(informeid);
         }
     }
 }

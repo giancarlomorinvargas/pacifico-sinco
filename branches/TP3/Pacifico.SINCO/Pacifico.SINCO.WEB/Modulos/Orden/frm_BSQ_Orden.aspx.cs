@@ -81,11 +81,11 @@ namespace Pacifico.SINCO.WEB.Modulos.Orden
         /// <param name="e"></param>
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
-            try
-            {
                 lblMensajeError.InnerText = "";
                 //WS-SINIESTRO
                 LiquidacionWSClient owsLiquidacionClient = new LiquidacionWSClient();
+            try
+            {
 
                 //Parametros
                 string tipoSiniestro = cmbTipoSiniestro.Value;
@@ -106,6 +106,18 @@ namespace Pacifico.SINCO.WEB.Modulos.Orden
             {
                 //throw ex;
                 hddMensajeError.Value = ex.Message;
+                try
+                {
+
+                    //Obtiene Listado de Siniestros
+                    string listadoJson = owsLiquidacionClient.Listar();
+
+                    List<LiquidacionEN> listado = new JavaScriptSerializer().Deserialize<List<LiquidacionEN>>(listadoJson);
+
+                    rptListadoLiquidaciones.DataSource = listado;
+                    rptListadoLiquidaciones.DataBind();
+                }
+                catch (Exception) { }
             }
         }
 

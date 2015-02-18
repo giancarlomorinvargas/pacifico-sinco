@@ -109,12 +109,17 @@ namespace Pacifico.SINCO.WEB.Modulos.Comun
             {
                 //throw ex;
                 lblMensajeError.InnerText = ex.Message;
+                try
+                {
+                    string listadoSerializado = owsUtilClient.ListarPoliza();
+                    List<PolizaEN> lsitado = new JavaScriptSerializer().Deserialize<List<PolizaEN>>(listadoSerializado);
 
-                string listadoSerializado = owsUtilClient.ListarPoliza();
-                List<PolizaEN> lsitado = new JavaScriptSerializer().Deserialize<List<PolizaEN>>(listadoSerializado);
-
-                rptListadoPolizas.DataSource = lsitado;
-                rptListadoPolizas.DataBind();
+                    rptListadoPolizas.DataSource = lsitado;
+                    rptListadoPolizas.DataBind();
+                }
+                catch (Exception) { 
+                }
+                
             }
         }
 

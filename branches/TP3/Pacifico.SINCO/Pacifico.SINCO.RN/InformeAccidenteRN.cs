@@ -15,7 +15,7 @@ namespace Pacifico.SINCO.RN
 
         public static int ESTADO_REGISTRADO = Constantes.iEstado_Registrado;
         public static int ESTADO_PENDIENTE = Constantes.iEstado_Firmado;
-        //public static int ESTADO_RECHAZADO = Constantes.pEstado_Rechazado;
+        public static int ESTADO_PRESUPUESTADO = Constantes.iEstado_Presupuestado;
 
         private static string MENSAJE_ERROR_GENERAL = "Error en el sistema";
         private static string MENSAJE_NO_DISPONIBLE = "El Informe accidente vehicular no se encuentra disponible";
@@ -23,6 +23,7 @@ namespace Pacifico.SINCO.RN
         
         private static string MENSAJE_REGISTRADO = "Informe de Accidente Vehicular Registrado Satisfactoriamente";
         private static string MENSAJE_ACTUALIZADO = "Informe de Accidente Vehicular Actualizado Satisfactoriamente";
+        private static string MENSAJE_PRESUPUESTADO = "Informe de Accidente Vehicular Presupuestado Satisfactoriamente";
 
 
         private static String usuario = "rcastillejo";
@@ -229,6 +230,35 @@ namespace Pacifico.SINCO.RN
                 throw new Exception(MENSAJE_ERROR_GENERAL,e);
             }
             return String.Format(MENSAJE_ACTUALIZADO, model.NumInforme);
+        }
+
+
+
+        public string RegistrarPresupuesto(int informeId)
+        {
+            IInformeAccidenteDAO informeAccidenteDao = new InformeAccidenteDAO();
+            InformeAccidenteEN model = informeAccidenteDao.Get(informeId);
+            if (model == null)
+            {
+                throw new Exception(MENSAJE_NO_DISPONIBLE);
+            }
+            try
+            {
+                model.Estado = ESTADO_PRESUPUESTADO;
+                
+                model.UsuarioModifico = usuario;
+                model.FechaModifico = DateTime.Now;
+
+                model.EstadoEntity = null;
+                model.Siniestro = null;
+                model.Tecnico = null;
+                informeAccidenteDao.Modify(model);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(MENSAJE_ERROR_GENERAL, e);
+            }
+            return String.Format(MENSAJE_PRESUPUESTADO, model.NumInforme);
         }
 
     }

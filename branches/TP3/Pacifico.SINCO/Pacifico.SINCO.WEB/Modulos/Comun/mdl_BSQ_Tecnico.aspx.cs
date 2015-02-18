@@ -60,9 +60,9 @@ namespace Pacifico.SINCO.WEB.Modulos.Comun
         /// <param name="e"></param>
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
+            TecnicoWSClient tecnicoWSClient = new TecnicoWSClient();
             try
             {
-                TecnicoWSClient tecnicoWSClient = new TecnicoWSClient();
 
 
                 string numTecnico = txtNumTecnico.Value.ToUpper();
@@ -90,6 +90,18 @@ namespace Pacifico.SINCO.WEB.Modulos.Comun
             {
                 //throw ex;
                 lblMensajeError.InnerText = ex.Message;
+                try
+                {
+                    //Obtiene Listado de Siniestros
+                    string listadoJson = tecnicoWSClient.Listar();
+                    //List<InformeAccidenteEN> listadoResult = new List<InformeAccidenteEN>();
+                    List<Pacifico.SINCO.EN.TecnicoEN> listado = new JavaScriptSerializer().Deserialize<List<Pacifico.SINCO.EN.TecnicoEN>>(listadoJson);
+
+                    rptListadoTecnicos.DataSource = listado;
+                    rptListadoTecnicos.DataBind();
+                }
+                catch (Exception) { 
+                }
             }
         }
     }

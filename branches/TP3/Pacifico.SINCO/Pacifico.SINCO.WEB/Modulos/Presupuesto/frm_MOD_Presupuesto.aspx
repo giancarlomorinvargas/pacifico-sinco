@@ -7,7 +7,7 @@
 	    $(document).ready(function () {
 	        console.log('onload');
 	        //Seta Calendarios
-	        fn_util_SeteaCalendario($('input[id*=txtFecha]')[0]);
+	        //fn_util_SeteaCalendario($('input[id*=txtFecha]')[0]);
 
 	        interpretarDetallePresupuesto();
 	    });
@@ -442,7 +442,7 @@
 													Fecha
 												</td>
 												<td>
-										            <input id="txtFechaPresupuesto" type="text" class="" size="8" ClientIDMode="Static" runat="server" onKeyUp="return fn_util_FormatDate(this);" onBlur="return fn_util_UpdateDate(this);" />
+										            <input id="txtFechaPresupuesto" type="text" class="css_frm_inactivo" size="8" ClientIDMode="Static" runat="server" />
 												</td>
 											</tr>
 										</table>

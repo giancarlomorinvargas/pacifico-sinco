@@ -83,12 +83,11 @@ namespace Pacifico.SINCO.WEB.Modulos.Siniestro.Apertura
         /// <param name="e"></param>
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
+            lblMensajeError.InnerText = "";
+            //WS-SINIESTRO
+            SiniestroWSClient owsSiniestroClient = new SiniestroWSClient();
             try
             {
-                lblMensajeError.InnerText = "";
-                //WS-SINIESTRO
-                SiniestroWSClient owsSiniestroClient = new SiniestroWSClient();
-
                 //Parametros
                 //enSiniestro oEnSiniestro = new enSiniestro();
                 string numPoliza = txtNumPoliza.Value;
@@ -108,6 +107,18 @@ namespace Pacifico.SINCO.WEB.Modulos.Siniestro.Apertura
                 //throw ex;
                 //lblMensajeError.InnerText = ex.Message;
                 hddMensajeError.Value = ex.Message;
+                try
+                {
+                    //Obtiene Listado de Siniestros
+                    string listadoSerializado = owsSiniestroClient.Listar();
+                    List<SiniestroEN> listado = new JavaScriptSerializer().Deserialize<List<SiniestroEN>>(listadoSerializado);
+
+                    rptListadoSiniestros.DataSource = listado;
+                    rptListadoSiniestros.DataBind();
+                }
+                catch (Exception) { 
+                }
+                
             }
         }
         

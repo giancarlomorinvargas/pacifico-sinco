@@ -6,7 +6,7 @@
 
 	    $(document).ready(function () {
 	        //Seta Calendarios
-	        fn_util_SeteaCalendario($('input[id*=txtFecha]')[0]);
+	        //fn_util_SeteaCalendario($('input[id*=txtFecha]')[0]);
 	    });
 	    var objItemSeleccionado;
 	    function fn_checkListaItemDetalle(objCheck, item) {
@@ -390,7 +390,7 @@
 										Fecha
 									</td>
 									<td>
-										<input id="txtFechaPresupuesto" type="text" class="" size="8" ClientIDMode="Static" runat="server" onKeyUp="return fn_util_FormatDate(this);" onBlur="return fn_util_UpdateDate(this);" />
+										<input id="txtFechaPresupuesto" type="text" class="css_frm_inactivo" size="8" ClientIDMode="Static" runat="server" readonly/>
 									</td>
 								</tr>
 							</table>

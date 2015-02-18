@@ -71,11 +71,11 @@ namespace Pacifico.SINCO.WEB.Modulos.Presupuesto
         /// <param name="e"></param>
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
+            lblMensajeError.InnerText = "";
+            //WS-SINIESTRO
+            PresupuestoWSClient owsPresupuestoClient = new PresupuestoWSClient();
             try
             {
-                lblMensajeError.InnerText = "";        
-                //WS-SINIESTRO
-                PresupuestoWSClient owsPresupuestoClient = new PresupuestoWSClient();
 
                 //Parametros
                 string NumPresupuesto = txtNumPresupuesto.Value;
@@ -96,6 +96,18 @@ namespace Pacifico.SINCO.WEB.Modulos.Presupuesto
             {
                 //throw ex;
                 hddMensajeError.Value = ex.Message;
+                try
+                {
+                    //Obtiene Listado de Siniestros
+                    string listadoJson = owsPresupuestoClient.ListarPresupuesto();
+
+                    List<PresupuestoEN> listado = new JavaScriptSerializer().Deserialize<List<PresupuestoEN>>(listadoJson);
+
+                    rptListadoPresupuestos.DataSource = listado;
+                    rptListadoPresupuestos.DataBind();
+                }
+                catch (Exception) { }
+
             }
         }
         

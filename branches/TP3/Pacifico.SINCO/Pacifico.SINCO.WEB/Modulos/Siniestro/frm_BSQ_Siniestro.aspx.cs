@@ -108,12 +108,15 @@ namespace Pacifico.SINCO.WEB.Modulos.Siniestro
                 //throw ex;
                 //lblMensajeError.InnerText = ex.Message;
                 hddMensajeError.Value = ex.Message;
+                try
+                {
+                    string listadoSerializado = owsSiniestroClient.Listar();
+                    List<SiniestroEN> listado = new JavaScriptSerializer().Deserialize<List<SiniestroEN>>(listadoSerializado);
 
-                string listadoSerializado = owsSiniestroClient.Listar();
-                List<SiniestroEN> listado = new JavaScriptSerializer().Deserialize<List<SiniestroEN>>(listadoSerializado);
-
-                rptListadoSiniestros.DataSource = listado;
-                rptListadoSiniestros.DataBind();
+                    rptListadoSiniestros.DataSource = listado;
+                    rptListadoSiniestros.DataBind();
+                }catch(Exception){
+                }                
             }
         }
         

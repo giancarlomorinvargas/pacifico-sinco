@@ -106,14 +106,18 @@ namespace Pacifico.SINCO.WEB.Modulos.Informe
             {
                 //throw ex;
                 hddMensajeError.Value = ex.Message;
+                try
+                {
+                    //Obtiene Listado de Siniestros
+                    string listadoJson = owsInformeClient.Listar();
 
-                //Obtiene Listado de Siniestros
-                string listadoJson = owsInformeClient.Listar();
+                    List<InformeAccidenteEN> listado = new JavaScriptSerializer().Deserialize<List<InformeAccidenteEN>>(listadoJson);
 
-                List<InformeAccidenteEN> listado = new JavaScriptSerializer().Deserialize<List<InformeAccidenteEN>>(listadoJson);
-
-                rptListadoInformes.DataSource = listado;
-                rptListadoInformes.DataBind();
+                    rptListadoInformes.DataSource = listado;
+                    rptListadoInformes.DataBind();
+                }
+                catch (Exception) { 
+                }                
             }
         }
 
