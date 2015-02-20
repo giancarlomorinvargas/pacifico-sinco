@@ -68,7 +68,7 @@
 	            sError = sError + "   - Debe ingresar el monto de liquidación. <br/>";
 	        }
 
-	        if(!/^-?(?:\d+|\d{1,3}(?:,\d{3})+)(?:\.\d+)?$/.test(sTxtMontoLiquidacion)){
+	        if (!/^-?(?:\d+|\d{1,3}(?:,\d{3})+)(?:\.\d{1,2})?$/.test(sTxtMontoLiquidacion)) {
 	            sError = sError + "   - Debe ingresar el un monto válido para la liquidación. <br/>";
 	        }
 
