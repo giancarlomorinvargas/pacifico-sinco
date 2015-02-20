@@ -155,7 +155,7 @@
 
     <div style="width: 100%">
         <asp:GridView ID="grvPresupuesto" runat="server" DataKeyNames="PresupuestoID,Estado"
-            Width="100%" AutoGenerateColumns="false" CssClass="css_grilla" OnRowDataBound="grvPresupuesto_RowDataBound">
+            Width="100%" AutoGenerateColumns="false" CssClass="css_grilla">
 
             <Columns>
                 <asp:TemplateField ItemStyle-HorizontalAlign="Center">
@@ -163,11 +163,14 @@
                         <asp:CheckBox ID="CheckBox1" runat="server" onclick="CheckBoxCheck(this);" />
                     </ItemTemplate>
                 </asp:TemplateField>
+                <asp:BoundField HeaderText="Fec. Presupuesto" DataField="FechaPresupuesto" ItemStyle-HorizontalAlign="Center" />
+                <asp:BoundField HeaderText="Nro Presupuesto" DataField="NumeroPresupuesto" ItemStyle-HorizontalAlign="Center" />
+                <asp:BoundField HeaderText="Nro Informe" DataField="NumeroInforme" ItemStyle-HorizontalAlign="Center" />
                 <asp:BoundField HeaderText="# Poliza" DataField="NumeroPoliza" ItemStyle-HorizontalAlign="Center" />
                 <asp:BoundField HeaderText="Matrícula" DataField="MatriculaVehiculo" ItemStyle-HorizontalAlign="Center" />
                 <asp:BoundField HeaderText="Sub Total" DataField="SubTotal" ItemStyle-HorizontalAlign="Center" />
                 <asp:BoundField HeaderText="Total" DataField="Total" ItemStyle-HorizontalAlign="Center" />
-                <asp:BoundField HeaderText="Estado" ItemStyle-HorizontalAlign="Center" />
+                <asp:BoundField HeaderText="Estado" DataField="Estado" ItemStyle-HorizontalAlign="Center" />
 
             </Columns>
         </asp:GridView>

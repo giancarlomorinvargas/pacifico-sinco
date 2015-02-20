@@ -183,12 +183,15 @@ namespace Pacifico.SINCO.RN
 
                  PresupuestoPendienteCabeceraEN item = new PresupuestoPendienteCabeceraEN()
                  {
+                     FechaPresupuesto = Model.FechaPresupuesto.ToString("d"),
+                     NumeroPresupuesto = Model.NumPresupuesto,
+                     NumeroInforme = Model.InformeAccidente.NumInforme,
                      PresupuestoID = Model.MS_Presupuesto_Id,
                      NumeroPoliza = Model.InformeAccidente.Siniestro.Poliza.NumPoliza,
                      MatriculaVehiculo = Model.InformeAccidente.Siniestro.Poliza.Vehiculo.Placa,
                      SubTotal = Model.SubTotal.ToString(),
                      Total = Model.Total.ToString(),
-                     Estado = Model.Estado
+                     Estado = Model.EstadoEntity.Descripcion
                  };
                  listaPresupuestoPendiente1.Add(item);
              }
@@ -305,12 +308,15 @@ namespace Pacifico.SINCO.RN
                  {
                      PresupuestoPendienteCabeceraEN item = new PresupuestoPendienteCabeceraEN()
                      {
+                         FechaPresupuesto = Presupuesto.FechaPresupuesto.ToString("d"),
                          PresupuestoID = Presupuesto.MS_Presupuesto_Id,
+                         NumeroPresupuesto = Presupuesto.NumPresupuesto,
+                         NumeroInforme = Presupuesto.InformeAccidente.NumInforme,
                          NumeroPoliza = Presupuesto.InformeAccidente.Siniestro.Poliza.NumPoliza,
                          MatriculaVehiculo = Presupuesto.InformeAccidente.Siniestro.Poliza.Vehiculo.Placa,
                          SubTotal = Presupuesto.SubTotal.ToString(),
                          Total = Presupuesto.Total.ToString(),
-                         Estado = Presupuesto.Estado
+                         Estado = Presupuesto.EstadoEntity.Descripcion
                      };
                      listaPresupuestoPendiente1.Add(item);
                  }

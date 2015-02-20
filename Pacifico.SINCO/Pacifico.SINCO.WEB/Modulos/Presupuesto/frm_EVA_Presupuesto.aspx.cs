@@ -25,22 +25,30 @@ namespace Pacifico.SINCO.WEB.Modulos.Presupuesto
         #endregion
         protected void Page_Load(object sender, EventArgs e)
         {
-                
+
+            hddMensajeError.Value = "";
             if (!this.IsPostBack)
             {
-                //WS-SINIESTRO
-                PresupuestoWSClient owsPresupuestoClient = new PresupuestoWSClient();
-                string modelJson = owsPresupuestoClient.ListarPresupuestoPendiente();
-                List<PresupuestoPendienteCabeceraEN> listado = new JavaScriptSerializer().Deserialize<List<PresupuestoPendienteCabeceraEN>>(modelJson);
+                try{
+                    //WS-SINIESTRO
+                    PresupuestoWSClient owsPresupuestoClient = new PresupuestoWSClient();
+                    string modelJson = owsPresupuestoClient.ListarPresupuestoPendiente();
+                    List<PresupuestoPendienteCabeceraEN> listado = new JavaScriptSerializer().Deserialize<List<PresupuestoPendienteCabeceraEN>>(modelJson);
 
-                grvPresupuesto.DataSource = listado;
-                grvPresupuesto.DataBind();
+                    grvPresupuesto.DataSource = listado;
+                    grvPresupuesto.DataBind();
+                }
+                catch (Exception ex)
+                {
+                    hddMensajeError.Value = ex.Message;
+                }
             }
 
         }
 
         protected void imgDetalle_Click(object sender, ImageClickEventArgs e)
         {
+            hddMensajeError.Value = "";
             int contador = 0;
             foreach (GridViewRow row in grvPresupuesto.Rows)
             {
@@ -74,6 +82,7 @@ namespace Pacifico.SINCO.WEB.Modulos.Presupuesto
 
         protected void imgAprobar_Click(object sender, ImageClickEventArgs e)
         {
+            hddMensajeError.Value = "";
 
             int contador =0;
             foreach (GridViewRow row in grvPresupuesto.Rows)
@@ -101,6 +110,7 @@ namespace Pacifico.SINCO.WEB.Modulos.Presupuesto
         }
         protected void imgRechazar_Click(object sender, ImageClickEventArgs e)
         {
+            hddMensajeError.Value = "";
           
             int contador =0;
             foreach (GridViewRow row in grvPresupuesto.Rows)
@@ -203,9 +213,8 @@ namespace Pacifico.SINCO.WEB.Modulos.Presupuesto
                 try
                 {
                     //Obtiene Listado de Siniestros
-                    string listadoJson = owsPresupuestoClient.ListarPresupuesto();
-
-                    List<PresupuestoPendienteCabeceraEN> listado = new JavaScriptSerializer().Deserialize<List<PresupuestoPendienteCabeceraEN>>(listadoJson);
+                    string modelJson = owsPresupuestoClient.ListarPresupuestoPendiente();
+                    List<PresupuestoPendienteCabeceraEN> listado = new JavaScriptSerializer().Deserialize<List<PresupuestoPendienteCabeceraEN>>(modelJson);
 
                     grvPresupuesto.DataSource = listado;
                     grvPresupuesto.DataBind();
@@ -218,7 +227,7 @@ namespace Pacifico.SINCO.WEB.Modulos.Presupuesto
 
         }
 
-        protected void grvPresupuesto_RowDataBound(object sender, GridViewRowEventArgs e)
+        /*protected void grvPresupuesto_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
@@ -243,8 +252,8 @@ namespace Pacifico.SINCO.WEB.Modulos.Presupuesto
                       chk.Enabled = false;
                 }
             }
-            }
-        }
+            }*/
+    }
     }
 
 
